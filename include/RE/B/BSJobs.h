@@ -116,8 +116,8 @@ namespace RE
 			~JobThread() override;  // 00
 
 			// add
-			void ThreadProc(void) override;  // 01
-			void Unk_02(void) override;      // 02
+			std::uint32_t ThreadProc(void) override;  // 01
+			void          Unk_02(void) override;      // 02
 
 			// members
 			ThreadJobListState stateArray[64];           // 50

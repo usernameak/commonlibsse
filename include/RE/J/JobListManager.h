@@ -45,7 +45,7 @@ namespace RE
 			~ServingThread() override;  // 00
 
 			// override
-			void ThreadProc() override;  // 01
+			std::uint32_t ThreadProc() override;  // 01
 
 			// members
 			BSEventFlag   newWork;      // 58

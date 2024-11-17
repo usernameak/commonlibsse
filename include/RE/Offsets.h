@@ -171,6 +171,17 @@ namespace RE
 			inline constexpr REL::ID GetSingleton(static_cast<std::uint64_t>(109278));
 		}
 
+		namespace BSWin32SystemUtility
+		{
+			inline constexpr REL::ID GetSingleton(static_cast<std::uint64_t>(453511));
+		}
+
+		namespace BSXAudio2GameSound
+		{
+			inline constexpr REL::ID pAudioImplementation(static_cast<std::uint64_t>(410149));
+			inline constexpr REL::ID pXAudioListener(static_cast<std::uint64_t>(410150));
+		}
+
 		namespace Calendar
 		{
 			inline constexpr REL::ID Singleton(static_cast<std::uint64_t>(400447));
