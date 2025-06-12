@@ -551,6 +551,7 @@ set(SOURCES
 	include/RE/D/DisguiseEffect.h
 	include/RE/D/DispelEffect.h
 	include/RE/D/DoNothingUnhandledPolicy.h
+	include/RE/D/DragonCameraState.h
 	include/RE/D/DragonSoulsGained.h
 	include/RE/D/DropObjectFunctor.h
 	include/RE/D/DualValueModifierEffect.h
@@ -752,6 +753,7 @@ set(SOURCES
 	include/RE/F/FrenzyEffect.h
 	include/RE/F/FunctionArguments.h
 	include/RE/F/FunctionMessage.h
+	include/RE/F/FurnitureCameraState.h
 	include/RE/F/FxDelegate.h
 	include/RE/F/FxDelegateArgs.h
 	include/RE/F/FxDelegateHandler.h
@@ -1659,6 +1661,7 @@ set(SOURCES
 	include/RE/U/UserEventEnabled.h
 	include/RE/U/UserEvents.h
 	include/RE/V/VATS.h
+	include/RE/V/VATSCameraState.h
 	include/RE/V/VDescTable.h
 	include/RE/V/ValueAndConditionsEffect.h
 	include/RE/V/ValueModifierEffect.h
