@@ -4,7 +4,7 @@
 
 namespace RE
 {
-	class VATSCameraState :	public TESCameraState
+	class VATSCameraState : public TESCameraState
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_VATSCameraState;

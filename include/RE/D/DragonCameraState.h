@@ -22,13 +22,13 @@ namespace RE
 		void LoadGame(BGSLoadFormBuffer* a_buf) override;                    // 07
 		void Revert(BGSLoadFormBuffer* a_buf) override;                      // 08
 
-		void SetCameraHandle(RefHandle& a_handle) override;                  // 09 - { return; }
-		void Unk_0A(void) override;                                          // 0A - { return; }
-		void ProcessWeaponDrawnChange(bool a_drawn) override;                // 0B
-		bool GetFreeRotationMode() const override;                           // 0C
-		void SetFreeRotationMode(bool a_weaponSheathed) override;            // 0D
-		void UpdateRotation();                                               // 0E
-		void HandleLookInput(const NiPoint2& a_input) override;              // 0F
+		void SetCameraHandle(RefHandle& a_handle) override;        // 09 - { return; }
+		void Unk_0A(void) override;                                // 0A - { return; }
+		void ProcessWeaponDrawnChange(bool a_drawn) override;      // 0B
+		bool GetFreeRotationMode() const override;                 // 0C
+		void SetFreeRotationMode(bool a_weaponSheathed) override;  // 0D
+		void UpdateRotation();                                     // 0E
+		void HandleLookInput(const NiPoint2& a_input) override;    // 0F
 
 		// override (PlayerInputHandler)
 		bool CanProcess(InputEvent* a_event) override;                                          // 01

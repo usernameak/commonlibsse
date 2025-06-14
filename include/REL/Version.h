@@ -22,7 +22,7 @@ namespace REL
 		explicit constexpr Version(std::string_view a_version)
 		{
 			std::array<value_type, 4> powers{ 1, 1, 1, 1 };
-			std::size_t position = 0;
+			std::size_t               position = 0;
 			for (std::size_t i = 0; i < a_version.size(); ++i) {
 				if (a_version[i] == '.') {
 					if (++position == powers.size()) {
@@ -45,7 +45,7 @@ namespace REL
 			}
 		}
 
-		[[nodiscard]] constexpr reference operator[](std::size_t a_idx) noexcept { return _impl[a_idx]; }
+		[[nodiscard]] constexpr reference       operator[](std::size_t a_idx) noexcept { return _impl[a_idx]; }
 		[[nodiscard]] constexpr const_reference operator[](std::size_t a_idx) const noexcept { return _impl[a_idx]; }
 
 		[[nodiscard]] constexpr decltype(auto) begin() const noexcept { return _impl.begin(); }
@@ -113,7 +113,7 @@ namespace REL
 		std::array<value_type, 4> _impl{ 0, 0, 0, 0 };
 	};
 
-	[[nodiscard]] constexpr bool operator==(const Version& a_lhs, const Version& a_rhs) noexcept { return a_lhs.compare(a_rhs) == std::strong_ordering::equal; }
+	[[nodiscard]] constexpr bool                 operator==(const Version& a_lhs, const Version& a_rhs) noexcept { return a_lhs.compare(a_rhs) == std::strong_ordering::equal; }
 	[[nodiscard]] constexpr std::strong_ordering operator<=>(const Version& a_lhs, const Version& a_rhs) noexcept { return a_lhs.compare(a_rhs); }
 
 	[[nodiscard]] std::optional<Version> GetFileVersion(stl::zwstring a_filename);
