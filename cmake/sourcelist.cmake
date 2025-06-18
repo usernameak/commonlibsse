@@ -924,6 +924,7 @@ set(SOURCES
 	include/RE/H/HUDChargeMeter.h
 	include/RE/H/HUDData.h
 	include/RE/H/HUDMenu.h
+	include/RE/H/HUDMessageTypes.h
 	include/RE/H/HUDMeter.h
 	include/RE/H/HUDNotifications.h
 	include/RE/H/HUDObject.h
@@ -1202,7 +1203,6 @@ set(SOURCES
 	include/RE/L/LooseFileLocation.h
 	include/RE/L/LooseFileStream.h
 	include/RE/L/LooseFileStreamBase.h
-	include/RE/M/MARKER_TYPE.h
 	include/RE/M/MagicCaster.h
 	include/RE/M/MagicFavorites.h
 	include/RE/M/MagicFormulas.h
