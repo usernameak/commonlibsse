@@ -77,7 +77,7 @@ namespace RE
 		kPlayerSet = 64,
 		kYouAreHere = 65,
 	};
-	
+
 	class MapMarkerData
 	{
 	public:
