@@ -235,6 +235,13 @@ namespace RE
 		return func(this, a_updateWeight);
 	}
 
+	bool Actor::DoDamage(float a_healthDamage, Actor* a_source, bool a_dontAdjustDifficulty)
+	{
+		using func_t = decltype(&Actor::DoDamage);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(36345, 37335) };
+		return func(this, a_healthDamage, a_source, a_dontAdjustDifficulty);
+	}
+
 	void Actor::EnableAI(bool a_enable)
 	{
 		if (a_enable) {
@@ -970,6 +977,12 @@ namespace RE
 		return GetActorRuntimeData().boolFlags.all(BOOL_FLAGS::kProtected);
 	}
 
+	bool Actor::IsRotationAllowed() const
+	{
+		bool result = false;
+		return GetGraphVariableBool("bAllowRotation", result) && result;
+	}
+
 	bool Actor::IsRunning() const
 	{
 		using func_t = decltype(&Actor::IsRunning);
@@ -992,6 +1005,15 @@ namespace RE
 		}
 
 		return true;
+	}
+
+	bool Actor::IsStaggering() const
+	{
+		bool result = false;
+		if (GetGraphVariableBool("IsStaggering", result) && result)
+			return result;
+
+		return AsActorState()->IsStaggered();
 	}
 
 	bool Actor::IsSummoned() const noexcept

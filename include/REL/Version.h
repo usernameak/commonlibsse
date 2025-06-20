@@ -45,8 +45,7 @@ namespace REL
 			}
 		}
 
-		[[nodiscard]] constexpr reference operator[](std::size_t a_idx) noexcept { return _impl[a_idx]; }
-
+		[[nodiscard]] constexpr reference       operator[](std::size_t a_idx) noexcept { return _impl[a_idx]; }
 		[[nodiscard]] constexpr const_reference operator[](std::size_t a_idx) const noexcept { return _impl[a_idx]; }
 
 		[[nodiscard]] constexpr decltype(auto) begin() const noexcept { return _impl.begin(); }
@@ -76,25 +75,10 @@ namespace REL
 				(_impl[3] & 0x00F) << 0u);
 		}
 
-		[[nodiscard]] constexpr value_type major() const noexcept
-		{
-			return _impl[0];
-		}
-
-		[[nodiscard]] constexpr value_type minor() const noexcept
-		{
-			return _impl[1];
-		}
-
-		[[nodiscard]] constexpr value_type patch() const noexcept
-		{
-			return _impl[2];
-		}
-
-		[[nodiscard]] constexpr value_type build() const noexcept
-		{
-			return _impl[3];
-		}
+		[[nodiscard]] constexpr value_type major() const noexcept { return _impl[0]; }
+		[[nodiscard]] constexpr value_type minor() const noexcept { return _impl[1]; }
+		[[nodiscard]] constexpr value_type patch() const noexcept { return _impl[2]; }
+		[[nodiscard]] constexpr value_type build() const noexcept { return _impl[3]; }
 
 		[[nodiscard]] std::string string(std::string_view a_separator = "-"sv) const
 		{
@@ -132,13 +116,8 @@ namespace REL
 		std::array<value_type, 4> _impl{ 0, 0, 0, 0 };
 	};
 
-	[[nodiscard]] constexpr bool operator==(const Version& a_lhs, const Version& a_rhs) noexcept
-	{
-		return a_lhs.compare(a_rhs) == std::strong_ordering::equal;
-	}
-
-	[[nodiscard]] constexpr std::strong_ordering
-		operator<=>(const Version& a_lhs, const Version& a_rhs) noexcept { return a_lhs.compare(a_rhs); }
+	[[nodiscard]] constexpr bool                 operator==(const Version& a_lhs, const Version& a_rhs) noexcept { return a_lhs.compare(a_rhs) == std::strong_ordering::equal; }
+	[[nodiscard]] constexpr std::strong_ordering operator<=>(const Version& a_lhs, const Version& a_rhs) noexcept { return a_lhs.compare(a_rhs); }
 
 	namespace literals
 	{
