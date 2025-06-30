@@ -19,7 +19,7 @@ namespace RE
 			return func(this, a_body, a_hitInfo);
 		}
 
-		~hkpClosestRayHitCollector() override {};  // 00
+		~hkpClosestRayHitCollector() override{};  // 00
 
 		constexpr bool HasHit() noexcept { return rayHit.HasHit(); }
 

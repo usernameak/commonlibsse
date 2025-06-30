@@ -7,7 +7,7 @@
 namespace RE
 {
 	class hkpConvexVerticesConnectivity;
-	
+
 	class hkFourTransposedPoints
 	{
 	public:
@@ -16,7 +16,7 @@ namespace RE
 		hkVector4 z;
 	};
 	static_assert(sizeof(hkFourTransposedPoints) == 0x30);
-	
+
 	class hkpConvexVerticesShape : public hkpConvexShape
 	{
 	public:

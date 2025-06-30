@@ -1,7 +1,7 @@
 #pragma once
 
-#include "RE/B/bhkSerializable.h"
 #include "RE/B/bhkCharacterPointCollector.h"
+#include "RE/B/bhkSerializable.h"
 
 namespace RE
 {

@@ -14,7 +14,7 @@ namespace RE
 
 		// override (hkpClosestRayHitCollector)
 		void AddRayHit(const hkpCdBody& a_body, const hkpShapeRayCastCollectorOutput& a_hitInfo) override;  // 01
-		
+
 		~SpecificItemCollector() override;  // 00
 
 		// members
