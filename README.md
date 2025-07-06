@@ -2,11 +2,11 @@
 
 ### Requirements
 * [XMake](https://xmake.io) [2.8.2+]
-* C++23 Compiler (MSVC, Clang-CL)
+* C++23 Compiler (MSVC or Clang-CL)
 
 ## Getting Started
 ```bat
-git clone https://github.com/libxse/commonlibsse
+git clone --recurse-submodules https://github.com/libxse/commonlibsse
 cd commonlibsse
 ```
 
