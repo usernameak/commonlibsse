@@ -288,6 +288,12 @@ namespace RE
 		return obj ? obj->As<TESNPC>() : nullptr;
 	}
 
+	float Actor::GetActorValueMax(ActorValue a_value) const
+	{
+		return GetPermanentActorValue(a_value) +
+		       GetActorValueModifier(ACTOR_VALUE_MODIFIER::kTemporary, a_value);
+	}
+
 	float Actor::GetActorValueModifier(ACTOR_VALUE_MODIFIER a_modifier, ActorValue a_value) const
 	{
 		using func_t = decltype(&Actor::GetActorValueModifier);

@@ -18,9 +18,15 @@ namespace RE
 		return func(this, a_enumName);
 	}
 
+	const char* ActorValueList::GetActorValueName(ActorValue a_actorValue) const
+	{
+		using func_t = decltype(&ActorValueList::GetActorValueName);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(26561, 27192) };
+		return func(this, a_actorValue);
+	}
+
 	std::string_view ActorValueToString(ActorValue a_actorValue) noexcept
 	{
-		auto info = RE::ActorValueList::GetSingleton()->GetActorValueInfo(a_actorValue);
-		return info ? info->enumName : "None"sv;
+		return ActorValueList::GetSingleton()->GetActorValueName(a_actorValue);
 	}
 }
