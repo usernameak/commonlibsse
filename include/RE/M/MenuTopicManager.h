@@ -65,6 +65,11 @@ namespace RE
 			return *singleton;
 		}
 
+		bool IsCurrentSpeaker(const ObjectRefHandle& a_handle) const
+		{
+			return menuOpen && speaker == a_handle;
+		}
+
 		// members
 		BSSimpleList<Dialogue*>::Node* selectedResponseNode;  // 18
 		BSSimpleList<Dialogue*>*       dialogueList;          // 20
