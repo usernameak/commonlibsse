@@ -237,6 +237,7 @@ set(SOURCES
 	include/RE/B/BSFaceGenModel.h
 	include/RE/B/BSFaceGenNiNode.h
 	include/RE/B/BSFadeNode.h
+	include/RE/B/BSFadeNodeCuller.h
 	include/RE/B/BSFile.h
 	include/RE/B/BSFixedString.h
 	include/RE/B/BSFurnitureMarkerNode.h
@@ -936,6 +937,7 @@ set(SOURCES
 	include/RE/H/HeapBlock.h
 	include/RE/H/HeapBlockFreeHead.h
 	include/RE/H/HeldStateHandler.h
+	include/RE/H/HighActorCuller.h
 	include/RE/H/HighProcessData.h
 	include/RE/H/HitData.h
 	include/RE/H/HorseCameraState.h
@@ -1247,6 +1249,7 @@ set(SOURCES
 	include/RE/M/Misc.h
 	include/RE/M/MissileProjectile.h
 	include/RE/M/MistMenu.h
+	include/RE/M/MobIterOperator.h
 	include/RE/M/ModManagerMenu.h
 	include/RE/M/ModelReferenceEffect.h
 	include/RE/M/Moon.h
@@ -1387,6 +1390,7 @@ set(SOURCES
 	include/RE/P/Precipitation.h
 	include/RE/P/PrecomputedNavmeshInfoPathMap.h
 	include/RE/P/ProcessLists.h
+	include/RE/P/ProcessType.h
 	include/RE/P/Profiler.h
 	include/RE/P/Projectile.h
 	include/RE/P/PropertyTypeInfo.h
