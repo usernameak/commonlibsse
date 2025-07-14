@@ -57,8 +57,23 @@ namespace RE
 
 		static BSOpenVR* GetSingleton();
 
-		static vr::IVRCompositor*   GetIVRCompositor();
-		static vr::IVROverlay*      GetIVROverlay(Unk190* a_unk190);
+		static vr::IVRCompositor* GetIVRCompositor();
+		/**
+		 * Ensures the IVROverlay pointer in the given COpenVRContext is valid and up-to-date.
+		 *
+		 * This function checks if the OpenVR initialization token has changed. If so, it clears all interface pointers
+		 * in the context and updates the token. If the overlay pointer is null, it calls VR_GetGenericInterface to
+		 * retrieve the IVROverlay interface and stores it in the context. This matches the lazy initialization pattern
+		 * used internally by OpenVR. Call this before using context->vrOverlay to ensure it is valid.
+		 *
+		 * Typical usage (as seen in Skyrim VR):
+		 *     auto* context = RE::BSOpenVR::GetSingleton()->vrContext;
+		 *     RE::BSOpenVR::GetIVROverlayFromContext(context);
+		 *     auto* overlay = context->vrOverlay;
+		 *
+		 * @param a_vrContext Pointer to the COpenVRContext structure to update.
+		 */
+		static vr::IVROverlay*      GetIVROverlayFromContext(COpenVRContext* a_vrContext);
 		static vr::IVRRenderModels* GetIVRRenderModels();
 		static vr::IVRSettings*     GetIVRSettings();
 		static vr::IVRSystem*       GetIVRSystem();

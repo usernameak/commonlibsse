@@ -18,11 +18,11 @@ namespace RE
 		return func();
 	}
 
-	vr::IVROverlay* BSOpenVR::GetIVROverlay(Unk190* a_unk190)
+	vr::IVROverlay* BSOpenVR::GetIVROverlayFromContext(COpenVRContext* a_vrContext)
 	{
-		using func_t = decltype(&BSOpenVR::GetIVROverlay);
+		using func_t = decltype(&BSOpenVR::GetIVROverlayFromContext);
 		static REL::Relocation<func_t> func{ REL::Offset(0x8A0110) };
-		return func(a_unk190);
+		return func(a_vrContext);
 	}
 
 	vr::IVRRenderModels* BSOpenVR::GetIVRRenderModels()
