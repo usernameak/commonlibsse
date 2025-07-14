@@ -19,17 +19,17 @@ namespace RE
 
 	void ActorValueOwner::DamageActorValue(ActorValue a_akValue, float a_value)
 	{
-		auto avi = ActorValueList::GetSingleton()->GetActorValueInfo(a_akValue);
+		auto avi = ActorValueList::GetActorValueInfo(a_akValue);
 
-		float damage = avi->IsInverted() ? std::abs(a_value) : -std::abs(a_value);
+		float damage = avi && avi->IsInverted() ? std::abs(a_value) : -std::abs(a_value);
 		ModActorValue(ACTOR_VALUE_MODIFIER::kDamage, a_akValue, damage);
 	}
 
 	void ActorValueOwner::RestoreActorValue(ActorValue a_akValue, float a_value)
 	{
-		auto avi = ActorValueList::GetSingleton()->GetActorValueInfo(a_akValue);
+		auto avi = ActorValueList::GetActorValueInfo(a_akValue);
 
-		float damage = avi->IsInverted() ? -std::abs(a_value) : std::abs(a_value);
+		float damage = avi && avi->IsInverted() ? -std::abs(a_value) : std::abs(a_value);
 		ModActorValue(ACTOR_VALUE_MODIFIER::kDamage, a_akValue, damage);
 	}
 }

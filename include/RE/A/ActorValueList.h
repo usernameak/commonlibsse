@@ -14,9 +14,9 @@ namespace RE
 			return *singleton;
 		}
 
-		[[nodiscard]] ActorValueInfo* GetActorValueInfo(ActorValue a_actorValue) const;
-		[[nodiscard]] ActorValue      LookupActorValueByName(const char* a_enumName) const;
-		[[nodiscard]] const char*     GetActorValueName(ActorValue a_actorValue) const;
+		[[nodiscard]] static ActorValueInfo* GetActorValueInfo(ActorValue a_actorValue);
+		[[nodiscard]] static ActorValue      LookupActorValueByName(const char* a_enumName);
+		[[nodiscard]] static const char*     GetActorValueName(ActorValue a_actorValue);
 
 		// members
 		std::uint32_t   unk00;                                                // 00
