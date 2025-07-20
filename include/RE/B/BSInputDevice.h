@@ -47,4 +47,104 @@ namespace RE
 		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSInputDevice) == 0x70);
+
+	// Add enum for controller role
+	enum class ControllerRole : uint8_t
+	{
+		Primary = 0,
+		Secondary = 1,
+		Count
+	};
+
+	struct ButtonState
+	{
+		bool   isPressed = false;
+		double lastPressTime = 0.0;
+		double lastReleaseTime = 0.0;
+		double holdDuration = 0.0;
+
+		// Call this on every press/release event
+		void OnEvent(bool pressed, double eventTime)
+		{
+			if (pressed && !isPressed) {
+				isPressed = true;
+				lastPressTime = eventTime;
+			} else if (!pressed && isPressed) {
+				isPressed = false;
+				lastReleaseTime = eventTime;
+				holdDuration = lastReleaseTime - lastPressTime;
+			}
+		}
+
+		// Returns true if the last release was a click (short press)
+		bool IsClick(double threshold = 0.5) const { return !isPressed && holdDuration < threshold; }
+		// Returns true if the last release was a hold (long press)
+		bool IsHold(double threshold = 0.5) const { return !isPressed && holdDuration >= threshold; }
+		// Returns the current held time (live if pressed, last duration if released)
+		double GetCurrentHeldTime(double now) const { return isPressed ? (now - lastPressTime) : holdDuration; }
+	};
+
+	// --- Supplementary reusable input state structs for all input devices ---
+	// Tracks the state of a thumbstick (axes)
+	struct ThumbstickState
+	{
+		float x = 0.0f;
+		float y = 0.0f;
+		void  OnEvent(float newX, float newY)
+		{
+			x = newX;
+			y = newY;
+		}
+	};
+
+	// Tracks the state of a trigger (analog value)
+	struct TriggerState
+	{
+		float value = 0.0f;
+		void  OnEvent(float newValue) { value = newValue; }
+	};
+
+	// Aggregated input device state for buttons, thumbsticks, triggers, and extensible data
+	struct InputDeviceState
+	{
+		// Button states: indexed by device-specific button ID
+		std::unordered_map<uint32_t, ButtonState> buttons;
+		// Thumbsticks: indexed by controller role (primary/secondary)
+		std::array<ThumbstickState, static_cast<size_t>(ControllerRole::Count)> thumbsticks;
+		// Triggers: indexed by controller role (primary/secondary)
+		std::array<TriggerState, static_cast<size_t>(ControllerRole::Count)> triggers;
+		// Supplementary info (for mod authors or device-specific extensions)
+		std::unordered_map<std::string, double> customData;
+	};
+
+	// --- General-purpose input helpers for all input devices ---
+	// Returns a string label for the thumbstick direction/quadrant
+	inline const char* GetQuadrantName(float x, float y)
+	{
+		if (x > 0 && y > 0)
+			return "Top-Right";
+		if (x < 0 && y > 0)
+			return "Top-Left";
+		if (x < 0 && y < 0)
+			return "Bottom-Left";
+		if (x > 0 && y < 0)
+			return "Bottom-Right";
+		if (x == 0 && y == 0)
+			return "Center";
+		if (y == 0)
+			return x > 0 ? "Right" : "Left";
+		if (x == 0)
+			return y > 0 ? "Top" : "Bottom";
+		return "";
+	}
+
+	// Generic button mapping struct for mapping device key codes to logical actions
+	struct ButtonMapping {
+		uint32_t keyCode;      // Device-specific key code
+		int logicalButton;     // Logical action (e.g., ImGui button/key, or your own enum)
+		bool isKeyEvent;       // True if this is a key event, false if mouse/button
+		int key;               // Logical key (if applicable)
+		bool isShift;          // True if shift modifier is required
+	};
+
 }

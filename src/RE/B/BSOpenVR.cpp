@@ -43,5 +43,17 @@ namespace RE
 		static REL::Relocation<func_t> func{ REL::Offset(0xC57A60) };
 		return func();
 	}
+
+	float BSOpenVR::GetHapticPulseScale()
+	{
+		static REL::Relocation<float*> hapticPulseScale{ REL::Offset(0x17E6E50) };
+		return *hapticPulseScale;
+	}
+
+	void BSOpenVR::SetHapticPulseScale(float value)
+	{
+		static REL::Relocation<float*> hapticPulseScale{ REL::Offset(0x17E6E50) };
+		*hapticPulseScale = value;
+	}
 #endif
 }

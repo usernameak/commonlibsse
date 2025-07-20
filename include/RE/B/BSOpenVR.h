@@ -30,30 +30,30 @@ namespace RE
 		static_assert(sizeof(Unk238) == 0x40);
 
 		// override
-		void                     InitializeVR() override;                                                                                             // 00
-		void                     ShutdownVR() override;                                                                                               // 01
-		void                     PostPresentHandoff() override;                                                                                       // 02
-		void                     Submit(void* a_directXTextureHandle) override;                                                                       // 03 - SubmitForEye, except the logic runs for both eyes
-		void                     SubmitForEye(vr::EVREye a_eye, void* a_directXTextureHandle) override;                                               // 04
-		void                     SetTrackingSpaceAsStanding() override;                                                                               // 05 - { VR_GetIVRCompositor_140C57880()->SetTrackingSpace(TrackingUniverseStanding) }
-		void                     SetTrackingSpaceAsSeated() override;                                                                                 // 06 - { VR_GetIVRCompositor_140C57880()->SetTrackingSpace(TrackingUniverseSeated) }
-		void                     Unk_07(void) override;                                                                                               // 07
-		void                     GetProjectionRaw(vr::EVREye a_eEye, float* a_pfLeft, float* a_pfRight, float* a_pfTop, float* a_pfBottom) override;  // 08
-		NiTransform*             GetEyeToHeadTransform(NiTransform& a_out, bool getRightEye) override;                                                // 09
-		NiTransform*             Unk_0A(NiTransform& a_out, bool getRightController, bool a_unk1) override;                                           // 0A
-		void                     Unk_0B(void) override;                                                                                               // 0B - Process VR events?
-		vr::TrackedDeviceIndex_t GetTrackedDeviceIndexForHMD() override;                                                                              // 0C - { return vr::k_unTrackedDeviceIndex_Hmd; }
-		vr::TrackedDeviceIndex_t GetTrackedDeviceIndexForHand(bool getRightHand) override;                                                            // 0D - { return vrSystem->GetTrackedDeviceIndexForControllerRole(isRightHand + 1); } Can return invalid role if not 0 or 1
-		void                     TriggerHapticPulse(bool doRightController, float duration) override;                                                 // 0E - Trigger haptics for X * 4,000 microseconds (250 = 1 second)
-		void                     Unk_0F(void) override;                                                                                               // 0F
-		void                     Unk_10(void) override;                                                                                               // 10
-		void                     Unk_11(void) override;                                                                                               // 11 - { return 0; }
-		void                     GetRenderTargetSize(std::uint32_t* a_width, std::uint32_t* a_height) override;                                       // 12
-		void                     Unk_13() override;                                                                                                   // 13
-		NiPointer<NiNode>*       GetControllerNode(RE::NiPointer<NiNode>& a_out, Hand a_hand) override;                                               // 14
-		void                     Unk_15(void) override;                                                                                               // 15 - { return 0; }
-		HMDDeviceType            GetHMDDeviceType() override;                                                                                         // 16 - { return hmdDeviceType; }
-		NiPointer<NiNode>*       CreateControllerNode(RE::NiPointer<NiNode>& a_out, Hand a_hand) override;                                            // 17
+		void                     InitializeVR() override;                                                                                                                                                       // 00
+		void                     ShutdownVR() override;                                                                                                                                                         // 01
+		void                     PostPresentHandoff() override;                                                                                                                                                 // 02
+		vr::EVRCompositorError   Submit(const vr::Texture_t* pTexture, const vr::VRTextureBounds_t* pBounds = nullptr, vr::EVRSubmitFlags nSubmitFlags = vr::Submit_Default) override;                          // 03 - SubmitForEye, except the logic runs for both eyes
+		vr::EVRCompositorError   SubmitForEye(vr::EVREye a_eye, const vr::Texture_t* pTexture, const vr::VRTextureBounds_t* pBounds = nullptr, vr::EVRSubmitFlags nSubmitFlags = vr::Submit_Default) override;  // 04
+		void                     SetTrackingSpaceAsStanding() override;                                                                                                                                         // 05 - { VR_GetIVRCompositor_140C57880()->SetTrackingSpace(TrackingUniverseStanding) }
+		void                     SetTrackingSpaceAsSeated() override;                                                                                                                                           // 06 - { VR_GetIVRCompositor_140C57880()->SetTrackingSpace(TrackingUniverseSeated) }
+		void                     Unk_07(void) override;                                                                                                                                                         // 07
+		void                     GetProjectionRaw(vr::EVREye a_eEye, float* a_pfLeft, float* a_pfRight, float* a_pfTop, float* a_pfBottom) override;                                                            // 08
+		NiTransform*             GetEyeToHeadTransform(NiTransform& a_out, bool getRightEye) override;                                                                                                          // 09
+		NiTransform*             Unk_0A(NiTransform& a_out, bool getRightController, bool a_unk1) override;                                                                                                     // 0A
+		void                     Unk_0B(void) override;                                                                                                                                                         // 0B - Process VR events?
+		vr::TrackedDeviceIndex_t GetTrackedDeviceIndexForHMD() override;                                                                                                                                        // 0C - { return vr::k_unTrackedDeviceIndex_Hmd; }
+		vr::TrackedDeviceIndex_t GetTrackedDeviceIndexForHand(bool getRightHand) override;                                                                                                                      // 0D - { return vrSystem->GetTrackedDeviceIndexForControllerRole(isRightHand + 1); } Can return invalid role if not 0 or 1
+		void                     TriggerHapticPulse(bool doRightController, float duration) override;                                                                                                           // 0E - Trigger haptics for X * 4,000 microseconds (250 = 1 second)
+		void                     Unk_0F(void) override;                                                                                                                                                         // 0F
+		void                     Unk_10(void) override;                                                                                                                                                         // 10
+		void                     Unk_11(void) override;                                                                                                                                                         // 11 - { return 0; }
+		void                     GetRenderTargetSize(std::uint32_t* a_width, std::uint32_t* a_height) override;                                                                                                 // 12
+		void                     Unk_13() override;                                                                                                                                                             // 13
+		NiPointer<NiNode>*       GetControllerNode(RE::NiPointer<NiNode>& a_out, Hand a_hand) override;                                                                                                         // 14
+		void                     Unk_15(void) override;                                                                                                                                                         // 15 - { return 0; }
+		HMDDeviceType            GetHMDDeviceType() override;                                                                                                                                                   // 16 - { return hmdDeviceType; }
+		NiPointer<NiNode>*       CreateControllerNode(RE::NiPointer<NiNode>& a_out, Hand a_hand) override;                                                                                                      // 17
 
 		static BSOpenVR* GetSingleton();
 
@@ -91,6 +91,12 @@ namespace RE
 		NiPointer<NiNode>          controllerNodes[Hand::kTotal];  // 388 - Cloned for PlayerCharacter's LeftValveIndexControllerNode/RightValveIndexControllerNode
 		HMDDeviceType              hmdDeviceType;                  // 398 - Set by comparing TrackedSystemName to "lighthouse", "oculus" and "holographic". Defaults to "lighthouse" if none match
 		NiTransform                eyeToHeadTransform[2];          // 39C - 0 is left eye, 1 is right eye
+
+		// Haptic pulse duration is multiplied by the value at this address (default 3999.0 in SkyrimVR.exe)
+		static constexpr uintptr_t kHapticPulseScaleAddr = 0x1417E6E50;
+		static float               GetHapticPulseScale();
+		static void                SetHapticPulseScale(float value);
+
 	private:
 		KEEP_FOR_RE()
 	};
