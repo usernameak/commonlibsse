@@ -125,19 +125,7 @@ namespace RE
 		std::uint64_t         unk120;               // 120
 		NiTransform           renderTransform;      // 128 - Headset pose render transform
 		NiTransform           gameTransform;        // 15C - Headset pose game transform
-		COpenVRContext*       vrContext;            // 190 - OpenVR context containing all interface pointers
-		std::uint64_t         unk198;               // 198
-		std::uint64_t         unk1A0;               // 1A0
-		std::uint64_t         unk1A8;               // 1A8
-		vr::IVROverlay*       ivrOverlay;           // 1B0
-		std::uint64_t         unk1B8;               // 1B8
-		std::uint64_t         unk1C0;               // 1C0
-		std::uint64_t         unk1C8;               // 1C8
-		std::uint64_t         unk1D0;               // 1D0
-		std::uint64_t         unk1D8;               // 1D8
-		std::uint64_t         unk1E0;               // 1E0
-		std::uint64_t         unk1E8;               // 1E8
-		std::uint64_t         unk1F0;               // 1F0
+		COpenVRContext        vrContext;            // 190
 		vr::VROverlayHandle_t inputOverlay;         // 1F8 - current overlay handle? Used in 2D overlay menus like JournalMenu
 		bool                  isHeadsetTrackingOk;  // 200 - Headset is active and skyrim is receiving tracking data
 	private:
