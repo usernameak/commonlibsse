@@ -1,5 +1,7 @@
 #pragma once
 
+#include "REX/W32.h"
+
 #include "RE/B/BSTArray.h"
 #include "RE/B/BSTHashMap.h"
 #include "RE/B/BSVRInterface.h"
@@ -66,6 +68,12 @@ namespace RE
 		 * retrieve the IVROverlay interface and stores it in the context. This matches the lazy initialization pattern
 		 * used internally by OpenVR. Call this before using context->vrOverlay to ensure it is valid.
 		 *
+		 * @warning The returned IVROverlay interface is the game's proxied version. While it is valid for most
+		 * overlay operations (creation, positioning, etc.), it appears to lack the necessary permissions for
+		 * texture submission from a custom DLL. Calls to SetOverlayTexture using this pointer will likely fail
+		 * with VROverlayError_PermissionDenied. The recommended workaround is to use `GetCleanIVROverlay()` for
+		 * texture submission and this interface for all other overlay operations.
+		 *
 		 * Typical usage (as seen in Skyrim VR):
 		 *     auto* context = RE::BSOpenVR::GetSingleton()->vrContext;
 		 *     RE::BSOpenVR::GetIVROverlayFromContext(context);
@@ -77,6 +85,46 @@ namespace RE
 		static vr::IVRRenderModels* GetIVRRenderModels();
 		static vr::IVRSettings*     GetIVRSettings();
 		static vr::IVRSystem*       GetIVRSystem();
+
+		/**
+		 * Acquires a "clean" IVROverlay interface directly from the OpenVR runtime.
+		 *
+		 * This bypasses the game's proxied interface and should be used for any operations
+		 * that require direct, unproxied access, such as SetOverlayTexture, which may otherwise
+		 * fail with VROverlayError_PermissionDenied.
+		 *
+		 * The function handles one-time initialization and returns a cached pointer on subsequent calls.
+		 *
+		 * @return A valid vr::IVROverlay* on success, otherwise nullptr.
+		 */
+		static vr::IVROverlay* GetCleanIVROverlay()
+		{
+			if (cleanOverlay) {
+				return cleanOverlay;
+			}
+			
+			// Define the function pointer type locally to avoid header conflicts
+			typedef void* (*pfnVRGetGenericInterface)(const char* pchInterfaceVersion, vr::EVRInitError* peError);
+
+			REX::W32::HMODULE openvr_handle = REX::W32::GetModuleHandleA("openvr_api.dll");
+			if (!openvr_handle) {
+				return nullptr;
+			}
+
+			auto VR_GetGenericInterface = (pfnVRGetGenericInterface)REX::W32::GetProcAddress(openvr_handle, "VR_GetGenericInterface");
+			if (!VR_GetGenericInterface) {
+				return nullptr;
+			}
+
+			vr::EVRInitError eError = vr::VRInitError_None;
+			cleanOverlay = (vr::IVROverlay*)VR_GetGenericInterface(vr::IVROverlay_Version, &eError);
+
+			if (eError != vr::VRInitError_None) {
+				cleanOverlay = nullptr;
+			}
+
+			return cleanOverlay;
+		}
 
 		// members
 		vr::IVRSystem*             vrSystem;                       // 208
@@ -98,6 +146,7 @@ namespace RE
 		static void                SetHapticPulseScale(float value);
 
 	private:
+		inline static vr::IVROverlay* cleanOverlay = nullptr;
 		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSOpenVR) == 0x408);
