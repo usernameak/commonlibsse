@@ -148,13 +148,20 @@ namespace RE
 		// Convenience functions for creating and dispatching mouse events
 		inline GFxMouseEvent* CreateMouseEvent(GFxEvent::EventType type, std::uint32_t button, float x, float y, float scrollDelta = 0.0f, std::uint32_t mouseIndex = 0)
 		{
+			// Add null check for safety - returns nullptr if pointer is invalid
+			if (g_scaleformGFxEventData.get() == nullptr || *g_scaleformGFxEventData == nullptr) {
+				return nullptr;
+			}
 			return QueueGFxMouseEvent(*g_scaleformGFxEventData, type, button, x, y, scrollDelta, mouseIndex);
 		}
 
 		inline void SendMouseEvent(const BSFixedString& menuName, GFxEvent::EventType type, std::uint32_t button, float x, float y, float scrollDelta = 0.0f, std::uint32_t mouseIndex = 0)
 		{
 			auto event = CreateMouseEvent(type, button, x, y, scrollDelta, mouseIndex);
-			DispatchGFxEvent(menuName, event);
+			// Add null check for safety - only dispatch if event creation succeeded
+			if (event != nullptr) {
+				DispatchGFxEvent(menuName, event);
+			}
 		}
 	}
 #endif

@@ -140,8 +140,6 @@ namespace RE
 		HMDDeviceType              hmdDeviceType;                  // 398 - Set by comparing TrackedSystemName to "lighthouse", "oculus" and "holographic". Defaults to "lighthouse" if none match
 		NiTransform                eyeToHeadTransform[2];          // 39C - 0 is left eye, 1 is right eye
 
-		// Haptic pulse duration is multiplied by the value at this address (default 3999.0 in SkyrimVR.exe)
-		static constexpr uintptr_t kHapticPulseScaleAddr = 0x1417E6E50;
 		static float               GetHapticPulseScale();
 		static void                SetHapticPulseScale(float value);
 

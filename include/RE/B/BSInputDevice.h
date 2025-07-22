@@ -5,6 +5,10 @@
 #include "RE/B/BSTHashMap.h"
 #include "RE/I/InputDevices.h"
 
+#include <array>
+#include <unordered_map>
+#include <vector>
+
 namespace RE
 {
 	class BSInputDevice : public BSIInputDevice
@@ -104,18 +108,71 @@ namespace RE
 		void  OnEvent(float newValue) { value = newValue; }
 	};
 
-	// Aggregated input device state for buttons, thumbsticks, triggers, and extensible data
+	// Unified input device state - optimized for all common input devices
 	struct InputDeviceState
 	{
-		// Button states: indexed by device-specific button ID
-		std::unordered_map<uint32_t, ButtonState> buttons;
-		// Thumbsticks: indexed by controller role (primary/secondary)
+		// Large array covers all common input devices optimally:
+		// - VR controllers (button IDs 1-36)
+		// - Gamepads (button IDs 0-15) 
+		// - Keyboards (DIK scan codes 1-237)
+		// - Mice (button IDs 0-7)
+		static constexpr size_t BUTTON_ARRAY_SIZE = 256;
+		
+		INPUT_DEVICE deviceType = INPUT_DEVICE::kNone;
+		
+		// Fast O(1) array access for all common input devices
+		std::array<ButtonState, BUTTON_ARRAY_SIZE> buttons{};
+		
+		// Simple, fast button access with bounds safety
+		ButtonState& operator[](uint32_t buttonId) {
+			return buttons[buttonId < BUTTON_ARRAY_SIZE ? buttonId : 0];
+		}
+		
+		const ButtonState& operator[](uint32_t buttonId) const {
+			return buttons[buttonId < BUTTON_ARRAY_SIZE ? buttonId : 0];
+		}
+		
+		// Device-specific analog inputs (VR/gamepad)
 		std::array<ThumbstickState, static_cast<size_t>(ControllerRole::Count)> thumbsticks;
-		// Triggers: indexed by controller role (primary/secondary)
 		std::array<TriggerState, static_cast<size_t>(ControllerRole::Count)> triggers;
+		
+		// Returns all active (pressed or previously pressed) buttons
+		std::vector<std::pair<uint32_t, const ButtonState*>> GetActiveButtons() const {
+			std::vector<std::pair<uint32_t, const ButtonState*>> result;
+			for (size_t i = 0; i < BUTTON_ARRAY_SIZE; ++i) {
+				const auto& state = buttons[i];
+				if (state.isPressed || state.lastPressTime > 0.0) {
+					result.emplace_back(static_cast<uint32_t>(i), &state);
+				}
+			}
+			return result;
+		}
+		
+		// Utility methods
+		void Clear() {
+			buttons.fill(ButtonState{});
+			thumbsticks.fill(ThumbstickState{});
+			triggers.fill(TriggerState{});
+		}
+		
+		// Statistics for debugging/optimization
+		size_t GetActiveButtonCount() const {
+			size_t count = 0;
+			for (const auto& button : buttons) {
+				if (button.isPressed || button.lastPressTime > 0.0) count++;
+			}
+			return count;
+		}
+		
 		// Supplementary info (for mod authors or device-specific extensions)
 		std::unordered_map<std::string, double> customData;
 	};
+
+	// Type aliases for clarity and future flexibility
+	using VRControllerState = InputDeviceState;    // VR controllers use unified state
+	using GamepadState = InputDeviceState;         // Gamepads use unified state  
+	using KeyboardState = InputDeviceState;        // Keyboards use unified state
+	using MouseState = InputDeviceState;           // Mice use unified state
 
 	// --- General-purpose input helpers for all input devices ---
 	// Returns a string label for the thumbstick direction/quadrant

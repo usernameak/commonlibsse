@@ -6,16 +6,6 @@
 
 namespace RE
 {
-    // Returns true if Skyrim VR is in left-handed mode (swaps primary/secondary controllers)
-	inline bool IsLeftHandedMode()
-	{
-		static REL::Relocation<bool*> leftHandedMode{ REL::Offset(0x1e71778) };
-		return *leftHandedMode;
-	}
-}
-
-namespace RE
-{
 	class BSOpenVRControllerDevice : public BSTrackedControllerDevice
 	{
 	public:
@@ -89,6 +79,14 @@ namespace RE
 		static inline bool IsTouchpadClick(std::uint32_t keyCode)
 		{
 			return keyCode == Keys::kTouchpadClick || keyCode == Keys::kTouchpadAlt;
+		}
+
+		// Returns true if Skyrim VR is in left-handed mode (swaps primary/secondary controllers)
+		static inline bool IsLeftHandedMode()
+		{
+			static REL::Relocation<bool*> leftHandedMode{ REL::Offset(0x1e71778) };
+			// Add null check for safety - defaults to false (right-handed) if pointer is invalid
+			return leftHandedMode.get() != nullptr ? *leftHandedMode : false;
 		}
 
 		// New helpers for primary/secondary abstraction
