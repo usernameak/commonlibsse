@@ -6,7 +6,6 @@
 #include "RE/G/GNewOverrideBase.h"
 #include "RE/G/GStats.h"
 
-
 namespace RE
 {
 	class GFxEvent : public GNewOverrideBase<GStatGroups::kGStat_Default_Mem>

@@ -56,18 +56,18 @@ namespace RE
 	void BSOpenVR::SetHapticPulseScale(float value)
 	{
 		static REL::Relocation<float*> hapticPulseScale{ REL::Offset(0x17E6E50) };
-		
+
 		// Add validation for reasonable bounds
 		// Clamp between 0.0 (disabled) and 20000.0 (5x default, prevents excessive haptic duration)
 		constexpr float MIN_HAPTIC_SCALE = 0.0f;
 		constexpr float MAX_HAPTIC_SCALE = 20000.0f;
-		
+
 		if (value < MIN_HAPTIC_SCALE) {
 			value = MIN_HAPTIC_SCALE;
 		} else if (value > MAX_HAPTIC_SCALE) {
 			value = MAX_HAPTIC_SCALE;
 		}
-		
+
 		// Add null check for safety - only set value if pointer is valid
 		if (hapticPulseScale.get() != nullptr) {
 			*hapticPulseScale = value;

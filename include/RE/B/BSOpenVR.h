@@ -102,7 +102,7 @@ namespace RE
 			if (cleanOverlay) {
 				return cleanOverlay;
 			}
-			
+
 			// Define the function pointer type locally to avoid header conflicts
 			typedef void* (*pfnVRGetGenericInterface)(const char* pchInterfaceVersion, vr::EVRInitError* peError);
 
@@ -140,8 +140,8 @@ namespace RE
 		HMDDeviceType              hmdDeviceType;                  // 398 - Set by comparing TrackedSystemName to "lighthouse", "oculus" and "holographic". Defaults to "lighthouse" if none match
 		NiTransform                eyeToHeadTransform[2];          // 39C - 0 is left eye, 1 is right eye
 
-		static float               GetHapticPulseScale();
-		static void                SetHapticPulseScale(float value);
+		static float GetHapticPulseScale();
+		static void  SetHapticPulseScale(float value);
 
 	private:
 		inline static vr::IVROverlay* cleanOverlay = nullptr;

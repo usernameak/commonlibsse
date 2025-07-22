@@ -113,31 +113,34 @@ namespace RE
 	{
 		// Large array covers all common input devices optimally:
 		// - VR controllers (button IDs 1-36)
-		// - Gamepads (button IDs 0-15) 
+		// - Gamepads (button IDs 0-15)
 		// - Keyboards (DIK scan codes 1-237)
 		// - Mice (button IDs 0-7)
 		static constexpr size_t BUTTON_ARRAY_SIZE = 256;
-		
+
 		INPUT_DEVICE deviceType = INPUT_DEVICE::kNone;
-		
+
 		// Fast O(1) array access for all common input devices
 		std::array<ButtonState, BUTTON_ARRAY_SIZE> buttons{};
-		
+
 		// Simple, fast button access with bounds safety
-		ButtonState& operator[](uint32_t buttonId) {
+		ButtonState& operator[](uint32_t buttonId)
+		{
 			return buttons[buttonId < BUTTON_ARRAY_SIZE ? buttonId : 0];
 		}
-		
-		const ButtonState& operator[](uint32_t buttonId) const {
+
+		const ButtonState& operator[](uint32_t buttonId) const
+		{
 			return buttons[buttonId < BUTTON_ARRAY_SIZE ? buttonId : 0];
 		}
-		
+
 		// Device-specific analog inputs (VR/gamepad)
 		std::array<ThumbstickState, static_cast<size_t>(ControllerRole::Count)> thumbsticks;
-		std::array<TriggerState, static_cast<size_t>(ControllerRole::Count)> triggers;
-		
+		std::array<TriggerState, static_cast<size_t>(ControllerRole::Count)>    triggers;
+
 		// Returns all active (pressed or previously pressed) buttons
-		std::vector<std::pair<uint32_t, const ButtonState*>> GetActiveButtons() const {
+		std::vector<std::pair<uint32_t, const ButtonState*>> GetActiveButtons() const
+		{
 			std::vector<std::pair<uint32_t, const ButtonState*>> result;
 			for (size_t i = 0; i < BUTTON_ARRAY_SIZE; ++i) {
 				const auto& state = buttons[i];
@@ -147,32 +150,35 @@ namespace RE
 			}
 			return result;
 		}
-		
+
 		// Utility methods
-		void Clear() {
+		void Clear()
+		{
 			buttons.fill(ButtonState{});
 			thumbsticks.fill(ThumbstickState{});
 			triggers.fill(TriggerState{});
 		}
-		
+
 		// Statistics for debugging/optimization
-		size_t GetActiveButtonCount() const {
+		size_t GetActiveButtonCount() const
+		{
 			size_t count = 0;
 			for (const auto& button : buttons) {
-				if (button.isPressed || button.lastPressTime > 0.0) count++;
+				if (button.isPressed || button.lastPressTime > 0.0)
+					count++;
 			}
 			return count;
 		}
-		
+
 		// Supplementary info (for mod authors or device-specific extensions)
 		std::unordered_map<std::string, double> customData;
 	};
 
 	// Type aliases for clarity and future flexibility
-	using VRControllerState = InputDeviceState;    // VR controllers use unified state
-	using GamepadState = InputDeviceState;         // Gamepads use unified state  
-	using KeyboardState = InputDeviceState;        // Keyboards use unified state
-	using MouseState = InputDeviceState;           // Mice use unified state
+	using VRControllerState = InputDeviceState;  // VR controllers use unified state
+	using GamepadState = InputDeviceState;       // Gamepads use unified state
+	using KeyboardState = InputDeviceState;      // Keyboards use unified state
+	using MouseState = InputDeviceState;         // Mice use unified state
 
 	// --- General-purpose input helpers for all input devices ---
 	// Returns a string label for the thumbstick direction/quadrant
@@ -196,12 +202,13 @@ namespace RE
 	}
 
 	// Generic button mapping struct for mapping device key codes to logical actions
-	struct ButtonMapping {
-		uint32_t keyCode;      // Device-specific key code
-		int logicalButton;     // Logical action (e.g., ImGui button/key, or your own enum)
-		bool isKeyEvent;       // True if this is a key event, false if mouse/button
-		int key;               // Logical key (if applicable)
-		bool isShift;          // True if shift modifier is required
+	struct ButtonMapping
+	{
+		uint32_t keyCode;        // Device-specific key code
+		int      logicalButton;  // Logical action (e.g., ImGui button/key, or your own enum)
+		bool     isKeyEvent;     // True if this is a key event, false if mouse/button
+		int      key;            // Logical key (if applicable)
+		bool     isShift;        // True if shift modifier is required
 	};
 
 }

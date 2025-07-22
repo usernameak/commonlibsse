@@ -94,16 +94,16 @@ namespace RE
 		{
 			// By convention, primary is VivePrimary, OculusPrimary, WMRPrimary
 			bool isPhysPrimary = device == INPUT_DEVICE::kVivePrimary ||
-			                   device == INPUT_DEVICE::kOculusPrimary ||
-			                   device == INPUT_DEVICE::kWMRPrimary;
+			                     device == INPUT_DEVICE::kOculusPrimary ||
+			                     device == INPUT_DEVICE::kWMRPrimary;
 			return IsLeftHandedMode() ? !isPhysPrimary : isPhysPrimary;
 		}
 		static inline bool IsSecondaryController(INPUT_DEVICE device)
 		{
 			// By convention, secondary is ViveSecondary, OculusSecondary, WMRSecondary
 			bool isPhysSecondary = device == INPUT_DEVICE::kViveSecondary ||
-			                      device == INPUT_DEVICE::kOculusSecondary ||
-			                      device == INPUT_DEVICE::kWMRSecondary;
+			                       device == INPUT_DEVICE::kOculusSecondary ||
+			                       device == INPUT_DEVICE::kWMRSecondary;
 			return IsLeftHandedMode() ? !isPhysSecondary : isPhysSecondary;
 		}
 
