@@ -240,6 +240,7 @@ set(SOURCES
 	include/RE/B/BSFaceGenModelExtraData.h
 	include/RE/B/BSFaceGenNiNode.h
 	include/RE/B/BSFadeNode.h
+	include/RE/B/BSFadeNodeCuller.h
 	include/RE/B/BSFile.h
 	include/RE/B/BSFixedString.h
 	include/RE/B/BSFurnitureMarkerNode.h
@@ -431,9 +432,11 @@ set(SOURCES
 	include/RE/B/bhkBackfaceContactListener.h
 	include/RE/B/bhkCachingShapePhantom.h
 	include/RE/B/bhkCharProxyController.h
+	include/RE/B/bhkCharRigidBodyController.h
 	include/RE/B/bhkCharacterController.h
 	include/RE/B/bhkCharacterPointCollector.h
 	include/RE/B/bhkCharacterProxy.h
+	include/RE/B/bhkCharacterRigidBody.h
 	include/RE/B/bhkCharacterState.h
 	include/RE/B/bhkCharacterStateClimbing.h
 	include/RE/B/bhkCharacterStateFlying.h
@@ -561,6 +564,7 @@ set(SOURCES
 	include/RE/D/DisguiseEffect.h
 	include/RE/D/DispelEffect.h
 	include/RE/D/DoNothingUnhandledPolicy.h
+	include/RE/D/DragonCameraState.h
 	include/RE/D/DragonSoulsGained.h
 	include/RE/D/DropObjectFunctor.h
 	include/RE/D/DualValueModifierEffect.h
@@ -763,6 +767,7 @@ set(SOURCES
 	include/RE/F/FrenzyEffect.h
 	include/RE/F/FunctionArguments.h
 	include/RE/F/FunctionMessage.h
+	include/RE/F/FurnitureCameraState.h
 	include/RE/F/FxDelegate.h
 	include/RE/F/FxDelegateArgs.h
 	include/RE/F/FxDelegateHandler.h
@@ -933,6 +938,7 @@ set(SOURCES
 	include/RE/H/HUDChargeMeter.h
 	include/RE/H/HUDData.h
 	include/RE/H/HUDMenu.h
+	include/RE/H/HUDMessageTypes.h
 	include/RE/H/HUDMeter.h
 	include/RE/H/HUDNotifications.h
 	include/RE/H/HUDObject.h
@@ -942,6 +948,7 @@ set(SOURCES
 	include/RE/H/HeapBlock.h
 	include/RE/H/HeapBlockFreeHead.h
 	include/RE/H/HeldStateHandler.h
+	include/RE/H/HighActorCuller.h
 	include/RE/H/HighProcessData.h
 	include/RE/H/HitData.h
 	include/RE/H/HorseCameraState.h
@@ -997,6 +1004,7 @@ set(SOURCES
 	include/RE/H/hkbEventBase.h
 	include/RE/H/hkbGenerator.h
 	include/RE/H/hkbNode.h
+	include/RE/H/hkbNodeInfo.h
 	include/RE/H/hkbProjectData.h
 	include/RE/H/hkbProjectStringData.h
 	include/RE/H/hkbRagdollDriver.h
@@ -1022,6 +1030,8 @@ set(SOURCES
 	include/RE/H/hkpCharacterControl.h
 	include/RE/H/hkpCharacterProxy.h
 	include/RE/H/hkpCharacterProxyListener.h
+	include/RE/H/hkpCharacterRigidBody.h
+	include/RE/H/hkpCharacterRigidBodyListener.h
 	include/RE/H/hkpCharacterState.h
 	include/RE/H/hkpCharacterStateManager.h
 	include/RE/H/hkpClosestRayHitCollector.h
@@ -1042,6 +1052,7 @@ set(SOURCES
 	include/RE/H/hkpContactPointProperties.h
 	include/RE/H/hkpConvexListFilter.h
 	include/RE/H/hkpConvexShape.h
+	include/RE/H/hkpConvexVerticesShape.h
 	include/RE/H/hkpEaseConstraintsAction.h
 	include/RE/H/hkpEntity.h
 	include/RE/H/hkpEntityListener.h
@@ -1250,6 +1261,7 @@ set(SOURCES
 	include/RE/M/Misc.h
 	include/RE/M/MissileProjectile.h
 	include/RE/M/MistMenu.h
+	include/RE/M/MobIterOperator.h
 	include/RE/M/ModManagerMenu.h
 	include/RE/M/ModelReferenceEffect.h
 	include/RE/M/Moon.h
@@ -1393,6 +1405,7 @@ set(SOURCES
 	include/RE/P/Precipitation.h
 	include/RE/P/PrecomputedNavmeshInfoPathMap.h
 	include/RE/P/ProcessLists.h
+	include/RE/P/ProcessType.h
 	include/RE/P/Profiler.h
 	include/RE/P/Projectile.h
 	include/RE/P/PropertyTypeInfo.h
@@ -1477,6 +1490,7 @@ set(SOURCES
 	include/RE/S/SoundLevels.h
 	include/RE/S/SourceActionMap.h
 	include/RE/S/SpawnHazardEffect.h
+	include/RE/S/SpecificItemCollector.h
 	include/RE/S/SpellItem.h
 	include/RE/S/SpellsLearned.h
 	include/RE/S/SprintHandler.h
@@ -1645,6 +1659,7 @@ set(SOURCES
 	include/RE/T/TaskQueueInterface.h
 	include/RE/T/TelekinesisEffect.h
 	include/RE/T/TeleportHandler.h
+	include/RE/T/TeleportPath.h
 	include/RE/T/TempEffectTraits.h
 	include/RE/T/TextureAddressModes.h
 	include/RE/T/TextureFileFormat.h
@@ -1659,6 +1674,7 @@ set(SOURCES
 	include/RE/T/TurnUndeadEffect.h
 	include/RE/T/TutorialMenu.h
 	include/RE/T/TweenMenu.h
+	include/RE/T/TweenMenuCameraState.h
 	include/RE/T/TypeInfo.h
 	include/RE/T/TypeTraits.h
 	include/RE/U/UI.h
@@ -1671,6 +1687,7 @@ set(SOURCES
 	include/RE/U/UserEventEnabled.h
 	include/RE/U/UserEvents.h
 	include/RE/V/VATS.h
+	include/RE/V/VATSCameraState.h
 	include/RE/V/VDescTable.h
 	include/RE/V/VRDeviceConnectionChange.h
 	include/RE/V/VROverlayChange.h
@@ -1841,8 +1858,10 @@ set(SOURCES
 	src/RE/B/BooksRead.cpp
 	src/RE/B/bhkCharProxyController.cpp
 	src/RE/B/bhkRigidBody.cpp
+	src/RE/C/CFilter.cpp
 	src/RE/C/Calendar.cpp
 	src/RE/C/ChestsLooted.cpp
+	src/RE/C/CollisionLayers.cpp
 	src/RE/C/Color.cpp
 	src/RE/C/ColorUtil.cpp
 	src/RE/C/CommandTable.cpp
@@ -1872,6 +1891,7 @@ set(SOURCES
 	src/RE/E/ExtraHotkey.cpp
 	src/RE/E/ExtraLevCreaModifier.cpp
 	src/RE/E/ExtraLightData.cpp
+	src/RE/E/ExtraLinkedRef.cpp
 	src/RE/E/ExtraLock.cpp
 	src/RE/E/ExtraMissingLinkedRefIDs.cpp
 	src/RE/E/ExtraNorthRotation.cpp

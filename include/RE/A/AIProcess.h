@@ -10,6 +10,7 @@
 namespace RE
 {
 	enum class RESET_3D_FLAGS;
+	enum class PROCESS_TYPE;
 	class Actor;
 	class bhkCharacterController;
 	class BipedAnim;
@@ -19,15 +20,6 @@ namespace RE
 	class TESShout;
 	struct HighProcessData;
 	struct MiddleHighProcessData;
-
-	enum class PROCESS_TYPE
-	{
-		kNone = static_cast<std::underlying_type_t<PROCESS_TYPE>>(-1),
-		kHigh = 0,
-		kMiddleHigh = 1,
-		kMiddleLow = 2,
-		kLow = 3
-	};
 
 	class MiddleLowProcessData
 	{

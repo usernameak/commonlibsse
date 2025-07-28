@@ -72,25 +72,30 @@ namespace REL
 				(_impl[3] & 0x00F) << 0u);
 		}
 
-		[[nodiscard]] std::string string() const
+		[[nodiscard]] constexpr value_type major() const noexcept { return _impl[0]; }
+		[[nodiscard]] constexpr value_type minor() const noexcept { return _impl[1]; }
+		[[nodiscard]] constexpr value_type patch() const noexcept { return _impl[2]; }
+		[[nodiscard]] constexpr value_type build() const noexcept { return _impl[3]; }
+
+		[[nodiscard]] std::string string(std::string_view a_separator = "-"sv) const
 		{
 			std::string result;
 			for (auto&& ver : _impl) {
 				result += std::to_string(ver);
-				result += '-';
+				result.append(a_separator.data(), a_separator.size());
 			}
-			result.pop_back();
+			result.erase(result.size() - a_separator.size(), a_separator.size());
 			return result;
 		}
 
-		[[nodiscard]] std::wstring wstring() const
+		[[nodiscard]] std::wstring wstring(std::wstring_view a_separator = L"-"sv) const
 		{
 			std::wstring result;
 			for (auto&& ver : _impl) {
 				result += std::to_wstring(ver);
-				result += L'-';
+				result.append(a_separator.data(), a_separator.size());
 			}
-			result.pop_back();
+			result.erase(result.size() - a_separator.size(), a_separator.size());
 			return result;
 		}
 
@@ -108,7 +113,7 @@ namespace REL
 		std::array<value_type, 4> _impl{ 0, 0, 0, 0 };
 	};
 
-	[[nodiscard]] constexpr bool                 operator==(const Version& a_lhs, const Version& a_rhs) noexcept { return a_lhs.compare(a_rhs) == 0; }
+	[[nodiscard]] constexpr bool                 operator==(const Version& a_lhs, const Version& a_rhs) noexcept { return a_lhs.compare(a_rhs) == std::strong_ordering::equal; }
 	[[nodiscard]] constexpr std::strong_ordering operator<=>(const Version& a_lhs, const Version& a_rhs) noexcept { return a_lhs.compare(a_rhs); }
 
 	[[nodiscard]] std::optional<Version> GetFileVersion(stl::zwstring a_filename);
