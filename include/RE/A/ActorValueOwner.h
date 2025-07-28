@@ -27,6 +27,7 @@ namespace RE
 
 		void DamageActorValue(ActorValue a_akValue, float a_value);
 		void RestoreActorValue(ActorValue a_akValue, float a_value);
+
 	private:
 		KEEP_FOR_RE()
 	};
