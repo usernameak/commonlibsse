@@ -313,7 +313,7 @@ namespace RE
 				return 0;
 			}
 			size_type count = 0;
-			
+
 			for (auto iter = get_head(); iter; iter = iter->next) {
 				++count;
 			}
