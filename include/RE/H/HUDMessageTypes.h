@@ -3,9 +3,9 @@
 namespace RE
 {
 #ifdef SKYRIMVR
-#define VR_OFFSET 3
+#	define VR_OFFSET 3
 #else
-#define VR_OFFSET 0
+#	define VR_OFFSET 0
 #endif
 
 	enum class HUD_MESSAGE_TYPE
