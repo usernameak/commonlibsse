@@ -37,6 +37,7 @@ namespace RE
 	class bhkCharacterMoveFinishEvent;
 	class BipedAnim;
 	class BSTransformDeltaEvent;
+	class CFilter;
 	class CombatController;
 	class CombatGroup;
 	class ExtraDataList;
@@ -59,6 +60,17 @@ namespace RE
 		kGooEnd = 2,
 		kDisintegrateStart = 3,
 		kDisintegrateEnd = 4,
+
+		kTotal
+	};
+
+	enum class ACTOR_LOS_LOCATION
+	{
+		kNone = 0,
+		kEye = 1,
+		kHead = 2,
+		kTorso = 3,
+		kFeet = 4,
 
 		kTotal
 	};
@@ -508,6 +520,7 @@ namespace RE
 		void                                    AllowBleedoutDialogue(bool a_canTalk);
 		void                                    AllowPCDialogue(bool a_talk);
 		void                                    CastPermanentMagic(bool a_wornItemEnchantments, bool a_baseSpells, bool a_raceSpells, bool a_everyActorAbility);
+		[[nodiscard]] NiPoint3                  CalculateLOSLocation(ACTOR_LOS_LOCATION a_location);
 		[[nodiscard]] bool                      CanAttackActor(Actor* a_actor);
 		[[nodiscard]] bool                      CanFlyHere() const;
 		[[nodiscard]] bool                      CanOfferServices() const;
@@ -529,13 +542,14 @@ namespace RE
 		void                                    EvaluatePackage(bool a_immediate = false, bool a_resetAI = false);
 		[[nodiscard]] TESNPC*                   GetActorBase();
 		[[nodiscard]] const TESNPC*             GetActorBase() const;
+		[[nodiscard]] float                     GetActorValueMax(ActorValue a_value) const;
 		[[nodiscard]] float                     GetActorValueModifier(ACTOR_VALUE_MODIFIER a_modifier, ActorValue a_value) const;
 		[[nodiscard]] float                     GetAimAngle() const;
 		[[nodiscard]] float                     GetAimHeading() const;
 		[[nodiscard]] InventoryEntryData*       GetAttackingWeapon();
 		[[nodiscard]] const InventoryEntryData* GetAttackingWeapon() const;
 		[[nodiscard]] bhkCharacterController*   GetCharController() const;
-		std::uint32_t                           GetCollisionFilterInfo(std::uint32_t& a_outCollisionFilterInfo);
+		void                                    GetCollisionFilterInfo(CFilter& a_outCollisionFilterInfo);
 		[[nodiscard]] NiPointer<Actor>          GetCommandingActor() const;
 		[[nodiscard]] TESFaction*               GetCrimeFaction();
 		[[nodiscard]] const TESFaction*         GetCrimeFaction() const;

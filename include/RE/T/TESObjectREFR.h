@@ -59,6 +59,7 @@ namespace RE
 	class TrapData;
 	class TrapEntry;
 	struct BGSDecalGroup;
+	struct BGSWorldLocation;
 	struct BSAnimationGraphEvent;
 	struct BSAnimationUpdateData;
 	struct DoorTeleportData;
@@ -386,7 +387,7 @@ namespace RE
 		[[nodiscard]] std::optional<double>             GetEnchantmentCharge() const;
 		[[nodiscard]] TESFaction*                       GetFactionOwner();
 		[[nodiscard]] ObjectRefHandle                   GetHandle();
-		[[nodiscard]] float                             GetHeadingAngle(const RE::NiPoint3& a_pos, bool a_abs);
+		[[nodiscard]] float                             GetHeadingAngle(const RE::NiPoint3& a_pos, bool a_abs) const;
 		[[nodiscard]] float                             GetHeight() const;
 		[[nodiscard]] InventoryItemMap                  GetInventory();
 		[[nodiscard]] InventoryItemMap                  GetInventory(std::function<bool(TESBoundObject&)> a_filter, bool a_noInit = false);
@@ -414,6 +415,7 @@ namespace RE
 		[[nodiscard]] float                             GetWaterHeight() const;
 		[[nodiscard]] float                             GetWeight() const;
 		[[nodiscard]] float                             GetWeightInContainer();
+		[[nodiscard]] BGSWorldLocation                  GetWorldLocation() const;
 		[[nodiscard]] TESWorldSpace*                    GetWorldspace() const;
 		[[nodiscard]] bool                              HasCollision() const;
 		[[nodiscard]] bool                              HasContainer() const;

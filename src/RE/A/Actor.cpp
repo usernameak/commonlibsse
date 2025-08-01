@@ -10,6 +10,7 @@
 #include "RE/B/BSFaceGenNiNode.h"
 #include "RE/B/BShkbAnimationGraph.h"
 #include "RE/B/bhkCharacterController.h"
+#include "RE/C/CFilter.h"
 #include "RE/E/ExtraCanTalkToPlayer.h"
 #include "RE/E/ExtraFactionChanges.h"
 #include "RE/E/ExtraLeveledCreature.h"
@@ -121,11 +122,15 @@ namespace RE
 		xTalk->talk = a_talk;
 	}
 
-	void Actor::CastPermanentMagic(bool a_wornItemEnchantments, bool a_baseSpells, bool a_raceSpells, bool a_everyActorAbility)
+	NiPoint3 Actor::CalculateLOSLocation(ACTOR_LOS_LOCATION a_location)
 	{
-		using func_t = decltype(&Actor::CastPermanentMagic);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(37804, 38753) };
-		return func(this, a_wornItemEnchantments, a_baseSpells, a_raceSpells, a_everyActorAbility);
+		NiPoint3 result;
+
+		using func_t = NiPoint3*(Actor*, NiPoint3&, ACTOR_LOS_LOCATION);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(36755, 37771) };
+		func(this, result, a_location);
+
+		return result;
 	}
 
 	bool Actor::CanAttackActor(Actor* a_actor)
@@ -172,6 +177,13 @@ namespace RE
 		using func_t = decltype(&Actor::CanUseIdle);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(36224, 37205) };
 		return func(this, a_idle);
+	}
+
+	void Actor::CastPermanentMagic(bool a_wornItemEnchantments, bool a_baseSpells, bool a_raceSpells, bool a_everyActorAbility)
+	{
+		using func_t = decltype(&Actor::CastPermanentMagic);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(37804, 38753) };
+		return func(this, a_wornItemEnchantments, a_baseSpells, a_raceSpells, a_everyActorAbility);
 	}
 
 	void Actor::ClearArrested()
@@ -280,6 +292,12 @@ namespace RE
 		return obj ? obj->As<TESNPC>() : nullptr;
 	}
 
+	float Actor::GetActorValueMax(ActorValue a_value) const
+	{
+		return AsActorValueOwner()->GetPermanentActorValue(a_value) +
+		       GetActorValueModifier(ACTOR_VALUE_MODIFIER::kTemporary, a_value);
+	}
+
 	float Actor::GetActorValueModifier(ACTOR_VALUE_MODIFIER a_modifier, ActorValue a_value) const
 	{
 		using func_t = decltype(&Actor::GetActorValueModifier);
@@ -342,11 +360,11 @@ namespace RE
 		return _currentProcess ? _currentProcess->GetCharController() : nullptr;
 	}
 
-	uint32_t Actor::GetCollisionFilterInfo(uint32_t& a_outCollisionFilterInfo)
+	void Actor::GetCollisionFilterInfo(CFilter& a_outCollisionFilterInfo)
 	{
 		using func_t = decltype(&Actor::GetCollisionFilterInfo);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(36559, 37560) };
-		return func(this, a_outCollisionFilterInfo);
+		func(this, a_outCollisionFilterInfo);
 	}
 
 	NiPointer<Actor> Actor::GetCommandingActor() const

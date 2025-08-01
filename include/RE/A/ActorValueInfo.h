@@ -131,6 +131,8 @@ namespace RE
 		// override (TESIcon)
 		[[nodiscard]] const char* GetDefaultPath() const override;  // 06 - { return "Textures\\"; }
 
+		bool IsInverted() const { return flags.all(ActorValueFlag::kInverted); }
+
 		// members
 		const char*                                 enumName;                   // 050
 		BSFixedString                               abbreviation;               // 058 - ANAM
