@@ -17,14 +17,14 @@ namespace RE
 		~HorseCameraState() override;  // 00
 
 		// override (ThirdPersonState)
-		void Begin() override;                                     // 01
-		void End() override;                                       // 02
+		void Begin() override;  // 01
+		void End() override;    // 02
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 		// Function doesn't exist in SE/AE-only builds
 #elif defined(EXCLUSIVE_SKYRIM_VR)
-		void Unk_03() override;                                // 03 - VR only
+		void Unk_03() override;  // 03 - VR only
 #else
-		void Unk_03();                                         // 03 - Multi-runtime
+		void Unk_03();  // 03 - Multi-runtime
 #endif
 		void SaveGame(BGSSaveFormBuffer* a_buf) override;          // 06/07
 		void LoadGame(BGSLoadFormBuffer* a_buf) override;          // 07/08

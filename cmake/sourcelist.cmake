@@ -1890,6 +1890,7 @@ set(SOURCES
 	src/RE/C/ControlMap.cpp
 	src/RE/C/CriticalHit.cpp
 	src/RE/D/DisarmedEvent.cpp
+	src/RE/D/DragonCameraState.cpp
 	src/RE/D/DragonSoulsGained.cpp
 	src/RE/E/Effect.cpp
 	src/RE/E/EffectArchetypes.cpp
@@ -1959,6 +1960,7 @@ set(SOURCES
 	src/RE/H/Hazard.cpp
 	src/RE/H/HeapBlock.cpp
 	src/RE/H/HeldStateHandler.cpp
+	src/RE/H/HorseCameraState.cpp
 	src/RE/H/hkBaseTypes.cpp
 	src/RE/H/hkReferencedObject.cpp
 	src/RE/H/hkStringPtr.cpp
