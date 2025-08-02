@@ -1795,6 +1795,7 @@ set(SOURCES
 	src/RE/A/ArmorRatingVisitor.cpp
 	src/RE/A/ArmorRatingVisitorBase.cpp
 	src/RE/A/Array.cpp
+	src/RE/A/AutoVanityState.cpp
 	src/RE/B/BGSAttackData.cpp
 	src/RE/B/BGSBaseAlias.cpp
 	src/RE/B/BGSBipedObjectForm.cpp
@@ -1869,6 +1870,7 @@ set(SOURCES
 	src/RE/B/BSXFlags.cpp
 	src/RE/B/BarterMenu.cpp
 	src/RE/B/BipedAnim.cpp
+	src/RE/B/BleedoutCameraState.cpp
 	src/RE/B/BookMenu.cpp
 	src/RE/B/BooksRead.cpp
 	src/RE/B/bhkCharProxyController.cpp
@@ -1920,7 +1922,9 @@ set(SOURCES
 	src/RE/E/ExtraTextDisplayData.cpp
 	src/RE/E/ExtraUniqueID.cpp
 	src/RE/F/FindMaxMagnitudeVisitor.cpp
+	src/RE/F/FirstPersonState.cpp
 	src/RE/F/FormTypes.cpp
+	src/RE/F/FurnitureCameraState.cpp
 	src/RE/F/FxDelegate.cpp
 	src/RE/F/FxDelegateArgs.cpp
 	src/RE/G/GAtomic.cpp
@@ -2054,6 +2058,7 @@ set(SOURCES
 	src/RE/P/PackUnpack.cpp
 	src/RE/P/PackedInstructionStream.cpp
 	src/RE/P/PlayerCamera.cpp
+	src/RE/P/PlayerCameraTransitionState.cpp
 	src/RE/P/PlayerCharacter.cpp
 	src/RE/P/PlayerControls.cpp
 	src/RE/P/PlayerInputHandler.cpp
@@ -2088,6 +2093,7 @@ set(SOURCES
 	src/RE/T/TESActorBase.cpp
 	src/RE/T/TESAmmo.cpp
 	src/RE/T/TESCamera.cpp
+	src/RE/T/TESCameraState.cpp
 	src/RE/T/TESClimate.cpp
 	src/RE/T/TESCondition.cpp
 	src/RE/T/TESContainer.cpp
@@ -2114,7 +2120,9 @@ set(SOURCES
 	src/RE/T/TESTopicInfo.cpp
 	src/RE/T/TESWorldSpace.cpp
 	src/RE/T/TaskQueueInterface.cpp
+	src/RE/T/ThirdPersonState.cpp
 	src/RE/T/ThumbstickEvent.cpp
+	src/RE/T/TweenMenuCameraState.cpp
 	src/RE/T/TypeInfo.cpp
 	src/RE/U/UI.cpp
 	src/RE/U/UI3DSceneManager.cpp
@@ -2122,6 +2130,7 @@ set(SOURCES
 	src/RE/U/UIMessageQueue.cpp
 	src/RE/U/UnlinkedTypes.cpp
 	src/RE/U/UserEvents.cpp
+	src/RE/V/VATSCameraState.cpp
 	src/RE/V/Variable.cpp
 	src/RE/V/VirtualMachine.cpp
 	src/RE/W/WorldSpaceMenu.cpp
