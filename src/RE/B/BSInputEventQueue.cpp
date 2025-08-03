@@ -15,8 +15,8 @@ namespace RE
 			cachedEvent.GetRuntimeData().value = a_value;
 			cachedEvent.GetRuntimeData().heldDownSecs = a_duration;
 			cachedEvent.device = a_device;
-			cachedEvent.idCode = a_id;
-			cachedEvent.userEvent = {};
+			cachedEvent.SetIDCode(a_id);
+			cachedEvent.SetUserEvent({});
 			cachedEvent.AsVRWandEvent()->unkVR28 = -1;
 			PushOntoInputQueue(&cachedEvent);
 			++buttonEventCount;
@@ -94,8 +94,8 @@ namespace RE
 				cachedEvent.GetRuntimeData().value = a_value;
 				cachedEvent.GetRuntimeData().heldDownSecs = a_duration;
 				cachedEvent.device = a_device;
-				cachedEvent.idCode = a_id;
-				cachedEvent.userEvent = {};
+				cachedEvent.SetIDCode(a_id);
+				cachedEvent.SetUserEvent({});
 				cachedEvent.AsVRWandEvent()->unkVR28 = a_arg2;
 				PushOntoInputQueue(&cachedEvent);
 				++buttonEventCount;

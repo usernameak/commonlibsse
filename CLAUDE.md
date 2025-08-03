@@ -126,10 +126,15 @@ Essential for cross-version compatibility:
 - Address Library IDs are managed through REL::ID system
 - Cross-runtime code uses feature detection patterns
 
-### Virtual Function Patterns
+### Multi-Runtime Conditional Patterns
 
-#### Runtime-Exclusive Virtual Functions
-CommonLibSSE NG handles virtual functions that exist in some runtimes but not others using specific patterns:
+CommonLibSSE NG handles runtime differences using two main conditional patterns:
+
+#### Pattern 1: Runtime-Exclusive Virtual Functions
+
+Use this pattern when a class has the **same base class** across runtimes, but **different virtual functions** exist in different runtimes.
+
+**Example:** Camera state classes all inherit from `TESCameraState`, but VR has an extra `Unk_03()` virtual function that SE/AE don't have.
 
 **For runtime-exclusive virtual functions (e.g., VR-only camera state `Unk_03()`):**
 
@@ -214,6 +219,56 @@ When a runtime-exclusive function exists, ALL virtual functions that come after 
 **Note:** This pattern works for any runtime-exclusive function (VR-only, SE-only, AE-only, etc.), though VR-only functions are the most common case.
 
 **Do NOT use `SKYRIM_REL_VR_VIRTUAL` for runtime-exclusive functions** - it breaks vtable alignment in multi-runtime builds. Use `SKYRIM_REL_VR_VIRTUAL` only for functions that exist across all runtimes but may need different calling conventions.
+
+#### Pattern 2: Runtime-Exclusive Inheritance
+
+Use this pattern when a class has **completely different base classes** in different runtimes.
+
+**Example:** `ButtonEvent` inherits from `VRWandEvent` in VR but from `IDEvent` in SE/AE. `HUDMenu` inherits from `WorldSpaceMenu` in VR but from `IMenu` in SE/AE.
+
+**Inheritance Pattern:**
+```cpp
+// Header (.h file) - Three-way conditional inheritance
+class ClassName :
+#if defined(EXCLUSIVE_SKYRIM_VR)
+    public VROnlyBaseClass,
+    public SharedBaseClass1,
+    public SharedBaseClass2
+#elif !defined(ENABLE_SKYRIM_VR)  // SE/AE-only
+    public SEAEOnlyBaseClass,
+    public SharedBaseClass1,
+    public SharedBaseClass2
+#else
+    // Multi-runtime: can't inherit from incompatible base classes
+    public CommonBaseClass  // Choose most compatible base
+#endif
+{
+public:
+    // Upcast functions for multi-runtime builds
+    [[nodiscard]] VROnlyBaseClass* AsVROnlyBaseClass() noexcept
+    {
+        if SKYRIM_REL_CONSTEXPR (!REL::Module::IsVR()) {
+            return nullptr;
+        }
+        return &REL::RelocateMember<VROnlyBaseClass>(this, 0, 0);
+    }
+
+    [[nodiscard]] SEAEOnlyBaseClass* AsSEAEOnlyBaseClass() noexcept
+    {
+        if SKYRIM_REL_CONSTEXPR (REL::Module::IsVR()) {
+            return nullptr;
+        }
+        return &REL::RelocateMember<SEAEOnlyBaseClass>(this, 0, 0);
+    }
+};
+```
+
+**Critical:** Use `!defined(ENABLE_SKYRIM_VR)` for SE/AE-only case, not just `#else`, to ensure proper compilation across all preset types.
+
+**Build behavior:**
+- **EXCLUSIVE_SKYRIM_VR** (VR-only): Inherits from VR-specific base classes
+- **SE/AE-only builds**: Inherits from SE/AE-specific base classes  
+- **Multi-runtime** (ALL): Inherits from most compatible base, provides upcast functions that return nullptr when invalid
 
 #### Multi-Runtime Architecture Patterns
 

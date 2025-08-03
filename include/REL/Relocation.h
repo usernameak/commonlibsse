@@ -509,6 +509,8 @@ namespace REL
 #elif defined(EXCLUSIVE_SKYRIM_VR)
 		return a_vr;
 #else
+#pragma warning(push)
+#pragma warning(disable: 4702)  // unreachable code in single-runtime builds
 		switch (Module::get().GetRuntime()) {
 		case Module::Runtime::AE:
 			return a_ae;
@@ -517,6 +519,7 @@ namespace REL
 		default:
 			return a_se;
 		}
+#pragma warning(pop)
 #endif
 	}
 
@@ -670,7 +673,10 @@ namespace REL
 	template <class T, class This>
 	[[nodiscard]] inline T& RelocateMember(This* a_self, std::ptrdiff_t a_seAndAE, std::ptrdiff_t a_vr)
 	{
+#pragma warning(push)
+#pragma warning(disable: 4702)  // unreachable code
 		return *reinterpret_cast<T*>(reinterpret_cast<uintptr_t>(a_self) + Relocate(a_seAndAE, a_seAndAE, a_vr));
+#pragma warning(pop)
 	}
 
 	template <class T, class This>
