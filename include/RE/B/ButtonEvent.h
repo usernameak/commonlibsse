@@ -23,7 +23,6 @@ namespace RE
 
 		~ButtonEvent() override;  // 00
 
-
 		[[nodiscard]] float Value() const noexcept { return this->GetRuntimeData().value; }
 		[[nodiscard]] float HeldDuration() const noexcept { return this->GetRuntimeData().heldDownSecs; }
 		[[nodiscard]] bool  IsPressed() const noexcept { return Value() > 0.0F; }
@@ -146,7 +145,6 @@ namespace RE
 			userEvent = a_userEvent;
 #endif
 		}
-
 
 	private:
 		KEEP_FOR_RE()

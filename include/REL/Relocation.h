@@ -509,8 +509,8 @@ namespace REL
 #elif defined(EXCLUSIVE_SKYRIM_VR)
 		return a_vr;
 #else
-#pragma warning(push)
-#pragma warning(disable: 4702)  // unreachable code in single-runtime builds
+#	pragma warning(push)
+#	pragma warning(disable: 4702)  // unreachable code in single-runtime builds
 		switch (Module::get().GetRuntime()) {
 		case Module::Runtime::AE:
 			return a_ae;
@@ -519,7 +519,7 @@ namespace REL
 		default:
 			return a_se;
 		}
-#pragma warning(pop)
+#	pragma warning(pop)
 #endif
 	}
 
