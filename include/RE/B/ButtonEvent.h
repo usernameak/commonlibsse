@@ -87,10 +87,17 @@ namespace RE
 
 		[[nodiscard]] IDEvent* AsIDEvent() noexcept
 		{
-			if SKYRIM_REL_CONSTEXPR (REL::Module::IsVR()) {
-				return nullptr;
-			}
+#if defined(EXCLUSIVE_SKYRIM_VR)
+			// VR builds: ButtonEvent inherits from VRWandEvent which inherits from IDEvent
+			return static_cast<IDEvent*>(static_cast<VRWandEvent*>(this));
+#elif !defined(ENABLE_SKYRIM_VR)
+			// SE/AE builds: ButtonEvent inherits directly from IDEvent
+			return static_cast<IDEvent*>(this);
+#else
+			// Multi-runtime builds: Cannot use static_cast since ButtonEvent only inherits from InputEvent
+			// Use RelocateMember to access IDEvent data at runtime-specific offsets
 			return &REL::RelocateMember<IDEvent>(this, 0, 0);
+#endif
 		}
 
 		[[nodiscard]] const IDEvent* AsIDEvent() const noexcept
@@ -101,49 +108,33 @@ namespace RE
 		// Accessor functions for compatibility with existing code
 		[[nodiscard]] std::uint32_t GetIDCode() const noexcept
 		{
-#ifdef SKYRIM_CROSS_VR
 			if (auto idEvent = AsIDEvent()) {
 				return idEvent->idCode;
 			}
 			return 0;
-#else
-			return idCode;
-#endif
 		}
 
 		void SetIDCode(std::uint32_t a_idCode)
 		{
-#ifdef SKYRIM_CROSS_VR
 			if (auto idEvent = AsIDEvent()) {
 				idEvent->idCode = a_idCode;
 			}
-#else
-			idCode = a_idCode;
-#endif
 		}
 
 		[[nodiscard]] const BSFixedString& GetUserEvent() const noexcept
 		{
-#ifdef SKYRIM_CROSS_VR
 			if (auto idEvent = AsIDEvent()) {
 				return idEvent->userEvent;
 			}
 			static BSFixedString empty;
 			return empty;
-#else
-			return userEvent;
-#endif
 		}
 
 		void SetUserEvent(const BSFixedString& a_userEvent)
 		{
-#ifdef SKYRIM_CROSS_VR
 			if (auto idEvent = AsIDEvent()) {
 				idEvent->userEvent = a_userEvent;
 			}
-#else
-			userEvent = a_userEvent;
-#endif
 		}
 
 	private:

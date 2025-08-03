@@ -270,6 +270,59 @@ public:
 - **SE/AE-only builds**: Inherits from SE/AE-specific base classes  
 - **Multi-runtime** (ALL): Inherits from most compatible base, provides upcast functions that return nullptr when invalid
 
+#### Pattern 3: Chained Inheritance Access
+
+Use this pattern when you need to access base class functionality through a **chain of inheritance** that differs between runtimes.
+
+**Example:** `ButtonEvent` needs access to `IDEvent` members, but:
+- **VR**: `ButtonEvent` → `VRWandEvent` → `IDEvent` → `InputEvent`
+- **SE/AE**: `ButtonEvent` → `IDEvent` → `InputEvent`
+- **Multi-runtime**: `ButtonEvent` → `InputEvent` (no direct inheritance relationship to `IDEvent`)
+
+**Access Function Pattern:**
+```cpp
+[[nodiscard]] IDEvent* AsIDEvent() noexcept
+{
+#if defined(EXCLUSIVE_SKYRIM_VR)
+    // VR builds: Navigate through VRWandEvent to reach IDEvent
+    return static_cast<IDEvent*>(static_cast<VRWandEvent*>(this));
+#elif !defined(ENABLE_SKYRIM_VR)
+    // SE/AE builds: Direct inheritance from IDEvent
+    return static_cast<IDEvent*>(this);
+#else
+    // Multi-runtime builds: No inheritance relationship, use RelocateMember
+    return &REL::RelocateMember<IDEvent>(this, 0, 0);
+#endif
+}
+
+// Accessor functions that work across all runtimes
+[[nodiscard]] std::uint32_t GetIDCode() const noexcept
+{
+    if (auto idEvent = AsIDEvent()) {
+        return idEvent->idCode;
+    }
+    return 0;  // Fallback for invalid cases
+}
+
+void SetIDCode(std::uint32_t a_idCode)
+{
+    if (auto idEvent = AsIDEvent()) {
+        idEvent->idCode = a_idCode;
+    }
+}
+```
+
+**Key Points:**
+- **Single-runtime builds**: Use efficient `static_cast` following known inheritance chains
+- **Multi-runtime builds**: Use `RelocateMember` since inheritance relationship doesn't exist at compile time
+- **Always validate**: Check return values from upcast functions for safety
+- **Consistent API**: Accessor functions provide the same interface regardless of runtime
+
+**Build behavior:**
+- **EXCLUSIVE_SKYRIM_VR**: Uses double static_cast through inheritance chain
+- **SE/AE-only builds**: Uses direct static_cast  
+- **Multi-runtime**: Uses RelocateMember for runtime-specific memory layout access
+
 #### Multi-Runtime Architecture Patterns
 
 CommonLibSSE NG uses different abstraction patterns based on the type and complexity of runtime differences:
