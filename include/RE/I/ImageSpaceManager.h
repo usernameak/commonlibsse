@@ -313,9 +313,10 @@ namespace RE
 		// members
 		std::uint64_t                        unk00;       /* 000 */
 		std::uint64_t                        unk08;       /* 008 */
-		std::int32_t                         unk10;       /* 010 */
-		std::int32_t                         unk14;       /* 014 */
-		std::uint64_t                        unk18;       /* 018 */
+		std::int32_t                         left;        /* 010 */
+		std::int32_t                         right;       /* 014 */
+		std::int32_t                         top;         /* 018 */
+		std::int32_t                         bottom;      /* 01c */
 		NiTPrimitiveArray<ImageSpaceEffect*> effects;     /* 020 */
 		bool                                 initEffects; /* 038 */
 		std::uint32_t                        unk3C;       /* 03C */
