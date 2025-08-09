@@ -10,7 +10,7 @@ constinit auto SKSEPlugin_Version = []() {
     v.AuthorEmail("${PLUGIN_EMAIL}");
     v.UsesAddressLibrary();
     v.UsesUpdatedStructs();
-    v.CompatibleVersions({ SKSE::RUNTIME_LATEST });
+    v.CompatibleVersions({ SKSE::RUNTIME_SSE_LATEST });
     return v;
 }();
 #else
