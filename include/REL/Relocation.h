@@ -349,7 +349,7 @@ namespace REL
 	 * @note If a_expected is nullptr or a_count is 0, the function returns true (no verification needed).
 	 */
 	bool verify_code(std::uintptr_t a_address, const void* a_expected, std::size_t a_count);
-	
+
 	template <std::size_t N>
 	bool verify_code(std::uintptr_t a_address, const std::array<std::uint8_t, N>& a_expected)
 	{
@@ -371,7 +371,7 @@ namespace REL
 	 * @param a_pattern The PatternMatcher object to use for verification
 	 * @return true if the memory matches the pattern, false otherwise
 	 */
-	template<typename Pattern>
+	template <typename Pattern>
 	bool verify_code(std::uintptr_t a_address, const Pattern& a_pattern)
 	{
 		return a_pattern.match(a_address);
@@ -388,7 +388,7 @@ namespace REL
 	 * @param a_pattern The PatternMatcher object to use for verification
 	 * @return true if verification passed and write was successful, false otherwise
 	 */
-	template<typename Pattern>
+	template <typename Pattern>
 	bool safe_write(std::uintptr_t a_dst, const void* a_src, std::size_t a_count, const Pattern& a_pattern)
 	{
 		if (!verify_code(a_dst, a_pattern)) {
@@ -411,7 +411,7 @@ namespace REL
 	 * @param a_pattern The PatternMatcher object to use for verification
 	 * @return true if verification passed and fill was successful, false otherwise
 	 */
-	template<typename Pattern>
+	template <typename Pattern>
 	bool safe_fill(std::uintptr_t a_dst, std::uint8_t a_value, std::size_t a_count, const Pattern& a_pattern)
 	{
 		if (!verify_code(a_dst, a_pattern)) {
@@ -437,7 +437,7 @@ namespace REL
 	 * @return true if verification passed and write was successful, false otherwise
 	 */
 	bool safe_write_verify(std::uintptr_t a_dst, const void* a_src, std::size_t a_count, const void* a_expected = nullptr, std::size_t a_expected_count = 0);
-	
+
 	template <std::integral T>
 	bool safe_write_verify(std::uintptr_t a_dst, const T& a_data, const void* a_expected = nullptr, std::size_t a_expected_count = 0)
 	{
@@ -482,14 +482,14 @@ namespace REL
 		 * @param args The verification results (should be bool values)
 		 * @return true if all verifications passed, false if any failed
 		 */
-		template<typename... Args>
+		template <typename... Args>
 		bool verify_multiple_patches(Args&&... args)
 		{
 			return (args && ...);
 		}
 	}
 
-	/**
+/**
 	 * @brief Macro to verify and patch using PatternMatcher.
 	 * 
 	 * Verifies expected pattern at the target address using PatternMatcher, then applies the patch.
@@ -509,15 +509,15 @@ namespace REL
 	 * VERIFY_AND_PATCH(address, patch_data, pattern, "CopyResource hook");
 	 * @endcode
 	 */
-	#define VERIFY_AND_PATCH(address, patch_data, pattern, description) \
-		do { \
-			if (!REL::safe_write(address, patch_data, sizeof(patch_data), pattern)) { \
-				/* Note: Requires logger to be available in calling scope */ \
-				return false; \
-			} \
-		} while(0)
-	
-	/**
+#define VERIFY_AND_PATCH(address, patch_data, pattern, description)               \
+	do {                                                                          \
+		if (!REL::safe_write(address, patch_data, sizeof(patch_data), pattern)) { \
+			/* Note: Requires logger to be available in calling scope */          \
+			return false;                                                         \
+		}                                                                         \
+	} while (0)
+
+/**
 	 * @brief Macro to verify and fill using PatternMatcher.
 	 * 
 	 * Verifies expected pattern at the target address using PatternMatcher, then fills with the specified value.
@@ -538,13 +538,13 @@ namespace REL
 	 * VERIFY_AND_FILL(address, REL::NOP, 7, pattern, "CopyResource hook");
 	 * @endcode
 	 */
-	#define VERIFY_AND_FILL(address, fill_value, fill_size, pattern, description) \
-		do { \
-			if (!REL::safe_fill(address, fill_value, fill_size, pattern)) { \
-				/* Note: Requires logger to be available in calling scope */ \
-				return false; \
-			} \
-		} while(0)
+#define VERIFY_AND_FILL(address, fill_value, fill_size, pattern, description) \
+	do {                                                                      \
+		if (!REL::safe_fill(address, fill_value, fill_size, pattern)) {       \
+			/* Note: Requires logger to be available in calling scope */      \
+			return false;                                                     \
+		}                                                                     \
+	} while (0)
 
 	template <class T = std::uintptr_t>
 	class Relocation

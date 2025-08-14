@@ -57,18 +57,18 @@ namespace REL
 			// Safety check: don't verify more bytes than we're replacing
 			if (a_expected_count > a_count) {
 				// This is a safety issue - we're trying to verify more than we're replacing
-				SKSE::log::warn("Code verification size mismatch: verifying {} bytes but only replacing {} bytes at {:x}", 
+				SKSE::log::warn("Code verification size mismatch: verifying {} bytes but only replacing {} bytes at {:x}",
 					a_expected_count, a_count, a_dst);
 				return false;
 			}
-			
+
 			// Warn if we're replacing more than we're verifying (but continue)
 			if (a_expected_count < a_count) {
 				// This is acceptable but worth noting for debugging
-				SKSE::log::debug("Code verification partial: verifying {} bytes but replacing {} bytes at {:x}", 
+				SKSE::log::debug("Code verification partial: verifying {} bytes but replacing {} bytes at {:x}",
 					a_expected_count, a_count, a_dst);
 			}
-			
+
 			if (!verify_code(a_dst, a_expected, a_expected_count)) {
 				return false;  // Code verification failed
 			}
@@ -86,18 +86,18 @@ namespace REL
 			// Safety check: don't verify more bytes than we're replacing
 			if (a_expected_count > a_count) {
 				// This is a safety issue - we're trying to verify more than we're replacing
-				SKSE::log::warn("Code verification size mismatch: verifying {} bytes but only replacing {} bytes at {:x}", 
+				SKSE::log::warn("Code verification size mismatch: verifying {} bytes but only replacing {} bytes at {:x}",
 					a_expected_count, a_count, a_dst);
 				return false;
 			}
-			
+
 			// Warn if we're replacing more than we're verifying (but continue)
 			if (a_expected_count < a_count) {
 				// This is acceptable but worth noting for debugging
-				SKSE::log::debug("Code verification partial: verifying {} bytes but replacing {} bytes at {:x}", 
+				SKSE::log::debug("Code verification partial: verifying {} bytes but replacing {} bytes at {:x}",
 					a_expected_count, a_count, a_dst);
 			}
-			
+
 			if (!verify_code(a_dst, a_expected, a_expected_count)) {
 				return false;  // Code verification failed
 			}

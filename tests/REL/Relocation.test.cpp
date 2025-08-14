@@ -328,26 +328,26 @@ TEST_CASE("CodeVerification/VerifyCode", "[unit]")
 	{
 		// Create test data
 		std::uint8_t test_data[] = { 0x48, 0x8B, 0x05, 0xF9, 0xAA, 0x10, 0x00 };
-		auto address = reinterpret_cast<std::uintptr_t>(test_data);
-		
+		auto         address = reinterpret_cast<std::uintptr_t>(test_data);
+
 		// Test exact match
 		std::uint8_t expected[] = { 0x48, 0x8B, 0x05, 0xF9, 0xAA, 0x10, 0x00 };
 		CHECK(REL::verify_code(address, expected, sizeof(expected)));
-		
+
 		// Test mismatch
 		std::uint8_t wrong[] = { 0x48, 0x8B, 0x05, 0xF9, 0xAA, 0x10, 0x01 };
 		CHECK_FALSE(REL::verify_code(address, wrong, sizeof(wrong)));
-		
+
 		// Test partial match
 		std::uint8_t partial[] = { 0x48, 0x8B, 0x05 };
 		CHECK(REL::verify_code(address, partial, sizeof(partial)));
 	}
-	
+
 	SECTION("Empty verification (always passes)")
 	{
 		std::uint8_t test_data[] = { 0x48, 0x8B, 0x05 };
-		auto address = reinterpret_cast<std::uintptr_t>(test_data);
-		
+		auto         address = reinterpret_cast<std::uintptr_t>(test_data);
+
 		CHECK(REL::verify_code(address, nullptr, 0));
 		CHECK(REL::verify_code(address, test_data, 0));
 	}
@@ -359,37 +359,37 @@ TEST_CASE("CodeVerification/SafeWriteWithVerification", "[unit]")
 	{
 		// Create test buffer
 		std::uint8_t buffer[8] = { 0x48, 0x8B, 0x05, 0xF9, 0xAA, 0x10, 0x00, 0x90 };
-		auto address = reinterpret_cast<std::uintptr_t>(buffer);
-		
+		auto         address = reinterpret_cast<std::uintptr_t>(buffer);
+
 		// Verify current content
 		std::uint8_t expected[] = { 0x48, 0x8B, 0x05, 0xF9, 0xAA, 0x10, 0x00 };
-		
+
 		// New content to write
 		std::uint8_t new_data[] = { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 };
-		
+
 		// Should succeed
 		CHECK(REL::safe_write(address, new_data, sizeof(new_data), expected, sizeof(expected)));
-		
+
 		// Verify the write happened
 		CHECK(buffer[0] == 0x90);
 		CHECK(buffer[6] == 0x90);
 	}
-	
+
 	SECTION("Failed verification prevents write")
 	{
 		// Create test buffer
 		std::uint8_t buffer[8] = { 0x48, 0x8B, 0x05, 0xF9, 0xAA, 0x10, 0x00, 0x90 };
-		auto address = reinterpret_cast<std::uintptr_t>(buffer);
-		
+		auto         address = reinterpret_cast<std::uintptr_t>(buffer);
+
 		// Wrong expected content
 		std::uint8_t wrong_expected[] = { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 };
-		
+
 		// New content to write
 		std::uint8_t new_data[] = { 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC };
-		
+
 		// Should fail verification
 		CHECK_FALSE(REL::safe_write(address, new_data, sizeof(new_data), wrong_expected, sizeof(wrong_expected)));
-		
+
 		// Verify the write didn't happen
 		CHECK(buffer[0] == 0x48);  // Original data unchanged
 		CHECK(buffer[6] == 0x00);
@@ -402,32 +402,32 @@ TEST_CASE("CodeVerification/SafeFillWithVerification", "[unit]")
 	{
 		// Create test buffer
 		std::uint8_t buffer[8] = { 0x48, 0x8B, 0x05, 0xF9, 0xAA, 0x10, 0x00, 0x90 };
-		auto address = reinterpret_cast<std::uintptr_t>(buffer);
-		
+		auto         address = reinterpret_cast<std::uintptr_t>(buffer);
+
 		// Verify current content (partial)
 		std::uint8_t expected[] = { 0x48, 0x8B, 0x05 };
-		
+
 		// Should succeed
 		CHECK(REL::safe_fill(address, 0xCC, 7, expected, sizeof(expected)));
-		
+
 		// Verify the fill happened
 		CHECK(buffer[0] == 0xCC);
 		CHECK(buffer[6] == 0xCC);
 		CHECK(buffer[7] == 0x90);  // Beyond fill range
 	}
-	
+
 	SECTION("Failed verification prevents fill")
 	{
 		// Create test buffer
 		std::uint8_t buffer[8] = { 0x48, 0x8B, 0x05, 0xF9, 0xAA, 0x10, 0x00, 0x90 };
-		auto address = reinterpret_cast<std::uintptr_t>(buffer);
-		
+		auto         address = reinterpret_cast<std::uintptr_t>(buffer);
+
 		// Wrong expected content
 		std::uint8_t wrong_expected[] = { 0x90, 0x90, 0x90 };
-		
+
 		// Should fail verification
 		CHECK_FALSE(REL::safe_fill(address, 0xCC, 7, wrong_expected, sizeof(wrong_expected)));
-		
+
 		// Verify the fill didn't happen
 		CHECK(buffer[0] == 0x48);  // Original data unchanged
 		CHECK(buffer[6] == 0x00);
@@ -440,13 +440,13 @@ TEST_CASE("CodeVerification/MultiplePatches", "[unit]")
 	{
 		CHECK(REL::CodeVerification::verify_multiple_patches(true, true, true));
 	}
-	
+
 	SECTION("Some patches fail")
 	{
 		CHECK_FALSE(REL::CodeVerification::verify_multiple_patches(true, false, true));
 		CHECK_FALSE(REL::CodeVerification::verify_multiple_patches(false, false, false));
 	}
-	
+
 	SECTION("Single patch")
 	{
 		CHECK(REL::CodeVerification::verify_multiple_patches(true));
