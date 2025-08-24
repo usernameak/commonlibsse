@@ -519,6 +519,7 @@ namespace RE
 		bool                         CanUseIdle(TESIdleForm* a_idle) const;
 		void                         CastPermanentMagic(bool a_wornItemEnchantments, bool a_baseSpells, bool a_raceSpells, bool a_everyActorAbility);
 		void                         ClearArrested();
+		void                         ClearDeathState();
 		void                         ClearExpressionOverride();
 		inline void                  ClearExtraArrows() { RemoveExtraArrows3D(); }
 		ActorHandle                  CreateRefHandle();

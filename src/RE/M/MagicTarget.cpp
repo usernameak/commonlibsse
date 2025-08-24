@@ -1,12 +1,20 @@
 #include "RE/M/MagicTarget.h"
 
 #include "RE/A/ActiveEffect.h"
+#include "RE/A/ActiveEffectFactory.h"
 #include "RE/A/Actor.h"
 #include "RE/B/BSTList.h"
 #include "RE/E/EffectSetting.h"
 
 namespace RE
 {
+	bool MagicTarget::AddTargetData::CheckAddEffect(ActiveEffectFactory::CheckTargetArgs& a_args, float a_resistance)
+	{
+		using func_t = decltype(&MagicTarget::AddTargetData::CheckAddEffect);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(33741, 34525) };
+		return func(this, a_args, a_resistance);
+	}
+
 	bool MagicTarget::DispelEffect(MagicItem* a_spell, BSPointerHandle<Actor>& a_caster, ActiveEffect* a_effect)
 	{
 		using func_t = decltype(&MagicTarget::DispelEffect);
@@ -67,11 +75,11 @@ namespace RE
 		return func(this, a_effect);
 	}
 
-	bool MagicTarget::HasMagicEffectWithKeyword(BGSKeyword* a_keyword, std::uint64_t a_arg2)
+	bool MagicTarget::HasMagicEffectWithKeyword(BGSKeyword* a_keyword, MagicItem** a_spellOut)
 	{
 		using func_t = decltype(&MagicTarget::HasMagicEffectWithKeyword);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(33734, 34518) };
-		return func(this, a_keyword, a_arg2);
+		return func(this, a_keyword, a_spellOut);
 	}
 
 	void MagicTarget::VisitEffects(ForEachActiveEffectVisitor& visitor)

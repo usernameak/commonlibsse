@@ -195,6 +195,13 @@ namespace RE
 		}
 	}
 
+	void Actor::ClearDeathState()
+	{
+		using func_t = decltype(&Actor::ClearDeathState);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(36605, 37613) };
+		return func(this);
+	}
+
 	void Actor::ClearExpressionOverride()
 	{
 		auto faceGen = GetFaceGenAnimationData();

@@ -822,6 +822,13 @@ namespace RE
 		return GetSubmergeLevel(a_pos.z, a_cell) >= a_waterLevel;
 	}
 
+	void TESObjectREFR::MoveRefToNewSpace(TESObjectCELL* a_interior, TESWorldSpace* a_world)
+	{
+		using func_t = decltype(&TESObjectREFR::MoveRefToNewSpace);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(19372, 19799) };
+		return func(this, a_interior, a_world);
+	}
+
 	void TESObjectREFR::MoveTo(TESObjectREFR* a_target)
 	{
 		assert(a_target);
