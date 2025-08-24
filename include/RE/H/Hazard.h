@@ -21,6 +21,9 @@ namespace RE
 
 		enum class Flags
 		{
+			kNone = 0,
+			kActive = 1 << 0,
+			kExpired = 1 << 1
 		};
 
 		struct RecordFlags
