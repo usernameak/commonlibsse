@@ -14,8 +14,9 @@ namespace RE
 			return *singleton;
 		}
 
-		[[nodiscard]] ActorValueInfo* GetActorValueInfo(ActorValue a_actorValue) const;
-		[[nodiscard]] ActorValue      LookupActorValueByName(const char* a_enumName) const;
+		[[nodiscard]] static ActorValueInfo* GetActorValueInfo(ActorValue a_actorValue);
+		[[nodiscard]] static ActorValue      LookupActorValueByName(const char* a_enumName);
+		[[nodiscard]] static const char*     GetActorValueName(ActorValue a_actorValue);
 
 		// members
 		std::uint32_t   unk00;                                                // 00
@@ -56,7 +57,7 @@ namespace std
 		template <class FormatContext>
 		auto format(RE::ActorValue a_actorValue, FormatContext& a_ctx)
 		{
-			return std::format_to(a_ctx.out(), "{}", ActorValueToString(a_actorValue));
+			return formatter<std::string_view, CharT>::format(ActorValueToString(a_actorValue), a_ctx);
 		}
 	};
 }

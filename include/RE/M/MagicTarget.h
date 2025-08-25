@@ -10,6 +10,11 @@
 
 namespace RE
 {
+	namespace ActiveEffectFactory
+	{
+		struct CheckTargetArgs;
+	}
+
 	class Actor;
 	class ActiveEffect;
 	class BGSKeyword;
@@ -42,6 +47,17 @@ namespace RE
 		};
 		static_assert(sizeof(ForEachActiveEffectVisitor) == 0x8);
 
+		struct ResultsCollector
+		{
+			MagicTarget*  target;       // 00
+			Actor*        caster;       // 08
+			MagicItem*    spell;        // 10
+			std::uint16_t immunities;   // 12
+			std::uint16_t nonTrivials;  // 14
+			std::uint32_t pad18;        // 18
+		};
+		static_assert(sizeof(ResultsCollector) == 0x20);
+
 		struct SpellDispelData
 		{
 			MagicItem*                    spell;         // 00
@@ -54,20 +70,23 @@ namespace RE
 
 		struct AddTargetData
 		{
-			TESObjectREFR*             caster;          // 00
-			MagicItem*                 magicItem;       // 08
-			Effect*                    effect;          // 10
-			TESBoundObject*            source;          // 18
-			std::uint64_t              unk20;           // 20 - MagicCaster::PostCreationCallback
-			std::uint64_t              unk28;           // 28 - MagicTarget**
-			NiPoint3                   explosionPoint;  // 30
-			float                      magnitude;       // 3C
-			float                      unk40;           // 40
-			MagicSystem::CastingSource castingSource;   // 44
-			std::uint8_t               unk48;           // 48
-			bool                       dualCasted;      // 49
-			std::uint16_t              pad4A;           // 4A
-			std::uint32_t              pad4C;           // 4C
+			bool CheckAddEffect(ActiveEffectFactory::CheckTargetArgs& a_args, float a_resistance);
+
+			// members
+			TESObjectREFR*             caster;            // 00
+			MagicItem*                 magicItem;         // 08
+			Effect*                    effect;            // 10
+			TESBoundObject*            source;            // 18
+			std::uint64_t              unk20;             // 20 - MagicCaster::PostCreationCallback
+			ResultsCollector*          resultsCollector;  // 28
+			NiPoint3                   explosionPoint;    // 30
+			float                      magnitude;         // 3C
+			float                      unk40;             // 40
+			MagicSystem::CastingSource castingSource;     // 44
+			bool                       areaTarget;        // 48
+			bool                       dualCasted;        // 49
+			std::uint16_t              pad4A;             // 4A
+			std::uint32_t              pad4C;             // 4C
 		};
 		static_assert(sizeof(AddTargetData) == 0x50);
 
@@ -91,7 +110,7 @@ namespace RE
 		Actor* GetTargetAsActor();
 		bool   HasEffectWithArchetype(Archetype a_type);
 		bool   HasMagicEffect(EffectSetting* a_effect);
-		bool   HasMagicEffectWithKeyword(BGSKeyword* a_keyword, std::uint64_t a_arg2);
+		bool   HasMagicEffectWithKeyword(BGSKeyword* a_keyword, MagicItem** a_spellOut);
 		void   VisitEffects(ForEachActiveEffectVisitor& visitor);
 
 		// members

@@ -58,6 +58,7 @@ namespace RE
 	class TrapData;
 	class TrapEntry;
 	struct BGSDecalGroup;
+	struct BGSWorldLocation;
 	struct BSAnimationGraphEvent;
 	struct BSAnimationUpdateData;
 	struct DoorTeleportData;
@@ -379,7 +380,7 @@ namespace RE
 		std::optional<double>                   GetEnchantmentCharge() const;
 		TESFaction*                             GetFactionOwner();
 		ObjectRefHandle                         GetHandle();
-		float                                   GetHeadingAngle(const RE::NiPoint3& a_pos, bool a_abs);
+		float                                   GetHeadingAngle(const RE::NiPoint3& a_pos, bool a_abs) const;
 		float                                   GetHeight() const;
 		InventoryItemMap                        GetInventory();
 		InventoryItemMap                        GetInventory(std::function<bool(TESBoundObject&)> a_filter, bool a_noInit = false);
@@ -407,6 +408,7 @@ namespace RE
 		float                                   GetWaterHeight() const;
 		float                                   GetWeight() const;
 		float                                   GetWeightInContainer();
+		BGSWorldLocation                        GetWorldLocation() const;
 		TESWorldSpace*                          GetWorldspace() const;
 		bool                                    HasCollision() const;
 		bool                                    HasContainer() const;
@@ -435,6 +437,7 @@ namespace RE
 		bool                                    IsOffLimits();
 		bool                                    IsPersistent() const;
 		bool                                    IsPointSubmergedMoreThan(const NiPoint3& a_pos, TESObjectCELL* a_cell, float a_waterLevel) const;
+		void                                    MoveRefToNewSpace(TESObjectCELL* a_interior, TESWorldSpace* a_world);
 		void                                    MoveTo(TESObjectREFR* a_target);
 		bool                                    MoveToNode(TESObjectREFR* a_target, const BSFixedString& a_nodeName);
 		bool                                    MoveToNode(TESObjectREFR* a_target, NiAVObject* a_node);

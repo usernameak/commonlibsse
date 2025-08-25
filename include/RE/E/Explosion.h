@@ -29,8 +29,16 @@ namespace RE
 		enum class Flags
 		{
 			kNone = 0,
+			kDecalsPlaced = 1 << 0,
+			kTargetsFound = 1 << 1,
+			kTargetsProcessed = 1 << 2,
+			kForcesApplied = 1 << 3,
 			kIgnoreImageSpaceSwap = 1 << 4,
-			kInWater = 1 << 5
+			kUnderwater = 1 << 5,
+			kInitialized = 1 << 6,
+			kNonHostile = 1 << 7,
+			kWaterTestDone = 1 << 8,
+			kSoundTestDone = 1 << 9
 		};
 
 		~Explosion() override;  // 00
@@ -53,9 +61,9 @@ namespace RE
 
 		// members
 		ModelDBHandle                      explosionDBHandle;  // 098
-		float                              startKeyTime;       // 0A0
-		float                              endKeyTime;         // 0A4
-		float                              hitKeyTime;         // 0A8
+		float                              age;                // 0A0
+		float                              lifetime;           // 0A4
+		float                              hitTime;            // 0A8
 		float                              radius;             // 0AC
 		float                              imodRadius;         // 0B0
 		float                              unkB4;              // 0B4
@@ -72,7 +80,7 @@ namespace RE
 		NiPointer<ActorCause>              actorCause;         // 100
 		NonActorMagicCaster*               magicCaster;        // 108
 		TESObjectWEAP*                     weaponSource;       // 110
-		std::uint32_t                      unk118;             // 118
+		std::uint32_t                      frameCount;         // 118
 		NiPoint3                           unk11C;             // 11C
 		NiPoint3                           negativeVelocity;   // 128
 		float                              damage;             // 134

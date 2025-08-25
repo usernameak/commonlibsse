@@ -229,7 +229,7 @@ namespace RE
 		void CopyFromTemplateForms(TESActorBase** a_templateForms) override;  // 04
 
 		// override (ActorValueOwner)
-		float GetActorValue(ActorValue a_akValue) override;                 // 01
+		float GetActorValue(ActorValue a_akValue) const override;           // 01
 		void  SetActorValue(ActorValue a_akValue, float a_value) override;  // 07
 
 		// override (BSTEventSink<MenuOpenCloseEvent>)

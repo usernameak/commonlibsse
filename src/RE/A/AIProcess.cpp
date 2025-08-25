@@ -6,6 +6,7 @@
 #include "RE/H/HighProcessData.h"
 #include "RE/M/MiddleHighProcessData.h"
 #include "RE/N/NiAVObject.h"
+#include "RE/P/ProcessType.h"
 #include "SKSE/API.h"
 
 namespace RE
