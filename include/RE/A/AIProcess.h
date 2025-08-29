@@ -156,6 +156,7 @@ namespace RE
 		bhkCharacterController* GetCharController();
 		ActorHandle             GetCommandingActor() const;
 		TESShout*               GetCurrentShout();
+		InventoryEntryData*     GetCurrentWeapon(bool a_leftHand);
 		TESForm*                GetEquippedLeftHand();
 		TESForm*                GetEquippedRightHand();
 		ObjectRefHandle         GetHeadtrackTarget() const;

@@ -59,6 +59,13 @@ namespace RE
 		return high ? high->currentShout : nullptr;
 	}
 
+	InventoryEntryData* AIProcess::GetCurrentWeapon(bool a_leftHand)
+	{
+		using func_t = decltype(&AIProcess::GetCurrentWeapon);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(38781, 39806) };
+		return func(this, a_leftHand);
+	}
+
 	TESForm* AIProcess::GetEquippedLeftHand()
 	{
 		return equippedObjects[Hands::kLeft];

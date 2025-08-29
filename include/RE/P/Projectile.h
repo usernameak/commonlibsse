@@ -265,7 +265,7 @@ namespace RE
 		float                              range;                // 190
 		float                              livingTime;           // 194
 		float                              weaponDamage;         // 198
-		float                              transparency;         // 19C - for beam disappearing
+		float                              alpha;                // 19C - for beam disappearing
 		float                              explosionTimer;       // 1A0
 		std::uint32_t                      unk1A4;               // 1A4
 		float                              unk1A8;               // 1A8 - 0.0f
