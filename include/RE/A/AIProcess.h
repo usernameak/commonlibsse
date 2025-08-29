@@ -166,6 +166,7 @@ namespace RE
 		ObjectRefHandle         GetOccupiedFurniture() const;
 		float                   GetRegenDelay(ActorValue a_actorvalue) const;
 		TESPackage*             GetRunningPackage() const;
+		NiAVObject*             GetTorchNode(const BSTSmartPointer<BipedAnim>& a_biped) const;
 		Actor*                  GetUserData() const;
 		float                   GetVoiceRecoveryTime() const;
 		NiAVObject*             GetWeaponNode(const BSTSmartPointer<BipedAnim>& a_biped) const;

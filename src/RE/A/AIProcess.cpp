@@ -148,6 +148,15 @@ namespace RE
 		return package;
 	}
 
+	NiAVObject* AIProcess::GetTorchNode(const BSTSmartPointer<BipedAnim>& a_biped) const
+	{
+		if (middleHigh && a_biped) {
+			return a_biped->root->GetObjectByName(FixedStrings::GetSingleton()->shield);
+		}
+
+		return nullptr;
+	}
+
 	Actor* AIProcess::GetUserData() const
 	{
 		const auto torsoNode = middleHigh ? middleHigh->torsoNode : nullptr;
