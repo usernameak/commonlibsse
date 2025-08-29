@@ -14,17 +14,17 @@ namespace SKSE
 {
 	struct InitInfo
 	{
-		bool           log{ true };
+		bool log{ true };
 #ifndef NDEBUG
 		REX::LOG_LEVEL logLevel{ REX::LOG_LEVEL::DEBUG };
 #else
 		REX::LOG_LEVEL logLevel{ REX::LOG_LEVEL::INFO };
 #endif
-		const char*    logName{ nullptr };
-		const char*    logPattern{ nullptr };
-		bool           trampoline{ false };
-		std::size_t    trampolineSize{ 0 };
-		bool           hook{ true };
+		const char* logName{ nullptr };
+		const char* logPattern{ nullptr };
+		bool        trampoline{ false };
+		std::size_t trampolineSize{ 0 };
+		bool        hook{ true };
 	};
 
 	void Init(const LoadInterface* a_intfc, InitInfo a_info = {}) noexcept;
