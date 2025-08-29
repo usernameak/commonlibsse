@@ -4,6 +4,7 @@
 #include "RE/F/FixedStrings.h"
 #include "RE/F/FormTraits.h"
 #include "RE/H/HighProcessData.h"
+#include "RE/I/InventoryEntryData.h"
 #include "RE/M/MiddleHighProcessData.h"
 #include "RE/N/NiAVObject.h"
 #include "RE/P/ProcessType.h"

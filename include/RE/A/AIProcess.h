@@ -14,6 +14,7 @@ namespace RE
 	class Actor;
 	class bhkCharacterController;
 	class BipedAnim;
+	class InventoryEntryData;
 	class NiAVObject;
 	class NiPoint3;
 	class TESForm;
