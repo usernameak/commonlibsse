@@ -93,6 +93,14 @@ namespace RE
 			inline constexpr REL::ID Singleton(static_cast<std::uint64_t>(402776));
 		}
 
+		namespace BSFaceGenKeyframeMultiple
+		{
+			inline constexpr REL::ID GetExpressionName(static_cast<std::uint64_t>(26428));
+			inline constexpr REL::ID GetModifierName(static_cast<std::uint64_t>(26429));
+			inline constexpr REL::ID GetPhonemeName(static_cast<std::uint64_t>(26430));
+			inline constexpr REL::ID GetCustomName(static_cast<std::uint64_t>(26431));
+		}
+
 		namespace BSLightingShaderMaterialBase
 		{
 			inline constexpr REL::ID CreateMaterial(static_cast<std::uint64_t>(106723));
@@ -672,6 +680,14 @@ namespace RE
 		namespace BSInputDeviceManager
 		{
 			inline constexpr REL::ID Singleton(static_cast<std::uint64_t>(516574));
+		}
+
+		namespace BSFaceGenKeyframeMultiple
+		{
+			inline constexpr REL::ID GetExpressionName(static_cast<std::uint64_t>(27007));
+			inline constexpr REL::ID GetModifierName(static_cast<std::uint64_t>(27008));
+			inline constexpr REL::ID GetPhonemeName(static_cast<std::uint64_t>(27009));
+			inline constexpr REL::ID GetCustomName(static_cast<std::uint64_t>(27010));
 		}
 
 		namespace BSLightingShaderMaterialBase
