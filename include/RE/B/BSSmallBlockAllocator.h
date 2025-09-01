@@ -38,9 +38,8 @@ namespace RE
 			std::uint32_t     totalAllocatedBlocks;  // 14
 			std::uint32_t     totalBytes;            // 18
 			std::uint32_t     elementSize;           // 1C
-			BSCriticalSection lock;                  // 20
 		};
-		static_assert(sizeof(Pool) == 0x48);
+		static_assert(sizeof(Pool) == 0x20);
 	}
 
 	struct BlockPageInternal
@@ -57,15 +56,19 @@ namespace RE
 	};
 	static_assert(sizeof(BlockPageInternal) == 0x20);
 
-	class BSSmallBlockAllocator : public IMemoryStore
+	class BSSmallBlockAllocator :
+		public IMemoryStore
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSSmallBlockAllocator;
 		inline static constexpr auto VTABLE = VTABLE_BSSmallBlockAllocator;
 
-		struct Pool : public BSSmallBlockAllocatorUtil::Pool
+		struct Pool :
+			public BSSmallBlockAllocatorUtil::Pool
 		{
 		public:
+			// members
+			BSCriticalSection lock;  // 20
 		};
 		static_assert(sizeof(Pool) == 0x48);
 
