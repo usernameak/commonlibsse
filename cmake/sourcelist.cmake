@@ -2122,8 +2122,8 @@ set(SOURCES
 	src/RE/T/TESSpellList.cpp
 	src/RE/T/TESTopic.cpp
 	src/RE/T/TESTopicInfo.cpp
-	src/RE/T/TESWorldSpace.cpp
 	src/RE/T/TESWaterSystem.cpp
+	src/RE/T/TESWorldSpace.cpp
 	src/RE/T/TaskQueueInterface.cpp
 	src/RE/T/ThirdPersonState.cpp
 	src/RE/T/ThumbstickEvent.cpp

@@ -75,7 +75,7 @@ namespace RE
 		{
 			return std::uint32_t(compileIndex) << 24 | (formLower & 0xFFFFFF);
 		}
-		std::uint32_t                         GetRuntimeFormID(FormID rawFormID) const;
+		std::uint32_t GetRuntimeFormID(FormID rawFormID) const;
 
 		// members
 		REX::EnumSet<Error, std::uint32_t>      lastError;                        // 000
