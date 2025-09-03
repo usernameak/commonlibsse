@@ -1789,6 +1789,7 @@ set(SOURCES
 	src/RE/B/BSDirectInputManager.cpp
 	src/RE/B/BSEffectShaderData.cpp
 	src/RE/B/BSExtraData.cpp
+	src/RE/B/BSFaceGenAnimationData.cpp
 	src/RE/B/BSFaceGenKeyframeMultiple.cpp
 	src/RE/B/BSFixedString.cpp
 	src/RE/B/BSGamepadDevice.cpp
