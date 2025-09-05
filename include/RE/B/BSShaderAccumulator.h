@@ -36,8 +36,8 @@ namespace RE
 		void                            StopGroupingAlphas(BSBatchRenderer::GeometryGroup* a_group) override;  // 29
 
 		// add
-		virtual void FinishAccumulatingPreResolveDepth();   // 2A
-		virtual void FinishAccumulatingPostResolveDepth();  // 2B
+		virtual void FinishAccumulatingPreResolveDepth(std::uint32_t flags);   // 2A
+		virtual void FinishAccumulatingPostResolveDepth(std::uint32_t flags);  // 2B
 		virtual void Unk_2C();                              // 2C
 
 		std::uint8_t     unk58[0x4];                // 58
