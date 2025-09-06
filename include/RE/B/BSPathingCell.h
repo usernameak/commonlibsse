@@ -22,10 +22,7 @@ namespace RE
 		virtual void          Unk_07(void) = 0;     // 07
 		virtual void          Unk_08(void) = 0;     // 08
 		virtual void          Unk_09(void) = 0;     // 09
-		virtual void          Unk_0A(void) = 0;     // 0A
-
-		// members
-		std::uint32_t unk0C;  // 0C
+		virtual bool          IsInSameSpace(BSTSmartPointer<BSPathingCell>* a_otherCell) = 0;     // 0A
 	};
 	static_assert(sizeof(BSPathingCell) == 0x10);
 }

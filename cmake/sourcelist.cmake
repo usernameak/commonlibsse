@@ -312,6 +312,7 @@ set(SOURCES
 	include/RE/B/BSParticleShaderProperty.h
 	include/RE/B/BSParticleShaderRainEmitter.h
 	include/RE/B/BSParticleShaderSnowEmitter.h
+	include/RE/B/BSPathing.h
 	include/RE/B/BSPathingCell.h
 	include/RE/B/BSPointerHandle.h
 	include/RE/B/BSPointerHandleManager.h
@@ -747,6 +748,7 @@ set(SOURCES
 	include/RE/F/FightReactions.h
 	include/RE/F/FileID.h
 	include/RE/F/FindMaxMagnitudeVisitor.h
+	include/RE/F/FindTriangleForLocationFilterCheckDeltaZ.h
 	include/RE/F/FirstPersonState.h
 	include/RE/F/FixedStrings.h
 	include/RE/F/FlameProjectile.h
