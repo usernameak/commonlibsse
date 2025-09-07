@@ -36,9 +36,9 @@ namespace RE
 		void               PostDisplay() override;                           // 06
 
 		// members
-		BSTArray<PerkData> perkData;  // 30
-		float              unk48;     // 48
-		float              unk4C;     // 4C
+		BSTArray<PerkData> perkData;              // 30
+		float              storedKeyRepeatShort;  // 48
+		float              storedKeyRepeatLong;   // 4C
 	};
 	static_assert(sizeof(TweenMenu) == 0x50);
 }
