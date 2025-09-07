@@ -19,7 +19,7 @@ namespace RE
 			};
 
 			constexpr PathingCellInfo() :
-				worldSpaceID(0) {};
+				worldSpaceID(0){};
 
 			FormID     worldSpaceID;
 			CellFormID cellID;

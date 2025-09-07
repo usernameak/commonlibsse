@@ -10,7 +10,8 @@
 
 namespace RE
 {
-	struct NavMeshInfo : BSNavmeshInfo {};
+	struct NavMeshInfo : BSNavmeshInfo
+	{};
 
 	class NavMeshInfoMap :
 		public TESForm,                       // 00
