@@ -312,6 +312,7 @@ set(SOURCES
 	include/RE/B/BSParticleShaderProperty.h
 	include/RE/B/BSParticleShaderRainEmitter.h
 	include/RE/B/BSParticleShaderSnowEmitter.h
+	include/RE/B/BSPathing.h
 	include/RE/B/BSPathingCell.h
 	include/RE/B/BSPointerHandle.h
 	include/RE/B/BSPointerHandleManager.h
@@ -338,6 +339,7 @@ set(SOURCES
 	include/RE/B/BSSceneGraph.h
 	include/RE/B/BSScriptObjectBindPolicy.h
 	include/RE/B/BSShader.h
+	include/RE/B/BSShaderAccumulator.h
 	include/RE/B/BSShaderManager.h
 	include/RE/B/BSShaderMaterial.h
 	include/RE/B/BSShaderProperty.h
@@ -746,6 +748,7 @@ set(SOURCES
 	include/RE/F/FightReactions.h
 	include/RE/F/FileID.h
 	include/RE/F/FindMaxMagnitudeVisitor.h
+	include/RE/F/FindTriangleForLocationFilterCheckDeltaZ.h
 	include/RE/F/FirstPersonState.h
 	include/RE/F/FixedStrings.h
 	include/RE/F/FlameProjectile.h
@@ -1267,9 +1270,12 @@ set(SOURCES
 	include/RE/N/NavMesh.h
 	include/RE/N/NavMeshInfoMap.h
 	include/RE/N/NiAVObject.h
+	include/RE/N/NiAccumulator.h
 	include/RE/N/NiAllocator.h
+	include/RE/N/NiAlphaAccumulator.h
 	include/RE/N/NiAlphaProperty.h
 	include/RE/N/NiAnimationKey.h
+	include/RE/N/NiBackToFrontAccumulator.h
 	include/RE/N/NiBillboardNode.h
 	include/RE/N/NiBinaryStream.h
 	include/RE/N/NiBoneMatrixSetterI.h
