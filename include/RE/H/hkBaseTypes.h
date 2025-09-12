@@ -39,4 +39,7 @@ namespace RE
 		std::uint8_t value;  // 0
 	};
 	static_assert(sizeof(hkUFloat8) == 0x1);
+
+	template <class E, class U>
+	using hkEnum = REX::EnumSet<E, U>;
 }

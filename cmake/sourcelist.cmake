@@ -956,8 +956,11 @@ set(SOURCES
 	include/RE/H/hkContactPointMaterial.h
 	include/RE/H/hkContainerAllocators.h
 	include/RE/H/hkFinishLoadedObjectFlag.h
+	include/RE/H/hkLifoAllocator.h
 	include/RE/H/hkMatrix3.h
 	include/RE/H/hkMemoryAllocator.h
+	include/RE/H/hkMemoryRouter.h
+	include/RE/H/hkMemorySystem.h
 	include/RE/H/hkMoppBvTreeShapeBase.h
 	include/RE/H/hkMotionState.h
 	include/RE/H/hkMultiThreadCheck.h
