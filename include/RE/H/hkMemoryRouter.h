@@ -31,6 +31,7 @@ namespace RE
 		void SetHeap(hkMemoryAllocator* a_val) noexcept { Heap = a_val; }
 		void SetSolver(hkMemoryAllocator* a_val) noexcept { Solver = a_val; }
 		void SetTemp(hkMemoryAllocator* a_val) noexcept { Temp = a_val; }
+		[[nodiscard]] hkLifoAllocator& GetStack() noexcept { return Stack; }
 
 		// members
 		hkLifoAllocator    Stack;     // 0
