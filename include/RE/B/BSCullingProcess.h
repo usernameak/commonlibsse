@@ -1,6 +1,7 @@
 #pragma once
 
 #include "RE/B/BSTArray.h"
+#include "RE/B/BSTHashMap.h"
 #include "RE/B/BSTLocklessQueue.h"
 #include "RE/N/NiCullingProcess.h"
 #include "RE/N/NiSmartPointer.h"
@@ -55,12 +56,7 @@ namespace RE
 
 		BSTArray<NiPointer<NiAVObject>>                   unk00128;           // 00128
 		BSTLocklessQueue::ObjMultiProdCons<Data, 4096, 0> cullQueue;          // 00140
-		std::uint64_t                                     unk30160;           // 30160
-		std::uint64_t                                     unk30168;           // 30168
-		std::uint64_t                                     unk30170;           // 30170
-		std::uint64_t                                     unk30178;           // 30178
-		std::uint64_t                                     unk30180;           // 30180
-		std::uint64_t                                     unk30188;           // 30188
+		BSTHashMap<NiAVObject*, bool>                     roomSharedMap;      // 30160
 		BSPortalGraphEntry*                               portalGraphEntry;   // 30190
 		std::int32_t                                      cullMode;           // 30198
 		BSCompoundFrustum*                                compoundFrustum;    // 301A0
