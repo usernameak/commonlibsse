@@ -11,7 +11,7 @@ namespace RE
 	public:
 		[[nodiscard]] static hkMemoryRouter* GetInstancePtr()
 		{
-			const REL::Relocation<std::uint32_t*> tlsSlot { RELOCATION_ID(520865, 407383) };
+			const REL::Relocation<std::uint32_t*> tlsSlot{ RELOCATION_ID(520865, 407383) };
 			return static_cast<hkMemoryRouter*>(REX::W32::TlsGetValue(*tlsSlot));
 		}
 
@@ -22,15 +22,14 @@ namespace RE
 
 		static void ReplaceInstance(hkMemoryRouter* a_router)
 		{
-			const REL::Relocation<std::uint32_t*> tlsSlot { RELOCATION_ID(520865, 407383) };
+			const REL::Relocation<std::uint32_t*> tlsSlot{ RELOCATION_ID(520865, 407383) };
 			REX::W32::TlsSetValue(*tlsSlot, a_router);
 		}
 
-
-		void SetDebug(hkMemoryAllocator* a_val) noexcept { Debug = a_val; }
-		void SetHeap(hkMemoryAllocator* a_val) noexcept { Heap = a_val; }
-		void SetSolver(hkMemoryAllocator* a_val) noexcept { Solver = a_val; }
-		void SetTemp(hkMemoryAllocator* a_val) noexcept { Temp = a_val; }
+		void                           SetDebug(hkMemoryAllocator* a_val) noexcept { Debug = a_val; }
+		void                           SetHeap(hkMemoryAllocator* a_val) noexcept { Heap = a_val; }
+		void                           SetSolver(hkMemoryAllocator* a_val) noexcept { Solver = a_val; }
+		void                           SetTemp(hkMemoryAllocator* a_val) noexcept { Temp = a_val; }
 		[[nodiscard]] hkLifoAllocator& GetStack() noexcept { return Stack; }
 
 		// members

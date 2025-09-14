@@ -57,17 +57,17 @@ namespace RE
 			GarbageCollectThread(hkMemoryRouter::GetInstance());
 			GarbageCollectShared();
 		}
-		virtual void        AdvanceFrame() {}                                                                                                                                                   // 10
-		virtual const void* DebugFindBaseAddress([[maybe_unused]] const void* a_ptr, [[maybe_unused]] std::int32_t a_numBytes) { return nullptr; }                                              // 11
-		virtual hkResult    GetMemorySnapshot([[maybe_unused]] hkDebugMemorySnapshot& a_snapshot) { return hkResult::kFailure; }                                                                // 12
-		virtual void        DebugLockBaseAddress([[maybe_unused]] const void* a_baseAddress) {}                                                                                                            // 13
-		virtual void        DebugUnlockBaseAddress([[maybe_unused]] const void* a_baseAddress) {}                                                                                                          // 14
-		virtual void        DebugTagAddress([[maybe_unused]] const void* a_baseAddress, [[maybe_unused]] const void* a_tag) {}                                                                                        // 15
+		virtual void        AdvanceFrame() {}                                                                                                       // 10
+		virtual const void* DebugFindBaseAddress([[maybe_unused]] const void* a_ptr, [[maybe_unused]] std::int32_t a_numBytes) { return nullptr; }  // 11
+		virtual hkResult    GetMemorySnapshot([[maybe_unused]] hkDebugMemorySnapshot& a_snapshot) { return hkResult::kFailure; }                    // 12
+		virtual void        DebugLockBaseAddress([[maybe_unused]] const void* a_baseAddress) {}                                                     // 13
+		virtual void        DebugUnlockBaseAddress([[maybe_unused]] const void* a_baseAddress) {}                                                   // 14
+		virtual void        DebugTagAddress([[maybe_unused]] const void* a_baseAddress, [[maybe_unused]] const void* a_tag) {}                      // 15
 		virtual hkResult    GetAllocationCallStack(
-			[[maybe_unused]] void* a_ptr,
-			[[maybe_unused]] std::uint64_t* a_callstack,
-			[[maybe_unused]] int& a_stackSize,
-			[[maybe_unused]] std::size_t& a_allocSize) { return hkResult::kFailure; }  // 16
+			   [[maybe_unused]] void*          a_ptr,
+			   [[maybe_unused]] std::uint64_t* a_callstack,
+			   [[maybe_unused]] int&           a_stackSize,
+			   [[maybe_unused]] std::size_t&   a_allocSize) { return hkResult::kFailure; }  // 16
 	};
 	static_assert(sizeof(hkMemorySystem) == 0x8);
 }
