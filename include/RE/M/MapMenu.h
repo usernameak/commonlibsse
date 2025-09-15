@@ -29,6 +29,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto      RTTI = RTTI_MapMenu;
+		inline static constexpr auto      VTABLE = VTABLE_MapMenu;
 		constexpr static std::string_view MENU_NAME = "MapMenu";
 
 		~MapMenu() override;  // 00

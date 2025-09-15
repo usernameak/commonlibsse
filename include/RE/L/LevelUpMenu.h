@@ -13,6 +13,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto      RTTI = RTTI_LevelUpMenu;
+		inline static constexpr auto      VTABLE = VTABLE_LevelUpMenu;
 		constexpr static std::string_view MENU_NAME = "LevelUp Menu";
 
 		class ConfirmLevelUpAttributeCallback : public IMessageBoxCallback

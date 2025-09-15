@@ -13,6 +13,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto      RTTI = RTTI_SleepWaitMenu;
+		inline static constexpr auto      VTABLE = VTABLE_SleepWaitMenu;
 		constexpr static std::string_view MENU_NAME = "Sleep/Wait Menu";
 
 		~SleepWaitMenu() override;  // 00
