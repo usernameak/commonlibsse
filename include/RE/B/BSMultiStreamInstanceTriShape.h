@@ -16,7 +16,7 @@ namespace RE
 		// override (BSInstanceTriShape)
 		const NiRTTI* GetRTTI() const override;                                                                                            // 02
 		NiObject*     CreateClone(NiCloningProcess& a_cloning) override;                                                                   // 17
-		void          OnVisible(NiCullingProcess& a_process) override;                                                                     // 34
+		void          OnVisible(NiCullingProcess& a_process, std::int32_t a_alphaGroupIndex) override;                                                                     // 34
 		void          Unk_37(void) override;                                                                                               // 37
 		void          BeginAddingInstances(std::uint32_t a_numFloatsPerInstance) override;                                                 // 38
 		void          AddInstances(std::uint32_t a_numFloatsPerInstance, std::uint16_t& a_instanceData) override;                          // 39

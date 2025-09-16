@@ -561,6 +561,7 @@ set(SOURCES
 	include/RE/D/DoNothingUnhandledPolicy.h
 	include/RE/D/DragonCameraState.h
 	include/RE/D/DragonSoulsGained.h
+	include/RE/D/DrawWorld.h
 	include/RE/D/DropObjectFunctor.h
 	include/RE/D/DualValueModifierEffect.h
 	include/RE/E/Effect.h
@@ -1370,6 +1371,7 @@ set(SOURCES
 	include/RE/N/NiTransform.h
 	include/RE/N/NiTriBasedGeometry.h
 	include/RE/N/NiTriShape.h
+	include/RE/N/NiVisibleArray.h
 	include/RE/N/NightEyeEffect.h
 	include/RE/N/NonActorMagicCaster.h
 	include/RE/N/NonActorMagicTarget.h
@@ -1800,6 +1802,7 @@ set(SOURCES
 	src/RE/B/BGSStoryTeller.cpp
 	src/RE/B/BSAtomic.cpp
 	src/RE/B/BSAudioManager.cpp
+	src/RE/B/BSCompoundFrustum.cpp
 	src/RE/B/BSDirectInputManager.cpp
 	src/RE/B/BSEffectShaderData.cpp
 	src/RE/B/BSExtraData.cpp
@@ -1817,6 +1820,7 @@ set(SOURCES
 	src/RE/B/BSLightingShaderProperty.cpp
 	src/RE/B/BSModelDB.cpp
 	src/RE/B/BSMouseDevice.cpp
+	src/RE/B/BSOcclusionPlane.cpp
 	src/RE/B/BSPCGamepadDeviceDelegate.cpp
 	src/RE/B/BSPCGamepadDeviceHandler.cpp
 	src/RE/B/BSPCOrbisGamepadDevice.cpp
@@ -1994,6 +1998,7 @@ set(SOURCES
 	src/RE/N/NiColorKey.cpp
 	src/RE/N/NiControllerManager.cpp
 	src/RE/N/NiControllerSequence.cpp
+	src/RE/N/NiCullingProcess.cpp
 	src/RE/N/NiExtraData.cpp
 	src/RE/N/NiFloatData.cpp
 	src/RE/N/NiFloatExtraData.cpp

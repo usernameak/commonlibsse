@@ -66,6 +66,8 @@ namespace RE
 		virtual void Process2(const NiCamera* a_camera, NiAVObject* a_scene, NiVisibleArray* a_visibleSet);  // 17 - { return; }
 		virtual void AppendVirtual(BSGeometry& a_visible, std::int32_t a_arg2);                              // 18
 
+		void SetFrustum(const NiFrustum* a_frustum);
+
 		// members
 		const bool      useVirtualAppend{ false };  // 008
 		std::uint8_t    pad009;                     // 009

@@ -43,8 +43,8 @@ namespace RE
 		~ShadowSceneNode() override;  // 00
 
 		// override (NiNode)
-		const NiRTTI* GetRTTI() const override;                         // 02
-		void          OnVisible(NiCullingProcess& a_process) override;  // 34
+		const NiRTTI* GetRTTI() const override;                                                         // 02
+		void          OnVisible(NiCullingProcess& a_process, std::int32_t a_alphaGroupIndex) override;  // 34
 
 		BSLight* AddLight(NiLight* a_light, const LIGHT_CREATE_PARAMS& a_params);
 		void     AddLight(BSLight* a_light);
@@ -68,7 +68,7 @@ namespace RE
 		mutable BSSpinLock              objectListLock;          // 1F8
 		BSLight*                        sunLight;                // 200
 		BSLight*                        cloudLight;              // 208
-		BSShadowDirectionalLight*       shadowDirLight;          // 210
+		BSShadowDirectionalLight*       sunShadowDirLight;       // 210
 		std::uint8_t                    sceneGraphIndex;         // 218
 		bool                            disableLightUpdate;      // 219
 		bool                            wireframe;               // 21A

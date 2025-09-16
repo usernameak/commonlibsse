@@ -22,7 +22,7 @@ namespace RE
 		virtual void               AppendNonAccum(NiAVObject& a_object, std::int32_t a_arg2) override;                              // 19
 		virtual bool               TestBaseVisibility1(BSMultiBound& a_bound) override;                                             // 1A
 		virtual bool               TestBaseVisibility2(BSOcclusionPlane& a_bound) override;                                         // 1B
-		[[nodiscard]] virtual bool TestBaseVisibility3(const NiBound& a_bound) const override;                                      // 1C
+		[[nodiscard]] virtual bool TestBaseVisibility3(const NiBound& a_bound) override;                                            // 1C
 
 		float                          unk301F8;                   // 301F8
 		NiPointer<BSShaderAccumulator> backHemisphereAccumulator;  // 30200
