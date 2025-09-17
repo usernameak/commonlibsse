@@ -26,7 +26,7 @@ namespace RE
 		uint32_t                  freeOp;           // BC
 		uint32_t                  firstOp;          // C0
 		bool                      skipViewFrustum;  // C4
-		bool                      unkC5;            // C5
+		bool                      prethreaded;      // C5
 	};
 	static_assert(sizeof(BSCompoundFrustum) == 0xC8);
 }

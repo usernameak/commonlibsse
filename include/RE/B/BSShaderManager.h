@@ -24,6 +24,12 @@ namespace RE
 			kTotal = 5,
 		};
 
+		enum etRenderMode
+		{
+			BSSM_RENDER_NORMAL = 0,
+			BSSM_RENDER_PRECIPITATION_OCCLUSION_MAP = 28,
+		};
+
 		class State
 		{
 		public:
@@ -80,6 +86,13 @@ namespace RE
 			using func_t = decltype(&BSShaderManager::GetTexture);
 			static REL::Relocation<func_t> func{ RELOCATION_ID(98986, 105640) };
 			return func(a_path, a_demand, a_textureOut, a_isHeightMap);
+		}
+
+		static void SetRenderMode(etRenderMode a_renderMode)
+		{
+			using func_t = decltype(&BSShaderManager::SetRenderMode);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(98987, 105641) };
+			return func(a_renderMode);
 		}
 	};
 }
