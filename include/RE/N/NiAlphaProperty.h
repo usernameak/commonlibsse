@@ -38,7 +38,8 @@ namespace RE
 			kNever
 		};
 
-		enum class AlphaFlags {
+		enum class AlphaFlags
+		{
 			kIsEditorModifiable = 1 << 15
 		};
 

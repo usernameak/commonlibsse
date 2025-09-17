@@ -331,11 +331,13 @@ namespace RE
 		return func(this, a_enable, a_arg2, a_arg3);
 	}
 
-	int NiAVObject::IsVisualObjectI() {
+	int NiAVObject::IsVisualObjectI()
+	{
 		return *reinterpret_cast<std::int32_t*>(&worldBound.radius);
 	}
 
-	void NiAVObject::Cull(NiCullingProcess* a_culler, const std::int32_t a_alphaGroupIndex) {
+	void NiAVObject::Cull(NiCullingProcess* a_culler, const std::int32_t a_alphaGroupIndex)
+	{
 		if (!GetAppCulled())
 			a_culler->Process1(this, a_alphaGroupIndex);
 	}

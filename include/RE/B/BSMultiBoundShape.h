@@ -11,7 +11,8 @@ namespace RE
 		inline static constexpr auto Ni_RTTI = NiRTTI_BSMultiBoundShape;
 		inline static constexpr auto VTABLE = VTABLE_BSMultiBoundShape;
 
-		enum class BSMBCullResult {
+		enum class BSMBCullResult
+		{
 			kCullUntested = 0,
 			kCullVisible,
 			kCullCulled,

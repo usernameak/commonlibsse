@@ -38,9 +38,10 @@ namespace RE
 				return next;
 			}
 
-			void Add(T* a_element) {
+			void Add(T* a_element)
+			{
 				std::uint32_t i;
-				for (i = allocated; ; i = allocated) {
+				for (i = allocated;; i = allocated) {
 					while ((((i + 1) ^ fetched) % SIZE) == 0) {
 						REX::W32::Sleep(0);
 						i = allocated;
