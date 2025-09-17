@@ -1435,6 +1435,7 @@
 #include "RE/R/RenderTargetManager.h"
 #include "RE/R/RenderTargetProperties.h"
 #include "RE/R/Renderer.h"
+#include "RE/R/RendererShadowState.h"
 #include "RE/R/Request.h"
 #include "RE/R/ReticuleController.h"
 #include "RE/R/Rumble.h"

@@ -46,7 +46,7 @@ namespace RE
 		virtual bool UpdateCamera(const NiCamera* a_viewCamera) = 0;                                                                                     // 10
 
 		// members
-		std::uint32_t                   shadowMapIndex;        // 140
+		std::uint32_t                   shadowMapCount;        // 140
 		std::uint32_t                   unk144;                // 144
 		BSTArray<ShadowMapData>         shadowMapDataList;     // 148
 		ShadowMapData                   shadowMapData[4];      // 161
