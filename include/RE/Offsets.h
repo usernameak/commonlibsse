@@ -129,6 +129,7 @@ namespace RE
 			namespace ObjectBindPolicy
 			{
 				inline constexpr REL::ID BindObject(static_cast<std::uint64_t>(104184));
+				inline constexpr REL::ID GetInitialPropertyValues(static_cast<std::uint64_t>(104176));
 			}
 
 			namespace NF_util
@@ -711,6 +712,7 @@ namespace RE
 			namespace ObjectBindPolicy
 			{
 				inline constexpr REL::ID BindObject(static_cast<std::uint64_t>(97379));
+				inline constexpr REL::ID GetInitialPropertyValues(static_cast<std::uint64_t>(97371));
 			}
 
 			namespace NF_util
