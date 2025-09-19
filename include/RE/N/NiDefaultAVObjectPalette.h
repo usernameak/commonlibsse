@@ -29,7 +29,7 @@ namespace RE
 		virtual NiAVObject* GetScene() { return scene; };                       // 29
 
 		// members
-		BSTHashMap<BSFixedString, NiAVObject*> paletteMap; // 10
+		BSTHashMap<BSFixedString, NiAVObject*> paletteMap;  // 10
 		NiAVObject*                            scene;
 	};
 	static_assert(sizeof(NiDefaultAVObjectPalette) == 0x48);

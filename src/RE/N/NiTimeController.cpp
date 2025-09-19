@@ -99,7 +99,7 @@ namespace RE
 		return func(this);
 	}
 
-	void NiTimeController::SetNext(NiTimeController *a_next)
+	void NiTimeController::SetNext(NiTimeController* a_next)
 	{
 		next.reset(a_next);
 	}

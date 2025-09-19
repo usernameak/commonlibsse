@@ -100,7 +100,7 @@ namespace RE
 	void NiObjectNET::RemoveController(NiTimeController* a_controller)
 	{
 		using func_t = decltype(&NiObjectNET::RemoveController);
-		static REL::Relocation<func_t> func { RELOCATION_ID(69156, 70517) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(69156, 70517) };
 		return func(this, a_controller);
 	}
 
