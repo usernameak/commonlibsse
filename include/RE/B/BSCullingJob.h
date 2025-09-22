@@ -7,24 +7,28 @@ namespace RE
 	class BSPortalGraphEntry;
 	class BSCullingProcess;
 
-	class BSCuller
+	class BSCullingJob
 	{
 	public:
 		// members
-		BSShaderAccumulator*                         accumulator;             // 00
-		std::uint64_t                                unk08;                   // 08
-		NiCamera*                                    camera;                  // 10
+		NiPointer<BSShaderAccumulator>               accumulator;             // 00
+		NiPointer<void*>                             unk08;                   // 08
+		NiPointer<NiCamera>                          camera;                  // 10
 		BSCompoundFrustum*                           compoundFrustum;         // 18
 		NiFrustum*                                   frustum;                 // 20
 		BSPortalGraphEntry*                          portalGraphEntry;        // 28
 		BSCullingProcess*                            cullingProcess;          // 30
 		NiFrustumPlanes*                             frustumPlanes;           // 38
-		std::uint64_t                                unk40;                   // 40
+		NiPointer<void*>                             unk40;                   // 40
 		BSTArray<NiAVObject*>*                       accumulatedObjectArray;  // 48
 		REX::Enum<BSCullingProcess::BSCPCullingType> cullMode;                // 50
 		std::uint32_t                                unk54;                   // 54
 		std::uint32_t                                jobIndex;                // 58
-		std::byte                                    unk5C[12];               // 5C
+		std::uint32_t                                unk5C;                   // 5C
+		bool                                         unk60;                   // 60
+		bool                                         respectHidden;           // 61
+		bool                                         unk62;                   // 62
+		std::byte                                    pad63[5];                // 63
 	};
-	static_assert(sizeof(BSCuller) == 0x68);
+	static_assert(sizeof(BSCullingJob) == 0x68);
 }
