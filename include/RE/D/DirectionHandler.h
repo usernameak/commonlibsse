@@ -8,8 +8,9 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_DirectionHandler;
+		inline static constexpr auto VTABLE = VTABLE_DirectionHandler;
 
-		virtual ~DirectionHandler();  // 00
+		~DirectionHandler() override;  // 00
 
 		// override (MenuEventHandler)
 		bool CanProcess(InputEvent* a_event) override;              // 01
@@ -17,12 +18,16 @@ namespace RE
 		bool ProcessButton(ButtonEvent* a_event) override;          // 05
 
 		// members
-		std::uint32_t unk10;               // 10
-		float         menuKeyRepeatLong;   // 14
-		float         menuKeyRepeatShort;  // 18
-		std::uint64_t unk20;               // 20
-		std::uint32_t unk28;               // 28
-		std::uint32_t unk2C;               // 2C
+		float         nextRepeat;                // 10
+		float         keyRepeatLong;             // 14 - from ini
+		float         keyRepeatShort;            // 18 - from ini
+		std::uint32_t repeatTimer;               // 1C
+		std::uint32_t currentRepeatCount;        // 20
+		std::uint32_t longRepeatThresholdCount;  // 24
+		bool          repeatEnabled;             // 28
+		bool          unk29;                     // 29
+		std::uint8_t  pad2A;                     // 2A
+		std::uint16_t pad2B;                     // 2B
 	private:
 		KEEP_FOR_RE()
 	};

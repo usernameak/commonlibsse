@@ -320,7 +320,7 @@ namespace REL
 		void write(const U& a_data)
 			requires(std::same_as<value_type, std::uintptr_t>)
 		{
-			safe_write(address(), std::addressof(a_data), sizeof(T));
+			safe_write(address(), std::addressof(a_data), sizeof(U));
 		}
 
 		template <class U>

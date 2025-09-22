@@ -17,6 +17,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto      RTTI = RTTI_RaceSexMenu;
+		inline static constexpr auto      VTABLE = VTABLE_RaceSexMenu;
 		constexpr static std::string_view MENU_NAME = "RaceSex Menu";
 
 		~RaceSexMenu() override;  // 00
