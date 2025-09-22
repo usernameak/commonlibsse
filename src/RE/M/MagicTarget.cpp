@@ -86,9 +86,9 @@ namespace RE
 
 	bool MagicTarget::HasMagicEffectWithKeyword(BGSKeyword* a_keyword, MagicItem** a_spellOut)
 	{
-		using func_t = decltype(&MagicTarget::HasMagicEffectWithKeyword);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(33734, 34518) };
-		return func(this, a_keyword, a_spellOut);
+			using func_t = decltype(&MagicTarget::HasMagicEffectWithKeyword);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(33734, 34518) };
+			return func(this, a_keyword, a_spellOut);
 	}
 
 	void MagicTarget::VisitEffects(ForEachActiveEffectVisitor& visitor)
