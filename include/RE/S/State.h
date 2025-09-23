@@ -33,11 +33,11 @@ namespace RE
 			float                      unk044;                             // 044
 			float                      unk048;                             // 048
 			std::uint32_t              frameCount;                         // 04C
-			bool                       insideFrame;                        // 050
+			bool                       unk50;                              // 050 - previously misnamed insideFrame
 			bool                       letterbox;                          // 051
 			bool                       unk052;                             // 052
 			bool                       compiledShaderThisFrame;            // 053
-			bool                       useEarlyZ;                          // 054
+			bool                       insideFrame;                        // 054 - previously misnamed useEarlyZ
 			bool                       unk055;                             // 055
 #ifdef SKYRIM_SUPPORT_AE
 			bool unk56;                                       // 056

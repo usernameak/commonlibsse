@@ -22,11 +22,11 @@ namespace RE
 		// members
 		BSPortalGraph*                          portalGraph;          // 10
 		BSTArray<NiPointer<BSMultiBoundRoom>>   rooms;                // 18
-		NiPointer<BSMultiBoundRoom>             room;                 // 30
-		BSTHashMap<NiNode*, BSCompoundFrustum*> nodes;                // 38
+		NiPointer<BSMultiBoundRoom>             multiBoundRoomRoot;   // 30
+		BSTHashMap<NiNode*, BSCompoundFrustum*> visibilityMap;        // 38
 		BSCompoundFrustum                       compoundFrustum;      // 68
 		bool                                    visibleUnboundSpace;  // 130
-		bool                                    unk131;               // 131
+		bool                                    enableAccumulation;   // 131
 		std::byte                               pad132[2];            // 132
 		std::uint32_t                           unk134;               // 134
 		uint32_t                                cellId;               // 138

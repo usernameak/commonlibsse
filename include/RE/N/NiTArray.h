@@ -111,11 +111,15 @@ namespace RE
 			return _capacity;
 		}
 
+		[[nodiscard]] size_type free_idx() const {
+			return _freeIdx;
+		}
+
 	private:
 		// members
 		T*            _data;        // 08
 		std::uint16_t _capacity;    // 10
-		std::uint16_t _freeIdx;     // 12
+		std::uint16_t _freeIdx;     // 12 - actually size
 		std::uint16_t _size;        // 14
 		std::uint16_t _growthSize;  // 16
 	};
