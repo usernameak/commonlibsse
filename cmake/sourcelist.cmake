@@ -245,6 +245,7 @@ set(SOURCES
 	include/RE/B/BSGameSound.h
 	include/RE/B/BSGamepadDevice.h
 	include/RE/B/BSGeometry.h
+	include/RE/B/BSGeometryListCullingProcess.h
 	include/RE/B/BSGrassShaderProperty.h
 	include/RE/B/BSHandleRefObject.h
 	include/RE/B/BSIInputDevice.h
@@ -347,6 +348,7 @@ set(SOURCES
 	include/RE/B/BSShaderPropertyLightData.h
 	include/RE/B/BSShaderRenderTargets.h
 	include/RE/B/BSShaderTextureSet.h
+	include/RE/B/BSShadowDirectionalLight.h
 	include/RE/B/BSShadowFrustumLight.h
 	include/RE/B/BSShadowLight.h
 	include/RE/B/BSShadowParabolicLight.h
