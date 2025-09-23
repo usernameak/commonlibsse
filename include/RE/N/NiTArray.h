@@ -111,7 +111,8 @@ namespace RE
 			return _capacity;
 		}
 
-		[[nodiscard]] size_type free_idx() const {
+		[[nodiscard]] size_type free_idx() const
+		{
 			return _freeIdx;
 		}
 
