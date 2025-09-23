@@ -43,4 +43,7 @@ namespace RE
 		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(hkUFloat8) == 0x1);
+
+	template <class E, class U>
+	using hkEnum = REX::EnumSet<E, U>;
 }

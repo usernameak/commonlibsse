@@ -17,6 +17,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto      RTTI = RTTI_ContainerMenu;
+		inline static constexpr auto      VTABLE = VTABLE_ContainerMenu;
 		constexpr static std::string_view MENU_NAME = "ContainerMenu";
 
 		enum class ContainerMode : std::uint32_t

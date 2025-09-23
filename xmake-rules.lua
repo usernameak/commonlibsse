@@ -10,7 +10,7 @@ constinit auto SKSEPlugin_Version = []() {
     v.AuthorEmail("${PLUGIN_EMAIL}");
     v.UsesAddressLibrary();
     v.UsesUpdatedStructs();
-    v.CompatibleVersions({ SKSE::RUNTIME_LATEST });
+    v.CompatibleVersions({ SKSE::RUNTIME_SSE_LATEST });
     return v;
 }();
 #else
@@ -27,7 +27,7 @@ bool SKSEPlugin_Query(const SKSE::QueryInterface* a_skse, SKSE::PluginInfo* a_in
     }
 
     const auto ver = a_skse->RuntimeVersion();
-    if (ver < SKSE::RUNTIME_1_5_39) {
+    if (ver < SKSE::RUNTIME_SSE_1_5_39) {
         SKSE::log::critical("Unsupported runtime version {}", ver.string());
         return false;
     }

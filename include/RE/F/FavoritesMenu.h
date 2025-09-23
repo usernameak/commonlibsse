@@ -19,6 +19,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto      RTTI = RTTI_FavoritesMenu;
+		inline static constexpr auto      VTABLE = VTABLE_FavoritesMenu;
 		constexpr static std::string_view MENU_NAME = "FavoritesMenu";
 
 		struct Entry

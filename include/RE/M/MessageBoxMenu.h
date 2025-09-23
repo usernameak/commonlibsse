@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto      RTTI = RTTI_MessageBoxMenu;
+		inline static constexpr auto      VTABLE = VTABLE_MessageBoxMenu;
 		constexpr static std::string_view MENU_NAME = "MessageBoxMenu";
 
 		~MessageBoxMenu() override;  // 00

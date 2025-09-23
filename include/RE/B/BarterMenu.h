@@ -17,6 +17,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto      RTTI = RTTI_BarterMenu;
+		inline static constexpr auto      VTABLE = VTABLE_BarterMenu;
 		constexpr static std::string_view MENU_NAME = "BarterMenu";
 
 		~BarterMenu() override;  // 00

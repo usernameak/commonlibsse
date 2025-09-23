@@ -14,6 +14,7 @@ namespace RE
 	class Actor;
 	class bhkCharacterController;
 	class BipedAnim;
+	class InventoryEntryData;
 	class NiAVObject;
 	class NiPoint3;
 	class TESForm;
@@ -156,6 +157,7 @@ namespace RE
 		bhkCharacterController* GetCharController();
 		ActorHandle             GetCommandingActor() const;
 		TESShout*               GetCurrentShout();
+		InventoryEntryData*     GetCurrentWeapon(bool a_leftHand);
 		TESForm*                GetEquippedLeftHand();
 		TESForm*                GetEquippedRightHand();
 		ObjectRefHandle         GetHeadtrackTarget() const;
@@ -164,6 +166,7 @@ namespace RE
 		ObjectRefHandle         GetOccupiedFurniture() const;
 		float                   GetRegenDelay(ActorValue a_actorvalue) const;
 		TESPackage*             GetRunningPackage() const;
+		NiAVObject*             GetTorchNode(const BSTSmartPointer<BipedAnim>& a_biped) const;
 		Actor*                  GetUserData() const;
 		float                   GetVoiceRecoveryTime() const;
 		NiAVObject*             GetWeaponNode(const BSTSmartPointer<BipedAnim>& a_biped) const;
