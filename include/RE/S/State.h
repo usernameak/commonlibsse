@@ -43,6 +43,7 @@ namespace RE
 			bool unk56;                                       // 056
 			bool doubleDynamicResolutionAdjustmentFrequency;  // 057
 			bool unk58;                                       // 058
+			bool unk59;                                       // 059
 #endif
 			NiPointer<NiSourceTexture> defaultTextureBlack;                   // 060
 			NiPointer<NiSourceTexture> defaultTextureWhite;                   // 068

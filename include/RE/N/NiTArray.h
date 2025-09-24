@@ -120,8 +120,8 @@ namespace RE
 		// members
 		T*            _data;        // 08
 		std::uint16_t _capacity;    // 10
-		std::uint16_t _freeIdx;     // 12 - actually size
-		std::uint16_t _size;        // 14
+		std::uint16_t _freeIdx;     // 12 - size including null entries
+		std::uint16_t _size;        // 14 - size without null entries
 		std::uint16_t _growthSize;  // 16
 	};
 	static_assert(sizeof(NiTArray<void*, NiTMallocInterface<void*>>) == 0x18);
