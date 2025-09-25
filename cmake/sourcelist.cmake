@@ -291,6 +291,7 @@ set(SOURCES
 	include/RE/B/BSMultiBoundAABB.h
 	include/RE/B/BSMultiBoundNode.h
 	include/RE/B/BSMultiBoundOBB.h
+	include/RE/B/BSMultiBoundRoom.h
 	include/RE/B/BSMultiBoundShape.h
 	include/RE/B/BSMultiIndexTriShape.h
 	include/RE/B/BSMultiStreamInstanceTriShape.h
@@ -1807,6 +1808,7 @@ set(SOURCES
 	src/RE/B/BSAtomic.cpp
 	src/RE/B/BSAudioManager.cpp
 	src/RE/B/BSCompoundFrustum.cpp
+    src/RE/B/BSCullingProcess.cpp
 	src/RE/B/BSDirectInputManager.cpp
 	src/RE/B/BSEffectShaderData.cpp
 	src/RE/B/BSExtraData.cpp
@@ -1829,6 +1831,8 @@ set(SOURCES
 	src/RE/B/BSPCGamepadDeviceHandler.cpp
 	src/RE/B/BSPCOrbisGamepadDevice.cpp
 	src/RE/B/BSPointerHandle.cpp
+	src/RE/B/BSPortalGraph.cpp
+	src/RE/B/BSPortalGraphEntry.cpp
 	src/RE/B/BSResourceNiBinaryStream.cpp
 	src/RE/B/BSResponse.cpp
 	src/RE/B/BSScaleformManager.cpp

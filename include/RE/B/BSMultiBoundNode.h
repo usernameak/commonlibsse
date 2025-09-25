@@ -34,10 +34,10 @@ namespace RE
 		void              UpdateUpwardPass(NiUpdateData& a_data) override;                                  // 3D
 
 		// add
-		virtual BSMultiBoundRoom* GetMultiBoundRoom();                    // 3E - { return 0; }
-		virtual bool              QPointWithin(const NiPoint3& a_point);  // 3F
-		virtual void              Unk_40(void);                           // 40
-		virtual void              Unk_41(void);                           // 41
+		virtual BSMultiBoundRoom* GetMultiBoundRoom();                             // 3E - { return 0; }
+		virtual bool              QPointWithin(const NiPoint3& a_point);           // 3F
+		virtual bool              CheckBound1(const BSMultiBound& a_targetBound);  // 40
+		virtual bool              CheckBound2(const NiBound& a_targetBound);       // 41
 
 		// members
 		NiPointer<BSMultiBound>           multiBound;     // 128

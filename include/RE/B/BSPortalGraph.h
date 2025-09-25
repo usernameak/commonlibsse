@@ -10,6 +10,7 @@ namespace RE
 	class BSMultiBoundRoom;
 	class BSOcclusionShape;
 	class BSPortal;
+	class BSPortalGraphEntry;
 	class BSPortalSharedNode;
 	class NiAVObject;
 	class NiNode;
@@ -21,6 +22,9 @@ namespace RE
 		inline static constexpr auto VTABLE = VTABLE_BSPortalGraph;
 
 		~BSPortalGraph() override;  // 00
+
+		// add
+		bool IsCompatibleEntry(const BSPortalGraphEntry* a_entry) const;
 
 		// members
 		NiTPointerList<BSOcclusionShape>      occlusionShapes;       // 10

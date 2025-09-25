@@ -65,6 +65,8 @@ namespace RE
 		virtual bool               TestBaseVisibility2(BSOcclusionPlane& a_bound);                        // 1B
 		[[nodiscard]] virtual bool TestBaseVisibility3(const NiBound& a_bound);                           // 1C
 
+		bool AddShared(NiAVObject* a_object);
+
 		BSTArray<NiPointer<NiAVObject>>                   objectArray;         // 00128
 		BSTLocklessQueue::ObjMultiProdCons<Data, 4096, 0> cullQueue;           // 00140
 		BSTHashMap<NiAVObject*, bool>                     roomSharedMap;       // 30160

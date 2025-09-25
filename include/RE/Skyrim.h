@@ -293,6 +293,7 @@
 #include "RE/B/BSMultiBoundAABB.h"
 #include "RE/B/BSMultiBoundNode.h"
 #include "RE/B/BSMultiBoundOBB.h"
+#include "RE/B/BSMultiBoundRoom.h"
 #include "RE/B/BSMultiBoundShape.h"
 #include "RE/B/BSMultiIndexTriShape.h"
 #include "RE/B/BSMultiStreamInstanceTriShape.h"
