@@ -1808,7 +1808,7 @@ set(SOURCES
 	src/RE/B/BSAtomic.cpp
 	src/RE/B/BSAudioManager.cpp
 	src/RE/B/BSCompoundFrustum.cpp
-    src/RE/B/BSCullingProcess.cpp
+	src/RE/B/BSCullingProcess.cpp
 	src/RE/B/BSDirectInputManager.cpp
 	src/RE/B/BSEffectShaderData.cpp
 	src/RE/B/BSExtraData.cpp

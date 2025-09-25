@@ -8,9 +8,10 @@ namespace RE
 		multiBoundRoomRoot.reset();
 	}
 
-	void BSPortalGraphEntry::AddVisibilityToMap(void* a_space, BSCompoundFrustum* a_compoundFrustum) {
+	void BSPortalGraphEntry::AddVisibilityToMap(void* a_space, BSCompoundFrustum* a_compoundFrustum)
+	{
 		using func_t = decltype(&BSPortalGraphEntry::AddVisibilityToMap);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(74398, 76122)};
+		static REL::Relocation<func_t> func{ RELOCATION_ID(74398, 76122) };
 		return func(this, a_space, a_compoundFrustum);
 	}
 
