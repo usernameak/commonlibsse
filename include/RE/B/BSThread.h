@@ -14,7 +14,7 @@ namespace RE
 
 		// add
 		virtual void ThreadProc(void);  // 01 - { return 0; }
-		virtual void Unk_02(void);  // 02 - { return; }
+		virtual void Unk_02(void);      // 02 - { return; }
 
 		// members
 		REX::W32::CRITICAL_SECTION lock;           // 08
