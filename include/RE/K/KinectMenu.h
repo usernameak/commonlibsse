@@ -17,6 +17,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto      RTTI = RTTI_KinectMenu;
+		inline static constexpr auto      VTABLE = VTABLE_KinectMenu;
 		constexpr static std::string_view MENU_NAME = "Kinect Menu";
 
 		~KinectMenu() override;  // 00

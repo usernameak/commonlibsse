@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto      RTTI = RTTI_TitleSequenceMenu;
+		inline static constexpr auto      VTABLE = VTABLE_TitleSequenceMenu;
 		constexpr static std::string_view MENU_NAME = "TitleSequence Menu";
 
 		~TitleSequenceMenu() override;  // 00
