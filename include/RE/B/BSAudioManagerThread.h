@@ -13,7 +13,7 @@ namespace RE
 		~BSAudioManagerThread() override;  // 00
 
 		// override (BSThread)
-		void Unk_01(void) override;  // 01
+		void ThreadProc() override;  // 01
 
 		// members
 		std::uint64_t unk50;  // 50

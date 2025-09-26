@@ -264,6 +264,7 @@ set(SOURCES
 	include/RE/B/BSInputEventQueue.h
 	include/RE/B/BSInstanceTriShape.h
 	include/RE/B/BSIntrusiveRefCounted.h
+	include/RE/B/BSJobs.h
 	include/RE/B/BSKeyboardDevice.h
 	include/RE/B/BSLensFlareRenderData.h
 	include/RE/B/BSLight.h
@@ -391,6 +392,7 @@ set(SOURCES
 	include/RE/B/BSTextureSet.h
 	include/RE/B/BSThread.h
 	include/RE/B/BSThreadEvent.h
+	include/RE/B/BSThreadStagesManager.h
 	include/RE/B/BSTimer.h
 	include/RE/B/BSTreeManager.h
 	include/RE/B/BSTriShape.h
@@ -1192,6 +1194,7 @@ set(SOURCES
 	include/RE/I/ItemList.h
 	include/RE/I/ItemRemoveReason.h
 	include/RE/I/ItemsPickpocketed.h
+	include/RE/J/JobListManager.h
 	include/RE/J/JournalMenu.h
 	include/RE/J/JournalTab.h
 	include/RE/J/Journal_QuestsTab.h
