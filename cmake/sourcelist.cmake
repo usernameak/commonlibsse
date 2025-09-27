@@ -81,6 +81,7 @@ set(SOURCES
 	include/RE/B/BGSColorForm.h
 	include/RE/B/BGSConstructFormsInAllFilesMap.h
 	include/RE/B/BGSConstructibleObject.h
+	include/RE/B/BGSCraftItemEvent.h
 	include/RE/B/BGSCreatedObjectManager.h
 	include/RE/B/BGSDebris.h
 	include/RE/B/BGSDecalEmitter.h
@@ -959,7 +960,6 @@ set(SOURCES
 	include/RE/H/HighProcessData.h
 	include/RE/H/HitData.h
 	include/RE/H/HorseCameraState.h
-	include/RE/H/SendHUDMessage.h
 	include/RE/H/hkAabb.h
 	include/RE/H/hkArray.h
 	include/RE/H/hkBaseObject.h
@@ -1469,6 +1469,7 @@ set(SOURCES
 	include/RE/S/ScriptFunction.h
 	include/RE/S/ScriptedRefEffect.h
 	include/RE/S/ScrollItem.h
+	include/RE/S/SendHUDMessage.h
 	include/RE/S/SendPlayerToJailFunctor.h
 	include/RE/S/SendUIMessage.h
 	include/RE/S/SetEventData.h
@@ -1796,6 +1797,7 @@ set(SOURCES
 	src/RE/B/BGSBaseAlias.cpp
 	src/RE/B/BGSBipedObjectForm.cpp
 	src/RE/B/BGSColorForm.cpp
+	src/RE/B/BGSConstructibleObject.cpp
 	src/RE/B/BGSCreatedObjectManager.cpp
 	src/RE/B/BGSDebris.cpp
 	src/RE/B/BGSEntryPointFunctionDataActivateChoice.cpp
@@ -2059,6 +2061,7 @@ set(SOURCES
 	src/RE/S/ScrapHeap.cpp
 	src/RE/S/Script.cpp
 	src/RE/S/ScriptEventSourceHolder.cpp
+	src/RE/S/SendHUDMessage.cpp
 	src/RE/S/SendUIMessage.cpp
 	src/RE/S/Setting.cpp
 	src/RE/S/ShadowSceneNode.cpp

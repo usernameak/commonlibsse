@@ -1,5 +1,6 @@
 #pragma once
 
+#include "RE/B/BSPointerHandle.h"
 #include "RE/B/BSString.h"
 #include "RE/H/HUDMessageTypes.h"
 #include "RE/I/IUIMessageData.h"

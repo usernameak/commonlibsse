@@ -46,4 +46,11 @@ namespace RE
 		static REL::Relocation<func_t> func{ RELOCATION_ID(66402, 67664) };
 		return func(this, a_soundHandle, a_file, a_flags, a_priority);
 	}
+
+	void BSAudioManager::PrecacheDescriptor(const BSISoundDescriptor* a_descriptor, std::uint32_t a_flags)
+	{
+		using func_t = decltype(&BSAudioManager::PrecacheDescriptor);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(66456, 67720) };
+		return func(this, a_descriptor, a_flags);
+	}
 }
