@@ -515,6 +515,7 @@ set(SOURCES
 	include/RE/C/CombatObject.h
 	include/RE/C/CombatSearchLocation.h
 	include/RE/C/CombatState.h
+	include/RE/C/CombatUtilities.h
 	include/RE/C/CommandEffect.h
 	include/RE/C/CommandSummonedEffect.h
 	include/RE/C/CommandTable.h
@@ -1881,7 +1882,6 @@ set(SOURCES
 	src/RE/D/DisarmedEvent.cpp
 	src/RE/D/DragonSoulsGained.cpp
 	src/RE/E/Effect.cpp
-	src/RE/E/EffectArchetypes.cpp
 	src/RE/E/EnchantConstructMenu.cpp
 	src/RE/E/ExtraAliasInstanceArray.cpp
 	src/RE/E/ExtraAshPileRef.cpp

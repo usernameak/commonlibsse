@@ -14,6 +14,7 @@
 #include "RE/B/BSTList.h"
 #include "RE/B/BSTSmartPointer.h"
 #include "RE/B/BSTTuple.h"
+#include "RE/C/CombatUtilities.h"
 #include "RE/D/DetectionPriorities.h"
 #include "RE/E/EmotionTypes.h"
 #include "RE/F/FormTypes.h"
@@ -60,17 +61,6 @@ namespace RE
 		kGooEnd = 2,
 		kDisintegrateStart = 3,
 		kDisintegrateEnd = 4,
-
-		kTotal
-	};
-
-	enum class ACTOR_LOS_LOCATION
-	{
-		kNone = 0,
-		kEye = 1,
-		kHead = 2,
-		kTorso = 3,
-		kFeet = 4,
 
 		kTotal
 	};
