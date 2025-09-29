@@ -22,7 +22,7 @@ namespace RE
 			std::int32_t processorCoreCount;
 			std::int32_t logicalProcessorCount;
 			std::int32_t numaNodeCount;
-			cacheInfo_t cacheLevel[3];
+			cacheInfo_t  cacheLevel[3];
 		};
 		static_assert(sizeof(cpuInfo_t) == 0x40);
 
