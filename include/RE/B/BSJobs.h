@@ -7,17 +7,35 @@ namespace RE
 {
 	struct BSJobs
 	{
+		struct cpuInfo_t
+		{
+			struct cacheInfo_t
+			{
+				std::int32_t count;          // 00
+				std::int32_t associativity;  // 04
+				std::int32_t lineSize;       // 08
+				std::int32_t size;           // 0C
+			};
+			static_assert(sizeof(cacheInfo_t) == 0x10);
+
+			std::int32_t processorPackageCount;
+			std::int32_t processorCoreCount;
+			std::int32_t logicalProcessorCount;
+			std::int32_t numaNodeCount;
+			cacheInfo_t cacheLevel[3];
+		};
+		static_assert(sizeof(cpuInfo_t) == 0x40);
+
 		class JobListLocal
 		{
 		public:
 			struct JobInstance
 			{
 				using func_t = void(void*);
-				func_t*     func;  // 00
-				void*       data;  // 08
-				const char* name;  // 10
+				func_t* func;  // 00
+				void*   data;  // 08
 			};
-			static_assert(sizeof(JobInstance) == 0x18);
+			static_assert(sizeof(JobInstance) == 0x10);
 
 			BSTArray<JobInstance>                   jobArray;                   // 00
 			BSTArray<BSTAtomicValue<std::int64_t>>  signalJobCountArray;        // 18
@@ -32,8 +50,8 @@ namespace RE
 			BSTAtomicValue<std::int64_t>*           waitForGuard;               // A8
 			BSEventFlag*                            eventFlag;                  // B0
 			std::uint32_t                           numSyncs;                   // B8
-			std::uint32_t                           unkBC;                      // BC
-			std::uint32_t                           unkC0;                      // C0
+			std::uint32_t                           maxJobs;                    // BC
+			std::uint32_t                           batchSize;                  // C0
 			std::uint32_t                           lastSignalJob;              // C4
 			std::uint32_t                           currentDoneGuard;           // C8
 			std::uint32_t                           usedThreads;                // CC
