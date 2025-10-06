@@ -19,7 +19,6 @@ namespace RE
 	class ImageSpaceManager
 	{
 	public:
-
 #define IMAGE_SPACE_EFFECTS                                                                                                     \
 	X(WorldMap, 0)     /* ImageSpaceEffectWorldMap */                                                                           \
 	X(Refraction, 1)   /* ImageSpaceEffectRefraction */                                                                         \
