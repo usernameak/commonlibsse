@@ -14,6 +14,7 @@
 #include "RE/B/bhkRigidBody.h"
 #include "RE/H/hkpRigidBody.h"
 #include "RE/N/NiColor.h"
+#include "RE/N/NiCullingProcess.h"
 #include "RE/N/NiNode.h"
 #include "RE/N/NiProperty.h"
 #include "RE/N/NiRTTI.h"
@@ -328,5 +329,16 @@ namespace RE
 		using func_t = decltype(&NiAVObject::UpdateRigidConstraints);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(76271, 78103) };
 		return func(this, a_enable, a_arg2, a_arg3);
+	}
+
+	int NiAVObject::IsVisualObjectI()
+	{
+		return *reinterpret_cast<std::int32_t*>(&worldBound.radius);
+	}
+
+	void NiAVObject::Cull(NiCullingProcess* a_culler, const std::int32_t a_alphaGroupIndex)
+	{
+		if (!GetAppCulled())
+			a_culler->Process1(this, a_alphaGroupIndex);
 	}
 }

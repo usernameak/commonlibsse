@@ -221,6 +221,7 @@ set(SOURCES
 	include/RE/B/BSComputeShader.h
 	include/RE/B/BSContainer.h
 	include/RE/B/BSCoreTypes.h
+	include/RE/B/BSCullingJob.h
 	include/RE/B/BSCullingProcess.h
 	include/RE/B/BSDirectInputManager.h
 	include/RE/B/BSDismemberSkinInstance.h
@@ -244,6 +245,7 @@ set(SOURCES
 	include/RE/B/BSGameSound.h
 	include/RE/B/BSGamepadDevice.h
 	include/RE/B/BSGeometry.h
+	include/RE/B/BSGeometryListCullingProcess.h
 	include/RE/B/BSGrassShaderProperty.h
 	include/RE/B/BSHandleRefObject.h
 	include/RE/B/BSIInputDevice.h
@@ -262,6 +264,7 @@ set(SOURCES
 	include/RE/B/BSInputEventQueue.h
 	include/RE/B/BSInstanceTriShape.h
 	include/RE/B/BSIntrusiveRefCounted.h
+	include/RE/B/BSJobs.h
 	include/RE/B/BSKeyboardDevice.h
 	include/RE/B/BSLensFlareRenderData.h
 	include/RE/B/BSLight.h
@@ -289,6 +292,7 @@ set(SOURCES
 	include/RE/B/BSMultiBoundAABB.h
 	include/RE/B/BSMultiBoundNode.h
 	include/RE/B/BSMultiBoundOBB.h
+	include/RE/B/BSMultiBoundRoom.h
 	include/RE/B/BSMultiBoundShape.h
 	include/RE/B/BSMultiIndexTriShape.h
 	include/RE/B/BSMultiStreamInstanceTriShape.h
@@ -346,6 +350,7 @@ set(SOURCES
 	include/RE/B/BSShaderPropertyLightData.h
 	include/RE/B/BSShaderRenderTargets.h
 	include/RE/B/BSShaderTextureSet.h
+	include/RE/B/BSShadowDirectionalLight.h
 	include/RE/B/BSShadowFrustumLight.h
 	include/RE/B/BSShadowLight.h
 	include/RE/B/BSShadowParabolicLight.h
@@ -387,6 +392,7 @@ set(SOURCES
 	include/RE/B/BSTextureSet.h
 	include/RE/B/BSThread.h
 	include/RE/B/BSThreadEvent.h
+	include/RE/B/BSThreadStagesManager.h
 	include/RE/B/BSTimer.h
 	include/RE/B/BSTreeManager.h
 	include/RE/B/BSTriShape.h
@@ -561,6 +567,7 @@ set(SOURCES
 	include/RE/D/DoNothingUnhandledPolicy.h
 	include/RE/D/DragonCameraState.h
 	include/RE/D/DragonSoulsGained.h
+	include/RE/D/DrawWorld.h
 	include/RE/D/DropObjectFunctor.h
 	include/RE/D/DualValueModifierEffect.h
 	include/RE/E/Effect.h
@@ -1187,6 +1194,7 @@ set(SOURCES
 	include/RE/I/ItemList.h
 	include/RE/I/ItemRemoveReason.h
 	include/RE/I/ItemsPickpocketed.h
+	include/RE/J/JobListManager.h
 	include/RE/J/JournalMenu.h
 	include/RE/J/JournalTab.h
 	include/RE/J/Journal_QuestsTab.h
@@ -1370,6 +1378,7 @@ set(SOURCES
 	include/RE/N/NiTransform.h
 	include/RE/N/NiTriBasedGeometry.h
 	include/RE/N/NiTriShape.h
+	include/RE/N/NiVisibleArray.h
 	include/RE/N/NightEyeEffect.h
 	include/RE/N/NonActorMagicCaster.h
 	include/RE/N/NonActorMagicTarget.h
@@ -1434,6 +1443,7 @@ set(SOURCES
 	include/RE/R/RenderTargetManager.h
 	include/RE/R/RenderTargetProperties.h
 	include/RE/R/Renderer.h
+	include/RE/R/RendererShadowState.h
 	include/RE/R/Request.h
 	include/RE/R/ReticuleController.h
 	include/RE/R/Rumble.h
@@ -1800,6 +1810,8 @@ set(SOURCES
 	src/RE/B/BGSStoryTeller.cpp
 	src/RE/B/BSAtomic.cpp
 	src/RE/B/BSAudioManager.cpp
+	src/RE/B/BSCompoundFrustum.cpp
+	src/RE/B/BSCullingProcess.cpp
 	src/RE/B/BSDirectInputManager.cpp
 	src/RE/B/BSEffectShaderData.cpp
 	src/RE/B/BSExtraData.cpp
@@ -1817,10 +1829,13 @@ set(SOURCES
 	src/RE/B/BSLightingShaderProperty.cpp
 	src/RE/B/BSModelDB.cpp
 	src/RE/B/BSMouseDevice.cpp
+	src/RE/B/BSOcclusionPlane.cpp
 	src/RE/B/BSPCGamepadDeviceDelegate.cpp
 	src/RE/B/BSPCGamepadDeviceHandler.cpp
 	src/RE/B/BSPCOrbisGamepadDevice.cpp
 	src/RE/B/BSPointerHandle.cpp
+	src/RE/B/BSPortalGraph.cpp
+	src/RE/B/BSPortalGraphEntry.cpp
 	src/RE/B/BSResourceNiBinaryStream.cpp
 	src/RE/B/BSResponse.cpp
 	src/RE/B/BSScaleformManager.cpp
@@ -1994,6 +2009,7 @@ set(SOURCES
 	src/RE/N/NiColorKey.cpp
 	src/RE/N/NiControllerManager.cpp
 	src/RE/N/NiControllerSequence.cpp
+	src/RE/N/NiCullingProcess.cpp
 	src/RE/N/NiExtraData.cpp
 	src/RE/N/NiFloatData.cpp
 	src/RE/N/NiFloatExtraData.cpp
