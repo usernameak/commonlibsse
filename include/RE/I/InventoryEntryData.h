@@ -48,17 +48,12 @@ namespace RE
 		[[nodiscard]] bool                            IsLeveled() const;
 		[[nodiscard]] bool                            IsPoisoned() const;
 		[[nodiscard]] bool                            IsWorn() const;
+		[[nodiscard]] bool                            IsWorn(bool a_left) const;
 		[[nodiscard]] bool                            IsOwnedBy(Actor* a_testOwner, bool a_defaultTo = true);
 		[[nodiscard]] bool                            IsOwnedBy(Actor* a_testOwner, TESForm* a_itemOwner, bool a_defaultTo = true);
 		[[nodiscard]] bool                            IsQuestObject() const;
 		void                                          PoisonObject(AlchemyItem* a_alchItem, std::uint32_t a_count);
-
-		void SetWorn(bool a_worn, bool a_left, bool a_deleteExtraList = true)
-		{
-			using func_t = decltype(&InventoryEntryData::SetWorn);
-			REL::Relocation<func_t> func{ Offset::InventoryEntryData::SetWorn };
-			return func(this, a_worn, a_left, a_deleteExtraList);
-		}
+		void                                          SetWorn(bool a_worn, bool a_left, bool a_deleteExtraList = true);
 
 		TES_HEAP_REDEFINE_NEW();
 
