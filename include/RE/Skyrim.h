@@ -21,6 +21,7 @@
 #include "RE/A/ActorInventoryEvent.h"
 #include "RE/A/ActorKill.h"
 #include "RE/A/ActorKnowledge.h"
+#include "RE/A/ActorLOSLocation.h"
 #include "RE/A/ActorMagicCaster.h"
 #include "RE/A/ActorMover.h"
 #include "RE/A/ActorPackage.h"

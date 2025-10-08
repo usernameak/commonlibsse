@@ -2,6 +2,7 @@
 
 #include "RE/A/AITimeStamp.h"
 #include "RE/A/ActiveEffect.h"
+#include "RE/A/ActorLOSLocation.h"
 #include "RE/A/ActorState.h"
 #include "RE/A/ActorValueOwner.h"
 #include "RE/A/ActorValues.h"
@@ -14,7 +15,6 @@
 #include "RE/B/BSTEvent.h"
 #include "RE/B/BSTSmartPointer.h"
 #include "RE/B/BSTTuple.h"
-#include "RE/C/CombatUtilities.h"
 #include "RE/D/DetectionPriorities.h"
 #include "RE/E/EmotionTypes.h"
 #include "RE/F/FormTypes.h"
