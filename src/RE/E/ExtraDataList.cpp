@@ -302,12 +302,14 @@ namespace RE
 		static REL::Relocation<func_t> func{ Offset::ExtraDataList::SetCount };
 		return func(this, a_count);
 	}
+
 	void ExtraDataList::SetEnchantment(EnchantmentItem* a_enchantment, std::uint16_t a_chargeAmount, bool a_removeOnUnequip)
 	{
 		using func_t = decltype(&ExtraDataList::SetEnchantment);
 		REL::Relocation<func_t> func{ Offset::ExtraDataList::SetEnchantment };
 		return func(this, a_enchantment, a_chargeAmount, a_removeOnUnequip);
 	}
+
 	void ExtraDataList::SetEncounterZone(BGSEncounterZone* a_zone)
 	{
 		if (auto xZone = GetByType<ExtraEncounterZone>()) {
@@ -362,6 +364,19 @@ namespace RE
 		using func_t = decltype(&ExtraDataList::SetLinkedRef);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(11633, 11779) };
 		return func(this, a_targetRef, a_keyword);
+	}
+
+	void ExtraDataList::SetOverrideName(const char* a_name)
+	{
+		auto textData = GetByType<RE::ExtraTextDisplayData>();
+		if (!textData) {
+			textData = new RE::ExtraTextDisplayData();
+			Add(textData);
+		}
+
+		if (!textData->displayNameText && !textData->ownerQuest) {
+			textData->SetName(a_name);
+		}
 	}
 
 	void ExtraDataList::SetOwner(TESForm* a_owner)
