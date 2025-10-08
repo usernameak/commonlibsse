@@ -100,7 +100,7 @@ namespace RE
 	{
 		for (std::uint32_t i = 0; i < INPUT_DEVICE::kTotal; i++) {
 			if (devices[i]) {
-				devices[i]->Reset();
+				devices[i]->ClearInputState();
 			}
 		}
 	}
@@ -109,7 +109,7 @@ namespace RE
 	{
 		for (std::uint32_t i = 0; i < INPUT_DEVICE::kTotal; i++) {
 			if (devices[i]) {
-				devices[i]->Release();
+				devices[i]->Shutdown();
 				BSInputDeviceFactory::DestroyInputDevice(devices[i]);
 			}
 		}
