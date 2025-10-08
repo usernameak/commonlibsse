@@ -58,10 +58,6 @@ namespace RE
 		return nullptr;
 	}
 
-		}
-	}
-
-
 	template <>
 	void BSInputEventQueue::AdvanceCount<ButtonEvent>()
 	{

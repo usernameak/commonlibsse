@@ -22,22 +22,6 @@ namespace RE
 
 		static BSInputEventQueue* GetSingleton();
 
-		template <class T>
-		T* GetCachedEvent();
-
-		template <class T>
-		void AdvanceCount();
-
-		template <class T, class... Args>
-		void AddEvent(Args&&... args)
-		{
-			if (auto cachedEvent = GetCachedEvent<T>()) {
-				cachedEvent->Init(std::forward<Args>(args)...);
-				PushOntoInputQueue(cachedEvent);
-				AdvanceCount<T>();
-			}
-		}
-
 		template <class... Args>
 		void AddButtonEvent(Args&&... args)
 		{
@@ -73,6 +57,7 @@ namespace RE
 		{
 			AddEvent<KinectEvent>(std::forward<Args>(args)...);
 		}
+
 		void PushOntoInputQueue(InputEvent* a_event);
 		void ClearInputQueue();
 
@@ -94,6 +79,23 @@ namespace RE
 		KinectEvent        kinectEvents[MAX_KINECT_EVENTS];          // 350
 		InputEvent*        queueHead;                                // 380
 		InputEvent*        queueTail;                                // 388
+
+	private:
+		template <class T>
+		T* GetCachedEvent();
+
+		template <class T>
+		void AdvanceCount();
+
+		template <class T, class... Args>
+		void AddEvent(Args&&... args)
+		{
+			if (auto cachedEvent = GetCachedEvent<T>()) {
+				cachedEvent->Init(std::forward<Args>(args)...);
+				PushOntoInputQueue(cachedEvent);
+				AdvanceCount<T>();
+			}
+		}
 	};
 	static_assert(sizeof(BSInputEventQueue) == 0x390);
 }
