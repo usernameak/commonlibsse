@@ -181,7 +181,8 @@ namespace RE
 	/* SE 158 missing */                                                                                                        \
 	/* VR only */                                                                                                               \
 	X2(ISCopyDepthBuffer, INVALID_INDEX, 98)                      /* BSImagespaceShaderCopyDepthBuffer */                       \
-	X2(ISTargetSize, INVALID_INDEX, 100)                          /* TargetSize */                                              \
+	X2(ISCopyDepthBuffer_DR, INVALID_INDEX, 99)                   /* BSImagespaceShaderCopyDepthBuffer_DR */                    \
+	X2(ISCopyDepthBufferTargetSize, INVALID_INDEX, 100)           /* BSImagespaceShaderCopyDepthBuffer_TargetSize */            \
 	X2(ISGraphicsTextureFilterMode, INVALID_INDEX, 111)           /* ISGraphicsTextureFilterMode */                             \
 	X2(ISDownsampleHierarchicalDepthBufferCS, INVALID_INDEX, 126) /* BSImagespaceShaderISDownsampleHierarchicalDepthBufferCS */ \
 	X2(ISDiffScaleDownsampleDepthBufferCS, INVALID_INDEX, 127)    /* BSImagespaceShaderISDiffScaleDownsampleDepthBufferCS */    \
