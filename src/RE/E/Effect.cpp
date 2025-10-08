@@ -22,7 +22,7 @@ namespace RE
 	void Effect::Copy(const Effect* a_other)
 	{
 		using func_t = decltype(&Effect::Copy);
-		REL::Relocation<func_t> func{ Offset::Effect::Copy };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(10909, 10997) };
 		return func(this, a_other);
 	}
 
