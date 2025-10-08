@@ -171,17 +171,6 @@ namespace RE
 			inline constexpr REL::ID GetSingleton(static_cast<std::uint64_t>(109278));
 		}
 
-		namespace BSWin32SystemUtility
-		{
-			inline constexpr REL::ID GetSingleton(static_cast<std::uint64_t>(453511));
-		}
-
-		namespace BSXAudio2GameSound
-		{
-			inline constexpr REL::ID pAudioImplementation(static_cast<std::uint64_t>(410149));
-			inline constexpr REL::ID pXAudioListener(static_cast<std::uint64_t>(410150));
-		}
-
 		namespace Calendar
 		{
 			inline constexpr REL::ID Singleton(static_cast<std::uint64_t>(400447));
@@ -224,7 +213,6 @@ namespace RE
 		{
 			inline constexpr REL::ID Add(static_cast<std::uint64_t>(12315));
 			inline constexpr REL::ID SetCount(static_cast<std::uint64_t>(11617));
-			inline constexpr REL::ID SetEnchantment(static_cast<std::uint64_t>(12060));
 			inline constexpr REL::ID SetExtraFlags(static_cast<std::uint64_t>(12042));
 			inline constexpr REL::ID SetInventoryChanges(static_cast<std::uint64_t>(11600));
 		}
@@ -554,7 +542,6 @@ namespace RE
 			inline constexpr REL::ID HasOverlays(static_cast<std::uint64_t>(24790));
 			inline constexpr REL::ID SetSkinFromTint(static_cast<std::uint64_t>(24710));
 			inline constexpr REL::ID UpdateNeck(static_cast<std::uint64_t>(24711));
-			inline constexpr REL::ID SetWorn(static_cast<std::uint64_t>(16027));
 		}
 
 		namespace TESObjectREFR
@@ -807,7 +794,6 @@ namespace RE
 		{
 			inline constexpr REL::ID Add(static_cast<std::uint64_t>(12176));
 			inline constexpr REL::ID SetCount(static_cast<std::uint64_t>(11471));
-			inline constexpr REL::ID SetEnchantment(static_cast<std::uint64_t>(11921));
 			inline constexpr REL::ID SetExtraFlags(static_cast<std::uint64_t>(11903));
 			inline constexpr REL::ID SetInventoryChanges(static_cast<std::uint64_t>(11483));
 		}

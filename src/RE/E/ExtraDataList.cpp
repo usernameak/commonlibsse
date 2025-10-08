@@ -37,7 +37,7 @@ namespace RE
 	BaseExtraList::~BaseExtraList()
 	{
 		using func_t = void(*)(BaseExtraList*);
-		REL::Relocation<func_t> func{ Offset::BaseExtraList::Dtor };
+		static REL::Relocation<func_t> func{ Offset::BaseExtraList::Dtor };
 		func(this);
 	}
 #endif
@@ -306,7 +306,7 @@ namespace RE
 	void ExtraDataList::SetEnchantment(EnchantmentItem* a_enchantment, std::uint16_t a_chargeAmount, bool a_removeOnUnequip)
 	{
 		using func_t = decltype(&ExtraDataList::SetEnchantment);
-		REL::Relocation<func_t> func{ Offset::ExtraDataList::SetEnchantment };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11921, 12060) };
 		return func(this, a_enchantment, a_chargeAmount, a_removeOnUnequip);
 	}
 
