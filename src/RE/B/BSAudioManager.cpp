@@ -26,7 +26,7 @@ namespace RE
 	void BSAudioManager::ClearCache()
 	{
 		static REL::Relocation<BSSpinLock*> cacheSpinLock{ RELOCATION_ID(523579, 410115) };
-		BSSpinLockGuard locker{ *cacheSpinLock };
+		BSSpinLockGuard                     locker{ *cacheSpinLock };
 
 		for (auto it = audioCache.begin(); it != audioCache.end();) {
 			const auto gameSound = *it;

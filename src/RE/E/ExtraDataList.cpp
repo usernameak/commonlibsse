@@ -36,7 +36,7 @@ namespace RE
 #else
 	BaseExtraList::~BaseExtraList()
 	{
-		using func_t = void(*)(BaseExtraList*);
+		using func_t = void (*)(BaseExtraList*);
 		static REL::Relocation<func_t> func{ Offset::BaseExtraList::Dtor };
 		func(this);
 	}

@@ -36,7 +36,7 @@ namespace RE
 
 		const auto file = a_message->GetFile(0);
 		const auto filename = file ? file->GetFilename() : ""sv;
-		FormID relativeID = a_message->GetFormID() & 0xFFFFFF;
+		FormID     relativeID = a_message->GetFormID() & 0xFFFFFF;
 		if (file && file->IsLight()) {
 			relativeID &= 0xFFF;
 		}

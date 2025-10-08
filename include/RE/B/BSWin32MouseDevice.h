@@ -38,7 +38,7 @@ namespace RE
 		void Poll(float a_timeDelta) override;  // 02
 		void Shutdown() override;               // 03
 		void ClearInputState() override;        // 08
-		void Reinitialize(void) override;     // 09
+		void Reinitialize(void) override;       // 09
 
 		// members
 		REX::W32::IDirectInputDevice8A* dInputDevice;       // 78

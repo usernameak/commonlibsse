@@ -36,7 +36,7 @@ namespace RE
 #endif
 
 		TES_HEAP_REDEFINE_NEW();
-		
+
 		// members
 		BSExtraData*      data = nullptr;      // 08
 		PresenceBitfield* presence = nullptr;  // 10

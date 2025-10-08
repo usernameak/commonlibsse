@@ -64,11 +64,11 @@ namespace RE
 
 		static ControlMap* GetSingleton();
 
-		std::int8_t      AllowTextInput(bool a_allow);
-		constexpr bool   AreControlsEnabled(UEFlag a_flags) const noexcept { return enabledControls.all(a_flags); }
-		bool             GetButtonNameFromUserEvent(const BSFixedString& a_eventID, INPUT_DEVICE a_device, BSFixedString& a_buttonName);
-		std::uint32_t    GetMappedKey(std::string_view a_eventID, INPUT_DEVICE a_device, InputContextID a_context = InputContextID::kGameplay) const;
-		bool             GetMappingFromEventName(const BSFixedString& a_eventID, UserEvents::INPUT_CONTEXT_ID a_context, INPUT_DEVICE a_device, UserEventMapping& a_mapping);
+		std::int8_t               AllowTextInput(bool a_allow);
+		constexpr bool            AreControlsEnabled(UEFlag a_flags) const noexcept { return enabledControls.all(a_flags); }
+		bool                      GetButtonNameFromUserEvent(const BSFixedString& a_eventID, INPUT_DEVICE a_device, BSFixedString& a_buttonName);
+		std::uint32_t             GetMappedKey(std::string_view a_eventID, INPUT_DEVICE a_device, InputContextID a_context = InputContextID::kGameplay) const;
+		bool                      GetMappingFromEventName(const BSFixedString& a_eventID, UserEvents::INPUT_CONTEXT_ID a_context, INPUT_DEVICE a_device, UserEventMapping& a_mapping);
 		std::string_view          GetUserEventName(std::uint32_t a_buttonID, INPUT_DEVICE a_device, InputContextID a_context = InputContextID::kGameplay) const;
 		constexpr PC_GAMEPAD_TYPE GetGamePadType() const noexcept { return gamePadMapType.get(); }
 		constexpr bool            IsActivateControlsEnabled() const noexcept { return enabledControls.all(UEFlag::kActivate); }
@@ -85,9 +85,9 @@ namespace RE
 		constexpr bool            IsWheelZoomControlsEnabled() const noexcept { return enabledControls.all(UEFlag::kWheelZoom); }
 		void                      PopInputContext(InputContextID a_context);
 		void                      PushInputContext(InputContextID a_context);
-		void             StoreControls();
-		void             LoadStoredControls();
-		void             ToggleControls(UEFlag a_flags, bool a_enable, bool a_storeState);
+		void                      StoreControls();
+		void                      LoadStoredControls();
+		void                      ToggleControls(UEFlag a_flags, bool a_enable, bool a_storeState);
 
 		// members
 		InputContext*                                controlMap[InputContextID::kTotal];  // 060

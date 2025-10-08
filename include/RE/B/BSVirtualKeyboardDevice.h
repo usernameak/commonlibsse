@@ -20,7 +20,7 @@ namespace RE
 			std::uint32_t   maxChars;        // 20
 		};
 		static_assert(sizeof(kbInfo) == 0x28);
-		
+
 		inline static constexpr auto RTTI = RTTI_BSVirtualKeyboardDevice;
 		inline static constexpr auto VTABLE = VTABLE_BSVirtualKeyboardDevice;
 

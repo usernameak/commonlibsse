@@ -2,10 +2,10 @@
 #include "RE/G/GameSettingCollection.h"
 #include "RE/H/HUDData.h"
 #include "RE/H/HUDMenu.h"
+#include "RE/H/HUDMessageTypes.h"
 #include "RE/I/InterfaceStrings.h"
 #include "RE/P/PlayerCharacter.h"
 #include "RE/U/UIMessageQueue.h"
-#include "RE/H/HUDMessageTypes.h"
 
 namespace RE
 {

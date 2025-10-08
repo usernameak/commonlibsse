@@ -10,8 +10,8 @@ namespace RE
 	class BSUIMessageData : public IUIMessageData
 	{
 	public:
-		inline static constexpr auto RTTI = RTTI_BSUIMessageData;
-		inline static constexpr auto VTABLE = VTABLE_BSUIMessageData;
+		inline static constexpr auto             RTTI = RTTI_BSUIMessageData;
+		inline static constexpr auto             VTABLE = VTABLE_BSUIMessageData;
 		inline static constexpr std::string_view CLASS_NAME = "BSUIMessageData";
 
 		union Data
