@@ -68,11 +68,11 @@ namespace RE
 		return cache;
 	}
 
-	void Sky::FillColorBlend(COLOR_BLEND& a_colorBlend, TESWeather::ColorTime& a_time1, TESWeather::ColorTime& a_time2, float a_weatherPct)
+	void Sky::FillColorBlend(COLOR_BLEND& a_colorBlend, TESWeather* a_currentWeather, float a_weatherPct, TESWeather::ColorTime& a_time1, TESWeather::ColorTime& a_time2)
 	{
 		using func_t = decltype(&Sky::FillColorBlend);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(25706, 26253) };
-		func(this, a_colorBlend, a_time1, a_time2, a_weatherPct);
+		func(this, a_colorBlend, a_currentWeather, a_weatherPct, a_time1, a_time2);
 	}
 
 	void Sky::FillColorBlendColors(COLOR_BLEND& a_colorBlend, TESWeather* a_currentWeather, TESWeather* a_lastWeather, TESWeather::ColorType a_colorType, TESWeather::ColorTime& a_time1, TESWeather::ColorTime& a_time2)

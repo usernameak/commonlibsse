@@ -80,7 +80,7 @@ namespace RE
 		[[nodiscard]] float GetSunriseEnd();
 		[[nodiscard]] float GetSunsetBegin();
 		[[nodiscard]] float GetSunsetEnd();
-		void                FillColorBlend(COLOR_BLEND& a_colorBlend, TESWeather::ColorTime& a_time1, TESWeather::ColorTime& a_time2, float a_weatherPct);
+		void                FillColorBlend(COLOR_BLEND& a_colorBlend, TESWeather* a_currentWeather, float a_weatherPct, TESWeather::ColorTime& a_time1, TESWeather::ColorTime& a_time2);
 		void                FillColorBlendColors(COLOR_BLEND& a_colorBlend, TESWeather* a_currentWeather, TESWeather* a_lastWeather, TESWeather::ColorType a_colorType, TESWeather::ColorTime& a_time1, TESWeather::ColorTime& a_time2);
 		void                ForceWeather(TESWeather* a_weather, bool a_override);
 		[[nodiscard]] bool  IsDaytime();
