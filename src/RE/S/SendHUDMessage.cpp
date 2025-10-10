@@ -24,9 +24,14 @@ namespace RE
 			return;
 		}
 
-		const auto        objectName = (a_objectName && a_objectName[0]) ? a_objectName : a_object->GetName();
-		const auto        phrase = a_added ? *"sAddItemtoInventory"_gs : *"sRemoveItemfromInventory"_gs;
+		const auto objectName = (a_objectName && a_objectName[0]) ? a_objectName : a_object->GetName();
+		const auto phrase = a_added ? *"sAddItemtoInventory"_gs : *"sRemoveItemfromInventory"_gs;
+#ifdef FMT_VERSION
 		const std::string message = a_count >= 1 ? fmt::format("{} {}", objectName, phrase) : fmt::format("{} ({}) {}", objectName, a_count, phrase);
+#endif
+#ifdef __cpp_lib_format
+		const std::string message = a_count >= 1 ? std::format("{} {}", objectName, phrase) : std::format("{} ({}) {}", objectName, a_count, phrase);
+#endif
 
 		ShowHUDMessage(message.c_str());
 
