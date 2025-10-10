@@ -60,7 +60,7 @@ namespace RE
 
 		struct ColorTypes
 		{
-			enum
+			enum ColorType : std::uint32_t
 			{
 				kSkyUpper = 0,
 				kFogNear,
@@ -83,6 +83,7 @@ namespace RE
 				kTotal
 			};
 		};
+		using ColorType = ColorTypes::ColorType;
 
 		struct RecordFlags
 		{

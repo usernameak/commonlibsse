@@ -76,6 +76,20 @@ namespace RE
 		// add
 		virtual bool Validate();  // 3B
 
+		TESWeather* SelectWeather()
+		{
+			using func_t = decltype(&TESRegion::SelectWeather);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(16203, 16449) };
+			return func(this);
+		}
+
+		void SetCurrentWeather(TESWeather* a_weather)
+		{
+			using func_t = decltype(&TESRegion::SetCurrentWeather);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(16202, 16448) };
+			return func(this, a_weather);
+		}
+
 		// members
 		TESRegionDataList*                 dataList;        // 20
 		BSSimpleList<TESRegionPointList*>* pointLists;      // 28
