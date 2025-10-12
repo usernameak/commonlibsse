@@ -14,7 +14,7 @@ namespace RE
 
 		class InstanceGroup : BSMultiBoundAABB
 		{
-			REX::W32::ID3D11Buffer** buffer;         // 40
+			ID3D11Buffer**           buffer;         // 40
 			std::uint32_t            unk48;          // 48
 			std::uint32_t            instanceCount;  // 4C
 			bool                     unk50;          // 50
