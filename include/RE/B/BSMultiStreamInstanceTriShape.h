@@ -4,12 +4,22 @@
 
 namespace RE
 {
+
 	class BSMultiStreamInstanceTriShape : public BSInstanceTriShape
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSMultiStreamInstanceTriShape;
 		inline static constexpr auto Ni_RTTI = NiRTTI_BSMultiStreamInstanceTriShape;
 		inline static constexpr auto VTABLE = VTABLE_BSMultiStreamInstanceTriShape;
+
+		class InstanceGroup : BSMultiBoundAABB
+		{
+			ID3D11Buffer**           buffer;         // 40
+			std::uint32_t            unk48;          // 48
+			std::uint32_t            instanceCount;  // 4C
+			bool                     unk50;          // 50
+		};
+		static_assert(sizeof(InstanceGroup) == 0x58);
 
 		~BSMultiStreamInstanceTriShape() override;  // 00
 
@@ -26,14 +36,14 @@ namespace RE
 		void          RemoveGroup(std::uint32_t a_numInstance) override;                                                                   // 3D
 
 		// members
-		BSTArray<void*> unk160;  // 160
-		std::uint32_t   unk178;  // 178
-		std::uint32_t   unk17C;  // 17C
-		std::uint64_t   unk180;  // 180
-		std::uint64_t   unk188;  // 188
-		std::uint32_t   unk190;  // 190
-		std::uint32_t   unk194;  // 194
-		std::uint32_t   unk198;  // 198
+		BSTArray<InstanceGroup*> unk160;              // 160
+		std::uint32_t            instanceGroupCount;  // 178
+		std::uint32_t            unk17C;              // 17C
+		std::uint64_t            unk180;              // 180
+		void*                    groupAlloc;          // 188
+		std::uint32_t            instanceCount;       // 190
+		std::uint32_t            instantceSize;       // 194
+		std::uint32_t            unk198;              // 198
 	};
 	static_assert(sizeof(BSMultiStreamInstanceTriShape) == 0x1A0);
 }
