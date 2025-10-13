@@ -376,6 +376,9 @@ set(SOURCES
 	include/RE/B/BSStream.h
 	include/RE/B/BSString.h
 	include/RE/B/BSStringPool.h
+	include/RE/B/BSStripPSysData.h
+	include/RE/B/BSStripParticleSystem.h
+	include/RE/B/BSSubIndexTriShape.h
 	include/RE/B/BSSystemFile.h
 	include/RE/B/BSSystemFileStorage.h
 	include/RE/B/BSSystemUtility.h
@@ -557,6 +560,7 @@ set(SOURCES
 	include/RE/C/ControlMap.h
 	include/RE/C/CraftingMenu.h
 	include/RE/C/CraftingSubMenu.h
+	include/RE/C/CreateGrassParams.h
 	include/RE/C/CreationClubMenu.h
 	include/RE/C/CreditsMenu.h
 	include/RE/C/Crime.h

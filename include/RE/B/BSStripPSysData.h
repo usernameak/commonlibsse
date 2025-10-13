@@ -47,14 +47,14 @@ namespace RE
 		~BSStripPSysData() override;  // 00
 
 		// override (NiPSysData)
-		const NiRTTI*    GetRTTI() const override;                                // 02
-		NiObject* CreateClone(NiCloningProcess& a_cloning) override;       // 17
-		void             LoadBinary(NiStream& a_stream) override;                 // 18
-		void             LinkObject(NiStream& a_stream) override;                 // 19
-		bool             RegisterStreamables(NiStream& a_stream) override;        // 1A
-		void             SaveBinary(NiStream& a_stream) override;                 // 1B
-		bool             IsEqual(NiObject* a_object) override;                    // 1C
-		void             RemoveParticle(std::uint16_t a_particleCount) override;  // 28
+		const NiRTTI* GetRTTI() const override;                                // 02
+		NiObject*     CreateClone(NiCloningProcess& a_cloning) override;       // 17
+		void          LoadBinary(NiStream& a_stream) override;                 // 18
+		void          LinkObject(NiStream& a_stream) override;                 // 19
+		bool          RegisterStreamables(NiStream& a_stream) override;        // 1A
+		void          SaveBinary(NiStream& a_stream) override;                 // 1B
+		bool          IsEqual(NiObject* a_object) override;                    // 1C
+		void          RemoveParticle(std::uint16_t a_particleCount) override;  // 28
 
 		// members
 		StripData* stripData;      // A8
