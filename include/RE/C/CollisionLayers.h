@@ -73,38 +73,12 @@ namespace std
 	}
 }
 
-#ifdef FMT_VERSION
-namespace fmt
+template <class CharT>
+struct std::formatter<RE::COL_LAYER, CharT> : std::formatter<std::string_view, CharT>
 {
-	template <>
-	struct formatter<RE::COL_LAYER>
+	template <class FormatContext>
+	auto format(RE::COL_LAYER a_layer, FormatContext& a_ctx) const
 	{
-		template <class ParseContext>
-		constexpr auto parse(ParseContext& a_ctx)
-		{
-			return a_ctx.begin();
-		}
-
-		template <class FormatContext>
-		auto format(const RE::COL_LAYER& a_layer, FormatContext& a_ctx) const
-		{
-			return fmt::format_to(a_ctx.out(), "{}", RE::CollisionLayerToString(a_layer));
-		}
-	};
-}
-#endif
-
-#ifdef __cpp_lib_format
-namespace std
-{
-	template <class CharT>
-	struct formatter<RE::COL_LAYER, CharT> : std::formatter<std::string_view, CharT>
-	{
-		template <class FormatContext>
-		auto format(RE::COL_LAYER a_layer, FormatContext& a_ctx) const
-		{
-			return formatter<std::string_view, CharT>::format(RE::CollisionLayerToString(a_layer), a_ctx);
-		}
-	};
-}
-#endif
+		return formatter<std::string_view, CharT>::format(RE::CollisionLayerToString(a_layer), a_ctx);
+	}
+};

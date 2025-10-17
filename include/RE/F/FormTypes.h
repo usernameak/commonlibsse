@@ -291,38 +291,12 @@ namespace std
 	}
 }
 
-#ifdef FMT_VERSION
-namespace fmt
+template <class CharT>
+struct std::formatter<RE::FormType, CharT> : std::formatter<std::string_view, CharT>
 {
-	template <>
-	struct formatter<RE::FormType>
+	template <class FormatContext>
+	auto format(RE::FormType a_formType, FormatContext& a_ctx) const
 	{
-		template <class ParseContext>
-		constexpr auto parse(ParseContext& a_ctx)
-		{
-			return a_ctx.begin();
-		}
-
-		template <class FormatContext>
-		auto format(const RE::FormType& a_formType, FormatContext& a_ctx) const
-		{
-			return fmt::format_to(a_ctx.out(), "{}", RE::FormTypeToString(a_formType));
-		}
-	};
-}
-#endif
-
-#ifdef __cpp_lib_format
-namespace std
-{
-	template <class CharT>
-	struct formatter<RE::FormType, CharT> : std::formatter<std::string_view, CharT>
-	{
-		template <class FormatContext>
-		auto format(RE::FormType a_formType, FormatContext& a_ctx)
-		{
-			return formatter<std::string_view, CharT>::format(RE::FormTypeToString(a_formType), a_ctx);
-		}
-	};
-}
-#endif
+		return formatter<std::string_view, CharT>::format(RE::FormTypeToString(a_formType), a_ctx);
+	}
+};
