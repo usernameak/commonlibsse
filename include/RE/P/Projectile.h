@@ -235,6 +235,8 @@ namespace RE
 		static ProjectileHandle* LaunchArrow(ProjectileHandle* a_result, Actor* a_shooter, TESAmmo* a_ammo, TESObjectWEAP* a_weap, const NiPoint3& a_origin, const ProjectileRot& a_angles) noexcept;
 		static ProjectileHandle* LaunchArrow(ProjectileHandle* a_result, Actor* a_shooter, TESAmmo* a_ammo, TESObjectWEAP* a_weap) noexcept;
 
+		void Kill();
+
 		// members
 		BSSimpleList<ImpactData*>          impacts;              // 098
 		NiTransform                        unk0A8;               // 0A8
