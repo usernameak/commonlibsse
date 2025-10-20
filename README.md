@@ -25,3 +25,7 @@ xmake project -k vsxmake
 ```
 
 > ***Note:*** *This will generate a `vsxmakeXXXX/` directory in the **project's root directory** using the latest version of Visual Studio installed on the system.*
+
+## Notes
+
+CommonLibSSE is intended to replace SKSE as a static dependency. However, the runtime component of SKSE is still required.
