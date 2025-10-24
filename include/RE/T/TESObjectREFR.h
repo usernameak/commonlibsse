@@ -174,6 +174,7 @@ namespace RE
 
 				kDoesntLightLandscape = 1 << 17,
 
+				kTemp3D = 1 << 19,
 				kIgnoreFriendlyHits = 1 << 20,  // Actor
 
 				kNoAIAcquire = 1 << 25,
