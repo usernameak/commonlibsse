@@ -81,7 +81,6 @@ namespace RE
 			auto        mem = allocator->Allocate(size, alignof(void*));
 			assert(mem != nullptr);
 			std::memset(mem, 0, size);
-
 			return static_cast<T*>(mem);
 		};
 

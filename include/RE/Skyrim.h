@@ -1371,6 +1371,7 @@
 #include "RE/N/NiParticleSystem.h"
 #include "RE/N/NiParticles.h"
 #include "RE/N/NiParticlesData.h"
+#include "RE/N/NiPick.h"
 #include "RE/N/NiPlane.h"
 #include "RE/N/NiPoint2.h"
 #include "RE/N/NiPoint3.h"
