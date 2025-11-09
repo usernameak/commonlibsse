@@ -41,21 +41,22 @@ namespace RE
 		virtual ~BSBatchRenderer();  // 00
 
 		// add
-		virtual void Unk_01(void);  // 01
-		virtual void Unk_02(void);  // 02
-		virtual void Unk_03(void);  // 03
+		virtual void RegisterPassSorted(BSRenderPass* renderPass, std::uint32_t techniqueID);                            // 01
+		virtual void RegisterPass(BSRenderPass* renderPass, std::uint32_t techniqueID);                                  // 02
+		virtual void RenderActivePassRange(std::uint32_t firstPass, std::uint32_t lastPass, std::uint32_t renderFlags);  // 03
 
 		// members
-		BSTArray<void*>              unk008;              // 008
-		BSTHashMap<UnkKey, UnkValue> unk020;              // 020
-		std::uint64_t                unk050;              // 050
-		std::uint64_t                unk058;              // 058
-		std::uint64_t                unk060;              // 060
-		std::uint64_t                unk068;              // 068
-		GeometryGroup*               geometryGroups[16];  // 070
-		GeometryGroup*               alphaGroup;          // 0F0
-		void*                        unk0F8;              // 0F8
-		void*                        unk100;              // 100
+		BSTArray<PassGroup*>           renderPass;           // 008
+		BSTHashMap<uint32_t, uint32_t> renderPassMap;        // 020  Technique ID -> Index in renderPass
+		std::uint32_t                  currentFirstPass;     // 050
+		std::uint32_t                  currentLastPass;      // 054
+		BSSimpleList<uint32_t>         activePassIndexList;  // 060
+		std::uint32_t                  groupingAlphasCount;  // 064
+		bool                           autoClearPasses;      // 068
+		GeometryGroup*                 geometryGroups[16];   // 070
+		GeometryGroup*                 alphaGroup;           // 0F0
+		void*                          unk0F8;               // 0F8
+		void*                          unk100;               // 100
 	};
 	static_assert(sizeof(BSBatchRenderer) == 0x108);
 }
