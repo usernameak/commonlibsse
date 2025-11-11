@@ -4,9 +4,9 @@
 
 namespace RE
 {
-	TESObjectREFR* LockpickingMenu::GetTargetReference()
+	TESObjectREFRPtr LockpickingMenu::GetTargetReference()
 	{
 		static REL::Relocation<TESObjectREFRPtr*> refptr{ RELOCATION_ID(519716, 406271) };
-		return refptr->get();
+		return *refptr;
 	}
 }

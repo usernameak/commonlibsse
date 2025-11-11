@@ -11,10 +11,10 @@ namespace RE
 		return *book;
 	}
 
-	TESObjectREFR* BookMenu::GetTargetReference()
+	TESObjectREFRPtr BookMenu::GetTargetReference()
 	{
 		static REL::Relocation<TESObjectREFRPtr*> refptr{ RELOCATION_ID(519300, 405840) };
-		return refptr->get();
+		return *refptr;
 	}
 
 	void BookMenu::OpenBookMenu(const BSString& a_description, const ExtraDataList* a_extraList, TESObjectREFR* a_ref, TESObjectBOOK* a_book, const NiPoint3& a_pos, const NiMatrix3& a_rot, float a_scale, bool a_useDefaultPos)
