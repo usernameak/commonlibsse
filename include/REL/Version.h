@@ -188,12 +188,13 @@ struct std::formatter<REL::Version, CharT> : formatter<std::string, CharT>
 
 #ifdef FMT_VERSION
 template <class CharT>
-struct fmt::formatter<REL::Version, CharT> : formatter<std::string, CharT>
+struct fmt::formatter<REL::Version, CharT> : fmt::formatter<std::basic_string_view<CharT>, CharT>
 {
 	template <class FormatContext>
-	auto format(const REL::Version a_version, FormatContext& a_ctx) const
+	auto format(const REL::Version& a_version, FormatContext& a_ctx) const
 	{
-		return formatter<std::string, CharT>::format(a_version.string(), a_ctx);
+		auto str = a_version.string();
+		return fmt::formatter<std::basic_string_view<CharT>, CharT>::format(std::basic_string_view<CharT>(str.data(), str.size()), a_ctx);
 	}
 };
 #endif

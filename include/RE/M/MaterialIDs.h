@@ -110,18 +110,12 @@ namespace std
 namespace fmt
 {
 	template <>
-	struct formatter<RE::MATERIAL_ID>
+	struct formatter<RE::MATERIAL_ID> : formatter<std::string_view>
 	{
-		template <class ParseContext>
-		constexpr auto parse(ParseContext& a_ctx)
-		{
-			return a_ctx.begin();
-		}
-
 		template <class FormatContext>
 		auto format(const RE::MATERIAL_ID& a_materialID, FormatContext& a_ctx) const
 		{
-			return fmt::format_to(a_ctx.out(), "{}", RE::MaterialIDToString(a_materialID));
+			return formatter<std::string_view>::format(RE::MaterialIDToString(a_materialID), a_ctx);
 		}
 	};
 }
