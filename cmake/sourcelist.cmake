@@ -955,6 +955,7 @@ set(SOURCES
 	include/RE/G/GameSettingCollection.h
 	include/RE/G/GarbageCollector.h
 	include/RE/G/GiftMenu.h
+	include/RE/G/GiftMenuCallbackFunc.h
 	include/RE/G/GlobalLocations.h
 	include/RE/G/GlobalPaths.h
 	include/RE/G/GrabActorEffect.h
@@ -1148,6 +1149,7 @@ set(SOURCES
 	include/RE/I/IFuncCallQuery.h
 	include/RE/I/IFunction.h
 	include/RE/I/IFunctionArguments.h
+	include/RE/I/IGiftMenuScriptCallback.h
 	include/RE/I/IHandleReaderWriter.h
 	include/RE/I/IHandlerFunctor.h
 	include/RE/I/ILoader.h
