@@ -175,25 +175,25 @@ namespace std
 }
 
 #ifdef __cpp_lib_format
-template <>
-struct std::formatter<REL::Version> : formatter<std::string>
+template <class CharT>
+struct std::formatter<REL::Version, CharT> : formatter<std::string_view, CharT>
 {
 	template <class FormatContext>
-	constexpr auto format(const REL::Version a_version, FormatContext& a_ctx) const
+	constexpr auto format(const REL::Version& a_version, FormatContext& a_ctx) const
 	{
-		return formatter<std::string>::format(a_version.string(), a_ctx);
+		return formatter<std::string_view, CharT>::format(a_version.string(), a_ctx);
 	}
 };
 #endif
 
 #ifdef FMT_VERSION
 template <>
-struct fmt::formatter<REL::Version> : fmt::formatter<std::string>
+struct fmt::formatter<REL::Version> : fmt::formatter<std::string_view>
 {
 	template <class FormatContext>
 	auto format(const REL::Version& a_version, FormatContext& a_ctx) const
 	{
-		return fmt::formatter<std::string>::format(a_version.string(), a_ctx);
+		return fmt::formatter<std::string_view>::format(a_version.string(), a_ctx);
 	}
 };
 #endif
