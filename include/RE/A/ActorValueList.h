@@ -38,7 +38,7 @@ namespace fmt
 		template <class FormatContext>
 		auto format(const RE::ActorValue& a_actorValue, FormatContext& a_ctx) const
 		{
-			return formatter<std::string_view>::format(ActorValueToString(a_actorValue), a_ctx);
+			return formatter<std::string_view>::format(RE::ActorValueToString(a_actorValue), a_ctx);
 		}
 	};
 }
@@ -53,7 +53,7 @@ namespace std
 		template <class FormatContext>
 		auto format(RE::ActorValue a_actorValue, FormatContext& a_ctx)
 		{
-			return formatter<std::string_view, CharT>::format(ActorValueToString(a_actorValue), a_ctx);
+			return formatter<std::string_view, CharT>::format(RE::ActorValueToString(a_actorValue), a_ctx);
 		}
 	};
 }
