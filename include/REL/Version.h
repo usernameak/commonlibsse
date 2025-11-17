@@ -176,12 +176,19 @@ namespace std
 
 #ifdef __cpp_lib_format
 template <class CharT>
-struct std::formatter<REL::Version, CharT> : formatter<std::string, CharT>
+struct std::formatter<REL::Version, CharT> : formatter<std::basic_string_view<CharT>, CharT>
 {
 	template <class FormatContext>
 	constexpr auto format(const REL::Version& a_version, FormatContext& a_ctx) const
 	{
-		return formatter<std::string, CharT>::format(a_version.string(), a_ctx);
+		auto str = a_version.string();
+		if constexpr (std::is_same_v<CharT, char>) {
+			return formatter<std::basic_string_view<CharT>, CharT>::format(str, a_ctx);
+		} else {
+			// Convert narrow string to wide string for wchar_t formatting
+			std::basic_string<CharT> wstr(str.begin(), str.end());
+			return formatter<std::basic_string_view<CharT>, CharT>::format(wstr, a_ctx);
+		}
 	}
 };
 #endif
