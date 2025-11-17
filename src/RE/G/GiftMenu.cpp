@@ -22,35 +22,66 @@ namespace RE
 		return *showStolenItems;
 	}
 
-	bool GiftMenu::GetUseFavorPoints()
-	{
-		static REL::Relocation<bool*> useFavorPoints{ RELOCATION_ID(0, 382811) };
-		return *useFavorPoints;
-	}
-
 	BGSListForm* GiftMenu::GetFilterList()
 	{
 		static REL::Relocation<BGSListForm**> filterList{ RELOCATION_ID(0, 406085) };
 		return *filterList;
 	}
 
+	IGiftMenuScriptCallback* GiftMenu::GetCallbackFn()
+	{
+		static REL::Relocation<IGiftMenuScriptCallback**> callbackFn{ RELOCATION_ID(0, 406113) };
+		return *callbackFn;
+	}
+
 	bool GiftMenu::IsPlayerGifting()
 	{
-		RE::TESObjectREFRPtr refptr = nullptr;
+		TESObjectREFRPtr refptr = nullptr;
 
-		if (RE::TESObjectREFR::LookupByHandle(GetGifterRefHandle(), refptr)) {
-			return refptr && refptr.get() == RE::PlayerCharacter::GetSingleton();
+		if (TESObjectREFR::LookupByHandle(GetGifterRefHandle(), refptr)) {
+			return refptr && refptr.get() == PlayerCharacter::GetSingleton();
 		}
 		return false;
 	}
 
 	bool GiftMenu::IsPlayerReceiving()
 	{
-		RE::TESObjectREFRPtr refptr = nullptr;
+		TESObjectREFRPtr refptr = nullptr;
 
-		if (RE::TESObjectREFR::LookupByHandle(GetReceiverRefHandle(), refptr)) {
-			return refptr && refptr.get() == RE::PlayerCharacter::GetSingleton();
+		if (TESObjectREFR::LookupByHandle(GetReceiverRefHandle(), refptr)) {
+			return refptr && refptr.get() == PlayerCharacter::GetSingleton();
 		}
 		return false;
+	}
+
+	void GiftMenu::OpenMenuAsGifter(Actor* a_receiver)
+	{
+		BSTSmartPointer<IGiftMenuScriptCallback> callbackFn = nullptr;
+		return OpenMenu_Impl(PlayerCharacter::GetSingleton(), a_receiver, &callbackFn, nullptr, false);
+	}
+
+	void GiftMenu::OpenMenuAsGifter(Actor* a_receiver, GiftMenuCallback_t a_callbackFn, BGSListForm* a_filterList, bool a_showStolenItems)
+	{
+		auto callback = IGiftMenuScriptCallback::Create(a_callbackFn);
+		return OpenMenu_Impl(PlayerCharacter::GetSingleton(), a_receiver, &callback, a_filterList, a_showStolenItems, false);
+	}
+
+	void GiftMenu::OpenMenuAsReceiver(Actor* a_gifter)
+	{
+		BSTSmartPointer<IGiftMenuScriptCallback> callbackFn = nullptr;
+		return OpenMenu_Impl(a_gifter, PlayerCharacter::GetSingleton(), &callbackFn, nullptr, false);
+	}
+
+	void GiftMenu::OpenMenuAsReceiver(Actor* a_gifter, GiftMenuCallback_t a_callbackFn, BGSListForm* a_filterList, bool a_showStolenItems)
+	{
+		auto callback = IGiftMenuScriptCallback::Create(a_callbackFn);
+		return OpenMenu_Impl(a_gifter, PlayerCharacter::GetSingleton(), &callback, a_filterList, a_showStolenItems, false);
+	}
+
+	void GiftMenu::OpenMenu_Impl(Actor* a_gifter, Actor* a_receiver, BSTSmartPointer<IGiftMenuScriptCallback>* a_callbackFn, BGSListForm* a_filterList, bool a_showStolenItems, bool a_useFavorPoints)
+	{
+		using func_t = decltype(&GiftMenu::OpenMenu_Impl);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(0, 51576) };
+		return func(a_gifter, a_receiver, a_callbackFn, a_filterList, a_showStolenItems, a_useFavorPoints);
 	}
 }
