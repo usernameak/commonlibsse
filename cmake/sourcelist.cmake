@@ -2035,8 +2035,8 @@ set(SOURCES
 	src/RE/M/MagicFavorites.cpp
 	src/RE/M/MagicFormulas.cpp
 	src/RE/M/MagicItem.cpp
-	src/RE/M/MagicItemList.cpp
 	src/RE/M/MagicItemDataCollector.cpp
+	src/RE/M/MagicItemList.cpp
 	src/RE/M/MagicSystem.cpp
 	src/RE/M/MagicTarget.cpp
 	src/RE/M/MagicUtilities.cpp
