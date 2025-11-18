@@ -60,8 +60,6 @@ namespace RE
 		static void OpenMenuFromBaseForm(TESObjectBOOK* a_book);                                                                                            // Can not be taken.
 		static void OpenMenuFromBaseForm(TESObjectBOOK* a_book, const NiPoint3& a_pos, const NiMatrix3& a_rot, float a_scale, bool a_useDefaultPos);        // Can not be taken.
 
-		static void OpenMenu_Impl(const BSString& a_description, const ExtraDataList* a_extraList, TESObjectREFR* a_targetReference, TESObjectBOOK* a_targetBook, const NiPoint3& a_pos, const NiMatrix3& a_rot, float a_scale, bool a_useDefaultPos);
-
 		// members
 		BSTArray<BSScaleformExternalTexture> bookTextures;      // 50
 		GPtr<GFxMovieView>                   book;              // 68
@@ -76,6 +74,9 @@ namespace RE
 		bool                                 isNote;            // 95
 		bool                                 bookInitialized;   // 96
 		std::uint8_t                         pad97;             // 97
+
+	private:
+		static void OpenMenu_Impl(const BSString& a_description, const ExtraDataList* a_extraList, TESObjectREFR* a_targetReference, TESObjectBOOK* a_targetBook, const NiPoint3& a_pos, const NiMatrix3& a_rot, float a_scale, bool a_useDefaultPos);
 	};
 	static_assert(sizeof(BookMenu) == 0x98);
 }

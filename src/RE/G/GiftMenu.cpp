@@ -66,6 +66,11 @@ namespace RE
 		return OpenMenu_Impl(PlayerCharacter::GetSingleton(), a_receiver, &callback, a_filterList, a_showStolenItems, false);
 	}
 
+	void GiftMenu::OpenMenuAsGifter(Actor* a_receiver, BSTSmartPointer<IGiftMenuScriptCallback>* a_callbackFn, BGSListForm* a_filterList, bool a_showStolenItems)
+	{
+		return OpenMenu_Impl(PlayerCharacter::GetSingleton(), a_receiver, a_callbackFn, a_filterList, a_showStolenItems, false);
+	}
+
 	void GiftMenu::OpenMenuAsReceiver(Actor* a_gifter)
 	{
 		BSTSmartPointer<IGiftMenuScriptCallback> callbackFn = nullptr;
@@ -76,6 +81,11 @@ namespace RE
 	{
 		auto callback = IGiftMenuScriptCallback::Create(a_callbackFn);
 		return OpenMenu_Impl(a_gifter, PlayerCharacter::GetSingleton(), &callback, a_filterList, a_showStolenItems, false);
+	}
+
+	void GiftMenu::OpenMenuAsReceiver(Actor* a_gifter, BSTSmartPointer<IGiftMenuScriptCallback>* a_callbackFn, BGSListForm* a_filterList, bool a_showStolenItems)
+	{
+		return OpenMenu_Impl(a_gifter, PlayerCharacter::GetSingleton(), a_callbackFn, a_filterList, a_showStolenItems, false);
 	}
 
 	void GiftMenu::OpenMenu_Impl(Actor* a_gifter, Actor* a_receiver, BSTSmartPointer<IGiftMenuScriptCallback>* a_callbackFn, BGSListForm* a_filterList, bool a_showStolenItems, bool a_useFavorPoints)

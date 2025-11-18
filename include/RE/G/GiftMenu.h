@@ -39,10 +39,10 @@ namespace RE
 
 		static void OpenMenuAsGifter(Actor* a_receiver);
 		static void OpenMenuAsGifter(Actor* a_receiver, GiftMenuCallback_t a_callbackFn, BGSListForm* a_filterList, bool a_showStolenItems);
+		static void OpenMenuAsGifter(Actor* a_receiver, BSTSmartPointer<IGiftMenuScriptCallback>* a_callbackFn, BGSListForm* a_filterList, bool a_showStolenItems);
 		static void OpenMenuAsReceiver(Actor* a_gifter);
 		static void OpenMenuAsReceiver(Actor* a_gifter, GiftMenuCallback_t a_callbackFn, BGSListForm* a_filterList, bool a_showStolenItems);
-
-		static void OpenMenu_Impl(Actor* a_gifter, Actor* a_receiver, BSTSmartPointer<IGiftMenuScriptCallback>* a_callbackFn, BGSListForm* a_filterList, bool a_showStolenItems, bool a_useFavorPoints = false);  // value of a_useFavorPoints is always ignored
+		static void OpenMenuAsReceiver(Actor* a_gifter, BSTSmartPointer<IGiftMenuScriptCallback>* a_callbackFn, BGSListForm* a_filterList, bool a_showStolenItems);
 
 		bool IsPlayerGifting();
 		bool IsPlayerReceiving();
@@ -58,6 +58,9 @@ namespace RE
 		std::uint8_t    pad79;                  // 79
 		std::uint16_t   pad7A;                  // 7A
 		std::uint32_t   pad7C;                  // 7C
+
+	private:
+		static void OpenMenu_Impl(Actor* a_gifter, Actor* a_receiver, BSTSmartPointer<IGiftMenuScriptCallback>* a_callbackFn, BGSListForm* a_filterList, bool a_showStolenItems, bool a_useFavorPoints = false);  // value of a_useFavorPoints is always ignored
 	};
 	static_assert(sizeof(GiftMenu) == 0x80);
 }
