@@ -1262,11 +1262,15 @@ set(SOURCES
 	include/RE/M/MagicFavorites.h
 	include/RE/M/MagicFormulas.h
 	include/RE/M/MagicItem.h
+	include/RE/M/MagicItemData.h
 	include/RE/M/MagicItemDataCollector.h
 	include/RE/M/MagicItemFindFunctor.h
 	include/RE/M/MagicItemFindKeywordFunctor.h
+	include/RE/M/MagicItemList.h
 	include/RE/M/MagicItemTraversalFunctor.h
 	include/RE/M/MagicMenu.h
+	include/RE/M/MagicMenuAddActiveEffectVisitor.h
+	include/RE/M/MagicMenuAddSpellVisitor.h
 	include/RE/M/MagicSystem.h
 	include/RE/M/MagicTarget.h
 	include/RE/M/MagicUtilities.h
@@ -2031,6 +2035,7 @@ set(SOURCES
 	src/RE/M/MagicFavorites.cpp
 	src/RE/M/MagicFormulas.cpp
 	src/RE/M/MagicItem.cpp
+	src/RE/M/MagicItemList.cpp
 	src/RE/M/MagicItemDataCollector.cpp
 	src/RE/M/MagicSystem.cpp
 	src/RE/M/MagicTarget.cpp
