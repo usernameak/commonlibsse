@@ -8,6 +8,7 @@ set(SOURCES
 	include/RE/A/AccumulatingValueModifierEffect.h
 	include/RE/A/ActionInput.h
 	include/RE/A/ActionOutput.h
+	include/RE/A/ActivateChoiceMenuCallbackFunctor.h
 	include/RE/A/ActivateHandler.h
 	include/RE/A/ActiveEffect.h
 	include/RE/A/ActiveEffectFactory.h
@@ -549,6 +550,10 @@ set(SOURCES
 	include/RE/C/ConcreteObjectFormFactory.h
 	include/RE/C/ConcussionEffect.h
 	include/RE/C/ConeProjectile.h
+	include/RE/C/ConfirmAndNameCallback.h
+	include/RE/C/ConfirmCloseRaceSexMenuCallback.h
+	include/RE/C/ConfirmDestructiveChangesCallback.h
+	include/RE/C/ConfirmLevelUpAttributeCallback.h
 	include/RE/C/Console.h
 	include/RE/C/ConsoleData.h
 	include/RE/C/ConsoleLog.h
@@ -581,6 +586,7 @@ set(SOURCES
 	include/RE/D/DetectionState.h
 	include/RE/D/DevNull.h
 	include/RE/D/DeviceConnectEvent.h
+	include/RE/D/DeviceSelectCallback.h
 	include/RE/D/DialogueItem.h
 	include/RE/D/DialogueMenu.h
 	include/RE/D/DialoguePackage.h
@@ -1318,6 +1324,7 @@ set(SOURCES
 	include/RE/N/NativeLatentFunction.h
 	include/RE/N/NavMesh.h
 	include/RE/N/NavMeshInfoMap.h
+	include/RE/N/NeedToUpdateCreationClubCallback.h
 	include/RE/N/NiAVObject.h
 	include/RE/N/NiAVObjectPalette.h
 	include/RE/N/NiAccumulator.h
@@ -1439,6 +1446,7 @@ set(SOURCES
 	include/RE/P/PerkRankVisitor.h
 	include/RE/P/PerkSelectConfirmCallback.h
 	include/RE/P/PermanentMagicFunctor.h
+	include/RE/P/PlacePlayerMarkerCallbackFunctor.h
 	include/RE/P/PlayerCamera.h
 	include/RE/P/PlayerCameraTransitionState.h
 	include/RE/P/PlayerCharacter.h
@@ -1499,6 +1507,7 @@ set(SOURCES
 	include/RE/S/ScriptEffect.h
 	include/RE/S/ScriptEventSourceHolder.h
 	include/RE/S/ScriptFunction.h
+	include/RE/S/ScriptMessageBoxCallback.h
 	include/RE/S/ScriptedRefEffect.h
 	include/RE/S/ScrollItem.h
 	include/RE/S/SendHUDMessage.h
@@ -1542,6 +1551,7 @@ set(SOURCES
 	include/RE/S/SpecificItemCollector.h
 	include/RE/S/SpellItem.h
 	include/RE/S/SpellsLearned.h
+	include/RE/S/SpendSoulCallback.h
 	include/RE/S/SprintHandler.h
 	include/RE/S/Stack.h
 	include/RE/S/StackFrame.h
