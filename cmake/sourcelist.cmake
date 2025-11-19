@@ -2046,6 +2046,7 @@ set(SOURCES
 	src/RE/M/MenuControls.cpp
 	src/RE/M/MenuCursor.cpp
 	src/RE/M/MenuEventHandler.cpp
+	src/RE/M/MessageBoxMenu.cpp
 	src/RE/M/Misc.cpp
 	src/RE/N/NativeFunctionBase.cpp
 	src/RE/N/NiAVObject.cpp
