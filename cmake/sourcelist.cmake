@@ -1437,6 +1437,7 @@ set(SOURCES
 	include/RE/P/PeakValueModifierEffect.h
 	include/RE/P/PerkEntryVisitor.h
 	include/RE/P/PerkRankVisitor.h
+	include/RE/P/PerkSelectConfirmCallback.h
 	include/RE/P/PermanentMagicFunctor.h
 	include/RE/P/PlayerCamera.h
 	include/RE/P/PlayerCameraTransitionState.h
@@ -1735,6 +1736,8 @@ set(SOURCES
 	include/RE/U/UISaveLoadManager.h
 	include/RE/U/UIUtils.h
 	include/RE/U/UnlinkedTypes.h
+	include/RE/U/UpdateConstellationAnims.h
+	include/RE/U/UpdateStarText.h
 	include/RE/U/UserEventEnabled.h
 	include/RE/U/UserEvents.h
 	include/RE/V/VATS.h
