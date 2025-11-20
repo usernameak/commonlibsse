@@ -1,10 +1,10 @@
-#include "RE/I/ItemList.h"
+#include "RE/M/MagicItemList.h"
 
 #include "RE/P/PlayerCharacter.h"
 
 namespace RE
 {
-	ItemList::Item* ItemList::GetSelectedItem()
+	MagicItemList::Item* MagicItemList::GetSelectedItem()
 	{
 		if (unk50) {
 			return nullptr;
@@ -24,21 +24,21 @@ namespace RE
 		return items[idx];
 	}
 
-	void ItemList::Update()
+	void MagicItemList::Update()
 	{
-		auto player = RE::PlayerCharacter::GetSingleton();
+		auto player = PlayerCharacter::GetSingleton();
 		Update(player);
 	}
 
-	void ItemList::Update(TESObjectREFR* a_owner)
+	void MagicItemList::Update(TESObjectREFR* a_owner)
 	{
 		Update_Impl(a_owner);
 	}
 
-	void ItemList::Update_Impl(TESObjectREFR* a_owner)
+	void MagicItemList::Update_Impl(TESObjectREFR* a_owner)
 	{
-		using func_t = decltype(&ItemList::Update_Impl);
-		static REL::Relocation<func_t> func{ Offset::ItemList::Update };
+		using func_t = decltype(&MagicItemList::Update_Impl);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(0, 52098) };
 		return func(this, a_owner);
 	}
 }

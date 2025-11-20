@@ -8,6 +8,7 @@ set(SOURCES
 	include/RE/A/AccumulatingValueModifierEffect.h
 	include/RE/A/ActionInput.h
 	include/RE/A/ActionOutput.h
+	include/RE/A/ActivateChoiceMenuCallbackFunctor.h
 	include/RE/A/ActivateHandler.h
 	include/RE/A/ActiveEffect.h
 	include/RE/A/ActiveEffectFactory.h
@@ -549,6 +550,10 @@ set(SOURCES
 	include/RE/C/ConcreteObjectFormFactory.h
 	include/RE/C/ConcussionEffect.h
 	include/RE/C/ConeProjectile.h
+	include/RE/C/ConfirmAndNameCallback.h
+	include/RE/C/ConfirmCloseRaceSexMenuCallback.h
+	include/RE/C/ConfirmDestructiveChangesCallback.h
+	include/RE/C/ConfirmLevelUpAttributeCallback.h
 	include/RE/C/Console.h
 	include/RE/C/ConsoleData.h
 	include/RE/C/ConsoleLog.h
@@ -581,6 +586,7 @@ set(SOURCES
 	include/RE/D/DetectionState.h
 	include/RE/D/DevNull.h
 	include/RE/D/DeviceConnectEvent.h
+	include/RE/D/DeviceSelectCallback.h
 	include/RE/D/DialogueItem.h
 	include/RE/D/DialogueMenu.h
 	include/RE/D/DialoguePackage.h
@@ -955,6 +961,7 @@ set(SOURCES
 	include/RE/G/GameSettingCollection.h
 	include/RE/G/GarbageCollector.h
 	include/RE/G/GiftMenu.h
+	include/RE/G/GiftMenuCallbackFunc.h
 	include/RE/G/GlobalLocations.h
 	include/RE/G/GlobalPaths.h
 	include/RE/G/GrabActorEffect.h
@@ -1148,6 +1155,7 @@ set(SOURCES
 	include/RE/I/IFuncCallQuery.h
 	include/RE/I/IFunction.h
 	include/RE/I/IFunctionArguments.h
+	include/RE/I/IGiftMenuScriptCallback.h
 	include/RE/I/IHandleReaderWriter.h
 	include/RE/I/IHandlerFunctor.h
 	include/RE/I/ILoader.h
@@ -1260,11 +1268,15 @@ set(SOURCES
 	include/RE/M/MagicFavorites.h
 	include/RE/M/MagicFormulas.h
 	include/RE/M/MagicItem.h
+	include/RE/M/MagicItemData.h
 	include/RE/M/MagicItemDataCollector.h
 	include/RE/M/MagicItemFindFunctor.h
 	include/RE/M/MagicItemFindKeywordFunctor.h
+	include/RE/M/MagicItemList.h
 	include/RE/M/MagicItemTraversalFunctor.h
 	include/RE/M/MagicMenu.h
+	include/RE/M/MagicMenuAddActiveEffectVisitor.h
+	include/RE/M/MagicMenuAddSpellVisitor.h
 	include/RE/M/MagicSystem.h
 	include/RE/M/MagicTarget.h
 	include/RE/M/MagicUtilities.h
@@ -1312,6 +1324,7 @@ set(SOURCES
 	include/RE/N/NativeLatentFunction.h
 	include/RE/N/NavMesh.h
 	include/RE/N/NavMeshInfoMap.h
+	include/RE/N/NeedToUpdateCreationClubCallback.h
 	include/RE/N/NiAVObject.h
 	include/RE/N/NiAVObjectPalette.h
 	include/RE/N/NiAccumulator.h
@@ -1431,7 +1444,9 @@ set(SOURCES
 	include/RE/P/PeakValueModifierEffect.h
 	include/RE/P/PerkEntryVisitor.h
 	include/RE/P/PerkRankVisitor.h
+	include/RE/P/PerkSelectConfirmCallback.h
 	include/RE/P/PermanentMagicFunctor.h
+	include/RE/P/PlacePlayerMarkerCallbackFunctor.h
 	include/RE/P/PlayerCamera.h
 	include/RE/P/PlayerCameraTransitionState.h
 	include/RE/P/PlayerCharacter.h
@@ -1492,6 +1507,7 @@ set(SOURCES
 	include/RE/S/ScriptEffect.h
 	include/RE/S/ScriptEventSourceHolder.h
 	include/RE/S/ScriptFunction.h
+	include/RE/S/ScriptMessageBoxCallback.h
 	include/RE/S/ScriptedRefEffect.h
 	include/RE/S/ScrollItem.h
 	include/RE/S/SendHUDMessage.h
@@ -1535,6 +1551,7 @@ set(SOURCES
 	include/RE/S/SpecificItemCollector.h
 	include/RE/S/SpellItem.h
 	include/RE/S/SpellsLearned.h
+	include/RE/S/SpendSoulCallback.h
 	include/RE/S/SprintHandler.h
 	include/RE/S/Stack.h
 	include/RE/S/StackFrame.h
@@ -1729,6 +1746,8 @@ set(SOURCES
 	include/RE/U/UISaveLoadManager.h
 	include/RE/U/UIUtils.h
 	include/RE/U/UnlinkedTypes.h
+	include/RE/U/UpdateConstellationAnims.h
+	include/RE/U/UpdateStarText.h
 	include/RE/U/UserEventEnabled.h
 	include/RE/U/UserEvents.h
 	include/RE/V/VATS.h
@@ -2030,6 +2049,7 @@ set(SOURCES
 	src/RE/M/MagicFormulas.cpp
 	src/RE/M/MagicItem.cpp
 	src/RE/M/MagicItemDataCollector.cpp
+	src/RE/M/MagicItemList.cpp
 	src/RE/M/MagicSystem.cpp
 	src/RE/M/MagicTarget.cpp
 	src/RE/M/MagicUtilities.cpp
@@ -2039,6 +2059,7 @@ set(SOURCES
 	src/RE/M/MenuControls.cpp
 	src/RE/M/MenuCursor.cpp
 	src/RE/M/MenuEventHandler.cpp
+	src/RE/M/MessageBoxMenu.cpp
 	src/RE/M/Misc.cpp
 	src/RE/N/NativeFunctionBase.cpp
 	src/RE/N/NiAVObject.cpp

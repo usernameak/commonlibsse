@@ -44,6 +44,9 @@ namespace RE
 		BSEventNotifyControl ProcessEvent(const MenuOpenCloseEvent* a_event, BSTEventSource<MenuOpenCloseEvent>* a_eventSource) override;  // 01
 
 		[[nodiscard]] static TESObjectREFRPtr GetTargetReference();
+		[[nodiscard]] static std::int32_t     GetCurrentLockDifficulty();
+
+		static void OpenMenu(TESObjectREFR* a_target);  // a_ref must be locked and player must have lockpicks
 
 		// members
 		ModelDBHandle         lockModel;            // 048
