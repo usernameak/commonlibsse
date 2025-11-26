@@ -15,6 +15,20 @@ namespace RE
 
 		~ButtonEvent() override;  // 00
 
+		void Init(INPUT_DEVICE a_device, std::int32_t a_id, float a_value, float a_duration)
+		{
+			Init(a_device, a_id, a_value, a_duration, ""sv);
+		}
+
+		void Init(INPUT_DEVICE a_device, std::int32_t a_id, float a_value, float a_duration, const BSFixedString& a_userEvent)
+		{
+			value = a_value;
+			heldDownSecs = a_duration;
+			device = a_device;
+			idCode = a_id;
+			userEvent = a_userEvent;
+		}
+
 		[[nodiscard]] constexpr float Value() const noexcept { return value; }
 		[[nodiscard]] constexpr float HeldDuration() const noexcept { return heldDownSecs; }
 		[[nodiscard]] constexpr bool  IsPressed() const noexcept { return Value() > 0.0F; }
@@ -26,23 +40,6 @@ namespace RE
 		// members
 		float value;         // 28
 		float heldDownSecs;  // 2C
-
-		static ButtonEvent* Create(INPUT_DEVICE a_inputDevice, const BSFixedString& a_userEvent, uint32_t a_idCode, float a_value, float a_heldDownSecs)
-		{
-			auto buttonEvent = malloc<ButtonEvent>(sizeof(ButtonEvent));
-			std::memset((void*)buttonEvent, 0, sizeof(ButtonEvent));
-			if (buttonEvent) {
-				REX::EMPLACE_VTABLE<ButtonEvent>(buttonEvent);
-				buttonEvent->device = a_inputDevice;
-				buttonEvent->eventType = INPUT_EVENT_TYPE::kButton;
-				buttonEvent->next = nullptr;
-				buttonEvent->userEvent = a_userEvent;
-				buttonEvent->idCode = a_idCode;
-				buttonEvent->value = a_value;
-				buttonEvent->heldDownSecs = a_heldDownSecs;
-			}
-			return buttonEvent;
-		}
 	};
 	static_assert(sizeof(ButtonEvent) == 0x30);
 }

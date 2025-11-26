@@ -20,37 +20,18 @@ namespace RE
 	struct LocalMapMenu
 	{
 	public:
-		struct LocalMapCullingProcess
+		struct LocalMapCullingProcess  // actually: LocalMapRenderer
 		{
 		public:
-			struct Data
-			{
-			public:
-				// members
-				NiPointer<BSShaderAccumulator> shaderAccumulator;  // 00
-				void*                          unk08;              // 08 - smart ptr
-				NiPointer<NiCamera>            camera;             // 10
-				std::uint64_t                  unk18;              // 18
-				std::uint64_t                  unk20;              // 20
-				std::uint64_t                  unk28;              // 28
-				std::uint64_t                  unk30;              // 30
-				std::uint64_t                  unk38;              // 38
-				void*                          unk40;              // 40 - smart ptr
-			};
-			static_assert(sizeof(Data) == 0x48);
-
 			// members
-			BSCullingProcess               cullingProcess;  // 00000
-			Data                           unk301F8;        // 301F8
-			std::uint64_t                  unk30240;        // 30240
-			std::uint64_t                  unk30248;        // 30248
-			std::uint64_t                  unk30250;        // 30250
-			std::uint64_t                  unk30258;        // 30258
-			LocalMapCamera                 camera;          // 30260
-			NiPointer<BSShaderAccumulator> unk302C8;        // 302C8
-			ImageSpaceShaderParam          unk302D0;        // 302D0
-			std::uint64_t                  unk30350;        // 30350
-			NiPointer<NiNode>              unk30358;        // 30358
+			BSCullingProcess               cullingProcess;         // 00000
+			BSCullingJob                   cullingJob;             // 301F8
+			LocalMapCamera                 camera;                 // 30260
+			NiPointer<BSShaderAccumulator> accumulator;            // 302C8
+			ImageSpaceShaderParam          imageSpaceShaderParam;  // 302D0
+			std::uint32_t                  renderTarget;           // 30350
+			std::uint32_t                  renderMode;             // 30354
+			NiPointer<NiNode>              unk30358;               // 30358
 		};
 		static_assert(sizeof(LocalMapCullingProcess) == 0x30360);
 

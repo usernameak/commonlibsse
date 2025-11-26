@@ -40,6 +40,11 @@ namespace RE
 			inline constexpr REL::ID Update3DModel(static_cast<std::uint64_t>(39395));
 		}
 
+		namespace BaseExtraList
+		{
+			inline constexpr REL::ID Dtor(static_cast<std::uint64_t>(11572));
+		}
+
 		namespace BGSFootstepManager
 		{
 			inline constexpr REL::ID Singleton(static_cast<std::uint64_t>(403553));
@@ -123,6 +128,7 @@ namespace RE
 			namespace ObjectBindPolicy
 			{
 				inline constexpr REL::ID BindObject(static_cast<std::uint64_t>(104184));
+				inline constexpr REL::ID GetInitialPropertyValues(static_cast<std::uint64_t>(104176));
 			}
 
 			namespace NF_util
@@ -581,7 +587,6 @@ namespace RE
 		}
 
 		inline constexpr REL::ID CreateRefHandle(static_cast<std::uint64_t>(12326));
-		inline constexpr REL::ID DebugNotification(static_cast<std::uint64_t>(52933));
 		inline constexpr REL::ID LookupReferenceByHandle(static_cast<std::uint64_t>(12332));
 		inline constexpr REL::ID PlaySound(static_cast<std::uint64_t>(52939));
 		inline constexpr REL::ID TlsIndex(static_cast<std::uint64_t>(415542));

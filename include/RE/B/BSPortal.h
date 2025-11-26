@@ -21,9 +21,9 @@ namespace RE
 		NiObject*     CreateClone(NiCloningProcess& a_cloning) override;  // 17
 
 		// members
-		BSMultiBoundRoom*             entranceRoom;      // 118
-		BSMultiBoundRoom*             exitRoom;          // 120
-		NiPointer<BSPortalSharedNode> portalSharedNode;  // 128
+		BSMultiBoundRoom*             entranceRoom;    // 118
+		BSMultiBoundRoom*             exitRoom;        // 120
+		NiPointer<BSPortalSharedNode> sharedGeometry;  // 128
 	};
 	static_assert(sizeof(BSPortal) == 0x130);
 }

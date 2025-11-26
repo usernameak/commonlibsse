@@ -39,6 +39,24 @@ namespace RE
 			const char*                 DoGetName() const override;                                                                                                     // 09 - { return directory.c_str(); }
 			[[nodiscard]] std::uint32_t DoGetMinimumAsyncPacketSize() const override;                                                                                   // 0B - { return minimumAsyncPacketSize; }
 
+			static LooseFileLocation* Create(const char* a_prefix)
+			{
+				return Create(a_prefix, 512, true);
+			}
+
+			static LooseFileLocation* Create(const char* a_prefix, std::uint32_t a_minimumAsyncPacketSize, bool a_asyncSupported)
+			{
+				auto memory = malloc<LooseFileLocation>();
+				if (memory) {
+					std::memset(memory, 0, sizeof(LooseFileLocation));
+					REX::EMPLACE_VTABLE<BSResource::LooseFileLocation>(memory);
+					memory->prefix = a_prefix;
+					memory->minimumAsyncPacketSize = a_minimumAsyncPacketSize;
+					memory->asyncSupported = a_asyncSupported;
+				}
+				return memory;
+			}
+
 			// members
 			BSFixedString prefix;                  // 10
 			std::uint32_t minimumAsyncPacketSize;  // 18

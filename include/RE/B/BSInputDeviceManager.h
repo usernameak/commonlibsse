@@ -24,6 +24,7 @@ namespace RE
 	public:
 		static BSInputDeviceManager* GetSingleton();
 
+		bool                          GetButtonNameFromID(INPUT_DEVICE a_device, std::int32_t a_id, BSFixedString& a_buttonName) const;
 		BSPCGamepadDeviceDelegate*    GetGamepad();
 		BSPCGamepadDeviceHandler*     GetGamepadHandler();
 		BSWin32KeyboardDevice*        GetKeyboard();
@@ -32,8 +33,8 @@ namespace RE
 		bool                          IsGamepadConnected();
 		bool                          IsGamepadEnabled();
 		bool                          IsMouseBackground();
-		bool                          GetDeviceKeyMapping(INPUT_DEVICE a_device, std::uint32_t a_key, BSFixedString& a_mapping);
-		bool                          GetDeviceMappedKeycode(INPUT_DEVICE a_device, std::uint32_t a_key, std::uint32_t& a_outKeyCode);
+		bool                          GetDeviceButtonNameFromID(INPUT_DEVICE a_device, std::uint32_t a_key, BSFixedString& a_mapping);
+		bool                          GetDeviceKeyCodeFromID(INPUT_DEVICE a_device, std::uint32_t a_key, std::uint32_t& a_outKeyCode);
 		void                          ProcessGamepadEnabledChange();
 		void                          ReinitializeMouse();
 		void                          CreateInputDevices();

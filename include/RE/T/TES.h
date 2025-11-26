@@ -1,8 +1,8 @@
 #pragma once
 
 #include "RE/B/BSContainer.h"
+#include "RE/B/BSSimpleList.h"
 #include "RE/B/BSTEvent.h"
-#include "RE/B/BSTList.h"
 #include "RE/B/BSTTuple.h"
 #include "RE/I/ICellAttachDetachEventSource.h"
 #include "RE/M/MaterialIDs.h"
@@ -25,6 +25,7 @@ namespace RE
 	class NiDirectionalLight;
 	class NiFogProperty;
 	class NiNode;
+	class PlayerCharacter;
 	class Sky;
 	class TESLandTexture;
 	class TESNPC;

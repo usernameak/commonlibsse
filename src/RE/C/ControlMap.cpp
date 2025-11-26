@@ -1,5 +1,6 @@
 #include "RE/C/ControlMap.h"
 
+#include "RE/B/BSInputDeviceManager.h"
 #include "RE/U/UserEventEnabled.h"
 
 namespace RE
@@ -25,6 +26,29 @@ namespace RE
 		return textEntryCount;
 	}
 
+	bool ControlMap::GetButtonNameFromUserEvent(const BSFixedString& a_eventID, INPUT_DEVICE a_device, BSFixedString& a_buttonName)
+	{
+		for (const auto& inputContext : controlMap) {
+			if (!inputContext) {
+				continue;
+			}
+
+			for (const auto& mapping : inputContext->deviceMappings[a_device]) {
+				if (mapping.eventID == a_eventID) {
+					if (mapping.inputKey == 0xFF) {
+						break;
+					}
+
+					const auto inputDeviceManager = BSInputDeviceManager::GetSingleton();
+					inputDeviceManager->GetButtonNameFromID(a_device, mapping.inputKey, a_buttonName);
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+
 	std::uint32_t ControlMap::GetMappedKey(std::string_view a_eventID, INPUT_DEVICE a_device, InputContextID a_context) const
 	{
 		assert(a_device < INPUT_DEVICE::kTotal);
@@ -41,6 +65,21 @@ namespace RE
 		}
 
 		return kInvalid;
+	}
+
+	bool ControlMap::GetMappingFromEventName(const BSFixedString& a_eventID, UserEvents::INPUT_CONTEXT_ID a_context, INPUT_DEVICE a_device, UserEventMapping& a_mapping)
+	{
+		const auto context = controlMap[a_context];
+		if (context) {
+			for (auto& mapping : context->deviceMappings[a_device]) {
+				if (mapping.eventID == a_eventID) {
+					a_mapping = mapping;
+					return true;
+				}
+			}
+		}
+
+		return false;
 	}
 
 	std::string_view ControlMap::GetUserEventName(std::uint32_t a_buttonID, INPUT_DEVICE a_device, InputContextID a_context) const
@@ -82,19 +121,38 @@ namespace RE
 		return func(this, a_context);
 	}
 
-	void ControlMap::ToggleControls(UEFlag a_flags, bool a_enable)
+	void ControlMap::StoreControls()
+	{
+		if (storedControls == UEFlag::kInvalid) {
+			storedControls = enabledControls;
+		}
+	}
+
+	void ControlMap::LoadStoredControls()
+	{
+		if (storedControls != UEFlag::kInvalid) {
+			enabledControls = storedControls;
+			storedControls = UEFlag::kInvalid;
+		}
+	}
+
+	void ControlMap::ToggleControls(UEFlag a_flags, bool a_enable, bool a_storeState)
 	{
 		auto oldState = enabledControls;
 
 		if (a_enable) {
 			enabledControls.set(a_flags);
-			if (unk11C != UEFlag::kInvalid) {
-				unk11C.set(a_flags);
+			if (a_storeState) {
+				if (storedControls != UEFlag::kInvalid) {
+					storedControls.set(a_flags);
+				}
 			}
 		} else {
 			enabledControls.reset(a_flags);
-			if (unk11C != UEFlag::kInvalid) {
-				unk11C.reset(a_flags);
+			if (a_storeState) {
+				if (storedControls != UEFlag::kInvalid) {
+					storedControls.reset(a_flags);
+				}
 			}
 		}
 
