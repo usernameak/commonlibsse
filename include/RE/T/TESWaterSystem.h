@@ -12,7 +12,9 @@
 
 namespace RE
 {
+	class BSMultiBoundAABB;
 	class BSTriShape;
+	class NiAVObject;
 	class NiNode;
 	class TESObjectCELL;
 	class TESWorldSpace;
@@ -32,12 +34,10 @@ namespace RE
 			return *singleton;
 		}
 
-		void AddRipple(const NiPoint3& a_pos, float a_scale)
-		{
-			using func_t = decltype(&TESWaterSystem::AddRipple);
-			static REL::Relocation<func_t> func{ RELOCATION_ID(31410, 32217) };
-			return func(this, a_pos, a_scale);
-		}
+		void AddRipple(const NiPoint3& a_pos, float a_scale);
+		void Enable();
+		void AddWater(NiAVObject* a_waterObj, TESWaterForm* a_waterType, float a_waterHeight, const BSTArray<NiPointer<BSMultiBoundAABB>>* a_multiBoundShape, bool a_noDisplacement, bool a_isProcedural);
+		bool RemoveWater(NiAVObject* a_waterObj);
 
 		// members
 		std::uint32_t                                pad000;                     // 000

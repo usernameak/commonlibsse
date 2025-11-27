@@ -14,13 +14,10 @@ namespace RE
 			return;
 
 		GFxValue vals[1];
-
 		vals[0].SetString(a_command);
 
-		FxDelegateArgs args(nullptr, ui->menuStack.front().get(), nullptr, vals, 1);
-
+		FxDelegateArgs                                         args(nullptr, ui->menuStack.front().get(), nullptr, vals, 1);
 		static REL::Relocation<void (*)(FxDelegateArgs* args)> func{ RELOCATION_ID(50157, 51084) };
-
 		func(&args);
 	}
 

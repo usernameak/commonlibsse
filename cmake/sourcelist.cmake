@@ -202,7 +202,9 @@ set(SOURCES
 	include/RE/B/BGSStoryManagerTreeForm.h
 	include/RE/B/BGSStoryTeller.h
 	include/RE/B/BGSTalkingActivator.h
+	include/RE/B/BGSTerrainChunk.h
 	include/RE/B/BGSTerrainManager.h
+	include/RE/B/BGSTerrainNode.h
 	include/RE/B/BGSTextureModel.h
 	include/RE/B/BGSTextureSet.h
 	include/RE/B/BGSTypedItem.h
@@ -2164,6 +2166,7 @@ set(SOURCES
 	src/RE/T/TESTopicInfo.cpp
 	src/RE/T/TESValueForm.cpp
 	src/RE/T/TESWorldSpace.cpp
+	src/RE/T/TESWaterSystem.cpp
 	src/RE/T/TaskQueueInterface.cpp
 	src/RE/T/ThumbstickEvent.cpp
 	src/RE/T/TutorialMenu.cpp
