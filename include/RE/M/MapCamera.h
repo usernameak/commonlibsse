@@ -13,7 +13,6 @@ namespace RE
 	}
 
 	class NiNode;
-	class NiPoint3;
 	class TESWorldSpace;
 	struct IMapCameraCallbacks;
 
