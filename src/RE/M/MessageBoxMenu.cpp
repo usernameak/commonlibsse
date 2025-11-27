@@ -13,7 +13,7 @@ namespace RE
 
 	std::uint32_t MessageBoxMenu::GetQueueSize()
 	{
-		static REL::Relocation<BSTArray<MessageBoxData*>*> queue{ RELOCATION_ID(0, 406360) };
+		static REL::Relocation<BSTArray<MessageBoxData*>*> queue{ RELOCATION_ID(519818, 406360) };
 		return queue->size();
 	}
 
