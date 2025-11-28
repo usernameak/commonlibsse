@@ -12137,6 +12137,7 @@ namespace RE
 	inline constexpr std::array<REL::ID, 1>  VTABLE_NavMeshSearchMaxCost{ REL::ID(255051) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_NavMeshSearchMultipleGoals{ REL::ID(255057) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_NavMeshSearchSLPoint{ REL::ID(255061) };
+	inline constexpr std::array<REL::ID, 1>  VTABLE_NeedToUpdateCreationClubCallback{ REL::ID(269454) };
 	inline constexpr std::array<REL::ID, 2>  VTABLE_NewInventoryMenuItemLoadTask{ REL::ID(268992), REL::ID(268993) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_NiAVObject{ REL::ID(285968) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_NiAVObjectPalette{ REL::ID(560172) };

@@ -13253,6 +13253,7 @@ namespace RE
 	inline constexpr REL::ID RTTI_NavMeshSearchMaxCost(static_cast<std::uint64_t>(686152));
 	inline constexpr REL::ID RTTI_NavMeshSearchMultipleGoals(static_cast<std::uint64_t>(686154));
 	inline constexpr REL::ID RTTI_NavMeshSearchSLPoint(static_cast<std::uint64_t>(686155));
+	inline constexpr REL::ID RTTI_NeedToUpdateCreationClubCallback{ 688875 };
 	inline constexpr REL::ID RTTI_NewInventoryMenuItemLoadTask(static_cast<std::uint64_t>(688850));
 	inline constexpr REL::ID RTTI_NiAVObject(static_cast<std::uint64_t>(684827));
 	inline constexpr REL::ID RTTI_NiAVObjectPalette(static_cast<std::uint64_t>(690434));
