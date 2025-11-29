@@ -2,6 +2,7 @@
 .idea/
 .vs*/
 .xmake/
+.idea/
 
 # folders
 /build*
