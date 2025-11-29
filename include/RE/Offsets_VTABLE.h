@@ -5314,7 +5314,7 @@ namespace RE
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyEffectController{ REL::ID(196496) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyObject{ REL::ID(196515) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyStaticFindFunctor{ REL::ID(196502) };
-	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimScript__A0x17558f7c____GiftMenuCallbackFunc{ REL::ID(217429) };
+	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimScript__GiftMenuCallbackFunc{ REL::ID(217429) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimScript__BaseHandleReaderWriter{ REL::ID(187903) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimScript__ConcreteDelayFunctorFactory_SkyrimScript____AddItemFunctor_20_{ REL::ID(218374) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimScript__ConcreteDelayFunctorFactory_SkyrimScript____AddRemoveConstraintFunctor_15_{ REL::ID(217880) };

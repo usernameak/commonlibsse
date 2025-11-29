@@ -5817,7 +5817,7 @@ namespace RE
 	inline constexpr REL::ID RTTI_SkyEffectController{ 393321 };
 	inline constexpr REL::ID RTTI_SkyObject{ 393312 };
 	inline constexpr REL::ID RTTI_SkyStaticFindFunctor{ 393322 };
-	inline constexpr REL::ID RTTI_SkyrimScript__A0x17558f7c____GiftMenuCallbackFunc{ 397044 };
+	inline constexpr REL::ID RTTI_SkyrimScript__GiftMenuCallbackFunc{ 397044 };
 	inline constexpr REL::ID RTTI_SkyrimScript__BaseHandleReaderWriter{ 392603 };
 	inline constexpr REL::ID RTTI_SkyrimScript__ConcreteDelayFunctorFactory_SkyrimScript____AddItemFunctor_20_{ 397282 };
 	inline constexpr REL::ID RTTI_SkyrimScript__ConcreteDelayFunctorFactory_SkyrimScript____AddRemoveConstraintFunctor_15_{ 397166 };
