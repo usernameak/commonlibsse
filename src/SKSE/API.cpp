@@ -26,10 +26,10 @@ namespace SKSE
 			std::string  pluginAuthor{};
 			REL::Version pluginVersion{};
 
-			std::uint32_t                                    skseVersion{};
-			PluginHandle                                     pluginHandle{ static_cast<PluginHandle>(-1) };
-			std::uint32_t                                    releaseIndex{ 0 };
-			std::function<const void*(SKSEAPI)(const char*)> pluginInfoAccessor;
+			std::uint32_t                           skseVersion{};
+			PluginHandle                            pluginHandle{ static_cast<PluginHandle>(-1) };
+			std::uint32_t                           releaseIndex{ 0 };
+			std::function<const void*(const char*)> pluginInfoAccessor;
 
 			ScaleformInterface*     scaleformInterface{ nullptr };
 			PapyrusInterface*       papyrusInterface{ nullptr };
