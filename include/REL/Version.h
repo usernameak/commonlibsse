@@ -185,7 +185,8 @@ struct std::formatter<REL::Version, CharT> : formatter<std::basic_string_view<Ch
 		if constexpr (std::is_same_v<CharT, char>) {
 			return formatter<std::basic_string_view<CharT>, CharT>::format(str, a_ctx);
 		} else {
-			// Convert narrow string to wide string for wchar_t formatting
+			// Widen ASCII version string (digits, hyphens, dots) to CharT.
+			// Simple casting is safe since version strings only contain ASCII characters.
 			std::basic_string<CharT> wstr(str.begin(), str.end());
 			return formatter<std::basic_string_view<CharT>, CharT>::format(wstr, a_ctx);
 		}
