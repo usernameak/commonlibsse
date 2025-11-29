@@ -2,10 +2,15 @@
 
 #include "RE/B/BSTEvent.h"
 #include "RE/B/BSTSingleton.h"
+#include "RE/B/BSTSmartPointer.h"
+#include "RE/N/NiPoint3.h"
 
 namespace RE
 {
 	class BSCompressedNavmeshBounds;
+	class BSNavmesh;
+	class BSPathingCell;
+	class BSPathingDoor;
 
 	struct BSNavmeshInfo
 	{

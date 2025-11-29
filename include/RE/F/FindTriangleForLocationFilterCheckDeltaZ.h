@@ -2,6 +2,9 @@
 
 namespace RE
 {
+	class BSNavmesh;
+	class NiPoint3;
+
 	class FindTriangleForLocationFilter
 	{
 	public:

@@ -1,8 +1,10 @@
 #pragma once
 
+#include "RE/B/BSTHashMap.h"
+#include "RE/N/NiAVObjectPalette.h"
+
 namespace RE
-{
-	class NiDefaultAVObjectPalette : public NiAVObjectPalette
+{	class NiDefaultAVObjectPalette : public NiAVObjectPalette
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_NiDefaultAVObjectPalette;

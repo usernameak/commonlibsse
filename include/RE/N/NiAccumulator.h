@@ -6,8 +6,8 @@
 
 namespace RE
 {
+	class BSBatchRenderer;
 	class NiVisibleArray;
-	class GeometryGroup;
 
 	class NiAccumulator : public NiObject
 	{

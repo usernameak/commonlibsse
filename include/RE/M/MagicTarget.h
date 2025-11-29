@@ -56,9 +56,9 @@ namespace RE
 			MagicTarget*  target;       // 00
 			Actor*        caster;       // 08
 			MagicItem*    spell;        // 10
-			std::uint16_t immunities;   // 12
-			std::uint16_t nonTrivials;  // 14
-			std::uint32_t pad18;        // 18
+			std::uint16_t immunities;   // 18
+			std::uint16_t nonTrivials;  // 1A
+			std::uint32_t pad1C;        // 1C
 		};
 		static_assert(sizeof(ResultsCollector) == 0x20);
 
