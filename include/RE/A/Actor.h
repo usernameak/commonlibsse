@@ -528,6 +528,7 @@ namespace RE
 		[[nodiscard]] bool                      CanTalkToPlayer() const;
 		[[nodiscard]] bool                      CanUseIdle(TESIdleForm* a_idle) const;
 		void                                    ClearArrested();
+		void                                    ClearDeathState();
 		void                                    ClearExpressionOverride();
 		inline void                             ClearExtraArrows() { RemoveExtraArrows3D(); }
 		[[nodiscard]] ActorHandle               CreateRefHandle();

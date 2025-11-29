@@ -13,7 +13,7 @@ namespace RE
 			inline static auto           Ni_RTTI = NiRTTI_BSShaderAccumulator;
 
 			virtual ~BSShaderAccumulator() = default;
-			virtual void StartAccumulating(NiCamera const*) override;
+			virtual void StartAccumulating(NiCamera* a_camera) override;
 			virtual void FinishAccumulatingDispatch(uint32_t RenderFlags);
 
 			struct RUNTIME_DATA
