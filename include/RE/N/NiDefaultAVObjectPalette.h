@@ -32,7 +32,7 @@ namespace RE
 
 		// members
 		BSTHashMap<BSFixedString, NiAVObject*> paletteMap;  // 10
-		NiAVObject*                            scene;
+		NiAVObject*                            scene;       // 40
 	};
 	static_assert(sizeof(NiDefaultAVObjectPalette) == 0x48);
 }

@@ -5,6 +5,7 @@
 
 namespace RE
 {
+	class BSGeometry;
 	class NiVisibleArray;
 
 	class NiBackToFrontAccumulator : public NiAccumulator
