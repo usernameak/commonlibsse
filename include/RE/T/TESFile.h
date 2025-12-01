@@ -76,7 +76,7 @@ namespace RE
 		std::uint64_t                           unk018;                           // 018
 		std::uint64_t                           unk020;                           // 020
 		std::uint8_t                            unk028;                           // 028
-		std::uint8_t                            unk029;                           // 029
+		bool                                    unk029;                           // 029
 		std::uint16_t                           pad02A;                           // 02A
 		std::uint32_t                           pad02C;                           // 02C
 		BSFile*                                 lockedFile;                       // 030
@@ -111,7 +111,7 @@ namespace RE
 		std::uint8_t                            pad2EB;                           // 2EB
 		REX::W32::WIN32_FIND_DATAA              fileData;                         // 2EC
 		float                                   unk42C;                           // 42C
-		std::uint32_t                           unk430;                           // 430
+		std::uint32_t                           formCount;                        // 430
 		std::uint32_t                           flags;                            // 434
 		REX::EnumSet<RecordFlag, std::uint32_t> recordFlags;                      // 438
 		std::uint32_t                           pad43C;                           // 43C
