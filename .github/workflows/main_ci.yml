@@ -46,6 +46,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: main
+          submodules: recursive
 
       - name: Setup MSVC Environment
         uses: ilammy/msvc-dev-cmd@v1
@@ -88,6 +89,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: main
+          submodules: recursive
 
       - name: Setup MSVC Environment
         uses: ilammy/msvc-dev-cmd@v1
