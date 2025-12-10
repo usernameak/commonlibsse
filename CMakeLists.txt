@@ -89,6 +89,7 @@ if(MSVC)
 		PUBLIC
 
 		# disable warnings
+		"$<$<CONFIG:Debug>:/wd4702>" # unreachable code: debug builds don't optimize away compile-time conditionals
 		/wd4005 # macro redefinition
 		/wd4061 # enumerator 'identifier' in switch of enum 'enumeration' is not explicitly handled by a case label
 		/wd4068 # unknown pragma

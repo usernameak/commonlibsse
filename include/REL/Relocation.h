@@ -1013,14 +1013,18 @@ namespace REL
 	 * @param a_vr the memory offset of the member in Skyrim VR.
 	 * @return A reference to the member.
 	 */
+#if defined(_MSC_VER)
+#	pragma warning(push)
+#	pragma warning(disable : 4702)  // unreachable code
+#endif
 	template <class T, class This>
 	[[nodiscard]] inline T& RelocateMember(This* a_self, std::ptrdiff_t a_seAndAE, std::ptrdiff_t a_vr)
 	{
-#pragma warning(push)
-#pragma warning(disable: 4702)  // unreachable code
 		return *reinterpret_cast<T*>(reinterpret_cast<uintptr_t>(a_self) + Relocate(a_seAndAE, a_seAndAE, a_vr));
-#pragma warning(pop)
 	}
+#if defined(_MSC_VER)
+#	pragma warning(pop)
+#endif
 
 	template <class T, class This>
 	[[nodiscard]] inline T& RelocateMember(This* a_self, std::ptrdiff_t offset)
