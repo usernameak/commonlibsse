@@ -115,7 +115,7 @@
       },
       "environment": {
         "PROJECT_COMPILER": "clang",
-        "PROJECT_COMPILER_FLAGS": "-Wno-overloaded-virtual -Wno-delete-non-abstract-non-virtual-dtor -Wno-inconsistent-missing-override -Wno-reinterpret-base-class -D__cpp_lib_char8_t -D__cpp_consteval -D__cpp_lib_format"
+        "PROJECT_COMPILER_FLAGS": "-Wno-overloaded-virtual -Wno-delete-non-abstract-non-virtual-dtor -Wno-inconsistent-missing-override -Wno-reinterpret-base-class"
       },
       "vendor": {
         "microsoft.com/VisualStudioSettings/CMake/1.0": {
@@ -144,7 +144,7 @@
       "environment": {
         "CC": "clang-cl",
         "CXX": "clang-cl",
-        "PROJECT_COMPILER_FLAGS": "/permissive- /EHsc /W4 /WX -Wno-overloaded-virtual -Wno-delete-non-abstract-non-virtual-dtor -Wno-inconsistent-missing-override -Wno-reinterpret-base-class -D__cpp_lib_char8_t -D__cpp_consteval -D__cpp_lib_format"
+        "PROJECT_COMPILER_FLAGS": "/permissive- /EHsc /W4 /WX -Wno-overloaded-virtual -Wno-delete-non-abstract-non-virtual-dtor -Wno-inconsistent-missing-override -Wno-reinterpret-base-class -Wno-nonportable-include-path"
       },
       "vendor": {
         "microsoft.com/VisualStudioSettings/CMake/1.0": {
