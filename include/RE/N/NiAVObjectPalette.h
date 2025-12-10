@@ -3,7 +3,8 @@
 #include "RE/N/NiObject.h"
 
 namespace RE
-{	class NiAVObjectPalette : public NiObject
+{
+	class NiAVObjectPalette : public NiObject
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_NiAVObjectPalette;

@@ -64,7 +64,7 @@ namespace RE
 
 		struct EXPLOSION_RUNTIME_DATA
 		{
-#define EXPLOSION_RUNTIME_DATA_CONTENT                                  \
+#define EXPLOSION_RUNTIME_DATA_CONTENT                                   \
 	ModelDBHandle                      explosionDBHandle; /* 098, 0A0 */ \
 	float                              age;               /* 0A0 */      \
 	float                              lifetime;          /* 0A4 */      \
