@@ -33,7 +33,7 @@ namespace RE
 		// members
 		std::uint64_t unk00;                 // 00
 		std::uint32_t lastPerformanceCount;  // 08
-#if !defined(ENABLE_SKYRIM_VR) || (defined(ENABLE_SKYRIM_SE) || defined(ENABLE_SKYRIM_AE))
+#if !defined(ENABLE_SKYRIM_VR) || defined(ENABLE_SKYRIM_SE) || defined(ENABLE_SKYRIM_AE)
 		std::uint32_t pad0C;  // 0C - not present in VR-only builds
 #endif
 		float         clamp;                          // 10 (0C in VR)
@@ -54,9 +54,5 @@ namespace RE
 	private:
 		KEEP_FOR_RE()
 	};
-#if !defined(ENABLE_SKYRIM_VR) || (defined(ENABLE_SKYRIM_SE) || defined(ENABLE_SKYRIM_AE))
 	static_assert(sizeof(BSTimer) == 0x40);
-#else
-	static_assert(sizeof(BSTimer) == 0x3C);
-#endif
 }
