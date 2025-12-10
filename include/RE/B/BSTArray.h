@@ -666,7 +666,14 @@ namespace RE
 				const auto oldCapacity = capacity();
 				if (newData) {
 					const auto bytesToCopy = (std::min)(oldCapacity, a_newCapacity) * sizeof(value_type);
+#ifdef __clang__
+#	pragma clang diagnostic push
+#	pragma clang diagnostic ignored "-Wnontrivial-memaccess"
+#endif
 					std::memcpy(newData, oldData, bytesToCopy);
+#ifdef __clang__
+#	pragma clang diagnostic pop
+#endif
 				}
 				deallocate(oldData);
 			}
