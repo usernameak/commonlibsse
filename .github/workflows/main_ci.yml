@@ -18,7 +18,10 @@ on:
   workflow_dispatch:
 
 env:
-  VCPKG_COMMIT_ID: fc3f61366102c1f0d4547c06d03c523bb18c13a7
+  # Updated to recent vcpkg baseline compatible with CMake 3.31 (December 10, 2024)
+  # Previous commit fc3f613 was from July 2023 and incompatible with modern CMake
+  # Tested successfully with VR, ALL, and FLATRIM presets
+  VCPKG_COMMIT_ID: f5cbc726b123896eef77f5acc1b9047a28a0731e
 
 jobs:
   build-and-test-vcpkg:
