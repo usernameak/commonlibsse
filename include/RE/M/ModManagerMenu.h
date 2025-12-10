@@ -20,6 +20,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto      RTTI = RTTI_ModManagerMenu;
+		inline static constexpr auto      VTABLE = VTABLE_ModManagerMenu;
 		constexpr static std::string_view MENU_NAME = "Mod Manager Menu";
 
 		struct RUNTIME_DATA

@@ -77,18 +77,12 @@ namespace std
 namespace fmt
 {
 	template <>
-	struct formatter<RE::COL_LAYER>
+	struct formatter<RE::COL_LAYER> : formatter<std::string_view>
 	{
-		template <class ParseContext>
-		constexpr auto parse(ParseContext& a_ctx)
-		{
-			return a_ctx.begin();
-		}
-
 		template <class FormatContext>
 		auto format(const RE::COL_LAYER& a_layer, FormatContext& a_ctx) const
 		{
-			return fmt::format_to(a_ctx.out(), "{}", RE::CollisionLayerToString(a_layer));
+			return formatter<std::string_view>::format(RE::CollisionLayerToString(a_layer), a_ctx);
 		}
 	};
 }

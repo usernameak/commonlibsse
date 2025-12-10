@@ -2,7 +2,7 @@ name: Main CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, ng ]
     paths:
       - '.github/workflows/main_ci.yml'
       - 'cmake/**'
@@ -14,11 +14,14 @@ on:
       - 'conanfile.py'
       - 'vcpkg.json'
   pull_request:
-    branches: [ main, feature/* ]
+    branches: [ vr, ng, feature/* ]
   workflow_dispatch:
 
 env:
-  VCPKG_COMMIT_ID: fc3f61366102c1f0d4547c06d03c523bb18c13a7
+  # Updated to recent vcpkg baseline compatible with CMake 3.31 (December 10, 2024)
+  # Previous commit fc3f613 was from July 2023 and incompatible with modern CMake
+  # Tested successfully with VR, ALL, and FLATRIM presets
+  VCPKG_COMMIT_ID: f5cbc726b123896eef77f5acc1b9047a28a0731e
 
 jobs:
   build-and-test-vcpkg:
@@ -40,21 +43,20 @@ jobs:
           - clang-cl
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: main
 
       - name: Setup MSVC Environment
-        uses: ilammy/msvc-dev-cmd@v1.10.0
+        uses: ilammy/msvc-dev-cmd@v1
 
       - name: Setup vcpkg
-        uses: lukka/run-vcpkg@v10.0
+        uses: lukka/run-vcpkg@v11
         with:
           vcpkgGitCommitId: ${{ env.VCPKG_COMMIT_ID }}
-          doNotCache: true
 
       - name: Build
-        uses: lukka/run-cmake@v10.0
+        uses: lukka/run-cmake@v10
         with:
           cmakeListsTxtPath: ${{ github.workspace }}/main/CMakeLists.txt
           configurePreset: build-${{ matrix.build-type }}-${{ matrix.compiler }}-vcpkg-${{ matrix.runtime }}
@@ -83,12 +85,12 @@ jobs:
           - clang-cl
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: main
 
       - name: Setup MSVC Environment
-        uses: ilammy/msvc-dev-cmd@v1.10.0
+        uses: ilammy/msvc-dev-cmd@v1
 
       - name: Install Conan
         uses: turtlebrowser/get-conan@main
@@ -98,7 +100,7 @@ jobs:
         run: conan install --build=missing -o commonlibsse-ng:testing=True .
 
       - name: Build with CMake
-        uses: lukka/run-cmake@v10.0
+        uses: lukka/run-cmake@v10
         with:
           cmakeListsTxtPath: ${{ github.workspace }}/main/CMakeLists.txt
           configurePreset: build-${{ matrix.build-type }}-${{ matrix.compiler }}-conan-${{ matrix.runtime }}

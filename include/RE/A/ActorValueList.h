@@ -33,18 +33,12 @@ namespace RE
 namespace fmt
 {
 	template <>
-	struct formatter<RE::ActorValue>
+	struct formatter<RE::ActorValue> : formatter<std::string_view>
 	{
-		template <class ParseContext>
-		constexpr auto parse(ParseContext& a_ctx)
-		{
-			return a_ctx.begin();
-		}
-
 		template <class FormatContext>
 		auto format(const RE::ActorValue& a_actorValue, FormatContext& a_ctx) const
 		{
-			return fmt::format_to(a_ctx.out(), "{}", ActorValueToString(a_actorValue));
+			return formatter<std::string_view>::format(RE::ActorValueToString(a_actorValue), a_ctx);
 		}
 	};
 }
@@ -57,9 +51,9 @@ namespace std
 	struct formatter<RE::ActorValue, CharT> : formatter<std::string_view, CharT>
 	{
 		template <class FormatContext>
-		auto format(RE::ActorValue a_actorValue, FormatContext& a_ctx)
+		auto format(RE::ActorValue a_actorValue, FormatContext& a_ctx) const
 		{
-			return formatter<std::string_view, CharT>::format(ActorValueToString(a_actorValue), a_ctx);
+			return formatter<std::string_view, CharT>::format(RE::ActorValueToString(a_actorValue), a_ctx);
 		}
 	};
 }

@@ -916,6 +916,18 @@
       }
     },
     {
+      "name": "flatrim",
+      "displayName": "All Tests (Flatrim)",
+      "configurePreset": "build-debug-msvc-vcpkg-flatrim",
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "error",
+        "stopOnFailure": false
+      }
+    },
+    {
       "name": "unit",
       "displayName": "Unit Tests",
       "description": "Runs tests that do not require any Skyrim module loaded into the process.",

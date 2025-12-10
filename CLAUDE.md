@@ -16,33 +16,45 @@ The library uses a unique multi-targeting system that allows plugins to support 
 
 ## Build System Commands
 
-### WSL Environment Requirements
-**IMPORTANT**: This project requires Windows-specific tooling (Visual Studio, MSVC compiler) and is designed for Windows development. When working in WSL environments:
+### Building from WSL (Claude Code, Linux Environments)
 
-- Use PowerShell commands via `powershell.exe` or `pwsh.exe` for build operations
-- CMake presets expect Windows paths and Visual Studio toolchain
-- Package managers (Vcpkg/Conan) need Windows environment setup
+**IMPORTANT**: This project requires Windows-specific tooling (Visual Studio 2022, MSVC compiler). Claude Code runs in WSL and must use PowerShell to invoke the Windows build tools.
 
-### Configuration and Building
+**CRITICAL**: CMake must run from a Visual Studio Developer Shell to properly detect the MSVC compiler. If run from a regular shell, CMake may incorrectly detect clang++ and fail with compiler errors.
+
 ```bash
-# WSL: Use PowerShell for CMake operations
-powershell.exe "cmake --preset build-debug-msvc-vcpkg-all"
-powershell.exe "cmake --preset build-release-msvc-vcpkg-all"
-powershell.exe "cmake --preset build-debug-clang-cl-vcpkg-all"
+# WSL/Linux: Use powershell.exe to launch VS Developer Shell and build
+# IMPORTANT: Adjust the VS installation path to match your system
+# The examples below use F:\Program Files but yours may be on C:\ or another drive
+# Standard path: <DRIVE>:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1
 
-# WSL: Build via PowerShell
-powershell.exe "cmake --build build/debug-msvc-vcpkg-all"
-powershell.exe "cmake --build build/release-msvc-vcpkg-all"
+# Configure and build VR preset (adjust path to your VS installation)
+powershell.exe "& '<DRIVE>:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1' -Arch amd64; cmake --preset build-release-msvc-vcpkg-vr; cmake --build build/release-msvc-vcpkg-vr"
 
-# WSL: Run tests via PowerShell
+# Example with F: drive:
+powershell.exe "& 'F:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1' -Arch amd64; cmake --preset build-release-msvc-vcpkg-vr; cmake --build build/release-msvc-vcpkg-vr"
+
+# Configure and build ALL preset (SE + AE + VR)
+powershell.exe "& '<DRIVE>:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1' -Arch amd64; cmake --preset build-release-msvc-vcpkg-all; cmake --build build/release-msvc-vcpkg-all"
+
+# Configure and build FLATRIM preset (SE + AE, no VR)
+powershell.exe "& '<DRIVE>:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1' -Arch amd64; cmake --preset build-release-msvc-vcpkg-flatrim; cmake --build build/release-msvc-vcpkg-flatrim"
+
+# Run tests (from Windows side after build)
 powershell.exe "ctest --preset all"
-powershell.exe "ctest --preset unit"  # Unit tests only
-powershell.exe "ctest --preset integration"  # Integration tests only
+```
 
-# Native Windows (PowerShell/CMD)
-cmake --preset build-debug-msvc-vcpkg-all
-cmake --build build/debug-msvc-vcpkg-all
-ctest --preset all
+### Building from Native Windows
+
+```powershell
+# Option 1: Launch VS Developer PowerShell manually, then run:
+cmake --preset build-release-msvc-vcpkg-all
+cmake --build build/release-msvc-vcpkg-all
+
+# Option 2: Use VS Dev Shell launcher in one command (adjust path to your VS installation):
+& "<DRIVE>:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1" -Arch amd64
+cmake --preset build-release-msvc-vcpkg-vr
+cmake --build build/release-msvc-vcpkg-vr
 ```
 
 ### Package Managers

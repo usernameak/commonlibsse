@@ -73,18 +73,12 @@ namespace std
 namespace fmt
 {
 	template <>
-	struct formatter<RE::EffectArchetype>
+	struct formatter<RE::EffectArchetype> : formatter<std::string_view>
 	{
-		template <class ParseContext>
-		constexpr auto parse(ParseContext& a_ctx)
-		{
-			return a_ctx.begin();
-		}
-
 		template <class FormatContext>
 		auto format(const RE::EffectArchetype& a_archetype, FormatContext& a_ctx) const
 		{
-			return fmt::format_to(a_ctx.out(), "{}", RE::EffectArchetypeToString(a_archetype));
+			return formatter<std::string_view>::format(RE::EffectArchetypeToString(a_archetype), a_ctx);
 		}
 	};
 }
