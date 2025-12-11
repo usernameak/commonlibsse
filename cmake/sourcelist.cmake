@@ -34,6 +34,7 @@ set(SOURCES
 	include/RE/A/AddCallbackVisitor.h
 	include/RE/A/AlchemyItem.h
 	include/RE/A/AlchemyMenu.h
+	include/RE/A/AnimationSystemUtils.h
 	include/RE/A/AnimationFileManagerSingleton.h
 	include/RE/A/AnimationObjects.h
 	include/RE/A/Archive.h
@@ -510,6 +511,7 @@ set(SOURCES
 	include/RE/C/CollisionLayers.h
 	include/RE/C/Color.h
 	include/RE/C/ColorUtil.h
+	include/RE/C/CombatAnimation.h
 	include/RE/C/CombatController.h
 	include/RE/C/CombatGroup.h
 	include/RE/C/CombatGroupDetectionListener.h
@@ -542,6 +544,8 @@ set(SOURCES
 	include/RE/C/CombatState.h
 	include/RE/C/CombatUtilities.h
 	include/RE/C/CommandEffect.h
+	include/RE/C/CombatBehaviorTree.h
+	include/RE/C/CombatBehaviorTreeNode.h
 	include/RE/C/CommandSummonedEffect.h
 	include/RE/C/CommandTable.h
 	include/RE/C/CommonTypeTraits.h
@@ -1934,6 +1938,7 @@ set(SOURCES
 	src/RE/C/CollisionLayers.cpp
 	src/RE/C/Color.cpp
 	src/RE/C/ColorUtil.cpp
+	src/RE/C/CombatAnimation.cpp
 	src/RE/C/CommandTable.cpp
 	src/RE/C/Console.cpp
 	src/RE/C/ConsoleLog.cpp
