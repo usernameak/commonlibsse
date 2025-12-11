@@ -16,7 +16,7 @@ namespace RE
 		TESQuest*            nextQuest;      // 08
 		BGSLocalizedStringDL logEntry;       // 10
 		std::uint8_t         data;           // 14
-		std::int8_t          index;          // 15
+		std::uint8_t         index;          // 15
 		bool                 hasLogEntry;    // 16
 		std::uint8_t         pad17;          // 17
 		TESQuest*            owner;          // 18

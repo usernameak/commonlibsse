@@ -10,14 +10,14 @@ namespace RE
 		return *reinterpret_cast<const std::uintptr_t*>(this) != 0;
 	}
 
-	ObjectRefHandle TESQuestTarget::GetTargetRef(ObjectRefHandle& a_out, bool a_allowPickUpActor, const TESQuest* a_quest)
+	ObjectRefHandle& TESQuestTarget::GetTargetRef(ObjectRefHandle& a_out, bool a_allowPickUpActor, const TESQuest* a_quest)
 	{
 		using func_t = decltype(&TESQuestTarget::GetTargetRef);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(24815, 25284) };
 		return func(this, a_out, a_allowPickUpActor, a_quest);
 	}
 
-	ObjectRefHandle TESQuestTarget::GetTrackingRef(ObjectRefHandle& a_out, const TESQuest* a_quest)
+	ObjectRefHandle& TESQuestTarget::GetTrackingRef(ObjectRefHandle& a_out, const TESQuest* a_quest)
 	{
 		using func_t = decltype(&TESQuestTarget::GetTrackingRef);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(24816, 25285) };

@@ -148,8 +148,8 @@ namespace RE
 			kCompassMarkerIgnoresLocks = 1 << 0
 		};
 
-		ObjectRefHandle GetTargetRef(ObjectRefHandle& a_out, bool a_allowPickUpActor, const TESQuest* a_quest);
-		ObjectRefHandle GetTrackingRef(ObjectRefHandle& a_out, const TESQuest* a_quest);
+		ObjectRefHandle& GetTargetRef(ObjectRefHandle& a_out, bool a_allowPickUpActor, const TESQuest* a_quest);
+		ObjectRefHandle& GetTrackingRef(ObjectRefHandle& a_out, const TESQuest* a_quest);
 
 		// members
 		REX::EnumSet<Flag, std::uint8_t> flags;         // 00
