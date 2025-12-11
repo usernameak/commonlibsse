@@ -47,11 +47,11 @@ namespace RE
 			static LooseFileLocation* Create(const char* a_prefix, std::uint32_t a_minimumAsyncPacketSize, bool a_asyncSupported)
 			{
 				auto memory = malloc<LooseFileLocation>();
-	#ifdef __clang__
+#ifdef __clang__
 #	pragma clang diagnostic push
 #	pragma clang diagnostic ignored "-Wdynamic-class-memaccess"
 #endif
-			std::memset(memory, 0, sizeof(LooseFileLocation));
+				std::memset(memory, 0, sizeof(LooseFileLocation));
 #ifdef __clang__
 #	pragma clang diagnostic pop
 #endif
