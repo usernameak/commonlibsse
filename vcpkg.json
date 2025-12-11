@@ -19,16 +19,28 @@
       "name": "fmt",
       "version>=": "12.0.0"
     },
-    "rapidcsv",
+    {
+      "name": "rapidcsv",
+      "version>=": "8.62"
+    },
     {
       "name": "spdlog",
       "version>=": "1.16.0"
+    },
+    {
+      "name": "xbyak",
+      "version>=": "6.61.2"
     }
   ],
   "features": {
     "tests": {
       "description": "Build tests for CommonLibSSE.",
-      "dependencies": ["catch2"]
+      "dependencies": [
+        {
+          "name": "catch2",
+          "version>=": "3.1.0"
+        }
+      ]
     }
   },
   "default-features": ["tests"]

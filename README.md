@@ -209,10 +209,21 @@ For more information on how to use CommonLibSSE NG, you can look at the
 
 ## Build Dependencies
 
-- [rapidcsv](https://github.com/d99kris/rapidcsv)
-- [spdlog](https://github.com/gabime/spdlog)
-- [Visual Studio 2022](https://visualstudio.microsoft.com/vs/)
-  - Desktop development with C++
+Dependencies are managed via vcpkg. See `vcpkg.json` for the complete list.
+
+**Core Dependencies:**
+- [fmt](https://github.com/fmtlib/fmt) 12.0.0+
+- [rapidcsv](https://github.com/d99kris/rapidcsv) 8.62+
+- [spdlog](https://github.com/gabime/spdlog) 1.16.0+
+- [xbyak](https://github.com/herumi/xbyak) 6.61.2+
+- [catch2](https://github.com/catchorg/Catch2) 3.1.0+ (for testing)
+- [directxmath](https://github.com/microsoft/DirectXMath) - DirectX Math library
+- [directxtk](https://github.com/microsoft/DirectXTK) - DirectX Toolkit
+
+**Build Tools:**
+- [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) - Desktop development with C++
+- [CMake](https://cmake.org/) 3.19+
+- [Vcpkg](https://github.com/microsoft/vcpkg)
 
 ## End User Dependencies
 

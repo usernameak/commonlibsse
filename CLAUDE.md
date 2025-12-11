@@ -57,10 +57,10 @@ cmake --preset build-release-msvc-vcpkg-vr
 cmake --build build/release-msvc-vcpkg-vr
 ```
 
-### Package Managers
-The project supports both Vcpkg (primary) and Conan:
-- **Vcpkg**: Use presets with `-vcpkg-` in the name
-- **Conan**: Use presets with `-conan-` in the name
+### Package Manager
+The project uses Vcpkg for dependency management:
+- **Vcpkg**: All presets use `-vcpkg-` in the name
+- Dependencies are defined in `vcpkg.json`
 
 ### Runtime-Specific Builds
 Available runtime configurations:

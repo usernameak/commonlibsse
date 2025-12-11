@@ -11,7 +11,6 @@ on:
       - 'tests/**'
       - 'CMakeLists.txt'
       - 'CMakePresets.json'
-      - 'conanfile.py'
       - 'vcpkg.json'
   pull_request:
     branches: [ vr, ng, feature/* ]
@@ -67,58 +66,3 @@ jobs:
         timeout-minutes: 5
         working-directory: ${{ github.workspace }}/main/build/${{ matrix.build-type }}-${{ matrix.compiler }}-vcpkg-${{ matrix.runtime }}
         run: .\CommonLibSSETests.exe
-  build-and-test-conan:
-    runs-on: windows-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        build-type:
-          - debug
-          - release
-        runtime:
-          - all
-          - flatrim
-          - ae
-          - se
-          - vr
-        compiler:
-          - msvc
-          - clang-cl
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          path: main
-          submodules: recursive
-
-      - name: Setup MSVC Environment
-        uses: ilammy/msvc-dev-cmd@v1
-
-      - name: Install Conan
-        uses: turtlebrowser/get-conan@main
-
-      - name: Run Conan
-        working-directory: ${{ github.workspace }}/main
-        run: conan install --build=missing -o commonlibsse-ng:testing=True .
-
-      - name: Build with CMake
-        uses: lukka/run-cmake@v10
-        with:
-          cmakeListsTxtPath: ${{ github.workspace }}/main/CMakeLists.txt
-          configurePreset: build-${{ matrix.build-type }}-${{ matrix.compiler }}-conan-${{ matrix.runtime }}
-          buildPreset: ${{ matrix.build-type }}-${{ matrix.compiler }}-conan-${{ matrix.runtime }}
-
-      - name: Build with Conan
-        if: matrix.compiler == 'msvc' && matrix.runtime == 'all'
-        working-directory: ${{ github.workspace }}/main
-        run: conan build .
-
-      - name: Unit tests
-        timeout-minutes: 5
-        working-directory: ${{ github.workspace }}/main/build/${{ matrix.build-type }}-${{ matrix.compiler }}-conan-${{ matrix.runtime }}
-        run: .\CommonLibSSETests.exe
-
-      - name: Create Conan Package
-        if: matrix.compiler == 'msvc' && matrix.runtime == 'all'
-        working-directory: ${{ github.workspace }}/main
-        run: conan create .
