@@ -22,13 +22,6 @@
 
 namespace RE
 {
-	NiAVObject* NiAVObject::Clone()
-	{
-		using func_t = decltype(&NiAVObject::Clone);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(68835, 70187) };
-		return func(this);
-	}
-
 	void NiAVObject::CullGeometry(bool a_cull)
 	{
 		BSVisit::TraverseScenegraphGeometries(this, [&](BSGeometry* a_geo) -> BSVisit::BSVisitControl {
