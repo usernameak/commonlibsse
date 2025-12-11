@@ -29,7 +29,7 @@ namespace RE
 		if (idx == kInvalid) {
 			return nullptr;
 		}
-		assert(idx < Relocate(364, 364, 369));
+		assert(idx < static_cast<std::size_t>(Relocate(364, 364, 369)));
 		return (&RelocateMember<bool>(this, 0xB80, 0xBA8))[idx] ?
 		           &(&RelocateMember<TESForm*>(this, 0x20, 0x20))[idx] :
 		           nullptr;
