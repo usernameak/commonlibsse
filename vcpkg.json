@@ -15,8 +15,15 @@
     },
     "directxmath",
     "directxtk",
+    {
+      "name": "fmt",
+      "version>=": "12.0.0"
+    },
     "rapidcsv",
-    "spdlog"
+    {
+      "name": "spdlog",
+      "version>=": "1.16.0"
+    }
   ],
   "features": {
     "tests": {

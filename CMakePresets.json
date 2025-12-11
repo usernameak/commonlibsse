@@ -144,7 +144,7 @@
       "environment": {
         "CC": "clang-cl",
         "CXX": "clang-cl",
-        "PROJECT_COMPILER_FLAGS": "/permissive- /EHsc /W4 /WX -Wno-overloaded-virtual -Wno-delete-non-abstract-non-virtual-dtor -Wno-inconsistent-missing-override -Wno-reinterpret-base-class -Wno-nonportable-include-path -Wno-deprecated-copy-with-user-provided-copy -Wno-invalid-offsetof"
+        "PROJECT_COMPILER_FLAGS": "/permissive- /EHsc /W4 /WX -Wno-overloaded-virtual -Wno-delete-non-abstract-non-virtual-dtor -Wno-inconsistent-missing-override -Wno-reinterpret-base-class -Wno-nonportable-include-path -Wno-deprecated-copy-with-user-provided-copy -Wno-invalid-offsetof -Wno-switch"
       },
       "vendor": {
         "microsoft.com/VisualStudioSettings/CMake/1.0": {
