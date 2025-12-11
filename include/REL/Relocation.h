@@ -1015,7 +1015,7 @@ namespace REL
 	 */
 #if defined(_MSC_VER)
 #	pragma warning(push)
-#	pragma warning(disable : 4702)  // unreachable code
+#	pragma warning(disable: 4702)  // unreachable code
 #endif
 	template <class T, class This>
 	[[nodiscard]] inline T& RelocateMember(This* a_self, std::ptrdiff_t a_seAndAE, std::ptrdiff_t a_vr)
