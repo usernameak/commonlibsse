@@ -17,10 +17,10 @@ on:
   workflow_dispatch:
 
 env:
-  # Updated to recent vcpkg baseline compatible with CMake 3.31 (December 10, 2024)
-  # Previous commit fc3f613 was from July 2023 and incompatible with modern CMake
-  # Tested successfully with VR, ALL, and FLATRIM presets
-  VCPKG_COMMIT_ID: f5cbc726b123896eef77f5acc1b9047a28a0731e
+  # Updated to latest vcpkg master baseline (December 12, 2025)
+  # Synced with vcpkg.json builtin-baseline for consistency
+  # Includes updated dependencies: fmt 12.1.0, catch2 3.11.0, xbyak 7.28, rapidcsv 8.90, directxmath/directxtk 2025
+  VCPKG_COMMIT_ID: ee12231b20c95013c6638d845d04c91559a1d1ff
 
 jobs:
   build-and-test-vcpkg:

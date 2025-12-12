@@ -7,21 +7,27 @@
   "homepage": "https://github.com/CharmedBaryon/CommonLibSSE",
   "license": "MIT",
   "supports": "windows & x64",
-  "builtin-baseline": "fc3f61366102c1f0d4547c06d03c523bb18c13a7",
+  "builtin-baseline": "ee12231b20c95013c6638d845d04c91559a1d1ff",
   "dependencies": [
     {
       "name": "vcpkg-cmake-config",
       "host": true
     },
-    "directxmath",
-    "directxtk",
+    {
+      "name": "directxmath",
+      "version>=": "2025-04-03"
+    },
+    {
+      "name": "directxtk",
+      "version>=": "2025-10-27"
+    },
     {
       "name": "fmt",
-      "version>=": "12.0.0"
+      "version>=": "12.1.0"
     },
     {
       "name": "rapidcsv",
-      "version>=": "8.85"
+      "version>=": "8.90"
     },
     {
       "name": "spdlog",
@@ -29,7 +35,7 @@
     },
     {
       "name": "xbyak",
-      "version>=": "7.27"
+      "version>=": "7.28"
     }
   ],
   "features": {
@@ -38,7 +44,7 @@
       "dependencies": [
         {
           "name": "catch2",
-          "version>=": "3.1.0"
+          "version>=": "3.11.0"
         }
       ]
     }
