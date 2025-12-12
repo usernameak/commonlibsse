@@ -16,12 +16,6 @@ on:
     branches: [ vr, ng, feature/* ]
   workflow_dispatch:
 
-env:
-  # Updated to latest vcpkg master baseline (December 12, 2025)
-  # Synced with vcpkg.json builtin-baseline for consistency
-  # Includes updated dependencies: fmt 12.1.0, catch2 3.11.0, xbyak 7.28, rapidcsv 8.90, directxmath/directxtk 2025
-  VCPKG_COMMIT_ID: ee12231b20c95013c6638d845d04c91559a1d1ff
-
 jobs:
   build-and-test-vcpkg:
     runs-on: windows-latest
@@ -47,13 +41,22 @@ jobs:
           path: main
           submodules: recursive
 
+      - name: Extract vcpkg baseline from vcpkg.json
+        id: get_vcpkg_baseline
+        shell: pwsh
+        run: |
+          $vcpkgJson = Get-Content main/vcpkg.json | ConvertFrom-Json
+          $baseline = $vcpkgJson.'builtin-baseline'
+          echo "baseline=$baseline" >> $env:GITHUB_OUTPUT
+          echo "✓ Using vcpkg baseline from vcpkg.json: $baseline"
+
       - name: Setup MSVC Environment
         uses: ilammy/msvc-dev-cmd@v1
 
       - name: Setup vcpkg
         uses: lukka/run-vcpkg@v11
         with:
-          vcpkgGitCommitId: ${{ env.VCPKG_COMMIT_ID }}
+          vcpkgGitCommitId: ${{ steps.get_vcpkg_baseline.outputs.baseline }}
 
       - name: Build
         uses: lukka/run-cmake@v10
