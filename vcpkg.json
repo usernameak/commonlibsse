@@ -29,7 +29,7 @@
     },
     {
       "name": "xbyak",
-      "version>=": "6.61.2"
+      "version>=": "7.27"
     }
   ],
   "features": {
