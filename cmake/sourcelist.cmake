@@ -783,6 +783,7 @@ set(SOURCES
 	include/RE/F/FORM.h
 	include/RE/F/FORM_ENUM_STRING.h
 	include/RE/F/FactionRank.h
+	include/RE/F/FaderData.h
 	include/RE/F/FaderMenu.h
 	include/RE/F/FastTravelConfirmCallback.h
 	include/RE/F/FavoritesHandler.h
@@ -1240,6 +1241,8 @@ set(SOURCES
 	include/RE/J/JumpHandler.h
 	include/RE/K/KinectEvent.h
 	include/RE/K/KinectMenu.h
+	include/RE/K/KinectStateChangeData.h
+	include/RE/K/KinectUserEventData.h
 	include/RE/L/LegendarySkillResetConfirmCallback.h
 	include/RE/L/LevelIncrease.h
 	include/RE/L/LevelUpMenu.h
@@ -1248,6 +1251,7 @@ set(SOURCES
 	include/RE/L/LoadStorageWrapper.h
 	include/RE/L/LoadWaitSpinner.h
 	include/RE/L/LoadingMenu.h
+	include/RE/L/LoadingMenuData.h
 	include/RE/L/LocalMapCamera.h
 	include/RE/L/LocalMapMenu.h
 	include/RE/L/Location.h
@@ -1308,6 +1312,7 @@ set(SOURCES
 	include/RE/M/MissileProjectile.h
 	include/RE/M/MistMenu.h
 	include/RE/M/MobIterOperator.h
+	include/RE/M/ModManagerData.h
 	include/RE/M/ModManagerMenu.h
 	include/RE/M/ModelReferenceEffect.h
 	include/RE/M/Moon.h
@@ -1476,6 +1481,7 @@ set(SOURCES
 	include/RE/R/ReanimateEffect.h
 	include/RE/R/RefActivateData.h
 	include/RE/R/RefAttachTechniqueInput.h
+	include/RE/R/RefHandleUIData.h
 	include/RE/R/ReferenceArray.h
 	include/RE/R/ReferenceEffect.h
 	include/RE/R/ReferenceEffectController.h
