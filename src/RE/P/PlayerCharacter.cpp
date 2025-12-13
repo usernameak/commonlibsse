@@ -94,6 +94,13 @@ namespace RE
 		return func(this, a_form);
 	}
 
+	float PlayerCharacter::GetEquippedWeaponsDamage()
+	{
+		using func_t = decltype(&PlayerCharacter::GetEquippedWeaponsDamage);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(0, 40252) };
+		return func(this);
+	}
+
 	NiPointer<TESObjectREFR> PlayerCharacter::GetGrabbedRef()
 	{
 		return grabbedObject.get();

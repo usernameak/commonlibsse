@@ -328,6 +328,7 @@ namespace RE
 		NiPointer<Actor>         GetActorDoingPlayerCommand() const;
 		float                    GetArmorValue(InventoryEntryData* a_form);
 		float                    GetDamage(InventoryEntryData* a_form);
+		float                    GetEquippedWeaponsDamage();
 		NiPointer<TESObjectREFR> GetGrabbedRef();
 		std::int32_t             GetItemCount(TESBoundObject* a_object);
 		std::uint32_t            GetNumTints(std::uint32_t a_tintType);
