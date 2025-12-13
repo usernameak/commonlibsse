@@ -11,10 +11,11 @@ namespace RE
 
 	class MagicMenuAddSpellVisitor : public Actor::ForEachSpellVisitor
 	{
+	public:
 		inline static constexpr auto RTTI = RTTI___MagicMenuAddSpellVisitor;
 		inline static constexpr auto VTABLE = VTABLE___MagicMenuAddSpellVisitor;
 
-		virtual ~MagicMenuAddSpellVisitor(){};  // 00
+		virtual ~MagicMenuAddSpellVisitor() {};  // 00
 
 		// override (Actor::ForEachSpellVisitor)
 		virtual BSContainer::ForEachResult Visit(SpellItem* a_spell) override;  // 01
