@@ -9,6 +9,7 @@ namespace RE
 	{
 		class UtilsClipData
 		{
+		public:
 			const ClipGeneratorData*  clipData;       // 00
 			const BoundAnimationData* animData;       // 08
 			float                     playbackSpeed;  // 10

@@ -19,7 +19,7 @@ namespace RE
 		bool                        attached;       // 21
 		bool                        waterAttached;  // 22
 		bool                        prepared;       // 23
-		std::uint8_t                pad24[4];       // 24
+		std::uint32_t               pad24;          // 24
 	};
 	static_assert(sizeof(BGSTerrainChunk) == 0x28);
 }
