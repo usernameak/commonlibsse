@@ -51,7 +51,7 @@ namespace RE
 
 	float& BookMenu::GetDisplayScale()
 	{
-		static REL::Relocation<float*> displayScale{ RELOCATION_ID(509927, 382701) };  // 1.5.97 maybe broken
+		static REL::Relocation<float*> displayScale{ RELOCATION_ID(509927, 382701) };
 		return *displayScale;
 	}
 

@@ -12,7 +12,7 @@ namespace RE
 
 	std::int32_t LockpickingMenu::GetCurrentLockDifficulty()
 	{
-		static REL::Relocation<std::int32_t*> difficulty{ RELOCATION_ID(510072, 382910) };  // verify
+		static REL::Relocation<std::int32_t*> difficulty{ RELOCATION_ID(510072, 382910) };
 		return *difficulty;
 	}
 

@@ -2,6 +2,12 @@
 
 namespace RE
 {
+	TESWaterSystem* TESWaterSystem::GetSingleton()
+	{
+		static REL::Relocation<TESWaterSystem**> singleton{ RELOCATION_ID(514290, 400450) };
+		return *singleton;
+	}
+
 	void TESWaterSystem::AddRipple(const NiPoint3& a_pos, float a_scale)
 	{
 		using func_t = decltype(&TESWaterSystem::AddRipple);

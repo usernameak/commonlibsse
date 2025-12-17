@@ -51,6 +51,13 @@ namespace RE
 		return currentStage;
 	}
 
+	void TESQuest::GetJournalTextForInstance(BSString& out, std::uint32_t instanceID)
+	{
+		using func_t = decltype(&TESQuest::GetJournalTextForInstance);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(24549, 25078) };
+		return func(this, out, instanceID);
+	}
+
 	bool TESQuest::IsActive() const
 	{
 		return data.flags.all(QuestFlag::kActive);

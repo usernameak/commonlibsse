@@ -243,6 +243,7 @@ namespace RE
 		ObjectRefHandle                          GetAliasedRef(std::uint32_t a_aliasID) const;
 		std::uint16_t                            GetCurrentStageID() const;
 		[[nodiscard]] constexpr QUEST_DATA::Type GetType() const noexcept { return data.questType.get(); }
+		void                                     GetJournalTextForInstance(BSString& out, std::uint32_t instanceID);
 		bool                                     IsActive() const;
 		bool                                     IsCompleted() const;
 		bool                                     IsEnabled() const;

@@ -28,11 +28,7 @@ namespace RE
 	class TESWaterSystem : public BSTSingletonSDM<TESWaterSystem>
 	{
 	public:
-		[[nodiscard]] static TESWaterSystem* GetSingleton()
-		{
-			static REL::Relocation<TESWaterSystem**> singleton{ RELOCATION_ID(514290, 400450) };
-			return *singleton;
-		}
+		static TESWaterSystem* GetSingleton();
 
 		void AddRipple(const NiPoint3& a_pos, float a_scale);
 		void Enable();

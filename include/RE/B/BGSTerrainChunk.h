@@ -11,7 +11,7 @@ namespace RE
 	class BGSTerrainChunk
 	{
 	public:
-		BGSTerrainNode*             node;           // 00
+		BGSTerrainNode*             terrainNode;    // 00
 		NiPointer<BSGeometry>       landMesh;       // 08
 		NiPointer<BSMultiBoundNode> waterNode;      // 10
 		NiPointer<BSMultiBoundNode> node;           // 18

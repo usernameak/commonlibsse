@@ -11,6 +11,13 @@ namespace RE
 	struct TESQuestStageItem
 	{
 	public:
+		const char* GetLogEntry(const TESQuest* a_ownerQuest)
+		{
+			using func_t = decltype(&TESQuestStageItem::GetLogEntry);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(24778, 25259) };
+			return func(this, a_ownerQuest);
+		}
+
 		// members
 		TESCondition         objConditions;  // 00
 		TESQuest*            nextQuest;      // 08
