@@ -22,7 +22,7 @@ namespace RE
 		void               Accept(CallbackProcessor* a_processor) override;  // 01
 		UI_MESSAGE_RESULTS ProcessMessage(UIMessage& a_message) override;    // 04
 
-		static MessageBoxMenu* GetCurrentMessageBoxMenu();
+		static MessageBoxMenu* GetCurrentMessageBoxMenu();  // inlined in SE
 		static std::uint32_t   GetQueueSize();
 		static void            QueueMessage(MessageBoxData* a_data);
 

@@ -25,6 +25,7 @@ namespace RE
 		void               Accept(CallbackProcessor* a_processor) override;  // 01
 		UI_MESSAGE_RESULTS ProcessMessage(UIMessage& a_message) override;    // 04
 
+		static void                     ExecuteCommand(const char* a_command);
 		static NiPointer<TESObjectREFR> GetSelectedRef();
 		static ObjectRefHandle          GetSelectedRefHandle();
 		static TESQuest*                GetCommandScriptParentQuest();
