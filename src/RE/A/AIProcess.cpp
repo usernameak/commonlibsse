@@ -245,6 +245,13 @@ namespace RE
 		return func(this, a_actor, a_location, a_magnitude);
 	}
 
+	void AIProcess::KnockParalyze(Actor* a_actor)
+	{
+		using func_t = decltype(&AIProcess::KnockParalyze);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(38857, 39894) };
+		return func(this, a_actor);
+	}
+
 	bool AIProcess::PlayIdle(Actor* a_actor, TESIdleForm* a_idle, TESObjectREFR* a_target)
 	{
 		return SetupSpecialIdle(a_actor, DEFAULT_OBJECT::kActionIdle, a_idle, true, false, a_target);
