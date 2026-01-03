@@ -38,7 +38,7 @@ namespace RE
 	void MagicItemList::Update_Impl(TESObjectREFR* a_owner)
 	{
 		using func_t = decltype(&MagicItemList::Update_Impl);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(0, 52098) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(51223, 52098) };
 		return func(this, a_owner);
 	}
 }

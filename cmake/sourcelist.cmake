@@ -36,6 +36,7 @@ set(SOURCES
 	include/RE/A/AlchemyMenu.h
 	include/RE/A/AnimationFileManagerSingleton.h
 	include/RE/A/AnimationObjects.h
+	include/RE/A/AnimationSystemUtils.h
 	include/RE/A/Archive.h
 	include/RE/A/ArchiveStream.h
 	include/RE/A/ArmorRatingVisitor.h
@@ -202,7 +203,9 @@ set(SOURCES
 	include/RE/B/BGSStoryManagerTreeForm.h
 	include/RE/B/BGSStoryTeller.h
 	include/RE/B/BGSTalkingActivator.h
+	include/RE/B/BGSTerrainChunk.h
 	include/RE/B/BGSTerrainManager.h
+	include/RE/B/BGSTerrainNode.h
 	include/RE/B/BGSTextureModel.h
 	include/RE/B/BGSTextureSet.h
 	include/RE/B/BGSTypedItem.h
@@ -508,6 +511,9 @@ set(SOURCES
 	include/RE/C/CollisionLayers.h
 	include/RE/C/Color.h
 	include/RE/C/ColorUtil.h
+	include/RE/C/CombatAnimation.h
+	include/RE/C/CombatBehaviorTree.h
+	include/RE/C/CombatBehaviorTreeNode.h
 	include/RE/C/CombatController.h
 	include/RE/C/CombatGroup.h
 	include/RE/C/CombatGroupDetectionListener.h
@@ -1938,6 +1944,7 @@ set(SOURCES
 	src/RE/C/CollisionLayers.cpp
 	src/RE/C/Color.cpp
 	src/RE/C/ColorUtil.cpp
+	src/RE/C/CombatAnimation.cpp
 	src/RE/C/CommandTable.cpp
 	src/RE/C/Console.cpp
 	src/RE/C/ConsoleLog.cpp
@@ -2169,6 +2176,7 @@ set(SOURCES
 	src/RE/T/TESTopic.cpp
 	src/RE/T/TESTopicInfo.cpp
 	src/RE/T/TESValueForm.cpp
+	src/RE/T/TESWaterSystem.cpp
 	src/RE/T/TESWorldSpace.cpp
 	src/RE/T/TaskQueueInterface.cpp
 	src/RE/T/ThumbstickEvent.cpp

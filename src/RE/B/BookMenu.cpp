@@ -9,13 +9,13 @@ namespace RE
 {
 	ExtraTextDisplayData* BookMenu::GetDisplayData()
 	{
-		static REL::Relocation<ExtraTextDisplayData**> displayData{ RELOCATION_ID(0, 405833) };
+		static REL::Relocation<ExtraTextDisplayData**> displayData{ RELOCATION_ID(519293, 405833) };
 		return *displayData;
 	}
 
 	ExtraDataList* BookMenu::GetExtraList()
 	{
-		static REL::Relocation<ExtraDataList**> extraList{ RELOCATION_ID(0, 405834) };
+		static REL::Relocation<ExtraDataList**> extraList{ RELOCATION_ID(519294, 405834) };
 		return *extraList;
 	}
 
@@ -27,7 +27,7 @@ namespace RE
 
 	BSString& BookMenu::GetDescription()
 	{
-		static REL::Relocation<BSString*> description{ RELOCATION_ID(0, 405837) };
+		static REL::Relocation<BSString*> description{ RELOCATION_ID(519297, 405837) };
 		return *description;
 	}
 
@@ -39,19 +39,19 @@ namespace RE
 
 	NiPoint3& BookMenu::GetDisplayPosition()
 	{
-		static REL::Relocation<NiPoint3*> displayPosition{ RELOCATION_ID(0, 405841) };
+		static REL::Relocation<NiPoint3*> displayPosition{ RELOCATION_ID(519301, 405841) };
 		return *displayPosition;
 	}
 
 	NiMatrix3& BookMenu::GetDisplayRotation()
 	{
-		static REL::Relocation<NiMatrix3*> displayRotation{ RELOCATION_ID(0, 405844) };
+		static REL::Relocation<NiMatrix3*> displayRotation{ RELOCATION_ID(519304, 405844) };
 		return *displayRotation;
 	}
 
 	float& BookMenu::GetDisplayScale()
 	{
-		static REL::Relocation<float*> displayScale{ RELOCATION_ID(0, 382701) };
+		static REL::Relocation<float*> displayScale{ RELOCATION_ID(509927, 382701) };
 		return *displayScale;
 	}
 

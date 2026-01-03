@@ -6,6 +6,7 @@
 #include "RE/B/BSTHashMap.h"
 #include "RE/F/FormTypes.h"
 #include "RE/N/NiPoint2.h"
+#include "RE/N/NiPoint3.h"
 #include "RE/N/NiSmartPointer.h"
 #include "RE/N/NiTPointerMap.h"
 #include "RE/T/TESForm.h"
@@ -180,6 +181,7 @@ namespace RE
 		bool        IsFormTypeChild(FormType a_type) override;                          // 36
 
 		[[nodiscard]] bool           HasMaxHeightData() const;
+		[[nodiscard]] bool           GetMaxHeightAt(const NiPoint3& xy, float& outHeight);
 		[[nodiscard]] TESObjectCELL* GetSkyCell();
 		[[nodiscard]] float          GetDefaultWaterHeight() const;
 

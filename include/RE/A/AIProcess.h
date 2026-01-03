@@ -179,6 +179,7 @@ namespace RE
 		bool                    IsGhost() const;
 		bool                    IsInCommandState() const;
 		void                    KnockExplosion(Actor* a_actor, const NiPoint3& a_location, float a_magnitude);
+		void                    KnockParalyze(Actor* a_actor);
 		bool                    PlayIdle(Actor* a_actor, TESIdleForm* a_idle, TESObjectREFR* a_target);
 		void                    RandomlyPlaySpecialIdles(Actor* a_actor);
 		void                    SetActorsDetectionEvent(Actor* a_actor, const NiPoint3& a_location, std::int32_t a_soundLevel, TESObjectREFR* a_ref);
