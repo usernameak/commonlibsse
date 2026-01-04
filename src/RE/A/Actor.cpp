@@ -807,7 +807,7 @@ namespace RE
 	bool Actor::IsAnimationDriven() const
 	{
 		bool result = false;
-		return GetGraphVariableBool("bAnimationDriven", result) && result;
+		return GetGraphVariableBool(FixedStrings::GetSingleton()->bAnimationDriven, result) && result;
 	}
 
 	bool Actor::IsBeingRidden() const
@@ -978,7 +978,7 @@ namespace RE
 	bool Actor::IsRotationAllowed() const
 	{
 		bool result = false;
-		return GetGraphVariableBool("bAllowRotation", result) && result;
+		return GetGraphVariableBool(FixedStrings::GetSingleton()->bAllowRotation, result) && result;
 	}
 
 	bool Actor::IsRunning() const
