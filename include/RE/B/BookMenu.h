@@ -55,10 +55,10 @@ namespace RE
 		[[nodiscard]] static NiMatrix3&            GetDisplayRotation();
 		[[nodiscard]] static float&                GetDisplayScale();
 
-		static void OpenMenuFromReference(TESObjectREFR* a_reference);                                                                                                                        // Can be taken.
-		static void OpenMenuFromReference(TESObjectREFR* a_reference, const NiPoint3& a_pos, const NiMatrix3& a_rot, float a_scale, bool a_useDefaultPos);  // Can be taken.
-		static void OpenMenuFromBaseForm(TESObjectBOOK* a_book);                                                                                                                              // Can not be taken.
-		static void OpenMenuFromBaseForm(TESObjectBOOK* a_book, const ExtraDataList* a_extraList, const NiPoint3& a_pos, const NiMatrix3& a_rot, float a_scale, bool a_useDefaultPos);        // Can not be taken.
+		static void OpenMenuFromReference(TESObjectREFR* a_reference);                                                                                                                  // Can be taken.
+		static void OpenMenuFromReference(TESObjectREFR* a_reference, const NiPoint3& a_pos, const NiMatrix3& a_rot, float a_scale, bool a_useDefaultPos);                              // Can be taken.
+		static void OpenMenuFromBaseForm(TESObjectBOOK* a_book);                                                                                                                        // Can not be taken.
+		static void OpenMenuFromBaseForm(TESObjectBOOK* a_book, const ExtraDataList* a_extraList, const NiPoint3& a_pos, const NiMatrix3& a_rot, float a_scale, bool a_useDefaultPos);  // Can not be taken.
 
 		// members
 		BSTArray<BSScaleformExternalTexture> bookTextures;      // 50

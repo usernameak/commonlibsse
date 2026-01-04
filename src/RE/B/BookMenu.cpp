@@ -67,7 +67,7 @@ namespace RE
 			return;
 		}
 
-		BSString       desc;
+		BSString desc;
 		book->GetDescription(desc, nullptr);
 
 		RE::NiMatrix3 rot{};
@@ -88,7 +88,7 @@ namespace RE
 			return;
 		}
 
-		BSString       desc;
+		BSString desc;
 		book->GetDescription(desc, nullptr);
 
 		return OpenMenu_Impl(desc, &a_reference->extraList, a_reference, book, a_pos, a_rot, a_scale, a_useDefaultPos);
