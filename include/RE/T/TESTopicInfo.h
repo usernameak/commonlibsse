@@ -118,7 +118,8 @@ namespace RE
 		class TESResponseList
 		{
 		public:
-			TESResponse* head;
+			// members
+			TESResponse* head;  // 00
 		};
 		static_assert(sizeof(TESResponseList) == 0x8);
 

@@ -29,7 +29,7 @@ namespace RE
 	TESTopicInfo::TESResponseList* TESTopicInfo::GetResponseList(TESResponseList* a_list)
 	{
 		using func_t = decltype(&TESTopicInfo::GetResponseList);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(25083, 0) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(25083, 25626) };
 		return func(this, a_list);
 	}
 }

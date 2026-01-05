@@ -5,6 +5,7 @@
 
 namespace RE
 {
+	class Actor;
 	class CombatBehaviorTreeNode;
 
 	class CombatBehaviorTree
@@ -12,6 +13,18 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_CombatBehaviorTree;
 		inline static constexpr auto VTABLE = VTABLE_CombatBehaviorTree;
+
+		class CombatBehaviorAttacker
+		{
+		public:
+			operator Actor*();
+		};
+
+		class CombatBehaviorTarget
+		{
+		public:
+			operator Actor*();
+		};
 
 		class TreeBuilder
 		{
@@ -23,12 +36,7 @@ namespace RE
 
 		virtual void Initialize();  // 00
 
-		static TreeBuilder* AddNode(TreeBuilder* a_out, const char* a_name, CombatBehaviorTreeNode* a_node)
-		{
-			using func_t = TreeBuilder*(TreeBuilder*, const char*, CombatBehaviorTreeNode*);
-			static REL::Relocation<func_t> func{ RELOCATION_ID(46261, 47516) };
-			return func(a_out, a_name, a_node);
-		}
+		static TreeBuilder* AddNode(TreeBuilder* a_out, const char* a_name, CombatBehaviorTreeNode* a_node);
 
 		// members
 		BSFixedString           name;  // 08

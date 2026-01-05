@@ -12,35 +12,6 @@ namespace RE
 	class CombatBehaviorThread
 	{
 	public:
-		class ObjectPtr
-		{
-		public:
-			template <typename T>
-			T* GetObject()
-			{
-				if (!thread)
-					return nullptr;
-
-				if (stackIndex >= thread->stackFrame.size())
-					return nullptr;
-
-				const auto& frame = thread->stackFrame[stackIndex];
-				return thread->stack.GetObject<T>(frame.second);
-			}
-
-			/*template <typename T>
-			const T* GetObject() const
-			{
-				return stack ? reinterpret_cast<const T*>(&stack->buffer[pos]) : nullptr;
-			}*/
-
-			// members
-			CombatBehaviorThread* thread;      // 00
-			std::uint32_t         stackIndex;  // 08
-			std::uint32_t         pad0C;       // 0C
-		};
-		static_assert(sizeof(ObjectPtr) == 0x10);
-
 		enum class Status
 		{
 			kNormal = 0,
@@ -65,12 +36,6 @@ namespace RE
 		};
 
 		template <typename T>
-		T* GetCurrentStackObject()
-		{
-			return stack.GetObject<T>(stackPos);
-		}
-
-		template <typename T>
 		T* GetCurrentObject()
 		{
 			return currentContextPtr.GetObject<T>();
@@ -81,7 +46,7 @@ namespace RE
 		BSTSmallArray<BSTTuple<const CombatBehaviorTreeNode*, std::uint32_t>, 16> stackFrame;         // 010
 		std::uint32_t                                                             stackPos;           // 120
 		std::uint32_t                                                             pad124;             // 124
-		CombatBehaviorThread::ObjectPtr                                           currentContextPtr;  // 128
+		CombatBehaviorStack::ObjectPtr                                            currentContextPtr;  // 128
 		const CombatBehaviorTreeNode*                                             currentNode;        // 138
 		const CombatBehaviorTreeNode*                                             previousNode;       // 140
 		REX::EnumSet<Status, std::int32_t>                                        status;             // 148
