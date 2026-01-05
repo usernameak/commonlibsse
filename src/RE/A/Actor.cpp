@@ -414,6 +414,13 @@ namespace RE
 		return nullptr;
 	}
 
+	float Actor::GetBoundRadius()
+	{
+		using func_t = decltype(&Actor::GetBoundRadius);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(36444, 37439) };
+		return func(this);
+	}
+
 	InventoryEntryData* Actor::GetEquippedEntryData(bool a_leftHand) const
 	{
 		if (!currentProcess || !currentProcess->middleHigh) {
@@ -955,6 +962,13 @@ namespace RE
 	{
 		using func_t = decltype(&Actor::IsOverEncumbered);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(36457, 37453) };
+		return func(this);
+	}
+
+	bool Actor::IsPathing() const
+	{
+		using func_t = decltype(&Actor::IsPathing);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(36812, 37828) };
 		return func(this);
 	}
 

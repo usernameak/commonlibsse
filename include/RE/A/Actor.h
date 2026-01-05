@@ -548,6 +548,7 @@ namespace RE
 		const TESPackage*            GetCurrentPackage() const;
 		TESShout*                    GetCurrentShout();
 		const TESShout*              GetCurrentShout() const;
+		float                        GetBoundRadius();
 		InventoryEntryData*          GetEquippedEntryData(bool a_leftHand) const;
 		TESForm*                     GetEquippedObject(bool a_leftHand) const;
 		TESForm*                     GetEquippedObjectInSlot(const BGSEquipSlot* slot) const;
@@ -618,6 +619,7 @@ namespace RE
 		bool                         IsMoving() const;
 		bool                         IsOnMount() const;
 		bool                         IsOverEncumbered() const;
+		bool                         IsPathing() const;
 		bool                         IsPlayerTeammate() const;
 		bool                         IsPowerAttacking() const;
 		bool                         IsProtected() const;
