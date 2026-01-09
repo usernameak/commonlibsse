@@ -355,6 +355,13 @@ namespace RE
 		return attackData->IsLeftAttack() ? proc->leftHand : proc->rightHand;
 	}
 
+	float Actor::GetAttackReach() const
+	{
+		using func_t = decltype(&Actor::GetAttackReach);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(37588, 38538) };
+		return func(this);
+	}
+
 	bhkCharacterController* Actor::GetCharController() const
 	{
 		return currentProcess ? currentProcess->GetCharController() : nullptr;
@@ -414,7 +421,7 @@ namespace RE
 		return nullptr;
 	}
 
-	float Actor::GetBoundRadius()
+	float Actor::GetBoundRadius() const
 	{
 		using func_t = decltype(&Actor::GetBoundRadius);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(36444, 37439) };

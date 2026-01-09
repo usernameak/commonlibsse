@@ -539,6 +539,7 @@ namespace RE
 		float                        GetAimHeading() const;
 		InventoryEntryData*          GetAttackingWeapon();
 		const InventoryEntryData*    GetAttackingWeapon() const;
+		float                        GetAttackReach() const;
 		bhkCharacterController*      GetCharController() const;
 		void                         GetCollisionFilterInfo(CFilter& a_outCollisionFilterInfo);
 		NiPointer<Actor>             GetCommandingActor() const;
@@ -548,7 +549,7 @@ namespace RE
 		const TESPackage*            GetCurrentPackage() const;
 		TESShout*                    GetCurrentShout();
 		const TESShout*              GetCurrentShout() const;
-		float                        GetBoundRadius();
+		float                        GetBoundRadius() const;
 		InventoryEntryData*          GetEquippedEntryData(bool a_leftHand) const;
 		TESForm*                     GetEquippedObject(bool a_leftHand) const;
 		TESForm*                     GetEquippedObjectInSlot(const BGSEquipSlot* slot) const;

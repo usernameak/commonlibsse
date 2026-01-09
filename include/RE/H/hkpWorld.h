@@ -94,10 +94,10 @@ namespace RE
 		hkpSimulation*                                                    simulation;                                                 // 010
 		std::uint64_t                                                     pad018;                                                     // 018
 		hkVector4                                                         gravity;                                                    // 020
-		hkpSimulationIsland*                                              fixedIsland;                                                // 030
+		hkpSimulationIsland*                                              fixedIsland;                                                // 030 - not movable
 		hkpRigidBody*                                                     fixedRigidBody;                                             // 038
-		hkArray<hkpSimulationIsland*>                                     activeSimulationIslands;                                    // 040
-		hkArray<hkpSimulationIsland*>                                     inactiveSimulationIslands;                                  // 050
+		hkArray<hkpSimulationIsland*>                                     activeSimulationIslands;                                    // 040 - movable and moving
+		hkArray<hkpSimulationIsland*>                                     inactiveSimulationIslands;                                  // 050 - movable and not moving
 		hkArray<hkpSimulationIsland*>                                     dirtySimulationIslands;                                     // 060
 		hkpWorldMaintenanceMgr*                                           maintenanceMgr;                                             // 070
 		hkRefPtr<hkWorldMemoryAvailableWatchDog>                          memoryWatchDog;                                             // 078

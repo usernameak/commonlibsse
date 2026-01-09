@@ -41,6 +41,12 @@ namespace RE
 			return currentContextPtr.GetObject<T>();
 		}
 
+		template <typename T>
+		const T* GetCurrentObject() const
+		{
+			return currentContextPtr.GetObject<T>();
+		}
+
 		// members
 		CombatBehaviorStack                                                       stack;              // 000
 		BSTSmallArray<BSTTuple<const CombatBehaviorTreeNode*, std::uint32_t>, 16> stackFrame;         // 010
