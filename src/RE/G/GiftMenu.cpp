@@ -12,25 +12,25 @@ namespace RE
 
 	RefHandle GiftMenu::GetReceiverRefHandle()
 	{
-		static REL::Relocation<RefHandle*> handle{ RELOCATION_ID(0, 406112) };
+		static REL::Relocation<RefHandle*> handle{ RELOCATION_ID(519571, 406112) };
 		return *handle;
 	}
 
 	bool GiftMenu::GetShowStolenItems()
 	{
-		static REL::Relocation<bool*> showStolenItems{ RELOCATION_ID(0, 406086) };
+		static REL::Relocation<bool*> showStolenItems{ RELOCATION_ID(519545, 406086) };
 		return *showStolenItems;
 	}
 
 	BGSListForm* GiftMenu::GetFilterList()
 	{
-		static REL::Relocation<BGSListForm**> filterList{ RELOCATION_ID(0, 406085) };
+		static REL::Relocation<BGSListForm**> filterList{ RELOCATION_ID(519544, 406085) };
 		return *filterList;
 	}
 
 	IGiftMenuScriptCallback* GiftMenu::GetCallbackFn()
 	{
-		static REL::Relocation<IGiftMenuScriptCallback**> callbackFn{ RELOCATION_ID(0, 406113) };
+		static REL::Relocation<IGiftMenuScriptCallback**> callbackFn{ RELOCATION_ID(519572, 406113) };
 		return *callbackFn;
 	}
 
@@ -91,7 +91,7 @@ namespace RE
 	void GiftMenu::OpenMenu_Impl(Actor* a_gifter, Actor* a_receiver, BSTSmartPointer<IGiftMenuScriptCallback>* a_callbackFn, BGSListForm* a_filterList, bool a_showStolenItems, bool a_useFavorPoints)
 	{
 		using func_t = decltype(&GiftMenu::OpenMenu_Impl);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(0, 51576) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(50680, 51576) };
 		return func(a_gifter, a_receiver, a_callbackFn, a_filterList, a_showStolenItems, a_useFavorPoints);
 	}
 }

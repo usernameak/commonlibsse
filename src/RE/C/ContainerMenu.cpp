@@ -17,7 +17,7 @@ namespace RE
 	void ContainerMenu::OpenMenu(TESObjectREFR* a_target, ContainerMenu::ContainerMode a_mode)
 	{
 		using func_t = decltype(&ContainerMenu::OpenMenu);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(0, 51140) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(50211, 51140) };
 		return func(a_target, a_mode);
 	}
 }
