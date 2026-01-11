@@ -14,21 +14,11 @@ namespace RE
 		inline static constexpr auto RTTI = RTTI_CombatBehaviorTree;
 		inline static constexpr auto VTABLE = VTABLE_CombatBehaviorTree;
 
-		class CombatBehaviorAttacker
-		{
-		public:
-			operator Actor*();
-		};
-
-		class CombatBehaviorTarget
-		{
-		public:
-			operator Actor*();
-		};
-
 		class TreeBuilder
 		{
 		public:
+			TreeBuilder* AppendLastNode(const TreeBuilder* a_other);
+
 			// members
 			BSTArray<CombatBehaviorTreeNode*> nodeArray;  // 00
 		};
@@ -36,7 +26,11 @@ namespace RE
 
 		virtual void Initialize();  // 00
 
+		void CreateTree(CombatBehaviorTreeNode* a_node);
+
 		static TreeBuilder* AddNode(TreeBuilder* a_out, const char* a_name, CombatBehaviorTreeNode* a_node);
+		static Actor*       GetAttacker();
+		static Actor*       GetTarget();
 
 		// members
 		BSFixedString           name;  // 08
