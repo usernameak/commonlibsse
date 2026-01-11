@@ -194,35 +194,35 @@ namespace RE
 		~TESObjectREFR() override;  // 00
 
 		// override (TESForm)
-		void                 InitializeData() override;                                                            // 04
-		void                 ClearData() override;                                                                 // 05
-		bool                 Load(TESFile* a_mod) override;                                                        // 06
-		TESForm*             CreateDuplicateForm(bool a_createEditorID, void* a_arg2) override;                    // 09
-		bool                 CheckSaveGame(BGSSaveFormBuffer* a_buf) override;                                     // 0D
-		void                 SaveGame(BGSSaveFormBuffer* a_buf) override;                                          // 0E
-		void                 LoadGame(BGSLoadFormBuffer* a_buf) override;                                          // 0F
-		void                 InitLoadGame(BGSLoadFormBuffer* a_buf) override;                                      // 10
-		void                 FinishLoadGame(BGSLoadFormBuffer* a_buf) override;                                    // 11
-		void                 Revert(BGSLoadFormBuffer* a_buf) override;                                            // 12
-		void                 InitItemImpl() override;                                                              // 13
-		FormType             GetSavedFormType() const override;                                                    // 15
-		void                 GetFormDetailedString(char* a_buf, std::uint32_t a_bufLen) override;                  // 16
-		bool                 GetRandomAnim() const override;                                                       // 18 - { return data.objectReference->GetRandomAnim(); }
-		bool                 IsHeadingMarker() const override;                                                     // 1A - { return data.objectReference->formType == FormType::Light ? (flags & RecordFlags::kNeverFades) != 0 : false; }
-		bool                 GetDangerous() const override;                                                        // 1B - { return data.objectReference->GetDangerous(); }
-		bool                 GetObstacle() const override;                                                         // 1D - { return data.objectReference ? data.objectReference->GetObstacle() : false; }
-		bool                 GetOnLocalMap() const override;                                                       // 1F - { return (flags >> 9) & 1 && data.objectReference->GetOnLocalMap(); }
-		bool                 GetMustUpdate() const override;                                                       // 20 - { return data.objectReference->GetMustUpdate(); }
-		void                 SetOnLocalMap(bool a_set) override;                                                   // 21
-		bool                 GetIgnoredBySandbox() const override;                                                 // 22
-		void                 SetDelete(bool a_set) override;                                                       // 23
-		void                 SetAltered(bool a_set) override;                                                      // 24
-		bool                 IsWater() const override;                                                             // 2A - { return data.objectReference ? data.objectReference->IsWater() : false; }
-		TESObjectREFR*       AsReference1() override;                                                              // 2B - { return this; }
-		const TESObjectREFR* AsReference2() const override;                                                        // 2C - { return this; }
-		bool                 BelongsInGroup(FORM* a_form, bool a_allowParentGroups, bool a_currentOnly) override;  // 30
-		void                 CreateGroupData(FORM* a_form, FORM_GROUP* a_group) override;                          // 31
-		const char*          GetFormEditorID() const override;                                                     // 32
+		void                 InitializeData() override;                                                                          // 04
+		void                 ClearData() override;                                                                               // 05
+		bool                 Load(TESFile* a_mod) override;                                                                      // 06
+		TESForm*             CreateDuplicateForm(bool a_createEditorID, NiTPointerMap<TESForm*, TESForm*>* a_copyMap) override;  // 09
+		bool                 CheckSaveGame(BGSSaveFormBuffer* a_buf) override;                                                   // 0D
+		void                 SaveGame(BGSSaveFormBuffer* a_buf) override;                                                        // 0E
+		void                 LoadGame(BGSLoadFormBuffer* a_buf) override;                                                        // 0F
+		void                 InitLoadGame(BGSLoadFormBuffer* a_buf) override;                                                    // 10
+		void                 FinishLoadGame(BGSLoadFormBuffer* a_buf) override;                                                  // 11
+		void                 Revert(BGSLoadFormBuffer* a_buf) override;                                                          // 12
+		void                 InitItemImpl() override;                                                                            // 13
+		FormType             GetSavedFormType() const override;                                                                  // 15
+		void                 GetFormDetailedString(char* a_buf, std::uint32_t a_bufLen) override;                                // 16
+		bool                 GetRandomAnim() const override;                                                                     // 18 - { return data.objectReference->GetRandomAnim(); }
+		bool                 IsHeadingMarker() const override;                                                                   // 1A - { return data.objectReference->formType == FormType::Light ? (flags & RecordFlags::kNeverFades) != 0 : false; }
+		bool                 GetDangerous() const override;                                                                      // 1B - { return data.objectReference->GetDangerous(); }
+		bool                 GetObstacle() const override;                                                                       // 1D - { return data.objectReference ? data.objectReference->GetObstacle() : false; }
+		bool                 GetOnLocalMap() const override;                                                                     // 1F - { return (flags >> 9) & 1 && data.objectReference->GetOnLocalMap(); }
+		bool                 GetMustUpdate() const override;                                                                     // 20 - { return data.objectReference->GetMustUpdate(); }
+		void                 SetOnLocalMap(bool a_set) override;                                                                 // 21
+		bool                 GetIgnoredBySandbox() const override;                                                               // 22
+		void                 SetDelete(bool a_set) override;                                                                     // 23
+		void                 SetAltered(bool a_set) override;                                                                    // 24
+		bool                 IsWater() const override;                                                                           // 2A - { return data.objectReference ? data.objectReference->IsWater() : false; }
+		TESObjectREFR*       AsReference1() override;                                                                            // 2B - { return this; }
+		const TESObjectREFR* AsReference2() const override;                                                                      // 2C - { return this; }
+		bool                 BelongsInGroup(FORM* a_form, bool a_allowParentGroups, bool a_currentOnly) override;                // 30
+		void                 CreateGroupData(FORM* a_form, FORM_GROUP* a_group) override;                                        // 31
+		const char*          GetFormEditorID() const override;                                                                   // 32
 
 		// override (BSTEventSink<BSAnimationGraphEvent>)
 		BSEventNotifyControl ProcessEvent(const BSAnimationGraphEvent* a_event, BSTEventSource<BSAnimationGraphEvent>* a_dispatcher) override;  // 01

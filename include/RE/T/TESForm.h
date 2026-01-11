@@ -7,6 +7,7 @@
 #include "RE/B/BSTHashMap.h"
 #include "RE/B/BaseFormComponent.h"
 #include "RE/F/FormTypes.h"
+#include "RE/N/NiTPointerMap.h"
 #include "RE/T/TESFile.h"
 
 namespace RE
@@ -130,7 +131,7 @@ namespace RE
 		virtual bool                               Load(TESFile* a_mod);                                                                                                                            // 06 - { return true; }
 		virtual bool                               LoadPartial(TESFile* a_mod);                                                                                                                     // 07 - { return true; }
 		virtual bool                               LoadEdit(TESFile* a_mod);                                                                                                                        // 08 - { return Load(a_mod); }
-		virtual TESForm*                           CreateDuplicateForm(bool a_createEditorID, void* a_arg2);                                                                                        // 09
+		virtual TESForm*                           CreateDuplicateForm(bool a_createEditorID, NiTPointerMap<TESForm*, TESForm*>* a_copyMap);                                                        // 09
 		virtual bool                               AddChange(std::uint32_t a_changeFlags);                                                                                                          // 0A
 		virtual void                               RemoveChange(std::uint32_t a_changeFlags);                                                                                                       // 0B
 		virtual bool                               FindInFileFast(TESFile* a_mod);                                                                                                                  // 0C - { return false; }
@@ -324,6 +325,7 @@ namespace RE
 		[[nodiscard]] bool IsArmor() const noexcept { return Is(FormType::Armor); }
 		[[nodiscard]] bool IsBook() const noexcept { return Is(FormType::Book); }
 		[[nodiscard]] bool IsDeleted() const noexcept { return (GetFormFlags() & RecordFlags::kDeleted) != 0; }
+		[[nodiscard]] bool IsDestroyed() const noexcept { return (GetFormFlags() & RecordFlags::kDestroyed) != 0; }
 		[[nodiscard]] bool IsDynamicForm() const noexcept { return GetFormID() >= 0xFF000000; }
 		[[nodiscard]] bool IsGold() const noexcept { return GetFormID() == 0x0000000F; }
 		[[nodiscard]] bool IsIgnored() const noexcept { return (GetFormFlags() & RecordFlags::kIgnored) != 0; }
