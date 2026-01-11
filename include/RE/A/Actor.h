@@ -537,9 +537,9 @@ namespace RE
 		float                        GetActorValueModifier(ACTOR_VALUE_MODIFIER a_modifier, ActorValue a_value) const;
 		float                        GetAimAngle() const;
 		float                        GetAimHeading() const;
+		float                        GetAttackReach() const;
 		InventoryEntryData*          GetAttackingWeapon();
 		const InventoryEntryData*    GetAttackingWeapon() const;
-		float                        GetAttackReach() const;
 		bhkCharacterController*      GetCharController() const;
 		void                         GetCollisionFilterInfo(CFilter& a_outCollisionFilterInfo);
 		NiPointer<Actor>             GetCommandingActor() const;
@@ -717,8 +717,8 @@ namespace RE
 		BSTSmartPointer<BipedAnim>                        biped;                              // 260
 		float                                             armorRating;                        // 268
 		float                                             armorBaseFactorSum;                 // 26C
-		std::int8_t                                       soundCallBackSet;                   // 271
-		std::uint8_t                                      unk271;                             // 270
+		std::int8_t                                       soundCallBackSet;                   // 270
+		std::uint8_t                                      unk271;                             // 271
 		std::uint8_t                                      unk272;                             // 272
 		std::uint8_t                                      unk273;                             // 273
 		std::uint32_t                                     unk274;                             // 274
