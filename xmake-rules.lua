@@ -67,6 +67,8 @@ rule("commonlibsse.plugin")
         target:set("arch", "x64")
         target:set("kind", "shared")
 
+        target:add("deps", "commonlibsse")
+
         target:add("installfiles", target:targetfile(), { prefixdir = "SKSE/Plugins" })
         target:add("installfiles", target:symbolfile(), { prefixdir = "SKSE/Plugins" })
 
