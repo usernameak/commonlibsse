@@ -58,7 +58,7 @@ namespace RE
 				kUnlocked = 1 << 0,
 
 				kAltered = 1 << 1,
-				kPlayable = 1 << 2,
+				kNonPlayable = 1 << 2,
 				kInitialized = 1 << 3,
 				kNonOccluder = 1 << 4,
 				kDeleted = 1 << 5,
@@ -83,7 +83,7 @@ namespace RE
 				kResetDestruction = 1 << 13,
 
 				kTemporary = 1 << 14,
-				kMustBeVisibleDistant = 1 << 15,
+				kVisibleWhenDistant = 1 << 15,
 				kRandomAnim = 1 << 16,
 				kDangerous = 1 << 17,
 				kHasCurrents = 1 << 19,
