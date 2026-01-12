@@ -10,6 +10,7 @@ set_encodings("utf-8")
 
 -- add common rules
 add_rules("mode.debug", "mode.releasedbg")
+add_rules("plugin.vsxmake.autoupdate")
 
 -- include subprojects
 includes("lib/commonlib-shared")
