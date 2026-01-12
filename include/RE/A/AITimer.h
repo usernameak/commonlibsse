@@ -4,7 +4,7 @@ namespace RE
 {
 	struct AITimer
 	{
-		static float GetTimer();
+		static float QTimer();
 
 		//members
 		float aiTimer;  // 00

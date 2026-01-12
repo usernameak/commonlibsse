@@ -485,6 +485,7 @@ set(SOURCES
 	include/RE/B/bhkPickData.h
 	include/RE/B/bhkRefObject.h
 	include/RE/B/bhkRigidBody.h
+	include/RE/B/bhkRigidBodyT.h
 	include/RE/B/bhkSPCollisionObject.h
 	include/RE/B/bhkSerializable.h
 	include/RE/B/bhkShape.h
@@ -512,7 +513,12 @@ set(SOURCES
 	include/RE/C/Color.h
 	include/RE/C/ColorUtil.h
 	include/RE/C/CombatAnimation.h
+	include/RE/C/CombatBehaviorController.h
+	include/RE/C/CombatBehaviorStack.h
+	include/RE/C/CombatBehaviorThread.h
 	include/RE/C/CombatBehaviorTree.h
+	include/RE/C/CombatBehaviorTreeLinkNode.h
+	include/RE/C/CombatBehaviorTreeManager.h
 	include/RE/C/CombatBehaviorTreeNode.h
 	include/RE/C/CombatController.h
 	include/RE/C/CombatGroup.h
@@ -1840,6 +1846,7 @@ set(SOURCES
 	include/SKSE/Version.h
 	src/RE/A/AIFormulas.cpp
 	src/RE/A/AIProcess.cpp
+	src/RE/A/AITimer.cpp
 	src/RE/A/ActiveEffect.cpp
 	src/RE/A/ActiveEffectFactory.cpp
 	src/RE/A/Actor.cpp
@@ -1939,6 +1946,9 @@ set(SOURCES
 	src/RE/C/Color.cpp
 	src/RE/C/ColorUtil.cpp
 	src/RE/C/CombatAnimation.cpp
+	src/RE/C/CombatBehaviorController.cpp
+	src/RE/C/CombatBehaviorTree.cpp
+	src/RE/C/CombatBehaviorTreeNode.cpp
 	src/RE/C/CommandTable.cpp
 	src/RE/C/Console.cpp
 	src/RE/C/ConsoleLog.cpp

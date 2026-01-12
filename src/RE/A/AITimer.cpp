@@ -2,9 +2,9 @@
 
 namespace RE
 {
-	float AITimer::GetTimer()
+	float AITimer::QTimer()
 	{
-		using func_t = decltype(&AITimer::GetTimer);
+		using func_t = decltype(&AITimer::QTimer);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(47089, 48253) };
 		return func();
 	}
