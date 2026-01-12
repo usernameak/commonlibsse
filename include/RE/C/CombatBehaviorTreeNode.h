@@ -28,7 +28,7 @@ namespace RE
 		virtual const BSFixedString& GetType();                                                                      // 09
 
 		void AddChild(CombatBehaviorTreeNode* a_child);
-		void AddChildren(const BSTArray<CombatBehaviorTreeNode*> a_children);
+		void AddChildren(const BSTArray<CombatBehaviorTreeNode*>& a_children);
 
 		// members
 		BSFixedString            name;        // 08

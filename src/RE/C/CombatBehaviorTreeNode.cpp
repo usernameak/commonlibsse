@@ -9,7 +9,7 @@ namespace RE
 		func(this, a_child);
 	}
 
-	void CombatBehaviorTreeNode::AddChildren(const BSTArray<CombatBehaviorTreeNode*> a_children)
+	void CombatBehaviorTreeNode::AddChildren(const BSTArray<CombatBehaviorTreeNode*>& a_children)
 	{
 		using func_t = decltype(&CombatBehaviorTreeNode::AddChildren);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(46305, 47549) };

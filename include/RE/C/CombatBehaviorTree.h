@@ -17,7 +17,7 @@ namespace RE
 		class TreeBuilder
 		{
 		public:
-			TreeBuilder* AppendLastNode(const TreeBuilder* a_other);
+			TreeBuilder* AppendLastNode(const TreeBuilder& a_other);
 
 			// members
 			BSTArray<CombatBehaviorTreeNode*> nodeArray;  // 00

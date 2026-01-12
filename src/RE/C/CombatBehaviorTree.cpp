@@ -2,7 +2,7 @@
 
 namespace RE
 {
-	CombatBehaviorTree::TreeBuilder* CombatBehaviorTree::TreeBuilder::AppendLastNode(const TreeBuilder* a_other)
+	CombatBehaviorTree::TreeBuilder* CombatBehaviorTree::TreeBuilder::AppendLastNode(const TreeBuilder& a_other)
 	{
 		using func_t = decltype(&CombatBehaviorTree::TreeBuilder::AppendLastNode);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(46255, 47510) };
