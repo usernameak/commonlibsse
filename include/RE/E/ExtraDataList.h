@@ -185,6 +185,7 @@ namespace RE
 		ObjectRefHandle       GetTeleportLinkedDoor();
 		bool                  HasQuestObjectAlias();
 		void                  SetCount(std::uint16_t a_count);
+		void                  SetActivateParent(TESObjectREFR* a_parentRef, float a_delay);
 		void                  SetEnchantment(EnchantmentItem* a_enchantment, std::uint16_t a_chargeAmount, bool a_removeOnUnequip);
 		void                  SetEncounterZone(BGSEncounterZone* a_zone);
 		void                  SetExtraFlags(ExtraFlags::Flag a_flags, bool a_enable);

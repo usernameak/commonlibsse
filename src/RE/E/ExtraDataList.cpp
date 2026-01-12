@@ -303,6 +303,13 @@ namespace RE
 		return func(this, a_count);
 	}
 
+	void ExtraDataList::SetActivateParent(TESObjectREFR* a_parentRef, float a_delay)
+	{
+		using func_t = decltype(&ExtraDataList::SetActivateParent);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11647, 11793) };
+		return func(this, a_parentRef, a_delay);
+	}
+
 	void ExtraDataList::SetEnchantment(EnchantmentItem* a_enchantment, std::uint16_t a_chargeAmount, bool a_removeOnUnequip)
 	{
 		using func_t = decltype(&ExtraDataList::SetEnchantment);
