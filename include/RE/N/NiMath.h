@@ -24,9 +24,9 @@ namespace RE
 	}
 
 	inline float fixed_range_to_radians(uint16_t a_fixed_range)
-    {
-        return static_cast<float>(a_fixed_range) * (2.0f * NI_PI / 6553.6f); 
-    }
+	{
+		return static_cast<float>(a_fixed_range) * (2.0f * NI_PI / 6553.6f);
+	}
 
 	float NiAbs(float a_value);
 	float NiASin(float a_value);

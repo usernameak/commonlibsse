@@ -265,7 +265,6 @@ set(SOURCES
 	include/RE/B/BSIInputDevice.h
 	include/RE/B/BSIMusicTrack.h
 	include/RE/B/BSIMusicType.h
-	include/RE/B/BSInvMarker.h
 	include/RE/B/BSIRagdollDriver.h
 	include/RE/B/BSIReverbType.h
 	include/RE/B/BSISoundCategory.h
@@ -279,6 +278,7 @@ set(SOURCES
 	include/RE/B/BSInputEventQueue.h
 	include/RE/B/BSInstanceTriShape.h
 	include/RE/B/BSIntrusiveRefCounted.h
+	include/RE/B/BSInvMarker.h
 	include/RE/B/BSJobs.h
 	include/RE/B/BSKeyboardDevice.h
 	include/RE/B/BSLensFlareRenderData.h
