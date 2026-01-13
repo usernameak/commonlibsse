@@ -23,7 +23,7 @@ namespace RE
 		bool             IsEqual(NiObject* a_object) override;                                                                        // 1C
 		bool             SetupGeometry(BSGeometry* a_geometry) override;                                                              // 27
 		RenderPassArray* GetRenderPasses(BSGeometry* a_geometry, std::uint32_t a_arg2, BSShaderAccumulator* a_accumulator) override;  // 2A
-		void             Unk_2B(void) override;                                                                                       // 2B
+		RenderPassArray* GetRenderPasses_ShadowMapOrMask(BSGeometry* a_geometry, std::uint32_t a_renderMode, BSShaderAccumulator* a_accumulator) override;  // 2B
 		void             Unk_2F(void) override;                                                                                       // 2F
 		std::int32_t     QShader() override;                                                                                          // 35
 

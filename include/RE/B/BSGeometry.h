@@ -1,5 +1,6 @@
 #pragma once
 
+#include "RE/B/BSShaderProperty.h"
 #include "RE/N/NiAVObject.h"
 #include "RE/N/NiSkinPartition.h"
 #include "RE/N/NiSmartPointer.h"
@@ -35,16 +36,6 @@ namespace RE
 			kLines = 12,
 			kDynamicLines = 13,
 			kInstanceGroup = 14
-		};
-
-		struct States
-		{
-			enum State
-			{
-				kProperty,
-				kEffect,
-				kTotal
-			};
 		};
 
 		~BSGeometry() override;  // 00

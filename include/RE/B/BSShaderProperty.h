@@ -44,7 +44,7 @@ namespace RE
 				BSLight* a_light2 = nullptr, BSLight* a_light3 = nullptr);
 
 			// members
-			BSRenderPass* head;  // 00
+			BSRenderPass* head;   // 00
 			std::uint64_t unk08;  // 08 - Unused
 		};
 		static_assert(sizeof(RenderPassArray) == 0x10);
@@ -197,7 +197,7 @@ namespace RE
 		bool          IsEqual(NiObject* a_object) override;               // 1C - { return false; }
 		void          PostLinkObject(NiStream& a_stream) override;        // 1E - { NiObjectNET::PostLinkObject(a_stream); }
 		bool          SetupGeometry(BSGeometry* a_geometry) override;     // 27 - { return 1; }
-		void          Unk_29(void) override;                              // 29
+		void          SetLightState(std::int32_t lightIndex) override;    // 29
 
 		// add
 		virtual RenderPassArray*               GetRenderPasses(BSGeometry* a_geometry, std::uint32_t a_renderMode, BSShaderAccumulator* a_accumulator) = 0;              // 2A
