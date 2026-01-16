@@ -1443,7 +1443,6 @@ set(SOURCES
 	include/RE/O/ObjectiveState.h
 	include/RE/O/OldMessageBoxCallback.h
 	include/RE/O/OpenEffect.h
-	include/RE/Offsets.h
 	include/RE/Offsets_NiRTTI.h
 	include/RE/Offsets_RTTI.h
 	include/RE/Offsets_VTABLE.h
