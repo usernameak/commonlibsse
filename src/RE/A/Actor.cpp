@@ -331,6 +331,13 @@ namespace RE
 		return heading - aimHeadingCurrent;
 	}
 
+	float Actor::GetAttackReach() const
+	{
+		using func_t = decltype(&Actor::GetAttackReach);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(37588, 38538) };
+		return func(this);
+	}
+
 	InventoryEntryData* Actor::GetAttackingWeapon()
 	{
 		if (!currentProcess || !currentProcess->high || !currentProcess->high->attackData || !currentProcess->middleHigh) {
@@ -412,6 +419,13 @@ namespace RE
 			return currentProcess->GetCurrentShout();
 		}
 		return nullptr;
+	}
+
+	float Actor::GetBoundRadius() const
+	{
+		using func_t = decltype(&Actor::GetBoundRadius);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(36444, 37439) };
+		return func(this);
 	}
 
 	InventoryEntryData* Actor::GetEquippedEntryData(bool a_leftHand) const
@@ -557,18 +571,18 @@ namespace RE
 		return func(this, a_outMount);
 	}
 
-	double Actor::GetMoveDirectionRelativeToFacing()
-	{
-		using func_t = decltype(&Actor::GetMoveDirectionRelativeToFacing);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(36935, 37960) };
-		return func(this);
-	}
-
 	bool Actor::GetMountedBy(NiPointer<Actor>& a_outRider)
 	{
 		using func_t = decltype(&Actor::GetMountedBy);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(37758, 38703) };
 		return func(this, a_outRider);
+	}
+
+	double Actor::GetMoveDirectionRelativeToFacing()
+	{
+		using func_t = decltype(&Actor::GetMoveDirectionRelativeToFacing);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(36935, 37960) };
+		return func(this);
 	}
 
 	ObjectRefHandle Actor::GetOccupiedFurniture() const
@@ -604,13 +618,6 @@ namespace RE
 			return currentProcess->GetRegenDelay(a_actorValue);
 		}
 		return 0.0f;
-	}
-
-	bool Actor::GetRider(NiPointer<Actor>& a_outRider)
-	{
-		using func_t = decltype(&Actor::GetRider);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(37758, 38703) };
-		return func(this, a_outRider);
 	}
 
 	TESObjectARMO* Actor::GetSkin() const
@@ -807,7 +814,7 @@ namespace RE
 	bool Actor::IsAnimationDriven() const
 	{
 		bool result = false;
-		return GetGraphVariableBool("bAnimationDriven", result) && result;
+		return GetGraphVariableBool(FixedStrings::GetSingleton()->bAnimationDriven, result) && result;
 	}
 
 	bool Actor::IsBeingRidden() const
@@ -958,6 +965,13 @@ namespace RE
 		return func(this);
 	}
 
+	bool Actor::IsPathing() const
+	{
+		using func_t = decltype(&Actor::IsPathing);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(36812, 37828) };
+		return func(this);
+	}
+
 	bool Actor::IsPlayerTeammate() const
 	{
 		return boolBits.all(BOOL_BITS::kPlayerTeammate);
@@ -978,7 +992,7 @@ namespace RE
 	bool Actor::IsRotationAllowed() const
 	{
 		bool result = false;
-		return GetGraphVariableBool("bAllowRotation", result) && result;
+		return GetGraphVariableBool(FixedStrings::GetSingleton()->bAllowRotation, result) && result;
 	}
 
 	bool Actor::IsRunning() const

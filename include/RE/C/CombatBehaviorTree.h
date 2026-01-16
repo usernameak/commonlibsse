@@ -5,6 +5,7 @@
 
 namespace RE
 {
+	class Actor;
 	class CombatBehaviorTreeNode;
 
 	class CombatBehaviorTree
@@ -16,6 +17,8 @@ namespace RE
 		class TreeBuilder
 		{
 		public:
+			TreeBuilder* AppendLastNode(const TreeBuilder& a_other);
+
 			// members
 			BSTArray<CombatBehaviorTreeNode*> nodeArray;  // 00
 		};
@@ -23,12 +26,11 @@ namespace RE
 
 		virtual void Initialize();  // 00
 
-		static TreeBuilder* AddNode(TreeBuilder* a_out, const char* a_name, CombatBehaviorTreeNode* a_node)
-		{
-			using func_t = TreeBuilder*(TreeBuilder*, const char*, CombatBehaviorTreeNode*);
-			static REL::Relocation<func_t> func{ RELOCATION_ID(46261, 47516) };
-			return func(a_out, a_name, a_node);
-		}
+		void CreateTree(CombatBehaviorTreeNode* a_node);
+
+		static TreeBuilder* AddNode(TreeBuilder* a_out, const char* a_name, CombatBehaviorTreeNode* a_node);
+		static Actor*       GetAttacker();
+		static Actor*       GetTarget();
 
 		// members
 		BSFixedString           name;  // 08

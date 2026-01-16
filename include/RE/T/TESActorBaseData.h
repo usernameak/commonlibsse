@@ -127,7 +127,8 @@ namespace RE
 		TESLevItem*            deathItem;         // 20 - INAM
 		BGSVoiceType*          voiceType;         // 28 - VTCK
 		TESForm*               baseTemplateForm;  // 30 - TPLT
-		TESForm**              templateForms;     // 38
+		std::uint32_t          changeFlags;       // 38
+		std::uint32_t          pad3C;             // 3C
 		BSTArray<FACTION_RANK> factions;          // 40
 	};
 	static_assert(sizeof(TESActorBaseData) == 0x58);

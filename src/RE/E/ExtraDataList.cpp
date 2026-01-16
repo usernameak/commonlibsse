@@ -179,6 +179,13 @@ namespace RE
 		return func(this, a_toAdd);
 	}
 
+	void ExtraDataList::AddActivateRefChild(TESObjectREFR* a_childRef)
+	{
+		using func_t = decltype(&ExtraDataList::AddActivateRefChild);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11651, 11797) };
+		return func(this, a_childRef);
+	}
+
 	ObjectRefHandle ExtraDataList::GetAshPileRef()
 	{
 		auto xAshRef = GetByType<ExtraAshPileRef>();
@@ -294,6 +301,13 @@ namespace RE
 		using func_t = decltype(&ExtraDataList::HasQuestObjectAlias);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(11913, 12052) };
 		return func(this);
+	}
+
+	void ExtraDataList::SetActivateParent(TESObjectREFR* a_parentRef, float a_delay)
+	{
+		using func_t = decltype(&ExtraDataList::SetActivateParent);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11647, 11793) };
+		return func(this, a_parentRef, a_delay);
 	}
 
 	void ExtraDataList::SetCount(std::uint16_t a_count)
