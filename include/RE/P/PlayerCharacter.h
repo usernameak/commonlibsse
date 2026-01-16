@@ -294,6 +294,7 @@ namespace RE
 			};
 			static_assert(sizeof(Data) == 0x128);
 
+			bool CanLevelUp();
 			void AdvanceLevel(bool a_addThreshold);
 
 			// members

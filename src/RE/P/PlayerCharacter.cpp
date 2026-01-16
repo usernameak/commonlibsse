@@ -4,6 +4,11 @@
 
 namespace RE
 {
+	bool PlayerCharacter::PlayerSkills::CanLevelUp()
+	{
+		return this->data->levelThreshold <= this->data->xp;
+	}
+
 	void PlayerCharacter::PlayerSkills::AdvanceLevel(bool a_addThreshold)
 	{
 		using func_t = decltype(&PlayerCharacter::PlayerSkills::AdvanceLevel);
