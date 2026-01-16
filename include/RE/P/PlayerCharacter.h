@@ -294,6 +294,7 @@ namespace RE
 			};
 			static_assert(sizeof(Data) == 0x128);
 
+			bool CanLevelUp();
 			void AdvanceLevel(bool a_addThreshold);
 
 			// members
@@ -328,6 +329,7 @@ namespace RE
 		NiPointer<Actor>         GetActorDoingPlayerCommand() const;
 		float                    GetArmorValue(InventoryEntryData* a_form);
 		float                    GetDamage(InventoryEntryData* a_form);
+		float                    GetEquippedWeaponsDamage();
 		NiPointer<TESObjectREFR> GetGrabbedRef();
 		std::int32_t             GetItemCount(TESBoundObject* a_object);
 		std::uint32_t            GetNumTints(std::uint32_t a_tintType);

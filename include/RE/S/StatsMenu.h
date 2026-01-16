@@ -145,7 +145,7 @@ namespace RE
 		BSTArray<StatsNode*>                   unk2C0;                       // 2C0
 		BSTArray<GFxValue>                     unk2D8;                       // 2D8
 		BSScaleformMovieLoadTask*              unk2F0;                       // 2F0
-		GFxValue                               unk2F8;                       // 2F8 - StatsMenuBaseInstance.BeastSkillHolder
+		GFxValue                               beastSkillHolder;             // 2F8 - StatsMenuBaseInstance.BeastSkillHolder
 		std::uint32_t                          numSelectableTrees;           // 310
 		float                                  screenHeight;                 // 314
 		float                                  screenWidth;                  // 318

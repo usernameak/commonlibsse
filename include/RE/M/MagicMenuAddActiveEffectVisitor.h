@@ -11,6 +11,7 @@ namespace RE
 
 	class MagicMenuAddActiveEffectVisitor
 	{
+	public:
 		inline static constexpr auto RTTI = RTTI___MagicMenuAddActiveEffectVisitor;
 		inline static constexpr auto VTABLE = VTABLE___MagicMenuAddActiveEffectVisitor;
 

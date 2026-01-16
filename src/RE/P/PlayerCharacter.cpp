@@ -4,6 +4,11 @@
 
 namespace RE
 {
+	bool PlayerCharacter::PlayerSkills::CanLevelUp()
+	{
+		return this->data->levelThreshold <= this->data->xp;
+	}
+
 	void PlayerCharacter::PlayerSkills::AdvanceLevel(bool a_addThreshold)
 	{
 		using func_t = decltype(&PlayerCharacter::PlayerSkills::AdvanceLevel);
@@ -92,6 +97,13 @@ namespace RE
 		using func_t = decltype(&PlayerCharacter::GetDamage);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(39179, 40253) };
 		return func(this, a_form);
+	}
+
+	float PlayerCharacter::GetEquippedWeaponsDamage()
+	{
+		using func_t = decltype(&PlayerCharacter::GetEquippedWeaponsDamage);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(0, 40252) };
+		return func(this);
 	}
 
 	NiPointer<TESObjectREFR> PlayerCharacter::GetGrabbedRef()
