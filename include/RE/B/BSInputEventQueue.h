@@ -62,11 +62,11 @@ namespace RE
 			AddEvent<KinectEvent>(std::forward<Args>(args)...);
 		}
 
-		// VR-specific overloads (forward to the template implementations)
-		#if defined(ENABLE_SKYRIM_VR)
+// VR-specific overloads (forward to the template implementations)
+#if defined(ENABLE_SKYRIM_VR)
 		void AddButtonEvent(INPUT_DEVICE a_device, std::int32_t a_arg2, std::int32_t a_id, float a_value, float a_duration, const BSFixedString& a_userEvent = {});
 		void AddThumbstickEvent(ThumbstickEvent::InputType a_id, INPUT_DEVICE a_device, float a_xValue, float a_yValue);
-		#endif
+#endif
 
 		void PushOntoInputQueue(InputEvent* a_event);
 		void ClearInputQueue();

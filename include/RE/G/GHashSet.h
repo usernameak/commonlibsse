@@ -73,6 +73,5 @@ namespace RE
 		{
 			BaseType::SetCapacity(this, a_newSize);
 		}
-
 	};
 }

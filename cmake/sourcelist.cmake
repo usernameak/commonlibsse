@@ -1944,8 +1944,8 @@ set(SOURCES
 	src/RE/B/BSModelDB.cpp
 	src/RE/B/BSMouseDevice.cpp
 	src/RE/B/BSMultiBoundNode.cpp
-	src/RE/B/BSOpenVR.cpp
 	src/RE/B/BSOcclusionPlane.cpp
+	src/RE/B/BSOpenVR.cpp
 	src/RE/B/BSPCGamepadDeviceDelegate.cpp
 	src/RE/B/BSPCGamepadDeviceHandler.cpp
 	src/RE/B/BSPCOrbisGamepadDevice.cpp
@@ -2240,8 +2240,8 @@ set(SOURCES
 	src/RE/T/TaskQueueInterface.cpp
 	src/RE/T/ThirdPersonState.cpp
 	src/RE/T/ThumbstickEvent.cpp
-	src/RE/T/TweenMenuCameraState.cpp
 	src/RE/T/TutorialMenu.cpp
+	src/RE/T/TweenMenuCameraState.cpp
 	src/RE/T/TypeInfo.cpp
 	src/RE/U/UI.cpp
 	src/RE/U/UI3DSceneManager.cpp

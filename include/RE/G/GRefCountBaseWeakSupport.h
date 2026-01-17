@@ -14,6 +14,5 @@ namespace RE
 		{
 			kStatType = STAT
 		};
-
 	};
 }

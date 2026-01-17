@@ -30,6 +30,5 @@ namespace RE
 			static REL::Relocation<Entry(*)[0x100000]> entries{ RELOCATION_ID(514478, 400622) };
 			return std::span<Entry, 0x100000>{ *entries };
 		}
-
 	};
 }

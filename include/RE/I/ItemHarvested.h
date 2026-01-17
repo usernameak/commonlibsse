@@ -20,6 +20,5 @@ namespace RE
 		static_assert(sizeof(ItemHarvested) == 0x10);
 
 		static BSTEventSource<TESHarvestedEvent::ItemHarvested>* GetEventSource();
-
 	};
 }

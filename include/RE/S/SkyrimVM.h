@@ -355,7 +355,6 @@ namespace RE
 #else
 		RUNTIME_DATA2_CONTENT;
 #endif
-
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 #	ifdef ENABLE_SKYRIM_AE

@@ -23,6 +23,5 @@ namespace RE
 		static_assert(sizeof(Event) == 0x10);
 
 		static BSTEventSource<ItemCrafted::Event>* GetEventSource();
-
 	};
 }

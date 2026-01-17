@@ -63,7 +63,6 @@ namespace RE
 		void Stop();
 
 		TES_HEAP_REDEFINE_NEW();
-
 	};
 	static_assert(sizeof(ReferenceEffectController) == 0x8);
 }

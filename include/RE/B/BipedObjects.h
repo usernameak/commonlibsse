@@ -55,7 +55,6 @@ namespace RE
 
 			kTotal = 42
 		};
-
 	};
 	using BIPED_OBJECT = BIPED_OBJECTS::BIPED_OBJECT;
 }

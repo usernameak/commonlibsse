@@ -123,8 +123,9 @@ namespace RE
 		RUNTIME_DATA_CONTENT  // 50, 60
 #endif
 
-	private:
-		static void OpenMenu_Impl(const BSString& a_description, const ExtraDataList* a_extraList, TESObjectREFR* a_targetReference, TESObjectBOOK* a_targetBook, const NiPoint3& a_pos, const NiMatrix3& a_rot, float a_scale, bool a_useDefaultPos);
+			private :
+			static void
+			OpenMenu_Impl(const BSString& a_description, const ExtraDataList* a_extraList, TESObjectREFR* a_targetReference, TESObjectBOOK* a_targetBook, const NiPoint3& a_pos, const NiMatrix3& a_rot, float a_scale, bool a_useDefaultPos);
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(BookMenu) == 0x98);

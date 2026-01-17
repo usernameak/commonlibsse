@@ -25,6 +25,5 @@ namespace RE
 		};
 
 		static BSTEventSource<Event>* GetEventSource();
-
 	};
 }

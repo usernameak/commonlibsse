@@ -17,6 +17,5 @@ namespace RE
 		static_assert(sizeof(Event) == 0x08);
 
 		static BSTEventSource<DragonSoulsGained::Event>* GetEventSource();
-
 	};
 }

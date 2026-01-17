@@ -20,7 +20,6 @@ namespace RE
 
 			kTotal = 8
 		};
-
 	};
 	using DIALOGUE_TYPE = DIALOGUE_TYPES::DIALOGUE_TYPE;
 }

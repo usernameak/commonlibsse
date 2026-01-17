@@ -39,7 +39,6 @@ namespace RE
 			float sinAccept1;  // 14
 		};
 		static_assert(sizeof(SinCosTableEntry) == 0x18);
-
 	};
 	static_assert(sizeof(hkpWeldingUtility) == 0x1);
 }

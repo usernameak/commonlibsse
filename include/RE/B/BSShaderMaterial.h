@@ -60,7 +60,6 @@ namespace RE
 		std::uint32_t hashKey = std::numeric_limits<uint32_t>::max();     // 2C
 		std::uint32_t unk30;                                              // 30
 		std::uint32_t unk34;                                              // 34
-
 	};
 	static_assert(sizeof(BSShaderMaterial) == 0x38);
 

@@ -20,18 +20,18 @@ namespace RE
 			bool           unk50;          // 50
 		};
 		static_assert(sizeof(InstanceGroup) == 0x58);
-		
+
 		struct MULTISTREAM_TRISHAPE_RUNTIME_DATA
 		{
-#define RUNTIME_DATA_CONTENT         \
-	BSTArray<InstanceGroup*> unk160; /* 00 */ \
+#define RUNTIME_DATA_CONTENT                              \
+	BSTArray<InstanceGroup*> unk160;             /* 00 */ \
 	std::uint32_t            instanceGroupCount; /* 18 */ \
-	std::uint32_t            unk17C; /* 1C */ \
-	std::uint64_t            unk180; /* 20 */ \
-	void*                    groupAlloc; /* 28 */ \
-	std::uint32_t            instanceCount; /* 30 */ \
-	std::uint32_t            instanceSize; /* 34 */ \
-	std::uint32_t            unk198; /* 38 */
+	std::uint32_t            unk17C;             /* 1C */ \
+	std::uint64_t            unk180;             /* 20 */ \
+	void*                    groupAlloc;         /* 28 */ \
+	std::uint32_t            instanceCount;      /* 30 */ \
+	std::uint32_t            instanceSize;       /* 34 */ \
+	std::uint32_t            unk198;             /* 38 */
 
 			RUNTIME_DATA_CONTENT
 		};

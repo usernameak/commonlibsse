@@ -128,7 +128,6 @@ namespace RE
 			static REL::Relocation<func_t> func{ RELOCATION_ID(60096, 60849) };
 			return func(this);
 		}
-
 	};
 	static_assert(sizeof(hkpEntity) == 0x2D0);
 }

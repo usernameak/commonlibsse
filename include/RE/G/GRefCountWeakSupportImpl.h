@@ -20,7 +20,6 @@ namespace RE
 
 		// members
 		mutable GWeakPtrProxy* weakProxy;
-
 	};
 	static_assert(sizeof(GRefCountWeakSupportImpl) == 0x18);
 }

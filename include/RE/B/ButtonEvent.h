@@ -172,7 +172,6 @@ namespace RE
 				}
 			}
 		}
-
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(ButtonEvent) == 0x30);

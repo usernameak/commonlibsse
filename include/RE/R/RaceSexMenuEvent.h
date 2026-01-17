@@ -9,6 +9,5 @@ namespace RE
 		{
 		public:
 		};
-
 	};
 }

@@ -21,7 +21,6 @@ namespace RE
 		uint64_t unkE0;                // E0
 		uint64_t unkE8;                // E8
 		uint64_t unkF0;                // F0
-
 	};
 	static_assert(sizeof(BSLightingShader) == 0xF8);
 }

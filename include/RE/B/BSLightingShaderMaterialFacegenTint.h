@@ -34,7 +34,6 @@ namespace RE
 			return func(this);
 		}
 		friend class BSLightingShaderMaterialBase;
-
 	};
 	static_assert(sizeof(BSLightingShaderMaterialFacegenTint) == 0xB0);
 }

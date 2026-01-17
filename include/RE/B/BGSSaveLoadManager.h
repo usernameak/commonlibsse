@@ -245,7 +245,6 @@ namespace RE
 	protected:
 		bool Save_Impl(std::int32_t a_deviceID, std::uint32_t a_outputStats, const char* a_fileName);
 		bool Load_Impl(const char* a_fileName, std::int32_t a_deviceID, std::uint32_t a_outputStats, bool a_checkForMods);
-
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 #	if defined(EXCLUSIVE_SKYRIM_AE)

@@ -35,6 +35,5 @@ namespace RE
 		bool              unk81;          // 81
 		bool              unk82;          // 82
 		bool              unk83;          // 83
-
 	};
 }

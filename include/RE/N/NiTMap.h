@@ -40,7 +40,6 @@ namespace RE
 				_allocator.Deallocate(a_value);
 			}
 		}
-
 	};
 	static_assert(sizeof(NiTMap<void*, void*>) == 0x20);
 }

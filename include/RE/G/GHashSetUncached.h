@@ -37,6 +37,5 @@ namespace RE
 		{
 			BaseType::operator=(a_src);
 		}
-
 	};
 }

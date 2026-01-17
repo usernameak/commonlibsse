@@ -40,7 +40,6 @@ namespace RE
 		{
 			return const_cast<CreditsMenu*>(this)->AsGFxFunctionHandler();
 		}
-
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(CreditsMenu) == 0x40);

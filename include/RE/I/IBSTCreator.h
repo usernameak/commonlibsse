@@ -19,7 +19,6 @@ namespace RE
 		{
 			return CreateImpl();
 		}
-
 	};
 	static_assert(sizeof(IBSTCreator<void*>) == 0x8);
 }

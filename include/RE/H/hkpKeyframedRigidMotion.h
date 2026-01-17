@@ -40,7 +40,6 @@ namespace RE
 			hkVector4 centerOfMassInWorld = motionState.sweptTransform.centerOfMass1;
 			return linearVelocity + angularVelocity.Cross(a_point - centerOfMassInWorld);
 		}
-
 	};
 	static_assert(sizeof(hkpKeyframedRigidMotion) == 0x140);
 
@@ -48,7 +47,6 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkpMaxSizeMotion;
-
 	};
 	static_assert(sizeof(hkpMaxSizeMotion) == 0x140);
 }

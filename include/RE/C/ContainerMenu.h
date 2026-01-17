@@ -66,7 +66,7 @@ namespace RE
 
 		[[nodiscard]] static ContainerMode GetContainerMode();
 		[[nodiscard]] static RefHandle     GetTargetRefHandle();
-		static void OpenMenu(TESObjectREFR* a_target, ContainerMode a_mode);  // If target is owned, kSteal is used instead of kLoot
+		static void                        OpenMenu(TESObjectREFR* a_target, ContainerMode a_mode);  // If target is owned, kSteal is used instead of kLoot
 
 		[[nodiscard]] GFxValue  GetRoot() const noexcept;
 		[[nodiscard]] ItemList* GetItemList() const noexcept;

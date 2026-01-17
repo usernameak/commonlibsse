@@ -55,7 +55,6 @@ namespace RE
 	private:
 		static std::optional<std::string>                           BuildFilePath(std::string_view a_fileName);
 		static std::tuple<float, float, std::int32_t, std::int32_t> CollectDisplayInfo();
-
 	};
 	static_assert(sizeof(BSScaleformManager) == 0x40);
 }

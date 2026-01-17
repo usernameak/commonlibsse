@@ -127,7 +127,6 @@ namespace RE
 
 			kTotal
 		};
-
 	};
 	static_assert(sizeof(GFxKey) == 0x1);
 }

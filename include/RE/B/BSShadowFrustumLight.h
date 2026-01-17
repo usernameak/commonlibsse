@@ -14,7 +14,7 @@ namespace RE
 
 		// override (BSShadowLight)
 		bool AreFocusShadowsSupported() override;  // 04
-		bool GetIsFrustumLight() override;          // 05 GetIsFrustumLight
+		bool GetIsFrustumLight() override;         // 05 GetIsFrustumLight
 		// TODO: Fix method signatures - these don't match base class in upstream
 		// void Accumulate(uint32_t& globalShadowLightCount, uint32_t shadowMaskChannel, NiPointer<NiAVObject> cullingScene) override;  // 09 Accumulate
 		void Render() override;  // 0A Render

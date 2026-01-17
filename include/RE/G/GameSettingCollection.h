@@ -25,7 +25,6 @@ namespace RE
 		static GameSettingCollection* GetSingleton();
 
 		Setting* GetSetting(const char* a_name);
-
 	};
 	static_assert(sizeof(GameSettingCollection) == 0x140);
 

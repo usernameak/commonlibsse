@@ -83,6 +83,5 @@ namespace RE
 			static REL::Relocation<func_t> func{ RELOCATION_ID(35317, 36212) };
 			return func(this, a_impactSoundData);
 		}
-
 	};
 }

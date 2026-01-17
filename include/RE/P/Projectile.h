@@ -290,7 +290,7 @@ namespace RE
 		};
 
 		void Kill();
-		
+
 		[[nodiscard]] inline PROJECTILE_RUNTIME_DATA& GetProjectileRuntimeData() noexcept
 		{
 			return REL::RelocateMemberIfNewer<PROJECTILE_RUNTIME_DATA>(SKSE::RUNTIME_SSE_1_6_629, this, 0x98, 0xA0);

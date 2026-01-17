@@ -14,7 +14,6 @@ namespace RE
 		NiPointer<TESObjectREFR> actor;
 		BGSLocation*             oldLoc;
 		BGSLocation*             newLoc;
-
 	};
 	static_assert(sizeof(TESActorLocationChangeEvent) == 0x18);
 }

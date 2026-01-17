@@ -12,7 +12,6 @@ namespace RE
 
 			kTotal = 2
 		};
-
 	};
 	using SEX = SEXES::SEX;
 }

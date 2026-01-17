@@ -81,6 +81,5 @@ namespace RE
 
 			return nullptr;
 		}
-
 	};
 }

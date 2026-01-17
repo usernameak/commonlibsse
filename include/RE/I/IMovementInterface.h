@@ -9,7 +9,6 @@ namespace RE
 		inline static constexpr auto VTABLE = VTABLE_IMovementInterface;
 
 		virtual ~IMovementInterface();
-
 	};
 	static_assert(sizeof(IMovementInterface) == 0x8);
 }

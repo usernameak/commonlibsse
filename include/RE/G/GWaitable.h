@@ -36,7 +36,6 @@ namespace RE
 		~GWaitable() override;
 
 		HandlerArray* handlers;
-
 	};
 	static_assert(sizeof(GWaitable) == 0x18);
 }

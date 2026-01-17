@@ -33,7 +33,6 @@ namespace RE
 			return func(this);
 		}
 		friend class BSLightingShaderMaterialBase;
-
 	};
 	static_assert(sizeof(BSLightingShaderMaterialSnow) == 0xB0);
 }

@@ -46,7 +46,6 @@ namespace RE
 #else
 #endif
 		RUNTIME_DATA_CONTENT;  // 04, 08
-
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(MenuCursor) == 0x30);

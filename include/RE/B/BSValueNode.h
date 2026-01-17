@@ -52,7 +52,7 @@ namespace RE
 #ifndef SKYRIM_CROSS_VR
 		RUNTIME_DATA_CONTENT  // 128, 150
 #endif
-			private :
+			private:
 	};
 }
 #undef RUNTIME_DATA_CONTENT

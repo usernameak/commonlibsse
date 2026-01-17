@@ -9,7 +9,6 @@ namespace RE
 	public:
 		void AddRef();
 		void Release();
-
 	};
 	static_assert(sizeof(GRefCountNTSImpl) == 0x10);
 }

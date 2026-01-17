@@ -37,7 +37,6 @@ namespace RE
 			return func(this);
 		}
 		friend class BSLightingShaderMaterialBase;
-
 	};
 	static_assert(sizeof(BSLightingShaderMaterialParallax) == 0xA8);
 }

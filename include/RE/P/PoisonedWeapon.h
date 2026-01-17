@@ -10,6 +10,5 @@ namespace RE
 		public:
 		};
 		static_assert(sizeof(Event) == 0x1);
-
 	};
 }

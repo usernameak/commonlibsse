@@ -38,7 +38,6 @@ namespace RE
 			a_value->~value_type();
 			_allocator.Deallocate(a_value);
 		}
-
 	};
 	static_assert(sizeof(NiTPointerMap<std::uint32_t, std::uint64_t>) == 0x20);
 }

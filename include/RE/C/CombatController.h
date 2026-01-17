@@ -103,7 +103,6 @@ namespace RE
 		AE_RUNTIME_DATA_CONTENT;
 #endif
 		RUNTIME_DATA_CONTENT;
-
 	};
 #if defined(EXCLUSIVE_SKYRIM_AE)
 	static_assert(sizeof(CombatController) == 0xE0);

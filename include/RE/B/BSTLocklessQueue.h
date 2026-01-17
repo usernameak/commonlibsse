@@ -85,6 +85,5 @@ namespace RE
 		template <class T, std::uint32_t SIZE, std::uint32_t UNKNOWN>
 		class ObjMultiProdCons : public ObjQueueBase<PtrMultiProdCons<T, SIZE * 2, UNKNOWN>, T, SIZE, UNKNOWN>
 		{};
-
 	};
 }

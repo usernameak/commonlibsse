@@ -114,7 +114,6 @@ public:                                                                \
 	protected:
 		void
 			SetSelectedRef_Impl(ObjectRefHandle& a_handle);
-
 	};
 }
 #undef RUNTIME_DATA_CONTENT

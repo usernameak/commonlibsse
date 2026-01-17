@@ -57,7 +57,6 @@ namespace RE
 
 	protected:
 		LocalMapCamera* Ctor(float a_zRotation);
-
 	};
 	static_assert(sizeof(LocalMapCamera) == 0x68);
 }

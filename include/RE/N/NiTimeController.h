@@ -90,7 +90,6 @@ namespace RE
 	private:
 		NiTimeController* ctor();
 		void              dtor();
-
 	};
 	static_assert(sizeof(NiTimeController) == 0x48);
 }

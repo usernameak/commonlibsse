@@ -40,7 +40,6 @@ namespace RE
 			stl::emplace_vtable<TESActionData>(tesActionData);
 			return tesActionData;
 		}
-
 	};
 	static_assert(sizeof(TESActionData) == 0x60);
 }

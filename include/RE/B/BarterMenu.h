@@ -44,7 +44,7 @@ namespace RE
 	std::uint8_t    padA5;           /* 75 */             \
 	std::uint16_t   padA6;           /* 76 */
 
-		RUNTIME_DATA_CONTENT
+			RUNTIME_DATA_CONTENT
 		};
 		static_assert(sizeof(RUNTIME_DATA) == 0x78);
 

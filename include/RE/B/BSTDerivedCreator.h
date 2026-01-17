@@ -22,6 +22,5 @@ namespace RE
 		{
 			return static_cast<Derived*>(CreateImpl());
 		}
-
 	};
 }

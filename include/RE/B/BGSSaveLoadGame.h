@@ -58,7 +58,6 @@ namespace RE
 	{
 	public:
 		BSTHashMap<TESForm*, BGSLoadGameSubBuffer> maps[QUEUED_SUB_BUFFER_TYPES::kTotal];
-
 	};
 	static_assert(sizeof(BGSSaveLoadQueuedSubBufferMap) == 0x90);
 

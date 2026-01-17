@@ -484,7 +484,7 @@ namespace RE
 		// members
 		std::uint64_t                        unk00;       /* 000 */
 		std::uint64_t                        unk08;       /* 008 */
-		NiRect<std::int32_t>                 rect;                // 010
+		NiRect<std::int32_t>                 rect;        // 010
 		NiTPrimitiveArray<ImageSpaceEffect*> effects;     /* 020 */
 		bool                                 initEffects; /* 038 */
 		std::uint32_t                        unk3C;       /* 03C */

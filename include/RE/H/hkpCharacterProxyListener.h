@@ -52,7 +52,6 @@ namespace RE
 		virtual void ObjectInteractionCallback(hkpCharacterProxy* a_proxy, const hkpCharacterObjectInteractionEvent& a_input, hkpCharacterObjectInteractionResult& a_output);  // 05 - { return; }
 
 		TES_HEAP_REDEFINE_NEW();
-
 	};
 	static_assert(sizeof(hkpCharacterProxyListener) == 0x8);
 }

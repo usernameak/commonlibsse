@@ -28,7 +28,6 @@ namespace RE
 		{
 			GMemory::Free(a_ptr);
 		}
-
 	};
 	static_assert(sizeof(GAllocatorBaseLH<>) == 0x1);
 }

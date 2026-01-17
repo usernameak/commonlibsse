@@ -65,6 +65,5 @@ namespace RE
 				Allocator::ConstructArray(this->data + oldSize, a_count, a_other);
 			}
 		}
-
 	};
 }

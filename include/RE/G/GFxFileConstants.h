@@ -34,6 +34,5 @@ namespace RE
 			kNextAvail,
 			kOriginal = 65535
 		};
-
 	};
 }

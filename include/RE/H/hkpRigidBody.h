@@ -23,7 +23,6 @@ namespace RE
 		void ApplyLinearImpulse(const hkVector4& a_impulse);
 		void SetLinearVelocity(const hkVector4& a_newVel);
 		void SetAngularVelocity(const hkVector4& a_newVel);
-
 	};
 	static_assert(sizeof(hkpRigidBody) == 0x2D0);
 }

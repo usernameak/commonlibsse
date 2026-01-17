@@ -300,7 +300,6 @@ namespace RE
 
 	private:
 		void CopyPerkRankArray(const std::vector<PerkRankData>& a_copiedData);
-
 	};
 	static_assert(sizeof(TESNPC) == 0x268);
 }

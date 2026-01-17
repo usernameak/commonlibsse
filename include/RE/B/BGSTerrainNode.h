@@ -70,7 +70,6 @@ namespace RE
 		std::int16_t                      baseCellX;   // 48
 		std::int16_t                      baseCellY;   // 4A
 		std::uint32_t                     pad4C;       // 4C
-
 	};
 	static_assert(sizeof(BGSTerrainNode) == 0x50);
 }

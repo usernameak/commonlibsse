@@ -57,7 +57,6 @@ namespace RE
 	{
 	public:
 		static HandlerDictionary* GetSingleton();
-
 	};
 	static_assert(sizeof(HandlerDictionary) == 0x50);
 }

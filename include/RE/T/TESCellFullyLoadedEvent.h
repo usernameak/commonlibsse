@@ -9,7 +9,6 @@ namespace RE
 	public:
 		// members
 		TESObjectCELL* cell;
-
 	};
 	static_assert(sizeof(TESCellFullyLoadedEvent) == 0x8);
 }

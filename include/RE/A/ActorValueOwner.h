@@ -27,7 +27,6 @@ namespace RE
 
 		void DamageActorValue(ActorValue a_akValue, float a_value);
 		void RestoreActorValue(ActorValue a_akValue, float a_value);
-
 	};
 	static_assert(sizeof(ActorValueOwner) == 0x8);
 }

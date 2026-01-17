@@ -22,7 +22,6 @@ namespace RE
 		{
 			return const_cast<VRWandEvent*>(this)->AsVRWandEvent();
 		}
-
 	};
 	static_assert(sizeof(VRWandEvent) == 0x30);
 }

@@ -14,7 +14,6 @@ namespace RE
 
 		FormID                                cellID;
 		REX::EnumSet<CellFlag, std::uint32_t> flags;
-
 	};
 	static_assert(sizeof(BGSActorCellEvent) == 0xC);
 }

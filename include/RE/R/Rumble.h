@@ -6,6 +6,5 @@ namespace RE
 	class Rumble
 	{
 		static void DisableRumble();
-
 	};
 }

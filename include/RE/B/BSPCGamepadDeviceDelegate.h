@@ -27,7 +27,6 @@ namespace RE
 	protected:
 		friend class BSGamepadDeviceHandler;
 		BSPCGamepadDeviceDelegate();
-
 	};
 	static_assert(sizeof(BSPCGamepadDeviceDelegate) == 0xD8);
 }

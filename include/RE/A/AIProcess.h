@@ -235,7 +235,6 @@ namespace RE
 
 	protected:
 		void Update3DModel_Impl(Actor* a_actor);
-
 	};
 	static_assert(sizeof(AIProcess) == 0x140);
 }

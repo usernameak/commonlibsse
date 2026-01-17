@@ -27,7 +27,6 @@ namespace RE
 			static REL::Relocation<hkContainerHeapAllocator::Allocator*> singleton{ RELOCATION_ID(510713, 383828) };
 			return singleton.get();
 		}
-
 	};
 	static_assert(sizeof(hkContainerHeapAllocator) == 0x1);
 }

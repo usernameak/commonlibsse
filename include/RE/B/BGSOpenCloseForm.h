@@ -29,7 +29,6 @@ namespace RE
 
 		[[nodiscard]] static OPEN_STATE GetOpenState(const TESObjectREFR* a_ref);
 		static void                     SetOpenState(TESObjectREFR* a_ref, bool a_open, bool a_snap);
-
 	};
 	static_assert(sizeof(BGSOpenCloseForm) == 0x8);
 }

@@ -40,7 +40,6 @@ namespace RE
 
 	protected:
 		void Update_Impl(TESObjectREFR* a_owner);
-
 	};
 	static_assert(sizeof(ItemList) == 0x58);
 }

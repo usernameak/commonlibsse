@@ -32,8 +32,8 @@ namespace RE
 		bool          IsEqual(NiObject* a_object) override;               // 1C
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 		// The following are virtual functions past the point where VR compatibility breaks.
-		void          OnVisible(NiCullingProcess& a_process, std::int32_t a_alphaGroupIndex) override;  // 34
-		void          Unk_37(void) override;                                                            // 37
+		void OnVisible(NiCullingProcess& a_process, std::int32_t a_alphaGroupIndex) override;  // 34
+		void Unk_37(void) override;                                                            // 37
 #endif
 
 		// members

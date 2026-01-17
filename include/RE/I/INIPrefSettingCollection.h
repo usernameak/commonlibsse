@@ -18,7 +18,6 @@ namespace RE
 		void ReadAllSettings() override;   // 09
 
 		static INIPrefSettingCollection* GetSingleton();
-
 	};
 	static_assert(sizeof(INIPrefSettingCollection) == 0x128);
 

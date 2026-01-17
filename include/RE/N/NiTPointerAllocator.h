@@ -25,6 +25,5 @@ namespace RE
 		{
 			return NiFree(a_ptr);
 		}
-
 	};
 }

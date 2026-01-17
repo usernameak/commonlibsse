@@ -42,7 +42,6 @@ namespace RE
 		{
 			return REL::RelocateMember<RUNTIME_DATA>(this, 0, 0x20);
 		}
-
 	};
 #if defined(EXCLUSIVE_SKYRIM_VR)
 	static_assert(sizeof(FastTravelConfirmCallback) == 0x30);

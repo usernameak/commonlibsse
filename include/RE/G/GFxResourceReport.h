@@ -26,7 +26,6 @@ namespace RE
 
 		virtual void GetStats([[maybe_unused]] GStatBag* a_bag, [[maybe_unused]] bool a_reset = true)  // 03
 		{}
-
 	};
 	static_assert(sizeof(GFxResourceReport) == 0x8);
 }
