@@ -145,7 +145,6 @@ namespace RE
 
 	private:
 		inline static vr::IVROverlay* cleanOverlay = nullptr;
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSOpenVR) == 0x408);
 }

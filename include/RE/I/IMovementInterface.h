@@ -10,8 +10,6 @@ namespace RE
 
 		virtual ~IMovementInterface();
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(IMovementInterface) == 0x8);
 }

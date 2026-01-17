@@ -77,8 +77,6 @@ namespace RE
 		std::uint32_t                         equipIndex;              // 84
 		ActorValue                            skill;                   // 88
 		REX::Enum<BGSBodyPartDefs::LIMB_ENUM> damageLimb;              // 8C
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(HitData) == 0x90);
 }

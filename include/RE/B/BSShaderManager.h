@@ -94,7 +94,5 @@ namespace RE
 			static REL::Relocation<func_t> func{ RELOCATION_ID(98987, 105641) };
 			return func(a_renderMode);
 		}
-	private:
-		KEEP_FOR_RE()
 	};
 }

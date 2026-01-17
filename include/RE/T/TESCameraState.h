@@ -44,8 +44,6 @@ namespace RE
 		TESCamera*    camera;  // 10
 		CameraState   id;      // 18
 		std::uint32_t pad1C;   // 1C
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(TESCameraState) == 0x20);
 }

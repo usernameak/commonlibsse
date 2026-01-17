@@ -301,8 +301,6 @@ namespace RE
 	private:
 		void CopyPerkRankArray(const std::vector<PerkRankData>& a_copiedData);
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(TESNPC) == 0x268);
 }

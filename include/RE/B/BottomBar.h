@@ -17,8 +17,6 @@ namespace RE
 
 		// members
 		GFxValue obj;  // 00 - kObject
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BottomBar) == 0x18);
 }

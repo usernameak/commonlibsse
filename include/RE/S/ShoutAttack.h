@@ -19,7 +19,5 @@ namespace RE
 
 		static BSTEventSource<ShoutAttack::Event>* GetEventSource();
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

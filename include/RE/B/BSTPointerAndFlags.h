@@ -86,7 +86,5 @@ namespace RE
 
 		// members
 		Storage _storage;  // 0
-	private:
-		KEEP_FOR_RE()
 	};
 }

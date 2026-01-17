@@ -70,7 +70,6 @@ namespace RE
 			static REL::Relocation<func_t> func{ RELOCATION_ID(69583, 70967) };
 			return func(this);
 		}
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(NiPointLight) == 0x150);

@@ -44,8 +44,6 @@ namespace RE
 		float          cost;        // 18
 		std::uint32_t  pad1C;       // 1C
 		TESCondition   conditions;  // 20 - CTDA
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(Effect) == 0x28);
 }

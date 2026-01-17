@@ -84,8 +84,6 @@ namespace RE
 		TESObjectCELL*                               lastWaterCell;                   // 118
 		mutable BSSpinLock                           lock;                            // 120
 		NiPointer<NiAVObject>                        defaultDisplacementWaterObject;  // 128
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(TESWaterSystem) == 0x130);
 };

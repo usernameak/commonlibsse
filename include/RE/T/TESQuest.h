@@ -136,8 +136,6 @@ namespace RE
 
 		// members
 		QUEST_STAGE_DATA data;  // 0
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(TESQuestStage) == 0x8);
 
@@ -160,8 +158,6 @@ namespace RE
 		std::uint32_t                    alias;         // 10
 		std::uint32_t                    pad14;         // 14
 		TeleportPath                     teleportPath;  // 18
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(TESQuestTarget) == 0x60);
 
@@ -178,8 +174,6 @@ namespace RE
 		REX::EnumSet<QUEST_OBJECTIVE_STATE, std::uint8_t>  state;        // 1E
 		REX::EnumSet<QUEST_OBJECTIVE_FLAGS, std::uint32_t> flags;        // 20 - FNAM
 		std::uint32_t                                      pad24;        // 24
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BGSQuestObjective) == 0x28);
 
@@ -190,8 +184,6 @@ namespace RE
 		std::uint32_t id;          // 00
 		std::uint32_t index;       // 04
 		std::uint64_t members[6];  // 08
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BGSStoryEvent) == 0x38);
 
@@ -294,8 +286,6 @@ namespace RE
 		const BGSStoryEvent*                                 startEventData;                           // 240
 		NiPointer<QueuedPromoteQuestTask>                    promoteTask;                              // 248
 		BSTArray<ObjectRefHandle>                            promotedRefs;                             // 250
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(TESQuest) == 0x268);
 }

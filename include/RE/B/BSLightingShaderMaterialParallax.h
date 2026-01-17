@@ -38,8 +38,6 @@ namespace RE
 		}
 		friend class BSLightingShaderMaterialBase;
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSLightingShaderMaterialParallax) == 0xA8);
 }

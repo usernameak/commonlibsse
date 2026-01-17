@@ -37,8 +37,6 @@ namespace RE
 
 	protected:
 		BSVirtualKeyboardDevice();  // The virtual keyboard device constructor does not set the device type to virtualKeyboard, it remains 'kKeyboard'
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSVirtualKeyboardDevice) == 0x70);
 }

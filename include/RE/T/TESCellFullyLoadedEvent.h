@@ -10,8 +10,6 @@ namespace RE
 		// members
 		TESObjectCELL* cell;
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(TESCellFullyLoadedEvent) == 0x8);
 }

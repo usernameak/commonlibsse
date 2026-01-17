@@ -23,8 +23,6 @@ namespace RE
 		BSTHashMap<std::uint32_t, FormID> indexToFormID;  // 30
 		std::uint32_t                     nextIndex;      // 60
 		std::uint32_t                     pad64;          // 64
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BGSSaveLoadFormIDMap) == 0x68);
 
@@ -40,8 +38,6 @@ namespace RE
 		BSTHashMap<FormID, FormID>                           movedReferences;  // 00
 		BGSCellNumericIDArrayMap                             cellReferences;   // 30 - interior or sky cells
 		BSTHashMap<std::uint32_t, BGSCellNumericIDArrayMap*> worldReferences;  // 60 - grid X/Y packed into 32 bit key
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BGSSaveLoadReferencesMap) == 0x90);
 
@@ -63,8 +59,6 @@ namespace RE
 	public:
 		BSTHashMap<TESForm*, BGSLoadGameSubBuffer> maps[QUEUED_SUB_BUFFER_TYPES::kTotal];
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BGSSaveLoadQueuedSubBufferMap) == 0x90);
 
@@ -189,8 +183,6 @@ namespace RE
 		VR_RUNTIME_DATA_CONTENT;
 		RUNTIME_DATA2_CONTENT;
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(BGSSaveLoadGame) == 0x348);

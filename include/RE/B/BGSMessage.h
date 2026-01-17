@@ -59,8 +59,6 @@ namespace RE
 		BSSimpleList<MESSAGEBOX_BUTTON*>         menuButtons;  // 50
 		REX::EnumSet<MessageFlag, std::uint32_t> flags;        // 60 - DNAM
 		std::uint32_t                            displayTime;  // 64 - TNAM
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BGSMessage) == 0x68);
 }

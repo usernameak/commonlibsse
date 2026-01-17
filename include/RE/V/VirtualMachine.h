@@ -239,8 +239,6 @@ namespace RE
 				ReadableStringTable                                         readableStringTable;         // 94F0 - Created/Used only while loading a save
 				BSTHashMap<BSFixedString, BSTSmartPointer<ObjectTypeInfo>>* writeableTypeTable;          // 9508 - Created/Used only while saving
 				BSTHashMap<BSFixedString, BSTSmartPointer<ObjectTypeInfo>>* readableTypeTable;           // 9510 - Created/Used only while loading a save
-			private:
-				KEEP_FOR_RE()
 			};
 			static_assert(sizeof(VirtualMachine) == 0x9518);
 		}

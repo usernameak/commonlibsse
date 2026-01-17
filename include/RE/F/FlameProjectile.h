@@ -60,8 +60,6 @@ namespace RE
 #ifndef ENABLE_SKYRIM_AE
 		FLAME_RUNTIME_DATA_CONTENT;
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #ifndef ENABLE_SKYRIM_AE
 	static_assert(sizeof(FlameProjectile) == 0x1E0);

@@ -8,7 +8,5 @@ namespace RE
 
 		char buf[512];
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

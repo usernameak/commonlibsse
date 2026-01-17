@@ -102,8 +102,6 @@ namespace RE
 		RUNTIME_DATA_CONTENT;   // 110, 138
 		RUNTIME_DATA2_CONTENT;  // 150, 1CC
 #endif
-	private:
-		KEEP_FOR_RE();
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(NiCamera) == 0x188);

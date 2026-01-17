@@ -22,7 +22,5 @@ namespace RE
 
 		static BSTEventSource<SkillIncrease::Event>* GetEventSource();
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

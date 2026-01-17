@@ -10,8 +10,6 @@ namespace RE
 		void AddRef();
 		void Release();
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(GRefCountNTSImpl) == 0x10);
 }

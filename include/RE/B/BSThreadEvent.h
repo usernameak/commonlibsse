@@ -11,7 +11,5 @@ namespace RE
 			return func();
 		}
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

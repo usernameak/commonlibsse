@@ -32,8 +32,6 @@ namespace RE
 		// members
 		REX::EnumSet<LEV_CREA_MODIFIER, std::uint32_t> modifier;  // 10
 		std::uint32_t                                  pad14;     // 14
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(ExtraLevCreaModifier) == 0x18);
 }

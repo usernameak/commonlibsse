@@ -15,8 +15,6 @@ namespace RE
 		// override (PlayerInputHandler)
 		bool CanProcess(InputEvent* a_event) override;                                  // 01
 		void ProcessButton(ButtonEvent* a_event, PlayerControlsData* a_data) override;  // 04
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(SneakHandler) == 0x10);

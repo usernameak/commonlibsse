@@ -115,8 +115,6 @@ public:                                                                \
 		void
 			SetSelectedRef_Impl(ObjectRefHandle& a_handle);
 
-	private:
-		KEEP_FOR_RE()
 	};
 }
 #undef RUNTIME_DATA_CONTENT

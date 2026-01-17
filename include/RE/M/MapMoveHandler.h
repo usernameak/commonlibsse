@@ -19,8 +19,6 @@ namespace RE
 
 		// members
 		BSTPoint2<float> unk18;  // 18
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(MapMoveHandler) == 0x20);
 }

@@ -21,8 +21,6 @@ namespace RE
 		bool          triggerReleaseEvent{ false };  // 11
 		std::uint16_t pad12{ 0 };                    // 12
 		std::uint32_t pad14{ 0 };                    // 14
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_VR)
 	static_assert(sizeof(HeldStateHandler) == 0x30);

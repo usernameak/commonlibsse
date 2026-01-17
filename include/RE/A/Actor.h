@@ -821,7 +821,6 @@ namespace RE
 		void        CalculateCurrentVendorFaction() const;
 		float       CalcEquippedWeight();
 		TESFaction* GetCrimeFactionImpl() const;
-		KEEP_FOR_RE()
 	};
 #ifndef ENABLE_SKYRIM_AE
 	static_assert(sizeof(Actor) == 0x2B0);

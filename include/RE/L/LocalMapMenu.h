@@ -151,8 +151,6 @@ namespace RE
 		std::uint32_t unk30478;  // 30478
 		std::uint32_t pad3047C;  // 3047C
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(LocalMapMenu) == 0x30410);

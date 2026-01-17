@@ -209,8 +209,6 @@ namespace RE
 		TESRegionDataManager* regionDataManager;      // 1580
 		InventoryChanges*     merchantInventory;      // 1588
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 
 	template <class T>

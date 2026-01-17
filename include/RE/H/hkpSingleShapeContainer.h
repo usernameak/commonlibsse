@@ -22,8 +22,6 @@ namespace RE
 
 		// members
 		const hkpShape* childShape;  // 08
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(hkpSingleShapeContainer) == 0x10);
 }

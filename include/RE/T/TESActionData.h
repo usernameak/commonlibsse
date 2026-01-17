@@ -41,8 +41,6 @@ namespace RE
 			return tesActionData;
 		}
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(TESActionData) == 0x60);
 }

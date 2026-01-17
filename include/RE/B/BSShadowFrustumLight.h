@@ -26,8 +26,6 @@ namespace RE
 		float falloff;       // 568
 		float nearDistance;  // 56C
 		float farDistance;   // 570
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(BSShadowFrustumLight) == 0x578);

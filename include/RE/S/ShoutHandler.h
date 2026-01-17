@@ -19,8 +19,6 @@ namespace RE
 		// members
 		std::uint64_t unk10;  // 10
 		std::uint64_t unk18;  // 18
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(ShoutHandler) == 0x20);

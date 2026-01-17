@@ -211,8 +211,6 @@ namespace RE
 		SpellDispelData* postUpdateDispelList;  // 08
 		std::uint16_t    pad12;                 // 12
 		std::uint32_t    pad14;                 // 14
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(MagicTarget) == 0x18);
 }

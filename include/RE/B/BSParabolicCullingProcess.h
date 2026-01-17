@@ -30,8 +30,6 @@ namespace RE
 		NiPoint3                       lightPosition;              // 30218
 		float                          lightRadius;                // 30224
 		NiPointer<NiCamera>            lightCamera;                // 30228
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSParabolicCullingProcess) == 0x30230);
 }

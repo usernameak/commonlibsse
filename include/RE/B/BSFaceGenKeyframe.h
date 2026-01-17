@@ -39,8 +39,6 @@ namespace RE
 		// members
 		Type  type;   // 08
 		float unk0C;  // 0C
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSFaceGenKeyframe) == 0x10);
 }

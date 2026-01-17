@@ -29,8 +29,6 @@ namespace RE
 
 		// members
 		hkpWorld* world;  // 20
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(bhkWorldObject) == 0x28);
 }

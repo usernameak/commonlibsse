@@ -104,8 +104,6 @@ namespace RE
 		std::uint32_t                unk1DC;                       // 1DC
 		BSSaveDataSystemUtilityImage saveDataBackgroundImages[3];  // 1E0
 		BSSaveDataSystemUtilityImage saveDataIconImages[3];        // 228
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(Main) == 0x270);

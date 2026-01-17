@@ -31,7 +31,5 @@ namespace RE
 			return std::span<Entry, 0x100000>{ *entries };
 		}
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

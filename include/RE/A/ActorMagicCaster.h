@@ -100,8 +100,6 @@ namespace RE
 		float                              costCharged;                  // F0
 		MagicSystem::CastingSource         castingSource;                // F4
 		REX::EnumSet<Flags, std::uint32_t> flags;                        // F8
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(ActorMagicCaster) == 0x100);
 }

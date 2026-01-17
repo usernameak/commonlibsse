@@ -23,8 +23,6 @@ namespace RE
 		virtual void          Unk_08(void) = 0;                                                // 08
 		virtual void          Unk_09(void) = 0;                                                // 09
 		virtual bool          IsInSameSpace(BSTSmartPointer<BSPathingCell>* a_otherCell) = 0;  // 0A
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSPathingCell) == 0x10);
 }

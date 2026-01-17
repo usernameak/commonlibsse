@@ -37,8 +37,6 @@ namespace RE
 
 		HandlerArray* handlers;
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(GWaitable) == 0x18);
 }

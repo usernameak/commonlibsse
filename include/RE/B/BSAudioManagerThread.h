@@ -23,8 +23,6 @@ namespace RE
 		bool          unk61;       // 61
 		std::byte     pad62[2];    // 62
 		std::uint32_t sleepTime;   // 64
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSAudioManagerThread) == 0x68);
 }

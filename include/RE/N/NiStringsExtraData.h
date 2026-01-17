@@ -37,8 +37,6 @@ namespace RE
 		static void copy_string(char*& a_value, const BSFixedString& a_string);
 		static void copy_string(char*& a_value, char* a_copyValue);
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(NiStringsExtraData) == 0x28);
 }

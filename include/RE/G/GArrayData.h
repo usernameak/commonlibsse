@@ -66,7 +66,5 @@ namespace RE
 			}
 		}
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

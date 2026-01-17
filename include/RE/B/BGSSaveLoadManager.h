@@ -59,8 +59,6 @@ namespace RE
 		std::uint32_t                         characterID;         // 6C
 		REX::EnumSet<SaveType, std::uint32_t> saveType;            // 70
 		std::uint32_t                         pad74;               // 74
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BGSSaveLoadFileEntry) == 0x78);
 
@@ -248,8 +246,6 @@ namespace RE
 		bool Save_Impl(std::int32_t a_deviceID, std::uint32_t a_outputStats, const char* a_fileName);
 		bool Load_Impl(const char* a_fileName, std::int32_t a_deviceID, std::uint32_t a_outputStats, bool a_checkForMods);
 
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 #	if defined(EXCLUSIVE_SKYRIM_AE)

@@ -25,7 +25,5 @@ namespace RE
 
 		static BSTEventSource<CriticalHit::Event>* GetEventSource();
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

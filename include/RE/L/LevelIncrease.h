@@ -22,7 +22,5 @@ namespace RE
 
 		static BSTEventSource<LevelIncrease::Event>* GetEventSource();
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

@@ -66,8 +66,6 @@ namespace RE
 		std::uint32_t                   dataOffset;        // 208
 		std::byte                       pad20C[4];         // 20C
 		BSXAudio2DataSrc::StreamPacket* streamPackets[2];  // 210
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSXAudio2GameSound) == 0x220);
 }

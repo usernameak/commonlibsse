@@ -51,8 +51,6 @@ namespace RE
 		bool          useGlobalTimeMultiplierTarget;  // 3A (36 in VR)
 		std::uint8_t  pad3B;                          // 3B (37 in VR)
 		std::uint32_t pad3C;                          // 3C (38 in VR)
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSTimer) == 0x40);
 }

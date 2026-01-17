@@ -71,8 +71,6 @@ namespace RE
 		NiFormArray*                 childPaths;  // 40
 		BGSCameraPath*               parentPath;  // 48 - ANAM~
 		BGSCameraPath*               prevPath;    // 48 - ~ANAM
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BGSCameraPath) == 0x58);
 }

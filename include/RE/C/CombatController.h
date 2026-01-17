@@ -104,8 +104,6 @@ namespace RE
 #endif
 		RUNTIME_DATA_CONTENT;
 
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_AE)
 	static_assert(sizeof(CombatController) == 0xE0);

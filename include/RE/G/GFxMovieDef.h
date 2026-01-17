@@ -142,8 +142,6 @@ namespace RE
 
 		GFxMovieView* CreateInstance(bool a_initFirstFrame = true, UPInt a_memoryArena = 0);
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(GFxMovieDef) == 0x20);
 }

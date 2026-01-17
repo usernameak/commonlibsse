@@ -40,8 +40,6 @@ namespace RE
 		BSFixedString unk18;  // 18
 		std::uint64_t unk20;
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_VR)
 	static_assert(sizeof(PlayerInputHandler) == 0x28);

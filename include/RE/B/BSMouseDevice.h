@@ -22,8 +22,6 @@ namespace RE
 		friend class BSInputDeviceFactory;
 		BSMouseDevice();
 
-	private:
-		KEEP_FOR_RE()
 	};
 
 	static_assert(sizeof(BSMouseDevice) == 0x78);

@@ -35,7 +35,5 @@ namespace RE
 			kOriginal = 65535
 		};
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

@@ -10,8 +10,6 @@ namespace RE
 	{
 	public:
 		~SettingT() override;  // 00
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(SettingT<void*>) == 0x18);
 }

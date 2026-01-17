@@ -87,8 +87,6 @@ namespace RE
 #ifndef SKYRIM_CROSS_VR
 		RUNTIME_DATA_CONTENT;  // 40, 50
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(RaceSexMenu) == 0x1A8);

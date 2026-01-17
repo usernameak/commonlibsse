@@ -21,7 +21,5 @@ namespace RE
 
 		static BSTEventSource<TESHarvestedEvent::ItemHarvested>* GetEventSource();
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

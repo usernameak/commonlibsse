@@ -128,8 +128,6 @@ namespace RE
 		COpenVRContext        vrContext;            // 190
 		vr::VROverlayHandle_t inputOverlay;         // 1F8 - current overlay handle? Used in 2D overlay menus like JournalMenu
 		bool                  isHeadsetTrackingOk;  // 200 - Headset is active and skyrim is receiving tracking data
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSVRInterface) == 0x208);
 }

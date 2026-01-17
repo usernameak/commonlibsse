@@ -131,8 +131,6 @@ namespace RE
 #	endif
 		RUNTIME_DATA_CONTENT;  // 40, 70
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #ifndef ENABLE_SKYRIM_VR
 	static_assert(sizeof(HUDMenu) == 0x98);

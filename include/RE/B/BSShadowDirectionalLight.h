@@ -52,8 +52,6 @@ namespace RE
 #ifndef SKYRIM_CROSS_VR
 		RUNTIME_DATA_CONTENT;  // 560, VR 5C0
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(BSShadowDirectionalLight) == 0x5B8);

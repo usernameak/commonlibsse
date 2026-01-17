@@ -41,8 +41,6 @@ namespace RE
 		bool          heldLeft;                    // 42
 		bool          heldRight;                   // 43
 		std::uint32_t unk44;                       // 44
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_VR)
 	static_assert(sizeof(AttackBlockHandler) == 0x60);

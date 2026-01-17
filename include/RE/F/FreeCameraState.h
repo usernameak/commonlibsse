@@ -37,8 +37,6 @@ namespace RE
 		std::int16_t     verticalDirection;  // 4C
 		bool             useRunSpeed;        // 4E
 		bool             lockToZPlane;       // 4F
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 #	if defined(ENABLE_SKYRIM_AE) || defined(ENABLE_SKYRIM_SE)

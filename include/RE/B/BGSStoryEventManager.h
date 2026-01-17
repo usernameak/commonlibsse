@@ -41,8 +41,6 @@ namespace RE
 			return func(this, a_index, a_event);
 		}
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BGSStoryEventManager) == 0x68);
 }

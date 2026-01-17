@@ -25,8 +25,6 @@ namespace RE
 		std::uint64_t unk_58;  // 58
 		std::uint64_t unk_60;  // 60
 		std::uint64_t unk_68;  // 68
-	private:
-		KEEP_FOR_RE()
 	};
 #	if !defined(ENABLE_SKYRIM_VR)
 	static_assert(sizeof(TeleportHandler) == 0x58);

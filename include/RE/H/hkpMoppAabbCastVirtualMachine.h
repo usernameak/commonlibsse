@@ -21,7 +21,5 @@ namespace RE
 			hkMoppBvTreeShapeBase** treeShape;  // 40
 		};
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

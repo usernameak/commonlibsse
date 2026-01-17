@@ -15,7 +15,5 @@ namespace RE
 		virtual void OnBufferEnd(void* a_bufferContext) = 0;                         // 04
 		virtual void OnLoopEnd(void* a_bufferContext) = 0;                           // 05
 		virtual void OnVoiceError(void* a_bufferContext, std::int32_t a_error) = 0;  // 06
-	private:
-		KEEP_FOR_RE()
 	};
 }

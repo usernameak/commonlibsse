@@ -29,8 +29,6 @@ namespace RE
 		bool                                 useHtml;            // 4D
 		bool                                 verticalButtons;    // 4E
 		bool                                 isCancellable;      // 4F
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(MessageBoxData) == 0x50);
 }

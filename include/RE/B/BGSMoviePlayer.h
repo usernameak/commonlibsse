@@ -39,8 +39,6 @@ namespace RE
 		std::uint8_t  padB9;  // B9
 		std::uint16_t padBA;  // BA
 		std::uint32_t padBC;  // BC
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BGSMoviePlayer) == 0xC0);
 }

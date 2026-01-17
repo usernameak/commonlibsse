@@ -24,7 +24,5 @@ namespace RE
 
 		static BSTEventSource<ItemCrafted::Event>* GetEventSource();
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

@@ -46,8 +46,6 @@ namespace RE
 		std::uint32_t distanceInsideAtMax;  // 2C - RPLI
 		std::uint32_t count;                // 30
 		std::uint32_t pad34;                // 34
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(TESRegionPointList) == 0x38);
 
@@ -99,8 +97,6 @@ namespace RE
 		TESWeather*                        currentWeather;  // 38
 		NiColor                            emittanceColor;  // 40
 		std::uint32_t                      pad4C;           // 4C
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(TESRegion) == 0x50);
 }

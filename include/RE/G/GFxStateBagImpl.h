@@ -15,8 +15,6 @@ namespace RE
 		// members
 		std::uint64_t unk28[7];
 
-	private:
-		KEEP_FOR_RE()
 	};
 #ifndef __INTELLISENSE__
 	static_assert(sizeof(GFxStateBagImpl) == 0x60);

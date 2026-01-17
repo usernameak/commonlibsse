@@ -1083,8 +1083,6 @@ namespace RE
 #else
 		std::uint8_t unk5D8[0x718];  // 5D8
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_VR)
 	static_assert(sizeof(BGSDefaultObjectManager) == 0xD20);

@@ -79,8 +79,6 @@ namespace RE
 		float                                                     masterVolume;                // 170
 		std::uint32_t                                             asyncReadPriorityThreshold;  // 174
 		BSAudioCallbacks                                          audioCallbacks;              // 178
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSAudioManager) == 0x190);
 }

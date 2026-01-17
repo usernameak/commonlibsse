@@ -68,8 +68,6 @@ namespace RE
 #ifndef ENABLE_SKYRIM_AE
 		BARRIER_RUNTIME_DATA_CONTENT;
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #ifndef ENABLE_SKYRIM_AE
 	static_assert(sizeof(BarrierProjectile) == 0x1F8);

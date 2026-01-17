@@ -128,8 +128,6 @@ namespace RE
 			kTotal
 		};
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(GFxKey) == 0x1);
 }

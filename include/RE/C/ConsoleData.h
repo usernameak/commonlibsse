@@ -28,8 +28,6 @@ namespace RE
 		NiBinaryStream*                       file;     // 20
 		REX::EnumSet<DataType, std::uint32_t> type;     // 28
 		std::uint32_t                         pad2C;    // 2C
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(ConsoleData) == 0x30);
 }

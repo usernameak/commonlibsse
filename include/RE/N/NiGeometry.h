@@ -62,8 +62,6 @@ namespace RE
 		}
 
 		RUNTIME_DATA_CONTENT;  // 110, 138
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(NiGeometry) == 0x138);

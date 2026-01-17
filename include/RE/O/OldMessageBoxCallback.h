@@ -19,8 +19,6 @@ namespace RE
 
 		// members
 		Callback* callback;  // 10
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(OldMessageBoxCallback) == 0x18);
 }

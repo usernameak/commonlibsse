@@ -18,7 +18,5 @@ namespace RE
 
 		static BSTEventSource<DragonSoulsGained::Event>* GetEventSource();
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

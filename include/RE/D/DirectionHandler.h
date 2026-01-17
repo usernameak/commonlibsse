@@ -28,8 +28,6 @@ namespace RE
 		bool          unk29;                     // 29
 		std::uint8_t  pad2A;                     // 2A
 		std::uint16_t pad2B;                     // 2B
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(DirectionHandler) == 0x30);
 }

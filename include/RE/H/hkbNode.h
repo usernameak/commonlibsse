@@ -57,8 +57,6 @@ namespace RE
 		REX::EnumSet<CloneState, std::uint8_t> cloneState;  // 42
 		std::uint8_t                           pad43;       // 43
 		std::uint32_t                          pad44;       // 44
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(hkbNode) == 0x48);
 }

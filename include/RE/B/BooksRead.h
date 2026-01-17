@@ -22,7 +22,5 @@ namespace RE
 
 		static BSTEventSource<BooksRead::Event>* GetEventSource();
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

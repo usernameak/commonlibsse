@@ -129,8 +129,6 @@ namespace RE
 			return func(this);
 		}
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(hkpEntity) == 0x2D0);
 }

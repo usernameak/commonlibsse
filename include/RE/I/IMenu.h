@@ -143,8 +143,6 @@ namespace RE
 #if defined(EXCLUSIVE_SKYRIM_VR)
 		VR_RUNTIME_DATA_CONTENT
 #endif
-	private:
-		KEEP_FOR_RE();
 	};
 #if defined(EXCLUSIVE_SKYRIM_VR)
 	static_assert(sizeof(IMenu) == 0x40);

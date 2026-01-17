@@ -28,8 +28,6 @@ namespace RE
 			return singleton.get();
 		}
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(hkContainerHeapAllocator) == 0x1);
 }

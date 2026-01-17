@@ -7,7 +7,5 @@ namespace RE
 	{
 		static void DisableRumble();
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

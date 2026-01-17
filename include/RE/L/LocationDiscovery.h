@@ -20,7 +20,5 @@ namespace RE
 
 		static BSTEventSource<LocationDiscovery::Event>* GetEventSource();
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

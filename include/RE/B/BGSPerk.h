@@ -20,8 +20,6 @@ namespace RE
 		std::uint8_t numRanks;  // 2
 		bool         playable;  // 3
 		bool         hidden;    // 4
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(PerkData) == 0x5);
 
@@ -94,8 +92,6 @@ namespace RE
 		TESCondition            perkConditions;  // 58
 		BSTArray<BGSPerkEntry*> perkEntries;     // 60
 		BGSPerk*                nextPerk;        // 78 - NNAM
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BGSPerk) == 0x80);
 }

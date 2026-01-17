@@ -137,8 +137,6 @@ namespace RE
 	protected:
 		float CalculateCost(Actor* a_caster) const;
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(MagicItem) == 0x90);
 }

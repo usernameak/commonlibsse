@@ -128,8 +128,6 @@ namespace RE
 #ifndef SKYRIM_CROSS_VR
 		RUNTIME_DATA_CONTENT;  // 50, 60
 #endif
-	private:
-		KEEP_FOR_RE();
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(MainMenu) == 0x60);

@@ -109,8 +109,6 @@ namespace RE
 #ifndef ENABLE_SKYRIM_AE
 		EXPLOSION_RUNTIME_DATA_CONTENT;  // 098, 0A0
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #ifndef ENABLE_SKYRIM_AE
 	static_assert(sizeof(Explosion) == 0x140);

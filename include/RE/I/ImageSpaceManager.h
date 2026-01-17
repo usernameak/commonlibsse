@@ -496,8 +496,6 @@ namespace RE
 #elif defined(EXCLUSIVE_SKYRIM_VR)
 		VR_RUNTIME_DATA_CONTENT
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(ImageSpaceManager) == 0x220);

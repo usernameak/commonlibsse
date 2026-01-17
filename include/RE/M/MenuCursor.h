@@ -47,8 +47,6 @@ namespace RE
 #endif
 		RUNTIME_DATA_CONTENT;  // 04, 08
 
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(MenuCursor) == 0x30);

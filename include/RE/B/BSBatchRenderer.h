@@ -56,8 +56,6 @@ namespace RE
 		GeometryGroup*               alphaGroup;          // 0F0
 		void*                        unk0F8;              // 0F8
 		void*                        unk100;              // 100
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSBatchRenderer) == 0x108);
 }

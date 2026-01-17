@@ -84,7 +84,5 @@ namespace RE
 			return func(this, a_impactSoundData);
 		}
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

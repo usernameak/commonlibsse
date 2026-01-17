@@ -29,8 +29,6 @@ namespace RE
 		std::uint8_t  unk91;            // 91
 		std::uint16_t pad92;            // 92
 		std::uint32_t pad94;            // 94
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(StealthMeter) == 0x98);
 }

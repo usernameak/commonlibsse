@@ -92,8 +92,6 @@ namespace RE
 #ifndef ENABLE_SKYRIM_AE
 		RUNTIME_DATA_CONTENT;
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #ifndef ENABLE_SKYRIM_AE
 	static_assert(sizeof(Inventory3DManager) == 0x160);

@@ -23,8 +23,6 @@ namespace RE
 		bool          GetNeedsClipPlanes() override;                                                                                                           // 0E
 		bool          UpdateCamera(const NiCamera* a_viewCamera) override;                                                                                     // 10
 
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(BSShadowParabolicLight) == 0x560);

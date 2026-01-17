@@ -27,8 +27,6 @@ namespace RE
 		void QueueUpdateNiObject(NiAVObject* a_obj);                                                                     // 89
 		void QueueActorDisarm(ActorHandle& a_target, ActorHandle& a_caster);                                             // 91
 		void QueueRemoveSpell(ActorHandle& a_actor, SpellItem* a_spellItem);                                             // 93
-	private:
-		KEEP_FOR_RE()
 	};
 	//static_assert(sizeof(TaskQueueInterface) == 0x);
 }

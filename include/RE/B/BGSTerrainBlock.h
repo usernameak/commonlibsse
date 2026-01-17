@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include "RE/B/BSTriShape.h"
 
@@ -36,7 +36,5 @@ namespace RE
 		bool              unk82;          // 82
 		bool              unk83;          // 83
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

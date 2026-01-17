@@ -81,8 +81,6 @@ namespace RE
 #ifndef ENABLE_SKYRIM_AE
 		CONE_RUNTIME_DATA_CONTENT
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #ifndef ENABLE_SKYRIM_AE
 	static_assert(sizeof(ConeProjectile) == 0x218);

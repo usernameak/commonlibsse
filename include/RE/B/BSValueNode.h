@@ -53,7 +53,6 @@ namespace RE
 		RUNTIME_DATA_CONTENT  // 128, 150
 #endif
 			private :
-			KEEP_FOR_RE()
 	};
 }
 #undef RUNTIME_DATA_CONTENT

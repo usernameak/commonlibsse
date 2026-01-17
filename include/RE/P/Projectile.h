@@ -305,8 +305,6 @@ namespace RE
 #ifndef ENABLE_SKYRIM_AE
 		PROJECTILE_RUNTIME_DATA_CONTENT;
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #ifndef ENABLE_SKYRIM_AE
 	static_assert(sizeof(Projectile) == 0x1D8);

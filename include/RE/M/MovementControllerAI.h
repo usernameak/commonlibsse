@@ -58,8 +58,6 @@ namespace RE
 		std::uint64_t unk108;  // 108
 		std::uint64_t unk110;  // 110
 		std::uint64_t unk118;  // 118
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(MovementControllerAI) == 0x120);

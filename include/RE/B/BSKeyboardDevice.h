@@ -141,8 +141,6 @@ namespace RE
 	protected:
 		BSKeyboardDevice();
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSKeyboardDevice) == 0x70);
 }

@@ -60,8 +60,6 @@ namespace RE
 		AITimer                           strengthUpdateTimer;          // A4
 		AITimer                           threatRatioUpdateTimer;       // AC
 		AITimer                           threatUpdateTimer;            // B4
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(CombatState) == 0xC0);
 }

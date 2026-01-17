@@ -61,8 +61,6 @@ namespace RE
 		BSTArray<TESRace*>  additionalRaces;                      // 150 - MODL
 		BGSFootstepSet*     footstepSet;                          // 168 - SNDD
 		BGSArtObject*       artObject;                            // 170 - ONAM
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(TESObjectARMA) == 0x178);
 }

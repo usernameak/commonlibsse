@@ -80,8 +80,6 @@ namespace RE
 	protected:
 		NiNode* Ctor(std::uint16_t a_arrBufLen);
 
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(NiNode) == 0x128);

@@ -55,7 +55,6 @@ namespace RE
 
 	private:
 		void Dtor();
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BipedAnim) == 0x2778);
 }

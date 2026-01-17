@@ -39,8 +39,6 @@ namespace RE
 			Data*         data;       // 28
 			std::uint32_t totalRead;  // 30
 			std::uint32_t unk34;      // 34
-		private:
-			KEEP_FOR_RE()
 		};
 #ifdef ENABLE_SKYRIM_AE
 		static_assert(sizeof(CompressedArchiveStream) == 0x40);

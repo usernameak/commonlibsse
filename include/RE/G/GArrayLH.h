@@ -42,8 +42,6 @@ namespace RE
 			return *this;
 		}
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(GArrayLH<void*>) == 0x18);
 }

@@ -109,8 +109,6 @@ namespace RE
 #elif defined(EXCLUSIVE_SKYRIM_VR)
 		RUNTIME_DATA_CONTENT_VR;  // 20
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT) || defined(EXCLUSIVE_SKYRIM_VR)
 	static_assert(sizeof(BGSShaderParticleGeometryData) == 0x48);

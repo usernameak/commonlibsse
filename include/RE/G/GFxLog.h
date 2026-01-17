@@ -21,8 +21,6 @@ namespace RE
 
 		void LogMessageByType(LogMessageType a_messageType, const char* a_fmt, ...);
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(GFxLog) == 0x20);
 }

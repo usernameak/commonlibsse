@@ -209,8 +209,6 @@ namespace RE
 		VR_RUNTIME_DATA_CONTENT;
 #else
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 #	ifndef ENABLE_SKYRIM_AE

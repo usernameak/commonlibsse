@@ -33,8 +33,6 @@ namespace RE
 		HitData         hitData;       // 18
 		std::uint64_t   unkA8;         // A8
 		std::uint32_t   unkB0;         // B0
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(VATSCommand) == 0xB8);
 
@@ -91,8 +89,6 @@ namespace RE
 		NiPointer<Actor>                       attacker;                 // A8
 		NiPointer<Actor>                       stranger;                 // B0
 		mutable BSSpinLock                     lock;                     // B8
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(VATS) == 0xC0);
 }

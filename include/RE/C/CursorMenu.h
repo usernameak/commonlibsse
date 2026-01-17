@@ -43,8 +43,6 @@ namespace RE
 			return const_cast<CursorMenu*>(this)->AsMenuEventHandler();
 		}
 
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(CursorMenu) == 0x40);

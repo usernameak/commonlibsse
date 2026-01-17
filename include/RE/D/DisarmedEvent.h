@@ -20,7 +20,5 @@ namespace RE
 
 		static BSTEventSource<DisarmedEvent::Event>* GetEventSource();
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

@@ -173,8 +173,6 @@ namespace RE
 			GetEventSource<T>()->SendEvent(a_event);
 		}
 
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(ScriptEventSourceHolder) == 0x1290);

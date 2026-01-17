@@ -35,8 +35,6 @@ namespace RE
 			return func(this);
 		}
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(bhkCollisionObject) == 0x28);
 }

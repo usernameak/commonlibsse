@@ -27,8 +27,6 @@ namespace RE
 		uint32_t                  firstOp;            // C0
 		bool                      skipViewFrustum;    // C4
 		bool                      prethreaded;        // C5
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSCompoundFrustum) == 0xC8);
 }

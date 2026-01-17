@@ -29,8 +29,6 @@ namespace RE
 		float                                        heading;          // 0C
 		REX::EnumSet<AnimationType, std::uint16_t>   animationType;    // 10
 		REX::EnumSet<EntryProperties, std::uint16_t> entryProperties;  // 12
-	private:
-		KEEP_FOR_RE()
 	};
 
 	class BSFurnitureMarkerNode : public NiExtraData
@@ -54,7 +52,5 @@ namespace RE
 
 		// members
 		BSTArray<BSFurnitureMarker> markers;  // 18
-	private:
-		KEEP_FOR_RE()
 	};
 }

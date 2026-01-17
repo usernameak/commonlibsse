@@ -266,8 +266,6 @@ namespace RE
 		RUNTIME_DATA_CONTENT;   // 40, 60
 		RUNTIME_DATA2_CONTENT;  // 30460, 30530
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(MapMenu) == 0x30560);

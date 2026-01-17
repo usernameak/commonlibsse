@@ -126,8 +126,6 @@ namespace RE
 		bool                                                       echoNextUpdate;                           // 101
 		std::uint16_t                                              currentStateIndexAndEntered;              // 102
 		std::uint32_t                                              pad0BC;                                   // 104
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(hkbStateMachine) == 0x108);
 }

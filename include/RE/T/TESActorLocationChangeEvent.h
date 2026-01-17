@@ -15,8 +15,6 @@ namespace RE
 		BGSLocation*             oldLoc;
 		BGSLocation*             newLoc;
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(TESActorLocationChangeEvent) == 0x18);
 }

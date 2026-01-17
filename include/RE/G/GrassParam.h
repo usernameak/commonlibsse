@@ -19,8 +19,6 @@ namespace RE
 		std::uint8_t  pad23;                        // 23
 		std::uint32_t pad24;                        // 24
 		float         denstityPctPerQuadVertex[9];  // 28
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(GrassParam) == 0x50);
 }

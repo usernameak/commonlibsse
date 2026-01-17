@@ -178,7 +178,6 @@ namespace RE
 	private:
 		// VR requires a_cameraState with kVR enums > kAnimated
 		bool QCameraEquals(CameraState a_cameraState) const;
-		KEEP_FOR_RE();
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(PlayerCamera) == 0x168);

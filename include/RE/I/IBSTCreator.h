@@ -20,8 +20,6 @@ namespace RE
 			return CreateImpl();
 		}
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(IBSTCreator<void*>) == 0x8);
 }

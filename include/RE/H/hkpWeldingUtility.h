@@ -40,8 +40,6 @@ namespace RE
 		};
 		static_assert(sizeof(SinCosTableEntry) == 0x18);
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(hkpWeldingUtility) == 0x1);
 }

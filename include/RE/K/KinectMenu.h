@@ -58,8 +58,6 @@ namespace RE
 #ifndef SKYRIM_CROSS_VR
 		GFxValue root;  // 38, 48 - "Menu_mc"
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(KinectMenu) == 0x50);

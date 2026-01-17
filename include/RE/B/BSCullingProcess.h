@@ -109,8 +109,6 @@ namespace RE
 		BSTArray<AlphaGroup*>                             alphaGroups;         // 301D8
 		std::int32_t                                      alphaGroupIndex;     // 301F0
 		std::uint32_t                                     unk301F4;            // 301F4
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSCullingProcess) == 0x301F8);
 }

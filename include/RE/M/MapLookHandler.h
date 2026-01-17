@@ -19,8 +19,6 @@ namespace RE
 
 		// members
 		std::uint64_t unk18;  // 18
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(MapLookHandler) == 0x20);
 }

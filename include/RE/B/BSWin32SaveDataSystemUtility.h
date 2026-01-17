@@ -25,8 +25,6 @@ namespace RE
 
 		static BSWin32SaveDataSystemUtility* GetSingleton();
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSWin32SaveDataSystemUtility) == 0x228);
 }

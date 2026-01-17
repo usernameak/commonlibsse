@@ -50,8 +50,6 @@ namespace RE
 	protected:
 		BSWin32MouseDevice();
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSWin32MouseDevice) == 0xB8);
 }

@@ -86,8 +86,6 @@ namespace RE
 #ifndef SKYRIM_CROSS_VR
 		RUNTIME_DATA_CONTENT;  // 38, 48
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 #	if defined(ENABLE_SKYRIM_AE) || defined(ENABLE_SKYRIM_SE)

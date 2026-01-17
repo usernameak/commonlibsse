@@ -41,8 +41,6 @@ namespace RE
 			}
 		}
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(NiTMap<void*, void*>) == 0x20);
 }

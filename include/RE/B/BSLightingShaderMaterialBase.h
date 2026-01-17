@@ -71,8 +71,6 @@ namespace RE
 			return func(material);
 		}
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSLightingShaderMaterialBase) == 0xA0);
 

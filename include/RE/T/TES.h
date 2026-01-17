@@ -265,8 +265,6 @@ namespace RE
 		AE_RUNTIME_DATA_CONTENT;  // 128
 		RUNTIME_DATA2_CONTENT;    // 148
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #ifndef ENABLE_SKYRIM_AE
 	static_assert(sizeof(TES) == 0x2B8);

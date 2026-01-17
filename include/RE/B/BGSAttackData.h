@@ -53,8 +53,6 @@ namespace RE
 		// members
 		BSFixedString event;  // 10 - ATKE
 		AttackData    data;   // 18 - ATKD
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BGSAttackData) == 0x50);
 }

@@ -39,8 +39,6 @@ namespace RE
 	public:
 		// members
 		BSBitField<>* visData;  // 0
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BGSTerrainVisibilityData) == 0x8);
 
@@ -75,8 +73,6 @@ namespace RE
 	public:
 		// members
 		BSTArray<BSTSmartPointer<NavMesh>> navMeshes;  // 00
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(NavMeshArray) == 0x18);
 
@@ -269,8 +265,6 @@ namespace RE
 #ifndef ENABLE_SKYRIM_AE
 		RUNTIME_DATA_CONTENT;
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #ifndef ENABLE_SKYRIM_AE
 	static_assert(sizeof(TESObjectCELL) == 0x140);

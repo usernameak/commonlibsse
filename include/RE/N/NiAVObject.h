@@ -36,8 +36,6 @@ namespace RE
 
 		float                             time;   // 0
 		REX::EnumSet<Flag, std::uint32_t> flags;  // 4
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(NiUpdateData) == 0x8);
 
@@ -48,8 +46,6 @@ namespace RE
 
 		// add
 		virtual bool operator()(NiAVObject* a_object);  // 01
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(PerformOpFunc) == 0x8);
 
@@ -186,8 +182,6 @@ namespace RE
 		std::uint8_t                      flags02;                  // 109
 		std::uint16_t                     unk10A;                   // 10A
 		std::uint32_t                     pad10C;                   // 10C
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(NiAVObject) == 0x110);
 #elif defined(EXCLUSIVE_SKYRIM_VR)

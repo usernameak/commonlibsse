@@ -45,8 +45,6 @@ namespace RE
 		std::uint64_t             unkB8;                 // B8
 		std::uint64_t             unkC0;                 // C0
 		std::uint64_t             unkC8;                 // C8
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BGSTerrainManager) == 0xD0);
 }

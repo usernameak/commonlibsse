@@ -23,7 +23,5 @@ namespace RE
 
 		static BSTEventSource<Inventory::Event>* GetEventSource();
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

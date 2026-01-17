@@ -61,8 +61,6 @@ namespace RE
 		std::uint32_t unk30;                                              // 30
 		std::uint32_t unk34;                                              // 34
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSShaderMaterial) == 0x38);
 

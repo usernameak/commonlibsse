@@ -82,8 +82,6 @@ namespace RE
 		[[nodiscard]] NiObject* Clone();
 		void                    CreateDeepCopy(NiPointer<NiObject>& a_object);
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(NiObject) == 0x10);
 }

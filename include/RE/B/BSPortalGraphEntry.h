@@ -34,8 +34,6 @@ namespace RE
 		std::byte                               pad132[2];                // 132
 		std::uint32_t                           unk134;                   // 134
 		uint32_t                                cellId;                   // 138
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSPortalGraphEntry) == 0x140);
 }

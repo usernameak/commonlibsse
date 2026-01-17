@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include "RE/B/BGSDistantTreeBlock.h"
 #include "RE/B/BGSTerrainBlock.h"
@@ -71,8 +71,6 @@ namespace RE
 		std::int16_t                      baseCellY;   // 4A
 		std::uint32_t                     pad4C;       // 4C
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BGSTerrainNode) == 0x50);
 }

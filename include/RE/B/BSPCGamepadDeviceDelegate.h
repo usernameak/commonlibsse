@@ -28,8 +28,6 @@ namespace RE
 		friend class BSGamepadDeviceHandler;
 		BSPCGamepadDeviceDelegate();
 
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSPCGamepadDeviceDelegate) == 0xD8);
 }

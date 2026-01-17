@@ -16,8 +16,6 @@ namespace RE
 		// override (NiNode)
 		const NiRTTI* GetRTTI() const override;                           // 02
 		NiObject*     CreateClone(NiCloningProcess& a_cloning) override;  // 17
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(BSNiNode) == 0x128);

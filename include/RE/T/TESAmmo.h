@@ -158,8 +158,6 @@ namespace RE
 #elif defined(EXCLUSIVE_SKYRIM_VR)
 		RUNTIME_DATA_CONTENT;              // VR 100
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(TESAmmo) == 0x128);

@@ -67,8 +67,6 @@ namespace RE
 #ifndef ENABLE_SKYRIM_AE
 		BEAM_RUNTIME_DATA_CONTENT;
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #ifndef ENABLE_SKYRIM_AE
 	static_assert(sizeof(BeamProjectile) == 0x240);

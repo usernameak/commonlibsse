@@ -64,8 +64,6 @@ namespace RE
 #ifndef ENABLE_SKYRIM_AE
 		ARROW_RUNTIME_DATA_CONTENT;
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #ifndef ENABLE_SKYRIM_AE
 	static_assert(sizeof(ArrowProjectile) == 0x1F0);

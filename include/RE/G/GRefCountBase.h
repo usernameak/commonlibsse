@@ -16,7 +16,5 @@ namespace RE
 			kStatType = STAT
 		};
 
-	private:
-		KEEP_FOR_RE()
 	};
 }

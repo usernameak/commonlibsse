@@ -146,8 +146,6 @@ namespace RE
 		std::uint32_t unk1C8;  // 1C8
 		std::uint32_t unk1CA;  // 1CA
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(UI) == 0x1C8);

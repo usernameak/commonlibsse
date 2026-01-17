@@ -130,8 +130,6 @@ namespace RE
 		std::uint32_t          changeFlags;       // 38
 		std::uint32_t          pad3C;             // 3C
 		BSTArray<FACTION_RANK> factions;          // 40
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(TESActorBaseData) == 0x58);
 }

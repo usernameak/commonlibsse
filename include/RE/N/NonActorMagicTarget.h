@@ -33,8 +33,6 @@ namespace RE
 		// members
 		TESObjectREFR*              targetObject;   // 28
 		BSSimpleList<ActiveEffect*> activeEffects;  // 30
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(NonActorMagicTarget) == 0x40);
 }

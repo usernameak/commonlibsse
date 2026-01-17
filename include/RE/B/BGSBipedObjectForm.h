@@ -87,8 +87,6 @@ namespace RE
 
 		// members
 		BIPED_MODEL bipedModelData;  // 08 - BOD2
-	private:
-		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BGSBipedObjectForm) == 0x10);
 }
