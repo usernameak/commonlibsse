@@ -18,14 +18,14 @@ namespace RE
 
 		struct RUNTIME_DATA
 		{
-#define RUNTIME_DATA_CONTENT                           \
-	std::uint32_t unk30; /* 00 */                      \
-	std::uint32_t pad34; /* 04 */                      \
-	GFxValue      root;  /* 08 - "SleepWaitMenu_mc" */ \
-	std::uint8_t  unk50; /* 20 */                      \
-	std::uint8_t  unk51; /* 21 */                      \
-	std::uint16_t pad52; /* 22 */                      \
-	std::uint32_t pad54; /* 24 */
+#define RUNTIME_DATA_CONTENT                                \
+	float         timer;      /* 00 */                      \
+	std::uint32_t pad34;      /* 04 */                      \
+	GFxValue      root;       /* 08 - "SleepWaitMenu_mc" */ \
+	bool          isSleeping; /* 20 */                      \
+	bool          isActive;   /* 21 */                      \
+	std::uint16_t pad52;      /* 22 */                      \
+	std::uint32_t pad54;      /* 24 */
 
 			RUNTIME_DATA_CONTENT
 		};
@@ -47,9 +47,9 @@ namespace RE
 			return REL::RelocateMember<RUNTIME_DATA>(this, 0x30, 0x40);
 		}
 
-		static void ToggleOpenSleepWaitMenu(bool a_sleeping)
+		static void ToggleOpenMenu(bool a_sleeping)
 		{
-			using func_t = decltype(&SleepWaitMenu::ToggleOpenSleepWaitMenu);
+			using func_t = decltype(&SleepWaitMenu::ToggleOpenMenu);
 			static REL::Relocation<func_t> func{ RELOCATION_ID(51618, 52490) };
 			return func(a_sleeping);
 		}

@@ -75,50 +75,56 @@ namespace RE
 
 		struct RUNTIME_DATA
 		{
-#define RUNTIME_DATA_CONTENT                                                                             \
-	BSTArray<ShadowmapDescriptor>   shadowmapDescriptors;         /* 148 shadowMapDataList */            \
-	ShadowmapDescriptor             focusShadowmapDescriptors[4]; /* 160 shadowMapData */                \
-	uint32_t                        shadowLightIndex;             /* 520, VR 580 maskIndex */            \
-	uint32_t                        accumulatedIndex;             /* 524, VR 584 */                      \
-	BSTArray<NiPointer<NiAVObject>> cullingObjects;               /* 528, VR 588 sceneAccumArray */      \
-	float                           shadowBiasScale;              /* 540, VR 5A0 */                      \
-	NiRect<int32_t>                 port;                         /* 544, VR 5A4 projectedBoundingBox */ \
-	uint32_t                        shadowSceneNodeIndex;         /* 554, VR 5B4 sceneGraphIndex*/       \
-	bool                            drawFocusShadows;             /* 558, VR 5B8  */
+#define RUNTIME_DATA_CONTENT                                                                     \
+	BSTArray<ShadowmapDescriptor>   shadowmapDescriptors;         /* 148 shadowMapDataList */    \
+	ShadowmapDescriptor             focusShadowmapDescriptors[4]; /* 160 shadowMapData */        \
+	std::uint32_t                   maskIndex;                    /* 520 */                      \
+	std::uint32_t                   accumulatedIndex;             /* 524 */                      \
+	BSTArray<NiPointer<NiAVObject>> sceneAccumArray;              /* 528 sceneAccumArray */      \
+	float                           shadowBiasScale;              /* 540 */                      \
+	NiRect<std::uint32_t>           projectedBoundingBox;         /* 544 projectedBoundingBox */ \
+	std::uint32_t                   sceneGraphIndex;              /* 554 */                      \
+	bool                            drawFocusShadows;             /* 558 */                      \
+	std::uint8_t                    pad559;                       /* 559 */                      \
+	std::uint8_t                    pad55A;                       /* 55A */                      \
+	std::uint32_t                   pad55B;                       /* 55B */
             RUNTIME_DATA_CONTENT
 		};
 
 		struct RUNTIME_DATA_VR
 		{
-#define RUNTIME_DATA_CONTENT_VR                                                               \
-	BSTArray<ShadowmapDescriptorVR> shadowmapDescriptors;         /* 148 shadowMapDataList */ \
-	ShadowmapDescriptorVR           focusShadowmapDescriptors[4]; /* 160  shadowMapData*/     \
-	uint32_t                        shadowLightIndex;             /* 520, VR 580 */           \
-	uint32_t                        accumulatedIndex;             /* 524, VR 584 */           \
-	BSTArray<NiPointer<NiAVObject>> cullingObjects;               /* 528, VR 588 */           \
-	float                           shadowBiasScale;              /* 540, VR 5A0 */           \
-	NiRect<int32_t>                 port;                         /* 544, VR 5A4 */           \
-	uint32_t                        shadowSceneNodeIndex;         /* 554, VR 5B4 */           \
-	bool                            drawFocusShadows;             /* 558, VR 5B8  */
+#define RUNTIME_DATA_CONTENT_VR                                                                    \
+	BSTArray<ShadowmapDescriptorVR> shadowmapDescriptors;         /* 148 shadowMapDataList (VR) */ \
+	ShadowmapDescriptorVR           focusShadowmapDescriptors[4]; /* 160 shadowMapData (VR) */     \
+	std::uint32_t                   maskIndex;                    /* 580 */                        \
+	std::uint32_t                   accumulatedIndex;             /* 584 */                        \
+	BSTArray<NiPointer<NiAVObject>> sceneAccumArray;              /* 588 */                        \
+	float                           shadowBiasScale;              /* 5A0 */                        \
+	NiRect<std::uint32_t>           projectedBoundingBox;         /* 5A4 */                        \
+	std::uint32_t                   sceneGraphIndex;              /* 5B4 */                        \
+	bool                            drawFocusShadows;             /* 5B8 */                        \
+	std::uint8_t                    pad559;                       /* 5B9 */                        \
+	std::uint8_t                    pad55A;                       /* 5BA */                        \
+	std::uint32_t                   pad55B;                       /* 5BB */
             RUNTIME_DATA_CONTENT_VR
 		};
 
 		~BSShadowLight() override;  // 00
 
 		// add
-		virtual bool AreFocusShadowsSupported();                                                                                  // 04
-		virtual bool IsSpotLight();                                                                                               // 05 GetIsFrustumLight in po3
-		virtual bool IsDirectionalLight();                                                                                        // 06 GetIsDirectionalLight
-		virtual bool IsParabolicLight();                                                                                          // 07 GetIsParabolicLight
-		virtual bool IsOmnidirectionalLight();                                                                                    // 08 GetIsOmniLight
-		virtual void Cull(uint32_t& globalShadowLightCount, uint32_t shadowMaskChannel, NiPointer<NiAVObject> cullingScene) = 0;  // 09 Accumulate
-		virtual void RenderShadowmaps() = 0;                                                                                      // 0A Render
-		virtual void SetShadowmapCount(uint32_t shadowmapCount);                                                                  // 0B SetShadowMapCount
-		virtual void Reset();                                                                                                     // 0C ClearShadowMapData
-		virtual void Unk_0D();                                                                                                    // 0D
-		virtual bool Unk_0E();                                                                                                    // 0E
-		virtual void Unk_0F();                                                                                                    // 0F
-		virtual bool SetFrameCamera(const NiCamera& frameCamera) = 0;                                                             // 10 UpdateCamera
+		virtual bool          AreFocusShadowsSupported();                                                                                                         // 04
+		virtual bool          GetIsFrustumLight();                                                                                                                // 05
+		virtual void          GetIsDirectionalLight();                                                                                                            // 06
+		virtual bool          GetIsParabolicLight();                                                                                                              // 07
+		virtual bool          GetIsOmniLight();                                                                                                                   // 08
+		virtual void          Accumulate(std::uint32_t& a_globalShadowLightCount, std::uint32_t& a_shadowMaskChannel, NiPointer<NiAVObject> a_cullingScene) = 0;  // 09
+		virtual void          Render() = 0;                                                                                                                       // 0A
+		virtual void          SetShadowMapCount(std::uint32_t a_count);                                                                                           // 0B
+		virtual void          ClearShadowMapData();                                                                                                               // 0C
+		virtual std::uint32_t GetPassExtraParam(std::uint32_t a_accumFlag);                                                                                       // 0D
+		virtual bool          GetNeedsClipPlanes();                                                                                                               // 0E
+		virtual void          UpdateClipPlanes(void* a_unk1, void* a_unk2);                                                                                       // 0F
+		virtual bool          UpdateCamera(const NiCamera* a_viewCamera) = 0;                                                                                     // 10
 
 		[[nodiscard]] inline RUNTIME_DATA& GetRuntimeData() noexcept
 		{
@@ -141,33 +147,31 @@ namespace RE
 		}
 
 		// members
-		uint32_t shadowMapCount;  // 140 shadowMapIndex
-		uint32_t unk144;          // 144
+		std::uint32_t shadowMapCount;  // 140
+		std::uint32_t unk144;          // 144
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 		RUNTIME_DATA_CONTENT;  // 148, VR 148
 #elif defined(EXCLUSIVE_SKYRIM_VR)
 		RUNTIME_DATA_CONTENT_VR;  // 148, VR 148
 #endif
-	private:
-		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 	static_assert(sizeof(BSShadowLight) == 0x560);
-	static_assert(offsetof(BSShadowLight, shadowLightIndex) == 0x520);
+	static_assert(offsetof(BSShadowLight, maskIndex) == 0x520);
 	static_assert(offsetof(BSShadowLight, accumulatedIndex) == 0x524);
-	static_assert(offsetof(BSShadowLight, cullingObjects) == 0x528);
+	static_assert(offsetof(BSShadowLight, sceneAccumArray) == 0x528);
 	static_assert(offsetof(BSShadowLight, shadowBiasScale) == 0x540);
-	static_assert(offsetof(BSShadowLight, port) == 0x544);
-	static_assert(offsetof(BSShadowLight, shadowSceneNodeIndex) == 0x554);
+	static_assert(offsetof(BSShadowLight, projectedBoundingBox) == 0x544);
+	static_assert(offsetof(BSShadowLight, sceneGraphIndex) == 0x554);
 	static_assert(offsetof(BSShadowLight, drawFocusShadows) == 0x558);
 #elif defined(EXCLUSIVE_SKYRIM_VR)
 	static_assert(sizeof(BSShadowLight) == 0x5C0);
-	static_assert(offsetof(BSShadowLight, shadowLightIndex) == 0x580);
+	static_assert(offsetof(BSShadowLight, maskIndex) == 0x580);
 	static_assert(offsetof(BSShadowLight, accumulatedIndex) == 0x584);
-	static_assert(offsetof(BSShadowLight, cullingObjects) == 0x588);
+	static_assert(offsetof(BSShadowLight, sceneAccumArray) == 0x588);
 	static_assert(offsetof(BSShadowLight, shadowBiasScale) == 0x5A0);
-	static_assert(offsetof(BSShadowLight, port) == 0x5A4);
-	static_assert(offsetof(BSShadowLight, shadowSceneNodeIndex) == 0x5B4);
+	static_assert(offsetof(BSShadowLight, projectedBoundingBox) == 0x5A4);
+	static_assert(offsetof(BSShadowLight, sceneGraphIndex) == 0x5B4);
 	static_assert(offsetof(BSShadowLight, drawFocusShadows) == 0x5B8);
 #else
 	static_assert(sizeof(BSShadowLight) == 0x148);

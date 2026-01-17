@@ -4,6 +4,7 @@
 
 namespace RE
 {
+
 	class BSMultiStreamInstanceTriShape : public BSInstanceTriShape
 	{
 	public:
@@ -11,17 +12,26 @@ namespace RE
 		inline static constexpr auto Ni_RTTI = NiRTTI_BSMultiStreamInstanceTriShape;
 		inline static constexpr auto VTABLE = VTABLE_BSMultiStreamInstanceTriShape;
 
+		class InstanceGroup : BSMultiBoundAABB
+		{
+			ID3D11Buffer** buffer;         // 40
+			std::uint32_t  unk48;          // 48
+			std::uint32_t  instanceCount;  // 4C
+			bool           unk50;          // 50
+		};
+		static_assert(sizeof(InstanceGroup) == 0x58);
+		
 		struct MULTISTREAM_TRISHAPE_RUNTIME_DATA
 		{
 #define RUNTIME_DATA_CONTENT         \
-	BSTArray<void*> unk160; /* 00 */ \
-	std::uint32_t   unk178; /* 18 */ \
-	std::uint32_t   unk17C; /* 1C */ \
-	std::uint64_t   unk180; /* 20 */ \
-	std::uint64_t   unk188; /* 28 */ \
-	std::uint32_t   unk190; /* 30 */ \
-	std::uint32_t   unk194; /* 34 */ \
-	std::uint32_t   unk198; /* 38 */
+	BSTArray<InstanceGroup*> unk160; /* 00 */ \
+	std::uint32_t            instanceGroupCount; /* 18 */ \
+	std::uint32_t            unk17C; /* 1C */ \
+	std::uint64_t            unk180; /* 20 */ \
+	void*                    groupAlloc; /* 28 */ \
+	std::uint32_t            instanceCount; /* 30 */ \
+	std::uint32_t            instanceSize; /* 34 */ \
+	std::uint32_t            unk198; /* 38 */
 
 			RUNTIME_DATA_CONTENT
 		};
@@ -34,7 +44,7 @@ namespace RE
 		NiObject*     CreateClone(NiCloningProcess& a_cloning) override;  // 17
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 		// The following are virtual functions past the point where VR compatibility breaks.
-		void OnVisible(NiCullingProcess& a_process) override;  // 34
+		void OnVisible(NiCullingProcess& a_process, std::int32_t a_alphaGroupIndex) override;  // 34
 
 		// overrides for BSTriShape
 		void          Unk_37(void) override;                                                                                               // 37

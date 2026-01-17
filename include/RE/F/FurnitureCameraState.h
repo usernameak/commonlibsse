@@ -30,5 +30,13 @@ namespace RE
 		void SaveGame(BGSSaveFormBuffer* a_buf) override;                    // 06/07
 		void LoadGame(BGSLoadFormBuffer* a_buf) override;                    // 07/08
 		void Revert(BGSLoadFormBuffer* a_buf) override;                      // 08/09
+
+		std::uint32_t unk20;  // 20
+		NiPoint3      unk24;  // 24
+		std::uint64_t unk30;  // 30
+		std::uint32_t unk38;  // 38
+		std::uint16_t unk3C;  // 3C
+		std::uint16_t unk3E;  // 3E
 	};
+	static_assert(sizeof(FurnitureCameraState) == 0x40);
 }

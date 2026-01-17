@@ -25,6 +25,23 @@ namespace RE
 
 		enum class Flag
 		{
+			kLandHgtAltered = 0x1,
+			kLandClrAltered = 0x2,
+			kLandTexAltered = 0x4,
+			kLandLoaded = 0x8,
+			kShaderLandTextureCount = 0x8,
+			kLandGoodNormals = 0x10,
+			kBlocksize = 0x10,
+			kLandHiresHeightfield = 0x20,
+			kLandSize = 0x21,
+			kLandDataAltered = 0x27,
+			kTilesPerBlock = 0x100,
+			kTrisPerBlock = 0x200,
+			kTriStripIndexCount = 0x3FD,  // TRISTRIPINDEXCOUNT
+			kLandRemapped = 0x400,
+			kLandArea = 0x441,
+			kHalfLand = 0x800,
+			kFullLand = 0x1000,
 			kInActiveGrid = 0x4000,
 			kInLargeRefGrid = 0x8000,
 			kLODLevel4 = 0x80000,
@@ -37,22 +54,22 @@ namespace RE
 			kLODLevel512 = 0x4000000
 		};
 
-		// members
-		BGSTerrainManager*          manager;      // 00
-		Layer<BGSTerrainBlock>*     terrain;      // 08
-		Layer<BGSObjectBlock>*      objects;      // 10
-		Layer<BGSDistantTreeBlock>* trees;        // 18
-		Layer<BGSTerrainBlock>*     mapTerrain;   // 20
-		Layer<BGSObjectBlock>*      mapObjects;   // 28
-		BGSTerrainNode* (*children)[4];           // 30
-		int64_t                           unk38;  // 38
-		REX::EnumSet<Flag, std::uint32_t> flags;  // 40
-		int32_t                           unk44;  // 44 - more flags
-		int16_t                           x;      // 48
-		int16_t                           y;      // 4A
-		int32_t                           unk4C;  // 4C
+		std::uint32_t GetLODLevel() const { return (nodeState.underlying() >> 21) & 0x3FC; }
 
-		int32_t GetLODLevel() const { return flags.underlying() >> 21 & 0x3FC; }
+		// members
+		BGSTerrainManager*          manager;           // 00
+		Layer<BGSTerrainBlock>*     terrain;           // 08
+		Layer<BGSObjectBlock>*      objects;           // 10
+		Layer<BGSDistantTreeBlock>* trees;             // 18
+		Layer<BGSTerrainBlock>*     mapTerrain;        // 20
+		Layer<BGSObjectBlock>*      mapObjects;        // 28
+		BGSTerrainNode* (*children)[4];                // 30
+		BGSTerrainNode*                   parent;      // 38
+		REX::EnumSet<Flag, std::uint32_t> nodeState;   // 40
+		std::uint32_t                     nodeNumber;  // 44
+		std::int16_t                      baseCellX;   // 48
+		std::int16_t                      baseCellY;   // 4A
+		std::uint32_t                     pad4C;       // 4C
 
 	private:
 		KEEP_FOR_RE()

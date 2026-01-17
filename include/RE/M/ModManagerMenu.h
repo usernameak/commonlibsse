@@ -25,11 +25,11 @@ namespace RE
 
 		struct RUNTIME_DATA
 		{
-#define RUNTIME_DATA_CONTENT      \
-	std::uint8_t  unk50; /* 50 */ \
-	std::uint8_t  pad51; /* 51 */ \
-	std::uint16_t pad52; /* 52 */ \
-	std::uint32_t pad54; /* 54 */
+#define RUNTIME_DATA_CONTENT                         \
+	bool          useTransparentBackground; /* 50 */ \
+	std::uint8_t  pad51;                    /* 51 */ \
+	std::uint16_t pad52;                    /* 52 */ \
+	std::uint32_t pad54;                    /* 54 */
 
 			RUNTIME_DATA_CONTENT
 		};

@@ -13,14 +13,15 @@ namespace RE
 		~BSShadowParabolicLight() override;  // 00
 
 		// override (BSShadowLight)
-		bool IsParabolicLight() override;                                                                                      // 07 GetIsParabolicLight
-		bool IsOmnidirectionalLight() override;                                                                                // 08 GetIsOmniLight
-		void Cull(uint32_t& globalShadowLightCount, uint32_t shadowMaskChannel, NiPointer<NiAVObject> cullingScene) override;  // 09 Accumulate
-		void RenderShadowmaps() override;                                                                                      // 0A Render
-		void Reset() override;                                                                                                 // 0C ClearShadowMapData
-		void Unk_0D() override;                                                                                                // 0D
-		bool Unk_0E() override;                                                                                                // 0E
-		bool SetFrameCamera(const NiCamera& frameCamera) override;                                                             // 10 UpdateCamera
+		bool          GetIsParabolicLight() override;                                                                                                          // 07
+		bool          GetIsOmniLight() override;                                                                                                               // 08
+		void          Accumulate(std::uint32_t& a_globalShadowLightCount, std::uint32_t& a_shadowMaskChannel, NiPointer<NiAVObject> a_cullingScene) override;  // 09
+		void          Render() override;                                                                                                                       // 0A
+		void          SetShadowMapCount(std::uint32_t a_count) override;                                                                                       // 0B
+		void          ClearShadowMapData() override;                                                                                                           // 0C
+		std::uint32_t GetPassExtraParam(std::uint32_t a_accumFlag) override;                                                                                   // 0D
+		bool          GetNeedsClipPlanes() override;                                                                                                           // 0E
+		bool          UpdateCamera(const NiCamera* a_viewCamera) override;                                                                                     // 10
 
 	private:
 		KEEP_FOR_RE()

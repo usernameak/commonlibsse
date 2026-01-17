@@ -55,11 +55,11 @@ namespace RE
 		BSTrackedControllerDevice*    GetVRControllerRight();
 		BSTrackedControllerDevice*    GetVRControllerLeft();
 		BSWin32VirtualKeyboardDevice* GetVirtualKeyboard();
-		[[nodiscard]] bool            IsGamepadConnected();
-		[[nodiscard]] bool            IsGamepadEnabled();
-		[[nodiscard]] bool            IsMouseBackground();
-		bool                          GetDeviceKeyMapping(INPUT_DEVICE a_device, std::uint32_t a_key, BSFixedString& a_mapping);
-		bool                          GetDeviceMappedKeycode(INPUT_DEVICE a_device, std::uint32_t a_key, std::uint32_t& a_outKeyCode);
+		bool                          IsGamepadConnected();
+		bool                          IsGamepadEnabled();
+		bool                          IsMouseBackground();
+		bool                          GetDeviceButtonNameFromID(INPUT_DEVICE a_device, std::uint32_t a_key, BSFixedString& a_mapping);
+		bool                          GetDeviceKeyCodeFromID(INPUT_DEVICE a_device, std::uint32_t a_key, std::uint32_t& a_outKeyCode);
 		void                          ProcessGamepadEnabledChange();
 		void                          ReinitializeMouse();
 		void                          CreateInputDevices();

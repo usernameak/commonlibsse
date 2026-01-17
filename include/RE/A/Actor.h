@@ -2,6 +2,7 @@
 
 #include "RE/A/AITimeStamp.h"
 #include "RE/A/ActiveEffect.h"
+#include "RE/A/ActorLOSLocation.h"
 #include "RE/A/ActorState.h"
 #include "RE/A/ActorValueOwner.h"
 #include "RE/A/ActorValues.h"
@@ -9,9 +10,9 @@
 #include "RE/B/BGSEntryPointPerkEntry.h"
 #include "RE/B/BSPointerHandle.h"
 #include "RE/B/BSPointerHandleSmartPointer.h"
+#include "RE/B/BSSimpleList.h"
 #include "RE/B/BSTArray.h"
 #include "RE/B/BSTEvent.h"
-#include "RE/B/BSTList.h"
 #include "RE/B/BSTSmartPointer.h"
 #include "RE/B/BSTTuple.h"
 #include "RE/D/DetectionPriorities.h"
@@ -53,6 +54,15 @@ namespace RE
 	struct HighProcessData;
 	struct MiddleHighProcessData;
 
+	enum class SKILL_ACTION
+	{
+		kNormalUse = 0,
+		kPowerAttack,
+		kBash,
+		kLockpickSuccess,
+		kLockpickBroken
+	};
+
 	enum class ACTOR_CRITICAL_STAGE
 	{
 		kNone = 0,
@@ -60,17 +70,6 @@ namespace RE
 		kGooEnd = 2,
 		kDisintegrateStart = 3,
 		kDisintegrateEnd = 4,
-
-		kTotal
-	};
-
-	enum class ACTOR_LOS_LOCATION
-	{
-		kNone = 0,
-		kEye = 1,
-		kHead = 2,
-		kTorso = 3,
-		kFeet = 4,
 
 		kTotal
 	};
@@ -310,7 +309,7 @@ namespace RE
 		bool                                 UpdateInDialogue(DialogueResponse* a_response, bool a_unused) override;                                                                                                                                               // 04C
 		[[nodiscard]] BGSDialogueBranch*     GetExclusiveBranch() const override;                                                                                                                                                                                  // 04D - { return exclusiveBranch; }
 		void                                 SetExclusiveBranch(BGSDialogueBranch* a_branch) override;                                                                                                                                                             // 04E - { exclusiveBranch = a_arg1; }
-		void                                 PauseCurrentDialogue(void) override;                                                                                                                                                                                  // 04F
+		void                                 StopCurrentDialogue(void) override;                                                                                                                                                                                   // 04F
 		[[nodiscard]] NiPoint3               GetStartingAngle() const override;                                                                                                                                                                                    // 052
 		[[nodiscard]] NiPoint3               GetStartingLocation() const override;                                                                                                                                                                                 // 053
 		ObjectRefHandle                      RemoveItem(TESBoundObject* a_item, std::int32_t a_count, ITEM_REMOVE_REASON a_reason, ExtraDataList* a_extraList, TESObjectREFR* a_moveToRef, const NiPoint3* a_dropLoc = 0, const NiPoint3* a_rotate = 0) override;  // 056
@@ -547,8 +546,10 @@ namespace RE
 		[[nodiscard]] float                     GetActorValueModifier(ACTOR_VALUE_MODIFIER a_modifier, ActorValue a_value) const;
 		[[nodiscard]] float                     GetAimAngle() const;
 		[[nodiscard]] float                     GetAimHeading() const;
+		float                                   GetAttackReach() const;
 		[[nodiscard]] InventoryEntryData*       GetAttackingWeapon();
 		[[nodiscard]] const InventoryEntryData* GetAttackingWeapon() const;
+		float                                   GetBoundRadius() const;
 		[[nodiscard]] bhkCharacterController*   GetCharController() const;
 		void                                    GetCollisionFilterInfo(CFilter& a_outCollisionFilterInfo);
 		[[nodiscard]] NiPointer<Actor>          GetCommandingActor() const;
@@ -629,6 +630,7 @@ namespace RE
 		[[nodiscard]] bool                      IsMoving() const;
 		[[nodiscard]] bool                      IsOnMount() const;
 		[[nodiscard]] bool                      IsOverEncumbered() const;
+		bool                                    IsPathing() const;
 		[[nodiscard]] bool                      IsPlayerTeammate() const;
 		[[nodiscard]] bool                      IsPowerAttacking() const;
 		[[nodiscard]] bool                      IsProtected() const;
@@ -643,6 +645,7 @@ namespace RE
 		void                                    ProcessVATSAttack(MagicCaster* a_caster, bool a_hasTargetAnim, TESObjectREFR* a_target, bool a_leftHand);
 		void                                    RemoveAnimationGraphEventSink(BSTEventSink<BSAnimationGraphEvent>* a_sink) const;
 		void                                    RemoveCastScroll(SpellItem* a_spell, MagicSystem::CastingSource a_source);
+		void                                    RefreshEquippedActorValueCharge(const RE::TESForm* a_object, const RE::ExtraDataList* a_extraList, bool a_isLeft);
 		void                                    RemoveExtraArrows3D();
 		void                                    RemoveFromFaction(TESFaction* a_faction);
 		void                                    RemoveOutfitItems(BGSOutfit* a_outfit);
@@ -727,8 +730,8 @@ namespace RE
 	BSTSmartPointer<BipedAnim>                        biped;                             /* 260 */ \
 	float                                             armorRating;                       /* 268 */ \
 	float                                             armorBaseFactorSum;                /* 26C */ \
-	std::int8_t                                       soundCallBackSet;                  /* 271 */ \
-	std::uint8_t                                      unk271;                            /* 270 */ \
+	std::int8_t                                       soundCallBackSet;                  /* 270 */ \
+	std::uint8_t                                      unk271;                            /* 271 */ \
 	std::uint8_t                                      unk272;                            /* 272 */ \
 	std::uint8_t                                      unk273;                            /* 273 */ \
 	std::uint32_t                                     unk274;                            /* 274 */ \

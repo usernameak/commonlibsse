@@ -267,6 +267,15 @@ namespace REL
 		return safe_write(a_dst, std::addressof(a_data), sizeof(T), a_expected.data(), N);
 	}
 
+	template <std::ranges::contiguous_range R>
+	void safe_write(std::uintptr_t a_dst, R&& a_data)
+	{
+		safe_write(
+			a_dst,
+			std::ranges::data(a_data),
+			std::ranges::size(a_data) * sizeof(std::ranges::range_value_t<R>));
+	}
+
 	template <class T>
 	void safe_write(std::uintptr_t a_dst, std::span<T> a_data)
 	{

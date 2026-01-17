@@ -30,5 +30,10 @@ namespace RE
 		void SaveGame(BGSSaveFormBuffer* a_buf) override;                    // 06/07
 		void LoadGame(BGSLoadFormBuffer* a_buf) override;                    // 07/08
 		void Revert(BGSLoadFormBuffer* a_buf) override;                      // 08/09
+
+		std::uint64_t unk20;  // 20
+		std::uint64_t unk28;  // 28
+		std::uint64_t unk30;  // 30
 	};
+	static_assert(sizeof(VATSCameraState) == 0x38);
 }

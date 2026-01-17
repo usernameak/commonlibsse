@@ -42,6 +42,8 @@ namespace RE
 #ifndef ENABLE_SKYRIM_AE
 		~BaseExtraList();  // 00, virtual on AE 1.6.629 and later.
 
+		TES_HEAP_REDEFINE_NEW();
+
 		// members
 		BSExtraData*      data = nullptr;      // 00, 08
 		PresenceBitfield* presence = nullptr;  // 08, 10
@@ -181,6 +183,7 @@ namespace RE
 		bool RemoveByType(ExtraDataType a_type);
 
 		BSExtraData*          Add(BSExtraData* a_toAdd);
+		void                  AddActivateRefChild(TESObjectREFR* a_childRef);
 		ObjectRefHandle       GetAshPileRef();
 		std::int32_t          GetCount() const;
 		const char*           GetDisplayName(TESBoundObject* a_baseObject);
@@ -192,10 +195,15 @@ namespace RE
 		ObjectRefHandle       GetTeleportLinkedDoor();
 		bool                  GetWorn() const;
 		bool                  HasQuestObjectAlias();
+		void                  SetActivateParent(TESObjectREFR* a_parentRef, float a_delay);
 		void                  SetCount(std::uint16_t a_count);
+		void                  SetEnchantment(EnchantmentItem* a_enchantment, std::uint16_t a_chargeAmount, bool a_removeOnUnequip);
 		void                  SetEncounterZone(BGSEncounterZone* a_zone);
 		void                  SetExtraFlags(ExtraFlags::Flag a_flags, bool a_enable);
 		void                  SetInventoryChanges(InventoryChanges* a_changes);
+		void                  SetLevCreaModifier(LEV_CREA_MODIFIER a_modifier);
+		void                  SetLinkedRef(TESObjectREFR* a_targetRef, BGSKeyword* a_keyword);
+		void                  SetOverrideName(const char* a_name);
 		void                  SetOwner(TESForm* a_owner);
 
 	private:

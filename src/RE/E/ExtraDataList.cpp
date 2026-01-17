@@ -21,6 +21,15 @@
 
 namespace RE
 {
+#ifndef ENABLE_SKYRIM_AE
+	BaseExtraList::~BaseExtraList()
+	{
+		using func_t = void (*)(BaseExtraList*);
+		static REL::Relocation<func_t> func{ REL::ID(11572) };
+		func(this);
+	}
+#endif
+
 	bool BaseExtraList::PresenceBitfield::HasType(std::uint32_t a_type) const
 	{
 		const std::uint32_t index = (a_type >> 3);
@@ -129,7 +138,7 @@ namespace RE
 
 		bool removed = false;
 
-		while (_extraData.GetData()->GetType() == a_type) {
+		while (_extraData.GetData() && _extraData.GetData()->GetType() == a_type) {
 			auto tmp = _extraData.GetData();
 			_extraData.GetData() = _extraData.GetData()->next;
 			delete tmp;
@@ -137,7 +146,7 @@ namespace RE
 		}
 
 		auto prev = _extraData.GetData();
-		for (auto cur = _extraData.GetData()->next; cur; cur = cur->next) {
+		for (auto cur = _extraData.GetData() ? _extraData.GetData()->next : nullptr; cur; cur = cur->next) {
 			if (cur->GetType() == a_type) {
 				prev->next = cur->next;
 				delete cur;
@@ -156,6 +165,13 @@ namespace RE
 		using func_t = decltype(&ExtraDataList::Add);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(12176, 12315) };
 		return func(this, a_toAdd);
+	}
+
+	void ExtraDataList::AddActivateRefChild(TESObjectREFR* a_childRef)
+	{
+		using func_t = decltype(&ExtraDataList::AddActivateRefChild);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11651, 11797) };
+		return func(this, a_childRef);
 	}
 
 	ObjectRefHandle ExtraDataList::GetAshPileRef()
@@ -280,11 +296,25 @@ namespace RE
 		return func(this);
 	}
 
+	void ExtraDataList::SetActivateParent(TESObjectREFR* a_parentRef, float a_delay)
+	{
+		using func_t = decltype(&ExtraDataList::SetActivateParent);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11647, 11793) };
+		return func(this, a_parentRef, a_delay);
+	}
+
 	void ExtraDataList::SetCount(std::uint16_t a_count)
 	{
 		using func_t = decltype(&ExtraDataList::SetCount);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(11471, 11617) };
 		return func(this, a_count);
+	}
+
+	void ExtraDataList::SetEnchantment(EnchantmentItem* a_enchantment, std::uint16_t a_chargeAmount, bool a_removeOnUnequip)
+	{
+		using func_t = decltype(&ExtraDataList::SetEnchantment);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11921, 12060) };
+		return func(this, a_enchantment, a_chargeAmount, a_removeOnUnequip);
 	}
 
 	void ExtraDataList::SetEncounterZone(BGSEncounterZone* a_zone)
@@ -313,6 +343,40 @@ namespace RE
 		using func_t = decltype(&ExtraDataList::SetInventoryChanges);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(11483, 11600) };
 		return func(this, a_changes);
+	}
+
+	void ExtraDataList::SetLevCreaModifier(LEV_CREA_MODIFIER a_modifier)
+	{
+		if (a_modifier == LEV_CREA_MODIFIER::kNone) {
+			RemoveByType(ExtraDataType::kLevCreaModifier);
+		} else {
+			if (auto xLevCreaModifier = GetByType<ExtraLevCreaModifier>()) {
+				xLevCreaModifier->modifier = a_modifier;
+			} else {
+				xLevCreaModifier = new ExtraLevCreaModifier(a_modifier);
+				Add(xLevCreaModifier);
+			}
+		}
+	}
+
+	void ExtraDataList::SetLinkedRef(TESObjectREFR* a_targetRef, BGSKeyword* a_keyword)
+	{
+		using func_t = decltype(&ExtraDataList::SetLinkedRef);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11633, 11779) };
+		return func(this, a_targetRef, a_keyword);
+	}
+
+	void ExtraDataList::SetOverrideName(const char* a_name)
+	{
+		auto textData = GetByType<RE::ExtraTextDisplayData>();
+		if (!textData) {
+			textData = new RE::ExtraTextDisplayData();
+			Add(textData);
+		}
+
+		if (!textData->displayNameText && !textData->ownerQuest) {
+			textData->SetName(a_name);
+		}
 	}
 
 	void ExtraDataList::SetOwner(TESForm* a_owner)

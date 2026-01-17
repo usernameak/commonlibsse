@@ -20,7 +20,7 @@ namespace RE
 		kHideSubtitle = 6,
 		kShowArrowCount = 7,
 		kHeartBeat = 8,
-		kUnk09 = 9,
+		kSetSubtitlesEnabled = 9,
 		kSetBlinking = 11,
 		kSetFadeOut = 12,
 		kSetPct = 13,

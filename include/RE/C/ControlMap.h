@@ -103,7 +103,9 @@ namespace RE
 		constexpr bool            IsWheelZoomControlsEnabled() const noexcept { return GetRuntimeData().enabledControls.all(UEFlag::kWheelZoom); }
 		void                      PopInputContext(InputContextID a_context);
 		void                      PushInputContext(InputContextID a_context);
-		void                      ToggleControls(UEFlag a_flags, bool a_enable);
+		void                      StoreControls();
+		void                      LoadStoredControls();
+		void                      ToggleControls(UEFlag a_flags, bool a_enable, bool a_storeState);
 
 		struct RUNTIME_DATA
 		{
@@ -111,7 +113,7 @@ namespace RE
 	BSTArray<LinkedMapping>                      linkedMappings;               /* 0E8, VR 108*/ \
 	BSTArray<InputContextID>                     contextPriorityStack;         /* 100, VR 120*/ \
 	REX::EnumSet<UEFlag, std::uint32_t>          enabledControls;              /* 118, VR 138*/ \
-	REX::EnumSet<UEFlag, std::uint32_t>          unk11C;                       /* 11C, VR 13C*/ \
+	REX::EnumSet<UEFlag, std::uint32_t>          storedControls;                       /* 11C, VR 13C*/ \
 	std::int8_t                                  textEntryCount;               /* 120, VR 140*/ \
 	bool                                         ignoreKeyboardMouse;          /* 121, VR 141*/ \
 	bool                                         ignoreActivateDisabledEvents; /* 122, VR 142*/ \

@@ -121,23 +121,43 @@ namespace RE
 		return func(this, a_context);
 	}
 
-	void ControlMap::ToggleControls(UEFlag a_flags, bool a_enable)
+	void ControlMap::StoreControls()
 	{
-		auto oldState = GetRuntimeData().enabledControls;
+		auto& rd = GetRuntimeData();
+		if (rd.storedControls == UEFlag::kInvalid) {
+			rd.storedControls = rd.enabledControls;
+		}
+	}
 
-		if (a_enable) {
-			GetRuntimeData().enabledControls.set(a_flags);
-			if (GetRuntimeData().unk11C != UEFlag::kInvalid) {
-				GetRuntimeData().unk11C.set(a_flags);
-			}
-		} else {
-			GetRuntimeData().enabledControls.reset(a_flags);
-			if (GetRuntimeData().unk11C != UEFlag::kInvalid) {
-				GetRuntimeData().unk11C.reset(a_flags);
-			}
+	void ControlMap::LoadStoredControls()
+	{
+		auto& rd = GetRuntimeData();
+		if (rd.storedControls != UEFlag::kInvalid) {
+			rd.enabledControls = rd.storedControls;
+			rd.storedControls = UEFlag::kInvalid;
+		}
+	}
+
+	void ControlMap::ToggleControls(UEFlag a_flags, bool a_enable, bool a_storeState)
+	{
+		auto& rd = GetRuntimeData();
+		auto  oldState = rd.enabledControls;
+
+		// update enabled controls
+		if (a_enable)
+			rd.enabledControls.set(a_flags);
+		else
+			rd.enabledControls.reset(a_flags);
+
+		// optionally store state
+		if (a_storeState && rd.storedControls != UEFlag::kInvalid) {
+			if (a_enable)
+				rd.storedControls.set(a_flags);
+			else
+				rd.storedControls.reset(a_flags);
 		}
 
-		UserEventEnabled event{ GetRuntimeData().enabledControls, oldState };
+		UserEventEnabled event{ rd.enabledControls, oldState };
 		SendEvent(std::addressof(event));
 	}
 }

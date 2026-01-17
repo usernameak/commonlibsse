@@ -3,6 +3,7 @@
 #include "RE/I/ImageSpaceData.h"
 #include "RE/I/ImageSpaceTexture.h"
 #include "RE/N/NiColor.h"
+#include "RE/N/NiRect.h"
 #include "RE/N/NiSmartPointer.h"
 #include "RE/N/NiTArray.h"
 #include <algorithm>
@@ -483,10 +484,7 @@ namespace RE
 		// members
 		std::uint64_t                        unk00;       /* 000 */
 		std::uint64_t                        unk08;       /* 008 */
-		std::int32_t                         left;        /* 010 */
-		std::int32_t                         right;       /* 014 */
-		std::int32_t                         top;         /* 018 */
-		std::int32_t                         bottom;      /* 01c */
+		NiRect<std::int32_t>                 rect;                // 010
 		NiTPrimitiveArray<ImageSpaceEffect*> effects;     /* 020 */
 		bool                                 initEffects; /* 038 */
 		std::uint32_t                        unk3C;       /* 03C */

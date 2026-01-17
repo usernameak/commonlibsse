@@ -17,7 +17,8 @@ namespace RE
 			kRightController,
 			kHeadset,  // Can be kGamepad when in gamepad mode
 
-			kTotal
+			kTotal,
+			kNone = 0xFFFFFFFF
 		};
 	};
 	using VR_DEVICE = VRControls::VR_DEVICE;

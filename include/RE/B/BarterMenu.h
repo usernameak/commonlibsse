@@ -10,6 +10,8 @@ namespace RE
 	struct ItemCard;
 	struct ItemList;
 
+	class Actor;
+
 	// menuDepth = 0
 	// flags = kPausesGame | kUsesMenuContext | kDisablePauseMenu | kUpdateUsesCursor | kInventoryItemMenu | kCustomRendering
 	// context = kItemMenu
@@ -35,13 +37,14 @@ namespace RE
 	std::uint16_t   pad7A;           /* 4A */             \
 	std::uint32_t   pad7C;           /* 4C */             \
 	BSTArray<void*> unk80;           /* 50 */             \
-	std::uint64_t   unk98;           /* 68 */             \
+	std::int32_t    playerGold;      /* 68 */             \
+	std::int32_t    merchantGold;    /* 6C */             \
 	std::uint32_t   unkA0;           /* 70 */             \
 	bool            pcControlsReady; /* 74 */             \
 	std::uint8_t    padA5;           /* 75 */             \
 	std::uint16_t   padA6;           /* 76 */
 
-			RUNTIME_DATA_CONTENT
+		RUNTIME_DATA_CONTENT
 		};
 		static_assert(sizeof(RUNTIME_DATA) == 0x78);
 
@@ -53,6 +56,8 @@ namespace RE
 		void               PostDisplay() override;                           // 06
 
 		[[nodiscard]] static RefHandle GetTargetRefHandle();
+
+		static void OpenMenu(Actor* a_targetActor);
 
 		[[nodiscard]] inline RUNTIME_DATA& GetRuntimeData() noexcept
 		{

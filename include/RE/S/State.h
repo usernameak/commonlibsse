@@ -214,11 +214,11 @@ namespace RE
 			float                      projectionPosScaleX;                // 044
 			float                      projectionPosScaleY;                // 048
 			std::uint32_t              frameCount;                         // 04C
-			bool                       insideFrame;                        // 050
+			bool                       unk50;                              // 050 - previously misnamed insideFrame
 			bool                       letterbox;                          // 051
 			bool                       unk052;                             // 052
 			bool                       compiledShaderThisFrame;            // 053
-			bool                       useEarlyZ;                          // 054
+			bool                       insideFrame;                        // 054 - previously misnamed useEarlyZ
 			bool                       unk055;                             // 055
 #ifndef ENABLE_SKYRIM_AE
 			RUNTIME_DATA_CONTENT;  // 058, AE,VR 060
@@ -229,7 +229,7 @@ namespace RE
 		static_assert(offsetof(State, screenWidth) == 0x24);
 		static_assert(offsetof(State, frameBufferViewport) == 0x2C);
 		static_assert(offsetof(State, letterbox) == 0x51);
-		static_assert(offsetof(State, useEarlyZ) == 0x54);
+		static_assert(offsetof(State, insideFrame) == 0x54);
 		static_assert(offsetof(State, defaultTextureBlack) == 0x58);
 		static_assert(offsetof(State, defaultTextureWhite) == 0x60);
 		static_assert(offsetof(State, cameraDataCacheA) == 0xa0);
@@ -239,7 +239,7 @@ namespace RE
 		static_assert(offsetof(State, screenWidth) == 0x24);
 		static_assert(offsetof(State, frameBufferViewport) == 0x2C);
 		static_assert(offsetof(State, letterbox) == 0x51);
-		static_assert(offsetof(State, useEarlyZ) == 0x54);
+		static_assert(offsetof(State, insideFrame) == 0x54);
 		static_assert(offsetof(State, defaultTextureBlack) == 0x60);
 		static_assert(offsetof(State, defaultTextureWhite) == 0x68);
 		static_assert(offsetof(State, cameraDataCacheA) == 0xa8);
@@ -249,7 +249,7 @@ namespace RE
 		static_assert(offsetof(State, screenWidth) == 0x24);
 		static_assert(offsetof(State, frameBufferViewport) == 0x2C);
 		static_assert(offsetof(State, letterbox) == 0x51);
-		static_assert(offsetof(State, useEarlyZ) == 0x54);
+		static_assert(offsetof(State, insideFrame) == 0x54);
 #endif
 	}
 }

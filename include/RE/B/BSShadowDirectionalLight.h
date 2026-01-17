@@ -12,15 +12,15 @@ namespace RE
 
 		struct RUNTIME_DATA
 		{
-#define RUNTIME_DATA_CONTENT                                                           \
-	NiPoint3                              lightDirection;            /* 560, VR 5C0 */ \
-	NiPoint3                              previousLightDirection;    /* 56C, VR 5CC */ \
-	NiPointer<NiCamera>                   cullingCamera;             /* 578, VR 5D8 */ \
-	BSTArray<NiPointer<BSCullingProcess>> cullingProcesses;          /* 580, VR 5E0 */ \
-	float                                 startSplitDistances[3];    /* 598, VR 5F8 */ \
-	float                                 endSplitDistances[3];      /* 5A4, VR 604 */ \
-	float                                 lightDirectionUpdateTimer; /* 5B0, VR 610 */ \
-	bool                                  cameraShifted;             /* 5B4, VR 614 */
+#define RUNTIME_DATA_CONTENT                                                                \
+	NiPoint3                              sunVector;                      /* 560, VR 5C0 */ \
+	NiPoint3                              lastSunVector;                  /* 56C, VR 5CC */ \
+	NiPointer<NiCamera>                   fullFrustumCamera;              /* 578, VR 5D8 */ \
+	BSTArray<NiPointer<BSCullingProcess>> fullFrustumCullingProcessArray; /* 580, VR 5E0 */ \
+	float                                 startSplitDistances[3];         /* 598, VR 5F8 */ \
+	float                                 endSplitDistances[3];           /* 5A4, VR 604 */ \
+	float                                 sunUpdate;                      /* 5B0, VR 610 */ \
+	std::uint32_t                         sunUpdateMode;                  /* 5B4, VR 614 */
             RUNTIME_DATA_CONTENT
 		};
 		static_assert(sizeof(RUNTIME_DATA) == 0x58);
@@ -28,15 +28,15 @@ namespace RE
 		~BSShadowDirectionalLight() override;  // 00
 
 		// override (BSShadowLight)
-		bool AreFocusShadowsSupported() override;                                                                              // 04
-		bool IsDirectionalLight() override;                                                                                    // 06
-		void Cull(uint32_t& globalShadowLightCount, uint32_t shadowMaskChannel, NiPointer<NiAVObject> cullingScene) override;  // 09
-		void RenderShadowmaps() override;                                                                                      // 0A
-		void Reset() override;                                                                                                 // 0C
-		void Unk_0D() override;                                                                                                // 0D
-		bool Unk_0E() override;                                                                                                // 0E
-		void Unk_0F() override;                                                                                                // 0F
-		bool SetFrameCamera(const NiCamera& frameCamera) override;                                                             // 10
+		bool          AreFocusShadowsSupported() override;                                                                                                     // 04
+		void          GetIsDirectionalLight() override;                                                                                                        // 06
+		void          Accumulate(std::uint32_t& a_globalShadowLightCount, std::uint32_t& a_shadowMaskChannel, NiPointer<NiAVObject> a_cullingScene) override;  // 09
+		void          Render() override;                                                                                                                       // 0A
+		void          ClearShadowMapData() override;                                                                                                           // 0C
+		std::uint32_t GetPassExtraParam(std::uint32_t a_accumFlag) override;                                                                                   // 0D
+		bool          GetNeedsClipPlanes() override;                                                                                                           // 0E
+		void          UpdateClipPlanes(void* a_unk1, void* a_unk2) override;                                                                                   // 0F
+		bool          UpdateCamera(const NiCamera* a_viewCamera) override;                                                                                     // 10
 
 		[[nodiscard]] inline RUNTIME_DATA& GetShadowDirectionalLightRuntimeData() noexcept
 		{

@@ -1,8 +1,8 @@
 #pragma once
 
 #include "RE/B/BSPointerHandle.h"
+#include "RE/B/BSSimpleList.h"
 #include "RE/B/BSTArray.h"
-#include "RE/B/BSTList.h"
 #include "RE/B/BSTSingleton.h"
 #include "RE/F/FormTypes.h"
 #include "RE/I/InventoryChanges.h"
@@ -194,19 +194,20 @@ namespace RE
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 		TESFileCollection compiledFileCollection;  // D70
 		RUNTIME_DATA_CONTENT
-		std::uint8_t          unkDAA;             // DAA
-		std::uint8_t          padDAB;             // DAB
-		std::uint32_t         padDAC;             // DAC
-		TESRegionDataManager* regionDataManager;  // DB0
-		InventoryChanges*     merchantInventory;  // DB8
+		std::uint8_t          gameSettingsLoadState;  // DAA
+		std::uint8_t          padDAB;                 // DAB
+		std::uint32_t         padDAC;                 // DAC
+		TESRegionDataManager* regionDataManager;      // DB0
+		InventoryChanges*     merchantInventory;      // DB8
 #elif defined(EXCLUSIVE_SKYRIM_VR)
 		std::uint32_t loadedModCount;    // D70 this should be avoided if SkyrimVRESL is available
 		std::uint32_t pad14;             // D74
 		TESFile*      loadedMods[0xFF];  // D78 this should be avoided if SkyrimVRESL is available
 		RUNTIME_DATA_CONTENT
-		std::uint8_t          pad157B[5];         // 157B
-		TESRegionDataManager* regionDataManager;  // 1580
-		InventoryChanges*     merchantInventory;  // 1588
+		std::uint8_t          gameSettingsLoadState;  // 157A
+		std::uint8_t          pad157B[4];             // 157B
+		TESRegionDataManager* regionDataManager;      // 1580
+		InventoryChanges*     merchantInventory;      // 1588
 #endif
 	private:
 		KEEP_FOR_RE()

@@ -42,5 +42,20 @@ namespace RE
 		// override (PlayerInputHandler)
 		bool CanProcess(InputEvent* a_event) override;                                          // 01
 		void ProcessButton(ButtonEvent* a_event, PlayerControlsData* a_movementData) override;  // 04
+
+		ObjectRefHandle dragonHandle;      // 0E8
+		std::uint32_t   unkEC;             // 0EC - bool?
+		std::uint32_t   unkF0;             // 0F0 - bool?
+		std::uint32_t   unkF4;             // 0F4 - float?
+		bool            lockedOnTarget;    // 0F8
+		std::uint8_t    padF9[3];          // 0F9
+		std::uint32_t   unkFC;             // 0FC - float?
+		std::uint32_t   unk100;            // 100
+		std::uint32_t   unk104;            // 104 - float?
+		std::uint32_t   unk108;            // 108
+		ObjectRefHandle targetLockHandle;  // 10C
 	};
+#if defined(EXCLUSIVE_SKYRIM_FLAT)
+	static_assert(sizeof(DragonCameraState) == 0x110);
+#endif
 }

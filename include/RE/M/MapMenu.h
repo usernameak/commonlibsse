@@ -54,11 +54,11 @@ namespace RE
 			RUNTIME_DATA_CONTENT
 		};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
-		static_assert(sizeof(RUNTIME_DATA) == 0x30420);
+		static_assert(sizeof(RUNTIME_DATA) == 0x30430);
 #elif defined(EXCLUSIVE_SKYRIM_VR)
-		static_assert(sizeof(RUNTIME_DATA) == 0x304A0);
+		static_assert(sizeof(RUNTIME_DATA) == 0x304B0);
 #else
-		static_assert(sizeof(RUNTIME_DATA) == 0x30420);
+		static_assert(sizeof(RUNTIME_DATA) == 0x30430);
 #endif
 
 		struct VR_RUNTIME_DATA
@@ -78,17 +78,17 @@ namespace RE
             VR_RUNTIME_DATA_CONTENT;
 		};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
-		static_assert(sizeof(VR_RUNTIME_DATA) == 0x30450);
+		static_assert(sizeof(VR_RUNTIME_DATA) == 0x30460);
 #elif defined(EXCLUSIVE_SKYRIM_VR)
-		static_assert(sizeof(VR_RUNTIME_DATA) == 0x304D0);
+		static_assert(sizeof(VR_RUNTIME_DATA) == 0x304E0);
 #else
-		static_assert(sizeof(VR_RUNTIME_DATA) == 0x30450);
+		static_assert(sizeof(VR_RUNTIME_DATA) == 0x30460);
 #endif
 
 		struct RUNTIME_DATA2
 		{
 #define RUNTIME_DATA2_CONTENT                                                        \
-	RefHandle               cameraOpeningCenter;  /* 000 - defaults to player ref */ \
+	RefHandle               cameraRootRef;        /* 000 - defaults to player ref */ \
 	NiPoint3                playerMarkerPosition; /* 004 */                          \
 	BSTArray<MapMenuMarker> mapMarkers;           /* 010 */                          \
 	BSTArray<GFxValue>      markerData;           /* 028 */                          \
@@ -113,7 +113,7 @@ namespace RE
 		struct VR_RUNTIME_DATA2
 		{
 #define VR_RUNTIME_DATA2_CONTENT                                                     \
-	RefHandle               cameraOpeningCenter;  /* 000 - defaults to player ref */ \
+	RefHandle               cameraRootRef;        /* 000 - defaults to player ref */ \
 	NiPoint3                playerMarkerPosition; /* 004 */                          \
 	BSTArray<MapMenuMarker> mapMarkers;           /* 010 */                          \
 	BSTArray<GFxValue>      markerData;           /* 028 */                          \
@@ -270,9 +270,9 @@ namespace RE
 		KEEP_FOR_RE()
 	};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
-	static_assert(sizeof(MapMenu) == 0x30550);
+	static_assert(sizeof(MapMenu) == 0x30560);
 #elif defined(EXCLUSIVE_SKYRIM_VR)
-	static_assert(sizeof(MapMenu) == 0x30640);
+	static_assert(sizeof(MapMenu) == 0x30650);
 #else
 	static_assert(sizeof(MapMenu) == 0x30);
 #endif

@@ -335,6 +335,13 @@ namespace RE
 		return heading - aimHeadingCurrent;
 	}
 
+	float Actor::GetAttackReach() const
+	{
+		using func_t = decltype(&Actor::GetAttackReach);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(37588, 38538) };
+		return func(this);
+	}
+
 	InventoryEntryData* Actor::GetAttackingWeapon()
 	{
 		auto* _currentProcess = GetActorRuntimeData().currentProcess;
@@ -422,6 +429,13 @@ namespace RE
 			return GetActorRuntimeData().currentProcess->GetCurrentShout();
 		}
 		return nullptr;
+	}
+
+	float Actor::GetBoundRadius() const
+	{
+		using func_t = decltype(&Actor::GetBoundRadius);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(36444, 37439) };
+		return func(this);
 	}
 
 	InventoryEntryData* Actor::GetEquippedEntryData(bool a_leftHand) const
@@ -571,18 +585,18 @@ namespace RE
 		return func(this, a_outMount);
 	}
 
-	double Actor::GetMoveDirectionRelativeToFacing()
-	{
-		using func_t = decltype(&Actor::GetMoveDirectionRelativeToFacing);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(36935, 37960) };
-		return func(this);
-	}
-
 	bool Actor::GetMountedBy(NiPointer<Actor>& a_outRider)
 	{
 		using func_t = decltype(&Actor::GetMountedBy);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(37758, 38703) };
 		return func(this, a_outRider);
+	}
+
+	double Actor::GetMoveDirectionRelativeToFacing()
+	{
+		using func_t = decltype(&Actor::GetMoveDirectionRelativeToFacing);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(36935, 37960) };
+		return func(this);
 	}
 
 	ObjectRefHandle Actor::GetOccupiedFurniture() const
@@ -621,13 +635,6 @@ namespace RE
 			return runtimeData.currentProcess->GetRegenDelay(a_actorValue);
 		}
 		return 0.0f;
-	}
-
-	bool Actor::GetRider(NiPointer<Actor>& a_outRider)
-	{
-		using func_t = decltype(&Actor::GetRider);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(37758, 38703) };
-		return func(this, a_outRider);
 	}
 
 	TESObjectARMO* Actor::GetSkin() const
@@ -833,7 +840,7 @@ namespace RE
 	bool Actor::IsAnimationDriven() const
 	{
 		bool result = false;
-		return GetGraphVariableBool("bAnimationDriven", result) && result;
+		return GetGraphVariableBool(FixedStrings::GetSingleton()->bAnimationDriven, result) && result;
 	}
 
 	bool Actor::IsBeingRidden() const
@@ -985,6 +992,13 @@ namespace RE
 		return func(this);
 	}
 
+	bool Actor::IsPathing() const
+	{
+		using func_t = decltype(&Actor::IsPathing);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(36812, 37828) };
+		return func(this);
+	}
+
 	bool Actor::IsPlayerTeammate() const
 	{
 		return GetActorRuntimeData().boolBits.all(BOOL_BITS::kPlayerTeammate);
@@ -1005,7 +1019,7 @@ namespace RE
 	bool Actor::IsRotationAllowed() const
 	{
 		bool result = false;
-		return GetGraphVariableBool("bAllowRotation", result) && result;
+		return GetGraphVariableBool(FixedStrings::GetSingleton()->bAllowRotation, result) && result;
 	}
 
 	bool Actor::IsRunning() const
@@ -1072,6 +1086,13 @@ namespace RE
 		using func_t = decltype(&Actor::ProcessVATSAttack);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(40230, 41233) };
 		return func(this, a_caster, a_hasTargetAnim, a_target, a_leftHand);
+	}
+
+	void Actor::RefreshEquippedActorValueCharge(const RE::TESForm* a_object, const RE::ExtraDataList* a_extraList, bool a_isLeft)
+	{
+		using func_t = decltype(&Actor::RefreshEquippedActorValueCharge);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(38752, 37803) };
+		return func(this, a_object, a_extraList, a_isLeft);
 	}
 
 	void Actor::RemoveAnimationGraphEventSink(BSTEventSink<BSAnimationGraphEvent>* a_sink) const

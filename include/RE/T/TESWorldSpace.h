@@ -1,11 +1,12 @@
 #pragma once
 
+#include "RE/B/BSSimpleList.h"
 #include "RE/B/BSString.h"
 #include "RE/B/BSTArray.h"
 #include "RE/B/BSTHashMap.h"
-#include "RE/B/BSTList.h"
 #include "RE/F/FormTypes.h"
 #include "RE/N/NiPoint2.h"
+#include "RE/N/NiPoint3.h"
 #include "RE/N/NiSmartPointer.h"
 #include "RE/N/NiTPointerMap.h"
 #include "RE/T/TESForm.h"
@@ -169,19 +170,20 @@ namespace RE
 		~TESWorldSpace() override;  // 00
 
 		// override (TESForm)
-		void        InitializeData() override;                                          // 04
-		void        ClearData() override;                                               // 05
-		bool        Load(TESFile* a_mod) override;                                      // 06
-		bool        LoadPartial(TESFile* a_mod) override;                               // 07
-		TESForm*    CreateDuplicateForm(bool a_createEditorID, void* a_arg2) override;  // 09
-		bool        FindInFileFast(TESFile* a_mod) override;                            // 0C
-		void        InitItemImpl() override;                                            // 13
-		const char* GetFormEditorID() const override;                                   // 32 - { return editorID.c_str(); }
-		bool        SetFormEditorID(const char* a_str) override;                        // 33 - { editorID = a_str; }
-		bool        IsParentForm() override;                                            // 34 - { return true; }
-		bool        IsFormTypeChild(FormType a_type) override;                          // 36
+		void        InitializeData() override;                                                                          // 04
+		void        ClearData() override;                                                                               // 05
+		bool        Load(TESFile* a_mod) override;                                                                      // 06
+		bool        LoadPartial(TESFile* a_mod) override;                                                               // 07
+		TESForm*    CreateDuplicateForm(bool a_createEditorID, NiTPointerMap<TESForm*, TESForm*>* a_copyMap) override;  // 09
+		bool        FindInFileFast(TESFile* a_mod) override;                                                            // 0C
+		void        InitItemImpl() override;                                                                            // 13
+		const char* GetFormEditorID() const override;                                                                   // 32 - { return editorID.c_str(); }
+		bool        SetFormEditorID(const char* a_str) override;                                                        // 33 - { editorID = a_str; }
+		bool        IsParentForm() override;                                                                            // 34 - { return true; }
+		bool        IsFormTypeChild(FormType a_type) override;                                                          // 36
 
 		[[nodiscard]] bool           HasMaxHeightData() const;
+		[[nodiscard]] bool           GetMaxHeightAt(const NiPoint3& xy, float& outHeight);
 		[[nodiscard]] TESObjectCELL* GetSkyCell();
 		[[nodiscard]] float          GetDefaultWaterHeight() const;
 

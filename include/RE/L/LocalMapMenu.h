@@ -20,7 +20,7 @@ namespace RE
 	struct LocalMapMenu
 	{
 	public:
-		struct LocalMapCullingProcess
+		struct LocalMapCullingProcess  // actually: LocalMapRenderer
 		{
 		public:
 			struct Data
@@ -51,35 +51,35 @@ namespace RE
 
 			// members
 			BSCullingProcess cullingProcess;  // 00000
-			Data             unk301F8;        // 301F8
-			std::uint64_t    unk30240;        // 30240
-			std::uint64_t    unk30248;        // 30248
+			BSCullingJob     cullingJob;      // 301F8
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
-			std::uint64_t                  unk30250;  // 30250
-			std::uint64_t                  unk30258;  // 30258
-			LocalMapCamera                 camera;    // 30260
-			NiPointer<BSShaderAccumulator> unk302C8;  // 302C8
-			ImageSpaceShaderParam          unk302D0;  // 302D0
-			std::uint64_t                  unk30350;  // 30350
-			NiPointer<NiNode>              unk30358;  // 30358
+			std::uint64_t                  unk30250;                                    // 30250
+			std::uint64_t                  unk30258;                                    // 30258
+			LocalMapCamera                 camera;                                      // 30260
+			NiPointer<BSShaderAccumulator> accumulator;                                 // 302C8
+			ImageSpaceShaderParam          imageSpaceShaderParamimageSpaceShaderParam;  // 302D0
+			std::uint32_t                  renderTarget;                                // 30350
+			std::uint32_t                  renderMode;                                  // 30354
+			NiPointer<NiNode>              unk30358;                                    // 30358
 #elif defined(EXCLUSIVE_SKYRIM_VR)
-			std::uint64_t                  padVR1;    // 30250
-			std::uint64_t                  padVR2;    // 30258
-			std::uint64_t                  unk30260;  // 30260
-			std::uint64_t                  unk30268;  // 30268
-			LocalMapCamera                 camera;    // 30270
-			NiPointer<BSShaderAccumulator> unk302D8;  // 302D8
-			ImageSpaceShaderParam          unk302E0;  // 302E0
-			std::uint64_t                  unk30360;  // 30360
-			NiPointer<NiNode>              unk30368;  // 30368
-			BSTArray<void*>                unk30370;  // 30370
-			BSTArray<void*>                unk30388;  // 30388
-			BSTArray<void*>                unk303A0;  // 303A0
-			void*                          unk303B8;  // 303B8
-			NiCamera*                      unk303C0;  // 303C0
-			std::uint32_t                  unk303C8;  // 303C8
-			std::uint32_t                  pad303CC;  // 303CC
-			std::uint64_t                  unk303D0;  // 303D0
+			std::uint64_t                  padVR1;                 // 30250
+			std::uint64_t                  padVR2;                 // 30258
+			std::uint64_t                  unk30260;               // 30260
+			std::uint64_t                  unk30268;               // 30268
+			LocalMapCamera                 camera;                 // 30270
+			NiPointer<BSShaderAccumulator> accumulator;            // 302D8
+			ImageSpaceShaderParam          imageSpaceShaderParam;  // 302E0
+			std::uint32_t                  renderTarget;           // 30360
+			std::uint32_t                  renderMode;             // 30364
+			NiPointer<NiNode>              unk30358;               // 30368
+			BSTArray<void*>                unk30370;               // 30370
+			BSTArray<void*>                unk30388;               // 30388
+			BSTArray<void*>                unk303A0;               // 303A0
+			void*                          unk303B8;               // 303B8
+			NiCamera*                      unk303C0;               // 303C0
+			std::uint32_t                  unk303C8;               // 303C8
+			std::uint32_t                  pad303CC;               // 303CC
+			std::uint64_t                  unk303D0;               // 303D0
 #else
 			std::uint64_t unk30250;         // 30250
 			std::uint64_t unk30258;         // 30258
@@ -87,9 +87,11 @@ namespace RE
 #endif
 		};
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
-		static_assert(sizeof(LocalMapCullingProcess) == 0x30360);
+		static_assert(sizeof(LocalMapCullingProcess) == 0x30370);
 #elif defined(EXCLUSIVE_SKYRIM_VR)
-		static_assert(sizeof(LocalMapCullingProcess) == 0x303D8);
+		static_assert(sizeof(LocalMapCullingProcess) == 0x303E8);
+#else
+		static_assert(sizeof(LocalMapCullingProcess) == 0x30370);
 #endif
 
 		class InputHandler : public MenuEventHandler
@@ -152,9 +154,11 @@ namespace RE
 	private:
 		KEEP_FOR_RE()
 	};
-#if defined(EXCLUSIVE_SKYRIM_VR)
-	static_assert(sizeof(LocalMapMenu) == 0x30480);
+#if defined(EXCLUSIVE_SKYRIM_FLAT)
+	static_assert(sizeof(LocalMapMenu) == 0x30410);
+#elif defined(EXCLUSIVE_SKYRIM_VR)
+	static_assert(sizeof(LocalMapMenu) == 0x30490);
 #else
-	static_assert(sizeof(LocalMapMenu) == 0x30400);
+	static_assert(sizeof(LocalMapMenu) == 0x30410);
 #endif
 }

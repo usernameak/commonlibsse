@@ -2,11 +2,11 @@
 
 #include "RE/B/BGSDefaultObjectManager.h"
 #include "RE/B/BSPointerHandle.h"
+#include "RE/B/BSSimpleList.h"
 #include "RE/B/BSSoundHandle.h"
 #include "RE/B/BSTArray.h"
 #include "RE/B/BSTEvent.h"
 #include "RE/B/BSTHashMap.h"
-#include "RE/B/BSTList.h"
 #include "RE/B/BSTSmartPointer.h"
 #include "RE/B/BSTTuple.h"
 #include "RE/C/Character.h"
@@ -397,25 +397,25 @@ namespace RE
 			bool          pad5_5: 3;  // 5:5
 			std::uint16_t pad6;       // 6
 #else
-			bool unk5_5: 1;                                                                // 5:5
-			bool unk5_6: 1;                                                                // 5:6
-			bool unk5_7: 1;                                                                // 5:7
-			bool unk6_0: 1;                                                                // 6:0
-			bool unk6_1: 1;                                                                // 6:1
-			bool unk6_2: 1;                                                                // 6:2
-			bool unk6_3: 1;                                                                // 6:3
-			bool unk6_4: 1;                                                                // 6:4
-			bool unk6_5: 1;                                                                // 6:5
-			bool unk6_6: 1;                                                                // 6:6
-			bool unk6_7: 1;                                                                // 6:7
-			bool unk7_0: 1;                                                                // 7:0
-			bool unk7_1: 1;                                                                // 7:1
-			bool unk7_2: 1;                                                                // 7:2
-			bool unk7_3: 1;                                                                // 7:3
-			bool unk7_4: 1;                                                                // 7:4
-			bool unk7_5: 1;                                                                // 7:5
-			bool unk7_6: 1;                                                                // 7:6
-			bool unk7_7: 1;                                                                // 7:7
+			bool unk5_5: 1;  // 5:5
+			bool unk5_6: 1;  // 5:6
+			bool unk5_7: 1;  // 5:7
+			bool unk6_0: 1;  // 6:0
+			bool unk6_1: 1;  // 6:1
+			bool unk6_2: 1;  // 6:2
+			bool unk6_3: 1;  // 6:3
+			bool unk6_4: 1;  // 6:4
+			bool unk6_5: 1;  // 6:5
+			bool unk6_6: 1;  // 6:6
+			bool unk6_7: 1;  // 6:7
+			bool unk7_0: 1;  // 7:0
+			bool unk7_1: 1;  // 7:1
+			bool unk7_2: 1;  // 7:2
+			bool unk7_3: 1;  // 7:3
+			bool unk7_4: 1;  // 7:4
+			bool unk7_5: 1;  // 7:5
+			bool unk7_6: 1;  // 7:6
+			bool unk7_7: 1;  // 7:7
 #endif
 		};
 		static_assert(sizeof(PlayerFlags) == 0x8);
@@ -467,7 +467,7 @@ namespace RE
 	std::int32_t                              difficulty;      /* 0 */ \
 	ActorHandle                               assumedIdentity; /* 4 */ \
 	std::int8_t                               murder;          /* 8 */ \
-	std::int8_t                               perkCount;       /* 9 */ \
+	std::uint8_t                              perkCount;       /* 9 */ \
 	REX::EnumSet<ByCharGenFlag, std::uint8_t> byCharGenFlag;   /* A */ \
 	std::uint8_t                              padB;            /* B */
 
@@ -526,6 +526,7 @@ namespace RE
 			};
 			static_assert(sizeof(Data) == 0x128);
 
+			bool CanLevelUp();
 			void AdvanceLevel(bool a_addThreshold);
 
 			// members
@@ -683,6 +684,7 @@ namespace RE
 		[[nodiscard]] NiPointer<Actor>         GetActorDoingPlayerCommand() const;
 		[[nodiscard]] float                    GetArmorValue(InventoryEntryData* a_form);
 		[[nodiscard]] float                    GetDamage(InventoryEntryData* a_form);
+		float                                  GetEquippedWeaponsDamage();
 		[[nodiscard]] NiPointer<TESObjectREFR> GetGrabbedRef(VR_DEVICE a_device = VR_DEVICE::kLeftController);
 		[[nodiscard]] std::int32_t             GetItemCount(TESBoundObject* a_object);
 		[[nodiscard]] std::uint32_t            GetNumTints(std::uint32_t a_tintType);

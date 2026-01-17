@@ -1,6 +1,8 @@
 #pragma once
 
+#include "RE/B/BSPointerHandle.h"
 #include "RE/B/BSString.h"
+#include "RE/E/ExtraMapMarker.h"
 #include "RE/H/HUDMessageTypes.h"
 #include "RE/I/IUIMessageData.h"
 
@@ -12,8 +14,9 @@ namespace RE
 	class HUDData : public IUIMessageData
 	{
 	public:
-		inline static constexpr auto RTTI = RTTI_HUDData;
-		inline static constexpr auto VTABLE = VTABLE_HUDData;
+		inline static constexpr auto             RTTI = RTTI_HUDData;
+		inline static constexpr auto             VTABLE = VTABLE_HUDData;
+		inline static constexpr std::string_view CLASS_NAME = "HUDData";
 
 		~HUDData() override;  // 00
 

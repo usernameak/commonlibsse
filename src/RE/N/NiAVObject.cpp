@@ -14,6 +14,7 @@
 #include "RE/B/bhkRigidBody.h"
 #include "RE/H/hkpRigidBody.h"
 #include "RE/N/NiColor.h"
+#include "RE/N/NiCullingProcess.h"
 #include "RE/N/NiNode.h"
 #include "RE/N/NiProperty.h"
 #include "RE/N/NiRTTI.h"
@@ -21,13 +22,6 @@
 
 namespace RE
 {
-	NiAVObject* NiAVObject::Clone()
-	{
-		using func_t = decltype(&NiAVObject::Clone);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(68835, 70187) };
-		return func(this);
-	}
-
 	void NiAVObject::CullGeometry(bool a_cull)
 	{
 		BSVisit::TraverseScenegraphGeometries(this, [&](BSGeometry* a_geo) -> BSVisit::BSVisitControl {
@@ -407,9 +401,9 @@ namespace RE
 		REL::RelocateVirtual<decltype(&NiAVObject::PostAttachUpdate)>(0x33, 0x34, this);
 	}
 
-	void NiAVObject::OnVisible(NiCullingProcess& a_process)
+	void NiAVObject::OnVisible(NiCullingProcess& a_process, std::int32_t a_alphaGroupIndex)
 	{
-		REL::RelocateVirtual<decltype(&NiAVObject::OnVisible)>(0x34, 0x35, this, a_process);
+		REL::RelocateVirtual<decltype(&NiAVObject::OnVisible)>(0x34, 0x35, this, a_process, a_alphaGroupIndex);
 	}
 #endif
 	BSLightingShaderProperty* NiAVObject::temp_nicast(BSGeometry* a_geometry)
@@ -423,5 +417,16 @@ namespace RE
 			}
 		}
 		return nullptr;
+	}
+
+	int NiAVObject::IsVisualObjectI()
+	{
+		return *reinterpret_cast<std::int32_t*>(&worldBound.radius);
+	}
+
+	void NiAVObject::Cull(NiCullingProcess* a_culler, const std::int32_t a_alphaGroupIndex)
+	{
+		if (!GetAppCulled())
+			a_culler->Process1(this, a_alphaGroupIndex);
 	}
 }

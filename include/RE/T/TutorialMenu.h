@@ -1,5 +1,6 @@
 #pragma once
 
+#include "RE/B/BGSDefaultObjectManager.h"
 #include "RE/G/GFxValue.h"
 #include "RE/I/IMenu.h"
 
@@ -31,12 +32,11 @@ namespace RE
 			REL::RelocateMember<GFxValue>(this, 0x30, 0x40) = a_root;
 		}
 
-		static void OpenTutorialMenu(DEFAULT_OBJECT a_tutorial)
-		{
-			using func_t = decltype(&TutorialMenu::OpenTutorialMenu);
-			static REL::Relocation<func_t> func{ RELOCATION_ID(51818, 52692) };
-			return func(a_tutorial);
-		}
+		static BSTArray<DEFAULT_OBJECT>& QTutorialsShown();
+
+		static void OpenMenu(DEFAULT_OBJECT a_id);
+		static void OpenMenu(BGSMessage* a_message);
+		static void OpenMenu(DEFAULT_OBJECT a_id, BGSMessage* a_message);
 
 		// members
 #ifndef SKYRIM_CROSS_VR
