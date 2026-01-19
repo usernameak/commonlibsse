@@ -5,6 +5,7 @@
 
 #include <spdlog/sinks/basic_file_sink.h>
 #include <spdlog/sinks/msvc_sink.h>
+#include <spdlog/sinks/rotating_file_sink.h>
 #include <spdlog/spdlog.h>
 
 namespace SKSE
@@ -99,9 +100,15 @@ namespace SKSE
 					*path /= std::format("{}.log", info.logName ? info.logName : SKSE::GetPluginName());
 
 					std::vector<spdlog::sink_ptr> sinks{
-						std::make_shared<spdlog::sinks::basic_file_sink_mt>(path->string(), true),
 						std::make_shared<spdlog::sinks::msvc_sink_mt>()
 					};
+
+					if (info.logRotate > 0) {
+						constexpr auto maxSize = std::numeric_limits<std::size_t>::max();
+						sinks.push_back(std::make_shared<spdlog::sinks::rotating_file_sink_mt>(path->string(), maxSize, info.logRotate, true));
+					} else {
+						sinks.push_back(std::make_shared<spdlog::sinks::basic_file_sink_mt>(path->string(), true));
+					}
 
 					auto logger = std::make_shared<spdlog::logger>("global", sinks.begin(), sinks.end());
 					logger->set_level(static_cast<spdlog::level::level_enum>(info.logLevel));
