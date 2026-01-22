@@ -10,6 +10,8 @@ using namespace DirectX::SimpleMath;
 
 namespace RE
 {
+	class NiCamera;
+
 	namespace BSGraphics
 	{
 		//WARNING: Structs containing ViewData appear to break when returned via RelocateMember due to incorrect offsets.
@@ -198,6 +200,14 @@ namespace RE
 				}
 				return false;
 			}
+
+			void SetCameraData(const NiCamera* a_camera, std::uint32_t a_flags)
+			{
+				using func_t = decltype(&State::SetCameraData);
+				static REL::Relocation<func_t> func{ RELOCATION_ID(75694, 77503) };
+				return func(this, a_camera, a_flags);
+			}
+
 			// members
 			NiPointer<NiSourceTexture> defaultTextureProjNoiseMap;         // 000
 			NiPointer<NiSourceTexture> defaultTextureProjDiffuseMap;       // 008
