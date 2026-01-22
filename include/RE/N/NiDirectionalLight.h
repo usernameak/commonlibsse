@@ -53,12 +53,12 @@ namespace RE
 		// members
 
 #ifndef SKYRIM_CROSS_VR
-	RUNTIME_DATA_CONTENT  // 140, 168
+		RUNTIME_DATA_CONTENT  // 140, 168
 #endif
 
-		private :
-		NiDirectionalLight*
-		Ctor()
+			private :
+			NiDirectionalLight*
+			Ctor()
 		{
 			using func_t = decltype(&NiDirectionalLight::Ctor);
 			static REL::Relocation<func_t> func{ RELOCATION_ID(69692, 71073) };

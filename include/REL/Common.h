@@ -252,8 +252,9 @@
  */
 #define SIZE_UNDEFINED 0x0
 
-#define STATIC_ASSERT_SIZE(...) \
-	_STATIC_ASSERT_SIZE_DISPATCH(__VA_ARGS__, _STATIC_ASSERT_SIZE_6, _STATIC_ASSERT_SIZE_5, _STATIC_ASSERT_SIZE_4, _STATIC_ASSERT_SIZE_3, _STATIC_ASSERT_SIZE_2, _STATIC_ASSERT_SIZE_1)(__VA_ARGS__)
+#define STATIC_ASSERT_SIZE(...)                                                                                                                                                         \
+	_STATIC_ASSERT_SIZE_DISPATCH(__VA_ARGS__, _STATIC_ASSERT_SIZE_6, _STATIC_ASSERT_SIZE_5, _STATIC_ASSERT_SIZE_4, _STATIC_ASSERT_SIZE_3, _STATIC_ASSERT_SIZE_2, _STATIC_ASSERT_SIZE_1) \
+	(__VA_ARGS__)
 #define _STATIC_ASSERT_SIZE_DISPATCH(_1, _2, _3, _4, _5, _6, NAME, ...) NAME
 
 // 1 arg: Error - need at least class name and one size

@@ -1820,6 +1820,7 @@ set(SOURCES
 	include/REL/Pattern.h
 	include/REL/REL.h
 	include/REL/Relocation.h
+	include/REL/RuntimeDataAccessors.h
 	include/REL/Version.h
 	include/REX/PS4.h
 	include/REX/PS4/SCEPAD.h
