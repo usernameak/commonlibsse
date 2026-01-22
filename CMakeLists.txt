@@ -91,6 +91,9 @@ if(MSVC)
 		# Enhanced debug information for optimized code (includes all type info in PDB for RE/debugging)
 		"$<$<CONFIG:Debug>:/Zo>"
 
+		# Standards conformance
+		/Zc:preprocessor # Enable conforming preprocessor (required for STATIC_ASSERT_SIZE variadic macro)
+
 		# disable warnings
 		"$<$<CONFIG:Debug>:/wd4702>" # unreachable code: debug builds don't optimize away compile-time conditionals
 		/wd4005 # macro redefinition
