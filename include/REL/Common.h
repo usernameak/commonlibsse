@@ -268,9 +268,9 @@
 
 // 3 args: ClassName, FlatSize, VRSize
 // Sets Flat for EXCLUSIVE_SKYRIM_FLAT and VR for EXCLUSIVE_SKYRIM_VR.
-// Does NOT assume SE or AE equal Flat; SESize/AESize are undefined (SIZE_UNDEFINED).
+// Does assume SE and AE equal Flat.
 #define _STATIC_ASSERT_SIZE_3(ClassName, FlatSize, VRSize) \
-	_STATIC_ASSERT_SIZE_6(ClassName, SIZE_UNDEFINED, SIZE_UNDEFINED, VRSize, SIZE_UNDEFINED, FlatSize)
+	_STATIC_ASSERT_SIZE_6(ClassName, FlatSize, FlatSize, VRSize, SIZE_UNDEFINED, FlatSize)
 
 // 4 args: ClassName, SESize, AESize, VRSize
 // SE, AE and VR specified. Flat is left undefined (SIZE_UNDEFINED) unless explicitly provided via 6-arg.
