@@ -581,7 +581,6 @@ namespace RE
 		[[nodiscard]] bool                      GetPlayerControls() const;
 		[[nodiscard]] TESRace*                  GetRace() const;
 		[[nodiscard]] float                     GetRegenDelay(ActorValue a_actorValue) const;
-		[[nodiscard]] bool                      GetRider(NiPointer<Actor>& a_outRider);
 		[[nodiscard]] TESObjectARMO*            GetSkin() const;
 		[[nodiscard]] TESObjectARMO*            GetSkin(BGSBipedObjectForm::BipedObjectSlot a_slot, bool a_noInit = false);
 		[[nodiscard]] SOUL_LEVEL                GetSoulSize() const;
