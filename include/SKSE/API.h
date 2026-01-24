@@ -60,7 +60,7 @@ namespace SKSE
 namespace SKSE
 {
 	// DEPRECATED
-	void Init(const LoadInterface* a_intfc, bool a_log) noexcept;
+	[[deprecated("Use F4SE::Init(..., {}) instead")]] void Init(const LoadInterface* a_intfc, bool a_log) noexcept;
 	// DEPRECATED
-	void AllocTrampoline(std::size_t a_size, bool a_trySKSEReserve = true) noexcept;
+	[[deprecated("Use F4SE::Init(..., {}) instead")]] void AllocTrampoline(std::size_t a_size, bool a_trySKSEReserve = true) noexcept;
 }
