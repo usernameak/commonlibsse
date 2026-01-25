@@ -1,3 +1,9 @@
+## [4.1.1](https://github.com/alandtse/CommonLibVR/compare/v4.1.0...v4.1.1) (2026-01-25)
+
+### Bug Fixes
+
+* remove deprecated Actor::GetRider ([cd43719](https://github.com/alandtse/CommonLibVR/commit/cd437192789620935eb8652bb39b89e915a92959))
+
 ## [4.1.0](https://github.com/alandtse/CommonLibVR/compare/v4.0.0...v4.1.0) (2026-01-25)
 
 ### Features
