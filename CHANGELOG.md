@@ -1,3 +1,9 @@
+## [4.1.0](https://github.com/alandtse/CommonLibVR/compare/v4.0.0...v4.1.0) (2026-01-25)
+
+### Features
+
+* **VR:** add GetActiveEffectList shim ([#115](https://github.com/alandtse/CommonLibVR/issues/115)) ([7450dcf](https://github.com/alandtse/CommonLibVR/commit/7450dcfb37f7ba68043fe3833fdbfba97f3fd489))
+
 ## [4.0.0](https://github.com/alandtse/CommonLibVR/compare/v3.7.0...v4.0.0) (2026-01-24)
 
 ### ⚠ BREAKING CHANGES
