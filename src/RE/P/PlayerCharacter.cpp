@@ -4,16 +4,21 @@
 
 namespace RE
 {
+	bool PlayerCharacter::PlayerSkills::CanLevelUp()
+	{
+		return this->data->levelThreshold <= this->data->xp;
+	}
+
 	void PlayerCharacter::PlayerSkills::AdvanceLevel(bool a_addThreshold)
 	{
 		using func_t = decltype(&PlayerCharacter::PlayerSkills::AdvanceLevel);
-		static REL::Relocation<func_t> func{ Offset::PlayerCharacter::PlayerSkills::AdvanceLevel };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(40560, 41567) };
 		return func(this, a_addThreshold);
 	}
 
 	PlayerCharacter* PlayerCharacter::GetSingleton()
 	{
-		static REL::Relocation<NiPointer<PlayerCharacter>*> singleton{ Offset::PlayerCharacter::Singleton };
+		static REL::Relocation<NiPointer<PlayerCharacter>*> singleton{ RELOCATION_ID(517014, 403521) };
 		return singleton->get();
 	}
 
@@ -26,7 +31,7 @@ namespace RE
 	void PlayerCharacter::ActivatePickRef()
 	{
 		using func_t = decltype(&PlayerCharacter::ActivatePickRef);
-		static REL::Relocation<func_t> func{ Offset::PlayerCharacter::ActivatePickRef };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(39471, 40548) };
 		return func(this);
 	}
 
@@ -83,15 +88,22 @@ namespace RE
 	float PlayerCharacter::GetArmorValue(InventoryEntryData* a_form)
 	{
 		using func_t = decltype(&PlayerCharacter::GetArmorValue);
-		static REL::Relocation<func_t> func{ Offset::PlayerCharacter::GetArmorValue };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(39175, 40249) };
 		return func(this, a_form);
 	}
 
 	float PlayerCharacter::GetDamage(InventoryEntryData* a_form)
 	{
 		using func_t = decltype(&PlayerCharacter::GetDamage);
-		static REL::Relocation<func_t> func{ Offset::PlayerCharacter::GetDamage };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(39179, 40253) };
 		return func(this, a_form);
+	}
+
+	float PlayerCharacter::GetEquippedWeaponsDamage()
+	{
+		using func_t = decltype(&PlayerCharacter::GetEquippedWeaponsDamage);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(0, 40252) };
+		return func(this);
 	}
 
 	NiPointer<TESObjectREFR> PlayerCharacter::GetGrabbedRef()
@@ -109,7 +121,7 @@ namespace RE
 	std::uint32_t PlayerCharacter::GetNumTints(std::uint32_t a_tintType)
 	{
 		using func_t = decltype(&PlayerCharacter::GetNumTints);
-		static REL::Relocation<func_t> func{ Offset::PlayerCharacter::GetNumTints };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(39614, 40700) };
 		return func(this, a_tintType);
 	}
 
@@ -136,7 +148,7 @@ namespace RE
 	TintMask* PlayerCharacter::GetTintMask(std::uint32_t a_tintType, std::uint32_t a_index)
 	{
 		using func_t = decltype(&PlayerCharacter::GetTintMask);
-		static REL::Relocation<func_t> func{ Offset::PlayerCharacter::GetTintMask };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(39612, 40698) };
 		return func(this, a_tintType, a_index);
 	}
 
@@ -160,7 +172,7 @@ namespace RE
 	void PlayerCharacter::PlayPickupEvent(TESForm* a_item, TESForm* a_containerOwner, TESObjectREFR* a_containerRef, EventType a_eventType)
 	{
 		using func_t = decltype(&PlayerCharacter::PlayPickupEvent);
-		static REL::Relocation<func_t> func{ Offset::PlayerCharacter::PlayPickupEvent };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(39384, 40456) };
 		return func(this, a_item, a_containerOwner, a_containerRef, a_eventType);
 	}
 
@@ -181,7 +193,7 @@ namespace RE
 	void PlayerCharacter::StartGrabObject()
 	{
 		using func_t = decltype(&PlayerCharacter::StartGrabObject);
-		static REL::Relocation<func_t> func{ Offset::PlayerCharacter::StartGrabObject };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(39475, 40552) };
 		return func(this);
 	}
 

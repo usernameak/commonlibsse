@@ -11,6 +11,7 @@ namespace RE
 
 	class MagicMenuAddSpellVisitor : public Actor::ForEachSpellVisitor
 	{
+	public:
 		inline static constexpr auto RTTI = RTTI___MagicMenuAddSpellVisitor;
 		inline static constexpr auto VTABLE = VTABLE___MagicMenuAddSpellVisitor;
 

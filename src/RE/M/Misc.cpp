@@ -16,14 +16,14 @@ namespace RE
 	bool LookupReferenceByHandle_ActorImpl(const RefHandle& a_handle, NiPointer<Actor>& a_refrOut)
 	{
 		using func_t = decltype(&LookupReferenceByHandle_ActorImpl);
-		static REL::Relocation<func_t> func{ Offset::LookupReferenceByHandle };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(12204, 12332) };
 		return func(a_handle, a_refrOut);
 	}
 
 	bool LookupReferenceByHandle_RefrImpl(const RefHandle& a_handle, NiPointer<TESObjectREFR>& a_refrOut)
 	{
 		using func_t = decltype(&LookupReferenceByHandle_RefrImpl);
-		static REL::Relocation<func_t> func{ Offset::LookupReferenceByHandle };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(12204, 12332) };
 		return func(a_handle, a_refrOut);
 	}
 
@@ -37,7 +37,7 @@ namespace RE
 	void CreateRefHandle(RefHandle& a_handleOut, TESObjectREFR* a_refTo)
 	{
 		using func_t = decltype(&CreateRefHandle);
-		static REL::Relocation<func_t> func{ Offset::CreateRefHandle };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(12193, 12326) };
 		return func(a_handleOut, a_refTo);
 	}
 
@@ -91,7 +91,7 @@ namespace RE
 	void PlaySound(const char* a_editorID)
 	{
 		using func_t = decltype(&PlaySound);
-		static REL::Relocation<func_t> func{ Offset::PlaySound };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(52054, 52939) };
 		return func(a_editorID);
 	}
 

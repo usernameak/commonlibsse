@@ -12,7 +12,7 @@ namespace RE
 	void BipedAnim::RemoveAllParts()
 	{
 		using func_t = decltype(&BipedAnim::RemoveAllParts);
-		static REL::Relocation<func_t> func{ Offset::BipedAnim::RemoveAllParts };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(15494, 15659) };
 		return func(this);
 	}
 
@@ -26,7 +26,7 @@ namespace RE
 	void BipedAnim::Dtor()
 	{
 		using func_t = decltype(&BipedAnim::Dtor);
-		static REL::Relocation<func_t> func{ Offset::BipedAnim::Dtor };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(15491, 15656) };
 		return func(this);
 	}
 }

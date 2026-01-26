@@ -1,6 +1,7 @@
 #pragma once
 
 #include "RE/B/BSFixedString.h"
+#include "RE/B/BSTArray.h"
 
 namespace RE
 {
@@ -26,12 +27,8 @@ namespace RE
 		virtual bool                 Validate(const CombatBehaviorTreeNode* a_node);                                 // 08
 		virtual const BSFixedString& GetType();                                                                      // 09
 
-		void AddChild(CombatBehaviorTreeNode* a_child)
-		{
-			using func_t = decltype(&CombatBehaviorTreeNode::AddChild);
-			static REL::Relocation<func_t> func{ RELOCATION_ID(46304, 47548) };
-			func(this, a_child);
-		}
+		void AddChild(CombatBehaviorTreeNode* a_child);
+		void AddChildren(const BSTArray<CombatBehaviorTreeNode*>& a_children);
 
 		// members
 		BSFixedString            name;        // 08
