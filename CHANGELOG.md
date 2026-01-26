@@ -1,3 +1,9 @@
+## [4.1.2](https://github.com/alandtse/CommonLibVR/compare/v4.1.1...v4.1.2) (2026-01-26)
+
+### Bug Fixes
+
+* **xmake:** Add preprocessor flag ([#116](https://github.com/alandtse/CommonLibVR/issues/116)) ([ad86065](https://github.com/alandtse/CommonLibVR/commit/ad8606599fc7347c9cccefe2da75f9d1ebb4ff20))
+
 ## [4.1.1](https://github.com/alandtse/CommonLibVR/compare/v4.1.0...v4.1.1) (2026-01-25)
 
 ### Bug Fixes
