@@ -4,11 +4,11 @@
 #include "RE/N/NiRefObject.h"
 #include "RE/N/NiSmartPointer.h"
 #include "RE/B/BSCubeMapCamera.h"
+#include "RE/B/BSShaderAccumulator.h"
 
 namespace RE
 {
 	class BSCullingProcess;
-	class BSShaderAccumulator;
 	class BSWaterShaderMaterial;
 
 	class TESWaterReflections : public NiRefObject
