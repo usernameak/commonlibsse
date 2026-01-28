@@ -1,3 +1,9 @@
+## [4.1.3](https://github.com/alandtse/CommonLibVR/compare/v4.1.2...v4.1.3) (2026-01-28)
+
+### Bug Fixes
+
+* GetActiveEffectList and Actor inheritance([#117](https://github.com/alandtse/CommonLibVR/issues/117)) ([f039dcf](https://github.com/alandtse/CommonLibVR/commit/f039dcf97d2e6d0fa7bffd8f1f71f137749ea6df))
+
 ## [4.1.2](https://github.com/alandtse/CommonLibVR/compare/v4.1.1...v4.1.2) (2026-01-26)
 
 ### Bug Fixes
