@@ -135,7 +135,6 @@ namespace RE
 	NiSmartPointer(Actor);
 
 	class Actor :
-#ifndef ENABLE_SKYRIM_AE
 		public TESObjectREFR,                              // 000
 		public MagicTarget,                                // 098, 0A0
 		public ActorValueOwner,                            // 0B0, 0B8
@@ -143,9 +142,6 @@ namespace RE
 		public BSTEventSink<BSTransformDeltaEvent>,        // 0C8, 0D0
 		public BSTEventSink<bhkCharacterMoveFinishEvent>,  // 0D0, 0D8
 		public IPostAnimationChannelUpdateFunctor          // 0D8, 0E0
-#else
-		public TESObjectREFR  // 000
-#endif
 	{
 	private:
 		using EntryPoint = BGSEntryPointPerkEntry::EntryPoint;
@@ -366,42 +362,10 @@ namespace RE
 #endif
 
 		// override (MagicTarget)
-#ifndef ENABLE_SKYRIM_AE
-		[[nodiscard]] Actor* GetTargetStatsObject() override;      // 002 - { return this; }
-		[[nodiscard]] bool   MagicTargetIsActor() const override;  // 003 - { return true; }
-		/**
-		 * @brief Get the list of active effects on this actor
-		 * @return Pointer to list of active effects
-		 * 
-		 * @warning Behavior differs between runtimes:
-		 * 
-		 * @note SE/AE: Returns the game's native persistent list stored in actor memory.
-		 *       The list remains valid and can be safely stored or iterated multiple times.
-		 * 
-		 * @note VR (when running on Skyrim VR): Returns a thread-local temporary snapshot.
-		 *       VR has no native GetActiveEffectList() - this is a compatibility shim.
-		 *       The returned pointer is ONLY valid until the next call to this function on the same thread.
-		 *       DO NOT store the pointer. Iterate immediately and discard.
-		 *       For robust VR code, use MagicTarget::VisitActiveEffects() instead.
-		 */
-		[[nodiscard]] BSSimpleList<ActiveEffect*>* GetActiveEffectList() override;  // 007
-#else
-		/**
-		 * @brief Get the list of active effects on this actor
-		 * @return Pointer to list of active effects
-		 * 
-		 * @warning Behavior differs between runtimes:
-		 * 
-		 * @note SE/AE: Returns the game's native persistent list stored in actor memory.
-		 *       The list remains valid and can be safely stored or iterated multiple times.
-		 * 
-		 * @note VR (when running on Skyrim VR): Returns a thread-local temporary snapshot.
-		 *       VR has no native GetActiveEffectList() - this is a compatibility shim.
-		 *       The returned pointer is ONLY valid until the next call to this function on the same thread.
-		 *       DO NOT store the pointer. Iterate immediately and discard.
-		 *       For robust VR code, use MagicTarget::VisitActiveEffects() instead.
-		 */
-		[[nodiscard]] SKYRIM_REL_VR_VIRTUAL BSSimpleList<ActiveEffect*>* GetActiveEffectList();  // 007
+#ifndef ENABLE_SKYRIM_VR
+		[[nodiscard]] Actor*                       GetTargetStatsObject() override;      // 002 - { return this; }
+		[[nodiscard]] bool                         MagicTargetIsActor() const override;  // 003 - { return true; }
+		[[nodiscard]] BSSimpleList<ActiveEffect*>* GetActiveEffectList() override;       // 007
 #endif
 
 		// add
@@ -791,6 +755,6 @@ namespace RE
 		float       CalcEquippedWeight();
 		TESFaction* GetCrimeFactionImpl() const;
 	};
-	STATIC_ASSERT_SIZE(Actor, 0x2B0, 0x78, 0x2B0, 0x78);
+	STATIC_ASSERT_SIZE(Actor, 0x2B0, 0xD0, 0x2B0, 0xC0);
 }
 #undef RUNTIME_DATA_CONTENT
