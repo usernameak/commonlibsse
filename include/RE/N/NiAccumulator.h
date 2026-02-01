@@ -1,9 +1,9 @@
 #pragma once
 
+#include "RE/B/BSBatchRenderer.h"
 #include "RE/N/NiBound.h"
 #include "RE/N/NiCamera.h"
 #include "RE/N/NiObject.h"
-#include "RE/B/BSBatchRenderer.h"
 
 namespace RE
 {

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "RE/N/NiRTTI.h"
 #include "RE/N/NiCamera.h"
+#include "RE/N/NiRTTI.h"
 
 namespace RE
 {
