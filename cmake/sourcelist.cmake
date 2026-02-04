@@ -237,6 +237,7 @@ set(SOURCES
 	include/RE/B/BSComputeShader.h
 	include/RE/B/BSContainer.h
 	include/RE/B/BSCoreTypes.h
+	include/RE/B/BSCubeMapCamera.h
 	include/RE/B/BSCullingJob.h
 	include/RE/B/BSCullingProcess.h
 	include/RE/B/BSDirectInputManager.h
@@ -1920,6 +1921,7 @@ set(SOURCES
 	src/RE/B/BSAtomic.cpp
 	src/RE/B/BSAudioManager.cpp
 	src/RE/B/BSCompoundFrustum.cpp
+	src/RE/B/BSCubeMapCamera.cpp
 	src/RE/B/BSCullingProcess.cpp
 	src/RE/B/BSDirectInputManager.cpp
 	src/RE/B/BSEffectShaderData.cpp
@@ -2236,6 +2238,7 @@ set(SOURCES
 	src/RE/T/TESTopic.cpp
 	src/RE/T/TESTopicInfo.cpp
 	src/RE/T/TESValueForm.cpp
+	src/RE/T/TESWaterReflections.cpp
 	src/RE/T/TESWaterSystem.cpp
 	src/RE/T/TESWorldSpace.cpp
 	src/RE/T/TaskQueueInterface.cpp
