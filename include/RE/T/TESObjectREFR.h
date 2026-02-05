@@ -131,6 +131,7 @@ namespace RE
 				kItemExtraData = 1 << 10,
 				kAmmoExtra = 1 << 11,
 				kLockExtra = 1 << 12,
+				kTeleportExtra = 1 << 17,
 				kEmpty = 1 << 21,
 				kOpenDefaultState = 1 << 22,
 				kOpenState = 1 << 23,
