@@ -1,3 +1,9 @@
+## [4.2.0](https://github.com/alandtse/CommonLibVR/compare/v4.1.3...v4.2.0) (2026-02-05)
+
+### Features
+
+* sync with po3 ([61e5172](https://github.com/alandtse/CommonLibVR/commit/61e51729a2f793c86ba85b2b4b8545aeeebc769e))
+
 ## [4.1.3](https://github.com/alandtse/CommonLibVR/compare/v4.1.2...v4.1.3) (2026-01-28)
 
 ### Bug Fixes
