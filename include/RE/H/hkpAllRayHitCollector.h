@@ -1,8 +1,8 @@
 #pragma once
 
+#include "RE/H/hkArray.h"
 #include "RE/H/hkpRayHitCollector.h"
 #include "RE/H/hkpWorldRayCastOutput.h"
-#include "RE/H/hkArray.h"
 
 namespace RE
 {
@@ -16,7 +16,7 @@ namespace RE
 		{
 			stl::emplace_vtable(this);
 		}
-		
+
 		// override (hkpRayHitCollector)
 		void AddRayHit(const hkpCdBody& a_body, const hkpShapeRayCastCollectorOutput& a_hitInfo) override  // 00
 		{
@@ -25,7 +25,7 @@ namespace RE
 			return func(this, a_body, a_hitInfo);
 		}
 
-		~hkpAllRayHitCollector() override {};  // 01
+		~hkpAllRayHitCollector() override{};  // 01
 
 		// members
 		hkInplaceArray<hkpWorldRayCastOutput, 8> hits{};  // 010

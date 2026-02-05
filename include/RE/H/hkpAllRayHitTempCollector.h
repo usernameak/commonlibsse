@@ -1,8 +1,8 @@
 #pragma once
 
+#include "RE/H/hkArray.h"
 #include "RE/H/hkpRayHitCollector.h"
 #include "RE/H/hkpWorldRayCastOutput.h"
-#include "RE/H/hkArray.h"
 
 namespace RE
 {
@@ -25,7 +25,7 @@ namespace RE
 			return func(this, a_body, a_hitInfo);
 		}
 
-		~hkpAllRayHitTempCollector() override {};  // 01
+		~hkpAllRayHitTempCollector() override{};  // 01
 
 		void Reset()
 		{
