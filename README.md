@@ -2,8 +2,8 @@
 
 [![C++23](https://img.shields.io/static/v1?label=standard&message=c%2B%2B20&color=blue&logo=c%2B%2B&&logoColor=white&style=flat)](https://en.cppreference.com/w/cpp/compiler_support)
 ![Platform](https://img.shields.io/static/v1?label=platform&message=windows&color=dimgray&style=flat&logo=windows)
-[![Latest Release](https://img.shields.io/github/v/release/CharmedBaryon/CommonLibSSE-NG?logo=pkgsrc&logoColor=white)](#use)
-[![Main CI](https://img.shields.io/github/workflow/status/CharmedBaryon/CommonLibSSE-NG/Main%20CI/main?logo=github&label=tests)](https://github.com/CharmedBaryon/CommonLibSSE-NG/actions/workflows/main_ci.yml)
+[![Latest Release](https://img.shields.io/github/v/release/alandtse/CommonLibVR?logo=pkgsrc&logoColor=white)](#use)
+[![Main CI](https://github.com/alandtse/CommonLibVR/actions/workflows/main_ci.yml/badge.svg?branch=ng)](https://github.com/alandtse/CommonLibVR/actions/workflows/main_ci.yml)
 
 CommonLibSSE NG is a fork of CommonLibSSE which tracks upstream updates but adds a number of enhancements.
 
