@@ -215,9 +215,8 @@ namespace RE
 		virtual BSShaderMaterial::Type         GetMaterialType();                                                                                      // 3E - { return 0; }
 
 		void SetEffectShaderData(const BSTSmartPointer<BSEffectShaderData>& a_data);
-		void SetMaterial(BSShaderMaterial* a_material, bool a_unk1);
+		void SetMaterial(BSShaderMaterial* a_material, bool a_unique);
 		void SetFlags(EShaderPropertyFlag8 a_flag, bool a_set);
-		void LinkMaterial(BSShaderMaterial* a_material, bool a_unk1);
 
 		// members
 		float                                            alpha;                // 30
