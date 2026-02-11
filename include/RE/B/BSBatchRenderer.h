@@ -1,5 +1,6 @@
 #pragma once
 
+#include "RE/B/BSSimpleList.h"
 #include "RE/B/BSTArray.h"
 #include "RE/B/BSTHashMap.h"
 

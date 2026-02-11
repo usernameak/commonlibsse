@@ -16,11 +16,11 @@ namespace RE
 	protected:
 		using size_type = std::uint32_t;
 
-		std::uint64_t     _pad00{ 0 };                                                                        // 00
-		std::uint32_t     _pad08{ 0 };                                                                        // 08
-		size_type         _capacity{ 0 };                                                                     // 0C - total # of slots, always a power of 2
-		size_type         _free{ 0 };                                                                         // 10 - # of free slots
-		size_type         _good{ 0 };                                                                         // 14 - last free index
+		std::uint64_t _pad00{ 0 };     // 00
+		std::uint32_t _pad08{ 0 };     // 08
+		size_type     _capacity{ 0 };  // 0C - total # of slots, always a power of 2
+		size_type     _free{ 0 };      // 10 - # of free slots
+		size_type     _good{ 0 };      // 14 - last free index
 	};
 
 	struct BSTScatterTableFixedParent
@@ -28,10 +28,10 @@ namespace RE
 	protected:
 		using size_type = std::uint32_t;
 
-		std::uint32_t _pad00{ 0 };        // 00
-		std::uint32_t _searchStart{ 0 };  // 04
-		std::uint32_t _searchLimit{ 0 };  // 08
-		size_type     _capacity{ 0 };     // 0C - total # of slots, always a power of 2
+		std::uint32_t _pad00{ 0 };     // 00
+		size_type     _free{ 0 };      // 04 - # of free slots
+		size_type     _good{ 0 };      // 08 - last free index
+		size_type     _capacity{ 0 };  // 0C - total # of slots, always a power of 2
 	};
 
 	// scatter table with chaining
@@ -592,7 +592,7 @@ namespace RE
 		void set_entries(entry_type* a_entries) noexcept { _allocator.set_entries(a_entries); }
 
 		// members
-		allocator_type _allocator;  // 20
+		allocator_type    _allocator;                                                                         // 20
 		const entry_type* _sentinel{ reinterpret_cast<const entry_type*>(detail::BSTScatterTableSentinel) };  // 18/10 - signals end of chain
 	};
 
