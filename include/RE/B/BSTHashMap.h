@@ -16,14 +16,11 @@ namespace RE
 	protected:
 		using size_type = std::uint32_t;
 
-		struct entry_type;
-
 		std::uint64_t     _pad00{ 0 };                                                                        // 00
 		std::uint32_t     _pad08{ 0 };                                                                        // 08
 		size_type         _capacity{ 0 };                                                                     // 0C - total # of slots, always a power of 2
 		size_type         _free{ 0 };                                                                         // 10 - # of free slots
 		size_type         _good{ 0 };                                                                         // 14 - last free index
-		const entry_type* _sentinel{ reinterpret_cast<const entry_type*>(detail::BSTScatterTableSentinel) };  // 18 - signals end of chain
 	};
 
 	struct BSTScatterTableFixedParent
@@ -31,13 +28,10 @@ namespace RE
 	protected:
 		using size_type = std::uint32_t;
 
-		struct entry_type;
-
 		std::uint32_t _pad00{ 0 };        // 00
 		std::uint32_t _searchStart{ 0 };  // 04
 		std::uint32_t _searchLimit{ 0 };  // 08
 		size_type     _capacity{ 0 };     // 0C - total # of slots, always a power of 2
-		const entry_type* _sentinel{ reinterpret_cast<const entry_type*>(detail::BSTScatterTableSentinel) };  // 10 - signals end of chain
 	};
 
 	// scatter table with chaining
@@ -254,9 +248,9 @@ namespace RE
 		BSTScatterTable(BSTScatterTable&& a_rhs) noexcept  //
 			requires(std::same_as<typename allocator_type::propagate_on_container_move_assignment, std::true_type>)
 			:
-			_capacity(std::exchange(a_rhs._capacity, 0)),
-			_free(std::exchange(a_rhs._free, 0)),
-			_good(std::exchange(a_rhs._good, 0)),
+			Parent::_capacity(std::exchange(a_rhs._capacity, 0)),
+			Parent::_free(std::exchange(a_rhs._free, 0)),
+			Parent::_good(std::exchange(a_rhs._good, 0)),
 			_sentinel(a_rhs._sentinel),
 			_allocator(std::move(a_rhs._allocator))
 		{
@@ -280,9 +274,9 @@ namespace RE
 			if (this != std::addressof(a_rhs)) {
 				free_resources();
 
-				_capacity = std::exchange(a_rhs._capacity, 0);
-				_free = std::exchange(a_rhs._free, 0);
-				_good = std::exchange(a_rhs._good, 0);
+				Parent::_capacity = std::exchange(a_rhs._capacity, 0);
+				Parent::_free = std::exchange(a_rhs._free, 0);
+				Parent::_good = std::exchange(a_rhs._good, 0);
 				_sentinel = a_rhs._sentinel;
 				_allocator = std::move(a_rhs._allocator);
 
@@ -300,18 +294,18 @@ namespace RE
 		[[nodiscard]] const_iterator cend() const noexcept { return make_iterator<const_iterator>(); }
 
 		[[nodiscard]] bool      empty() const noexcept { return size() == 0; }
-		[[nodiscard]] size_type size() const noexcept { return _capacity - _free; }
+		[[nodiscard]] size_type size() const noexcept { return Parent::_capacity - Parent::_free; }
 
 		void clear()
 		{
 			if (size() > 0) {
 				const auto entries = get_entries();
 				assert(entries != nullptr);
-				for (size_type i = 0; i < _capacity; ++i) {
+				for (size_type i = 0; i < Parent::_capacity; ++i) {
 					entries[i].destroy();
 				}
-				_free = _capacity;
-				_good = 0;
+				Parent::_free = Parent::_capacity;
+				Parent::_good = 0;
 			}
 
 			assert(empty());
@@ -354,11 +348,11 @@ namespace RE
 
 		void reserve(size_type a_count)
 		{
-			if (a_count <= _capacity) {
+			if (a_count <= Parent::_capacity) {
 				return;
 			}
 
-			const auto oldCap = _capacity;
+			const auto oldCap = Parent::_capacity;
 			const auto oldEntries = get_entries();
 
 			const auto [newCap, newEntries] = [&]() {
@@ -379,9 +373,9 @@ namespace RE
 			}();
 
 			const auto setCap = [&](size_type a_newCap) {
-				_capacity = a_newCap;
-				_free = _capacity;
-				_good = 0;
+				Parent::_capacity = a_newCap;
+				Parent::_free = Parent::_capacity;
+				Parent::_good = 0;
 			};
 
 			if (newEntries == oldEntries) {
@@ -450,7 +444,7 @@ namespace RE
 				*entry = std::move(*entry->next);
 			}
 
-			++_free;
+			++Parent::_free;
 			return make_iterator<iterator>(entry + 1);
 		}
 
@@ -484,12 +478,12 @@ namespace RE
 				return std::make_pair(it, false);
 			}
 
-			if (_free == 0) {  // no free entries
-				reserve(_capacity + 1);
-				assert(_free > 0);
+			if (Parent::_free == 0) {  // no free entries
+				reserve(Parent::_capacity + 1);
+				assert(Parent::_free > 0);
 			}
 
-			const stl::scope_exit decrement{ [&]() noexcept { --_free; } };
+			const stl::scope_exit decrement{ [&]() noexcept { --Parent::_free; } };
 			const auto            entry = &get_entry_for(unwrap_key(a_value));
 			if (entry->has_value()) {  // slot is taken, resolve conflict
 				const auto free = &get_free_entry();
@@ -518,29 +512,29 @@ namespace RE
 
 		void free_resources()
 		{
-			if (_capacity > 0) {
+			if (Parent::_capacity > 0) {
 				assert(get_entries() != nullptr);
-				std::destroy_n(get_entries(), _capacity);
+				std::destroy_n(get_entries(), Parent::_capacity);
 				deallocate(get_entries());
 				set_entries(nullptr);
-				_capacity = 0;
-				_free = 0;
-				_good = 0;
+				Parent::_capacity = 0;
+				Parent::_free = 0;
+				Parent::_good = 0;
 			}
 
 			assert(get_entries() == nullptr);
-			assert(_capacity == 0);
-			assert(_free == 0);
+			assert(Parent::_capacity == 0);
+			assert(Parent::_free == 0);
 		}
 
 		[[nodiscard]] entry_type& get_entry_for(const key_type& a_key) const  //
 			noexcept(noexcept(hash_function(a_key)))
 		{
 			assert(get_entries() != nullptr);
-			assert(std::has_single_bit(_capacity));
+			assert(std::has_single_bit(Parent::_capacity));
 
 			const auto hash = hash_function(a_key);
-			const auto idx = hash & (_capacity - 1);  // quick modulo
+			const auto idx = hash & (Parent::_capacity - 1);  // quick modulo
 			return get_entries()[idx];
 		}
 
@@ -548,12 +542,12 @@ namespace RE
 
 		[[nodiscard]] entry_type& get_free_entry() noexcept
 		{
-			assert(_free > 0);
+			assert(Parent::_free > 0);
 			assert(get_entries() != nullptr);
-			assert(std::has_single_bit(_capacity));
+			assert(std::has_single_bit(Parent::_capacity));
 			assert([&]() noexcept {
 				const auto begin = get_entries();
-				const auto end = get_entries() + _capacity;
+				const auto end = get_entries() + Parent::_capacity;
 				return std::find_if(
 						   begin,
 						   end,
@@ -563,10 +557,10 @@ namespace RE
 			}());
 
 			const auto entries = get_entries();
-			while (entries[_good].has_value()) {
-				_good = (_good + 1) & (_capacity - 1);  // wrap around w/ quick modulo
+			while (entries[Parent::_good].has_value()) {
+				Parent::_good = (Parent::_good + 1) & (Parent::_capacity - 1);  // wrap around w/ quick modulo
 			}
-			return entries[_good];
+			return entries[Parent::_good];
 		}
 
 		[[nodiscard]] size_type hash_function(const key_type& a_key) const  //
@@ -586,19 +580,20 @@ namespace RE
 		template <class Iter>
 		[[nodiscard]] Iter make_iterator() const noexcept
 		{
-			return Iter(get_entries() + _capacity, get_entries() + _capacity);
+			return Iter(get_entries() + Parent::_capacity, get_entries() + Parent::_capacity);
 		}
 
 		template <class Iter>
 		[[nodiscard]] Iter make_iterator(entry_type* a_first) const noexcept
 		{
-			return Iter(a_first, get_entries() + _capacity);
+			return Iter(a_first, get_entries() + Parent::_capacity);
 		}
 
 		void set_entries(entry_type* a_entries) noexcept { _allocator.set_entries(a_entries); }
 
 		// members
 		allocator_type _allocator;  // 20
+		const entry_type* _sentinel{ reinterpret_cast<const entry_type*>(detail::BSTScatterTableSentinel) };  // 18/10 - signals end of chain
 	};
 
 	template <class Key, class T>
