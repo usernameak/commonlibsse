@@ -17,7 +17,7 @@ namespace RE
 		const NiRTTI*                  GetRTTI() const override;                                                                                                          // 02
 		RenderPassArray*               GetRenderPasses(BSGeometry* a_geometry, std::uint32_t a_arg2, BSShaderAccumulator* a_accumulator) override;                        // 2A
 		RenderPassArray*               GetRenderPasses_ShadowMapOrMask(BSGeometry* a_geometry, std::uint32_t a_renderMode, BSShaderAccumulator* a_accumulator) override;  // 2B
-		void                           Unk_2F(void) override;                                                                                                             // 2F
+		BSRenderPass*                  GetRenderDepthPass(BSGeometry* a_geometry) override;                                                                               // 2F
 		std::int32_t                   ForEachTexture(ForEachVisitor& a_visitor) override;                                                                                // 33
 		[[nodiscard]] NiSourceTexture* GetBaseTexture() override;                                                                                                         // 37
 

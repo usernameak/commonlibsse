@@ -37,7 +37,7 @@ namespace RE
 		RenderPassArray*       GetRenderPasses(BSGeometry* a_geometry, std::uint32_t a_arg2, BSShaderAccumulator* a_accumulator) override;                  // 2A
 		RenderPassArray*       GetRenderPasses_LocalMap(BSGeometry* a_geometry, std::uint32_t a_renderMode, BSShaderAccumulator* a_accumulator) override;   // 2C
 		RenderPassArray*       GetRenderPasses_Occlusion(BSGeometry* a_geometry, std::uint32_t a_renderMode, BSShaderAccumulator* a_accumulator) override;  // 2D
-		void                   Unk_2F(void) override;                                                                                                       // 2F
+		BSRenderPass*          GetRenderDepthPass(BSGeometry* a_geometry) override;                                                                         // 2F
 		std::int32_t           ForEachTexture(ForEachVisitor& a_visitor) override;                                                                          // 33
 		void                   DoClearRenderPasses() override;                                                                                              // 34
 		std::int32_t           QShader() override;                                                                                                          // 35 - { return 17; }

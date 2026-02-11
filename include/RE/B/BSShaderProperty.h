@@ -204,19 +204,19 @@ namespace RE
 		virtual RenderPassArray*               GetRenderPasses_ShadowMapOrMask(BSGeometry* a_geometry, std::uint32_t a_renderMode, BSShaderAccumulator* a_accumulator);  // 2B - { return 0; }
 		virtual RenderPassArray*               GetRenderPasses_LocalMap(BSGeometry* a_geometry, std::uint32_t a_renderMode, BSShaderAccumulator* a_accumulator);         // 2C - { return 0; }
 		virtual RenderPassArray*               GetRenderPasses_Occlusion(BSGeometry* a_geometry, std::uint32_t a_renderMode, BSShaderAccumulator* a_accumulator);        // 2D - { return 0; }
-		virtual void                           Unk_2E(void);                                                                                                             // 2E - { return 1; }
-		virtual void                           Unk_2F(void);                                                                                                             // 2F - { return 0; }
+		virtual std::int32_t                   GetNumberofPasses(BSGeometry* a_geometry);                                                                                // 2E - { return 1; }
+		virtual BSRenderPass*                  GetRenderDepthPass(BSGeometry* a_geometry);                                                                               // 2F - { return 0; }
 		virtual bool                           CanMerge(const BSShaderProperty* a_other);                                                                                // 30
 		virtual void                           SetMaterialAlpha(float a_alpha);                                                                                          // 31 - { return; }
 		[[nodiscard]] virtual float            QMaterialAlpha();                                                                                                         // 32 - { return 1.0; }
 		virtual std::int32_t                   ForEachTexture(ForEachVisitor& a_visitor);                                                                                // 33 - { return 1; }
 		virtual void                           DoClearRenderPasses();                                                                                                    // 34
 		virtual std::int32_t                   QShader();                                                                                                                // 35 - { return 0; }
-		virtual void                           Unk_36(void);                                                                                                             // 36 - { return 0; }
+		virtual void                           ClarifyShader(BSGeometry* a_geometry, bool, bool);                                                                        // 36 - { return 0; }
 		[[nodiscard]] virtual NiSourceTexture* GetBaseTexture();                                                                                                         // 37 - { return 0; }
-		virtual void                           Unk_38(void);                                                                                                             // 38 - { return 0; }
+		virtual void                           GetWaterFogPassList(BSGeometry* a_geometry);                                                                              // 38 - { return 0; }
 		[[nodiscard]] virtual bool             AcceptsEffectData() const;                                                                                                // 39 - { return false; }
-		virtual void                           Unk_3A(void);                                                                                                             // 3A - { return; }
+		virtual void                           PrecacheTextures(void);                                                                                                   // 3A - { return; }
 		virtual void                           Unk_3B(void);                                                                                                             // 3B - { return; }
 		virtual void                           Unk_3C(void);                                                                                                             // 3C - { return 0; }
 		virtual std::uint32_t                  DetermineUtilityShaderDecl();                                                                                             // 3D - { return 0; }
