@@ -46,17 +46,18 @@ namespace RE
 		virtual void RenderActivePassRange(std::uint32_t firstPass, std::uint32_t lastPass, std::uint32_t renderFlags);  // 03
 
 		// members
-		BSTArray<PassGroup*>           renderPass;           // 008
-		BSTHashMap<uint32_t, uint32_t> renderPassMap;        // 020  Technique ID -> Index in renderPass
-		std::uint32_t                  currentFirstPass;     // 050
-		std::uint32_t                  currentLastPass;      // 054
-		BSSimpleList<uint32_t>         activePassIndexList;  // 060
-		std::uint32_t                  groupingAlphasCount;  // 064
-		bool                           autoClearPasses;      // 068
-		GeometryGroup*                 geometryGroups[16];   // 070
-		GeometryGroup*                 alphaGroup;           // 0F0
-		void*                          unk0F8;               // 0F8
-		void*                          unk100;               // 100
+		BSTArray<PassGroup*>                renderPass;           // 008
+		BSTFixedHashMap<uint32_t, uint32_t> renderPassMap;        // 020  Technique ID -> Index in renderPass
+		std::uint64_t                       unk48;                // 048
+		std::uint32_t                       currentFirstPass;     // 050
+		std::uint32_t                       currentLastPass;      // 054
+		BSSimpleList<uint32_t>              activePassIndexList;  // 060
+		std::uint32_t                       groupingAlphasCount;  // 064
+		bool                                autoClearPasses;      // 068
+		GeometryGroup*                      geometryGroups[16];   // 070
+		GeometryGroup*                      alphaGroup;           // 0F0
+		void*                               unk0F8;               // 0F8
+		void*                               unk100;               // 100
 	};
 	static_assert(sizeof(BSBatchRenderer) == 0x108);
 }

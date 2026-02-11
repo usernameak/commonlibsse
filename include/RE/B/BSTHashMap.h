@@ -11,13 +11,43 @@ namespace RE
 		static constexpr std::uint8_t BSTScatterTableSentinel[] = { 0xDEu, 0xADu, 0xBEu, 0xEFu };
 	}
 
+	struct BSTScatterTableStandardParent
+	{
+	protected:
+		using size_type = std::uint32_t;
+
+		struct entry_type;
+
+		std::uint64_t     _pad00{ 0 };                                                                        // 00
+		std::uint32_t     _pad08{ 0 };                                                                        // 08
+		size_type         _capacity{ 0 };                                                                     // 0C - total # of slots, always a power of 2
+		size_type         _free{ 0 };                                                                         // 10 - # of free slots
+		size_type         _good{ 0 };                                                                         // 14 - last free index
+		const entry_type* _sentinel{ reinterpret_cast<const entry_type*>(detail::BSTScatterTableSentinel) };  // 18 - signals end of chain
+	};
+
+	struct BSTScatterTableFixedParent
+	{
+	protected:
+		using size_type = std::uint32_t;
+
+		struct entry_type;
+
+		std::uint32_t _pad00{ 0 };        // 00
+		std::uint32_t _searchStart{ 0 };  // 04
+		std::uint32_t _searchLimit{ 0 };  // 08
+		size_type     _capacity{ 0 };     // 0C - total # of slots, always a power of 2
+		const entry_type* _sentinel{ reinterpret_cast<const entry_type*>(detail::BSTScatterTableSentinel) };  // 10 - signals end of chain
+	};
+
 	// scatter table with chaining
 	template <
 		class Hash,
 		class KeyEqual,
 		class Traits,
-		template <std::size_t, std::size_t> class Allocator>
-	class BSTScatterTable
+		template <std::size_t, std::size_t> class Allocator,
+		class Parent>
+	class BSTScatterTable : public Parent
 	{
 	public:
 		using traits_type = Traits;
@@ -43,8 +73,8 @@ namespace RE
 			entry_type(const entry_type&) = delete;
 
 			entry_type(entry_type&& a_rhs)  //
-				noexcept(std::is_nothrow_move_constructible_v<value_type>&&
-						std::is_nothrow_destructible_v<value_type>)
+				noexcept(std::is_nothrow_move_constructible_v<value_type> &&
+						 std::is_nothrow_destructible_v<value_type>)
 			{
 				if (a_rhs.has_value()) {
 					const auto rnext = a_rhs.next;
@@ -57,8 +87,8 @@ namespace RE
 			entry_type& operator=(const entry_type&) = delete;
 
 			entry_type& operator=(entry_type&& a_rhs)  //
-				noexcept(std::is_nothrow_move_constructible_v<value_type>&&
-						std::is_nothrow_destructible_v<value_type>)
+				noexcept(std::is_nothrow_move_constructible_v<value_type> &&
+						 std::is_nothrow_destructible_v<value_type>)
 			{
 				if (this != std::addressof(a_rhs)) {
 					destroy();
@@ -94,8 +124,8 @@ namespace RE
 			}
 
 			[[nodiscard]] value_type steal() &&  //
-				noexcept(std::is_nothrow_move_constructible_v<value_type>&&
-						std::is_nothrow_destructible_v<value_type>)
+				noexcept(std::is_nothrow_move_constructible_v<value_type> &&
+						 std::is_nothrow_destructible_v<value_type>)
 			{
 				assert(has_value());
 				value_type val = std::move(value);
@@ -540,15 +570,15 @@ namespace RE
 		}
 
 		[[nodiscard]] size_type hash_function(const key_type& a_key) const  //
-			noexcept(std::is_nothrow_constructible_v<hasher>&&
-					std::is_nothrow_invocable_v<const hasher&, const key_type&>)
+			noexcept(std::is_nothrow_constructible_v<hasher> &&
+					 std::is_nothrow_invocable_v<const hasher&, const key_type&>)
 		{
 			return static_cast<size_type>(hasher()(a_key));
 		}
 
 		[[nodiscard]] bool key_eq(const key_type& a_lhs, const key_type& a_rhs) const  //
-			noexcept(std::is_nothrow_constructible_v<key_equal>&&
-					std::is_nothrow_invocable_v<const key_equal&, const key_type&, const key_type&>)
+			noexcept(std::is_nothrow_constructible_v<key_equal> &&
+					 std::is_nothrow_invocable_v<const key_equal&, const key_type&, const key_type&>)
 		{
 			return static_cast<bool>(key_equal()(a_lhs, a_rhs));
 		}
@@ -568,13 +598,7 @@ namespace RE
 		void set_entries(entry_type* a_entries) noexcept { _allocator.set_entries(a_entries); }
 
 		// members
-		std::uint64_t     _pad00{ 0 };                                                                        // 00
-		std::uint32_t     _pad08{ 0 };                                                                        // 08
-		size_type         _capacity{ 0 };                                                                     // 0C - total # of slots, always a power of 2
-		size_type         _free{ 0 };                                                                         // 10 - # of free slots
-		size_type         _good{ 0 };                                                                         // 14 - last free index
-		const entry_type* _sentinel{ reinterpret_cast<const entry_type*>(detail::BSTScatterTableSentinel) };  // 18 - signals end of chain
-		allocator_type    _allocator;                                                                         // 20
+		allocator_type _allocator;  // 20
 	};
 
 	template <class Key, class T>
@@ -736,7 +760,8 @@ namespace RE
 			Hash,
 			KeyEq,
 			BSTScatterTableTraits<Key, T>,
-			BSTScatterTableHeapAllocator>;
+			BSTScatterTableHeapAllocator,
+			BSTScatterTableStandardParent>;
 
 	namespace detail
 	{
@@ -753,7 +778,8 @@ namespace RE
 			Hash,
 			KeyEq,
 			BSTSetTraits<Key>,
-			BSTScatterTableHeapAllocator>;
+			BSTScatterTableHeapAllocator,
+			BSTScatterTableStandardParent>;
 
 	template <
 		class Key,
@@ -766,7 +792,21 @@ namespace RE
 			Hash,
 			KeyEq,
 			BSTScatterTableTraits<Key, T>,
-			BSTStaticHashMapBase<N>::template Allocator>;
+			BSTStaticHashMapBase<N>::template Allocator,
+			BSTScatterTableStandardParent>;
+
+	template <
+		class Key,
+		class T,
+		class Hash = BSCRC32<Key>,
+		class KeyEq = std::equal_to<Key>>
+	using BSTFixedHashMap =
+		BSTScatterTable<
+			Hash,
+			KeyEq,
+			BSTScatterTableTraits<Key, T>,
+			BSTScatterTableHeapAllocator,
+			BSTScatterTableFixedParent>;
 
 	template <
 		class Key,
@@ -778,7 +818,8 @@ namespace RE
 			Hash,
 			KeyEq,
 			BSTScatterTableTraits<Key, T>,
-			BSTScatterTableScrapAllocator>;
+			BSTScatterTableScrapAllocator,
+			BSTScatterTableStandardParent>;
 
 	using UnkKey = std::uintptr_t;
 	using UnkValue = std::uintptr_t;
