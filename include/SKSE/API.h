@@ -2,7 +2,7 @@
 
 #include "RE/B/BSTEvent.h"
 
-#include "REX/REX/LOG.h"
+#include "REX/LOG.h"
 
 #include "SKSE/Events.h"
 #include "SKSE/Interfaces.h"
@@ -16,9 +16,9 @@ namespace SKSE
 	{
 		bool log{ true };
 #ifndef NDEBUG
-		REX::LOG_LEVEL logLevel{ REX::LOG_LEVEL::DEBUG };
+		REX::ELogLevel logLevel{ REX::ELogLevel::Debug };
 #else
-		REX::LOG_LEVEL logLevel{ REX::LOG_LEVEL::INFO };
+		REX::ELogLevel logLevel{ REX::ELogLevel::Info };
 #endif
 		const char* logName{ nullptr };
 		const char* logPattern{ nullptr };

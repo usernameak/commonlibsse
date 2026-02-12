@@ -2,7 +2,7 @@
 
 #include "RE/I/INISettingCollection.h"
 
-#include "REX/REX/StaticString.h"
+#include "REX/TStaticString.h"
 
 namespace RE
 {

@@ -3,7 +3,7 @@
 #include "RE/S/Setting.h"
 #include "RE/S/SettingCollectionList.h"
 
-#include "REX/REX/StaticString.h"
+#include "REX/TStaticString.h"
 
 namespace RE
 {

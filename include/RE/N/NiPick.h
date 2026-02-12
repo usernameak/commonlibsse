@@ -46,10 +46,10 @@ namespace RE
 			WORLD_COORDINATES = 1,
 		};
 
-		REX::EnumSet<PickType, std::uint32_t>       pickType;            // 00
-		REX::EnumSet<SortType, std::uint32_t>       sortType;            // 04
-		REX::EnumSet<IntersectType, std::uint32_t>  intersectType;       // 08
-		REX::EnumSet<CoordinateType, std::uint32_t> coordinateType;      // 0C
+		REX::TEnumSet<PickType, std::uint32_t>       pickType;            // 00
+		REX::TEnumSet<SortType, std::uint32_t>       sortType;            // 04
+		REX::TEnumSet<IntersectType, std::uint32_t>  intersectType;       // 08
+		REX::TEnumSet<CoordinateType, std::uint32_t> coordinateType;      // 0C
 		bool                                        frontOnly;           // 10
 		bool                                        observeAppCullFlag;  // 11
 		std::uint8_t                                pad12[6];            // 12

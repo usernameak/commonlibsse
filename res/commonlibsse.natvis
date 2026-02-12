@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?> 
+<?xml version="1.0" encoding="utf-8"?>
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
-	<Type Name="REX::EnumSet&lt;*&gt;">
+	<Type Name="REX::TEnumSet&lt;*&gt;">
 		<DisplayString>{static_cast&lt;$T1&gt;(_impl),en}</DisplayString>
 	</Type>
 
@@ -25,7 +25,7 @@
 			</ArrayItems>
 		</Expand>
 	</Type>
-	
+
 	<Type Name="RE::BSTArray&lt;*&gt;">
 		<DisplayString>{{ size={_size} }}</DisplayString>
 		<Expand>
@@ -36,7 +36,7 @@
 			</ArrayItems>
 		</Expand>
 	</Type>
-	
+
 	<Type Name="RE::BSTSmallArray&lt;*&gt;">
 		<DisplayString>{{ size={_size} }}</DisplayString>
 		<Expand>
@@ -48,7 +48,7 @@
 			</ArrayItems>
 		</Expand>
 	</Type>
-	
+
 	<Type Name="RE::BSScrapArray&lt;*&gt;">
 		<DisplayString>{{ size={_size} }}</DisplayString>
 		<Expand>
@@ -59,7 +59,7 @@
 			</ArrayItems>
 		</Expand>
 	</Type>
-	
+
 	<Type Name="RE::BSStaticArray&lt;*&gt;">
 		<DisplayString>{{ size={_size} }}</DisplayString>
 		<Expand>
@@ -69,7 +69,7 @@
 			</ArrayItems>
 		</Expand>
 	</Type>
-	
+
 	<Type Name="RE::BSTSmallSharedArray&lt;*&gt;">
 		<DisplayString>{{ size={_size} }}</DisplayString>
 		<Expand>
@@ -80,7 +80,7 @@
 			</ArrayItems>
 		</Expand>
 	</Type>
-	
+
 	<Type Name="RE::SimpleArray&lt;*&gt;">
 		<DisplayString Condition="_data != nullptr">{{ size={*(((size_t*)_data) - 1)} }}</DisplayString>
 		<DisplayString Condition="_data == nullptr">{{ size=0 }}</DisplayString>
@@ -91,7 +91,7 @@
 			</ArrayItems>
 		</Expand>
 	</Type>
-	
+
 	<Type Name="RE::BSSimpleList&lt;*&gt;">
 		<DisplayString Condition="*(uintptr_t*)(&amp;_listHead.item) == 0 &amp;&amp; _listHead.next == nullptr">empty</DisplayString>
 		<DisplayString Condition="*(uintptr_t*)(&amp;_listHead.item) != 0 || _listHead.next != nullptr">non-empty</DisplayString>
@@ -103,14 +103,14 @@
 			</LinkedListItems>
 		</Expand>
 	</Type>
-	
+
 	<Type Name="RE::BSTScatterTable&lt;*&gt;">
 		<DisplayString>{{ size={_capacity - _freeCount} }}</DisplayString>
 		<Expand>
 			<CustomListItems MaxItemsPerView="1000">
 				<Variable Name="iter" InitialValue="_allocator._entries"/>
 				<Variable Name="end" InitialValue="iter + _capacity"/>
-				
+
 				<Size>_capacity - _freeCount</Size>
 				<Loop Condition="iter != end">
 					<If Condition="iter-&gt;next != nullptr">
@@ -121,7 +121,7 @@
 			</CustomListItems>
 		</Expand>
 	</Type>
-	
+
 	<Type Name="RE::BSTScatterTable&lt;*&gt;::iterator_base&lt;*&gt;">
 		<DisplayString Condition="_entry != _end">{_entry->value}</DisplayString>
 		<DisplayString Condition="_entry == _end">end</DisplayString>
