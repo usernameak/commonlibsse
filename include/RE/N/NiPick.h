@@ -50,16 +50,16 @@ namespace RE
 		REX::TEnumSet<SortType, std::uint32_t>       sortType;            // 04
 		REX::TEnumSet<IntersectType, std::uint32_t>  intersectType;       // 08
 		REX::TEnumSet<CoordinateType, std::uint32_t> coordinateType;      // 0C
-		bool                                        frontOnly;           // 10
-		bool                                        observeAppCullFlag;  // 11
-		std::uint8_t                                pad12[6];            // 12
-		NiPointer<NiAVObject>                       root;                // 18
-		NiTScrapArray<Record*>                      pickResults;         // 20
-		std::uint64_t                               unk38;               // 38
-		std::uint64_t                               unk40;               // 40
-		std::uint8_t                                unk48;               // 48
-		bool                                        returnNormal;        // 49
-		std::uint8_t                                pad4A[6];            // 4A
+		bool                                         frontOnly;           // 10
+		bool                                         observeAppCullFlag;  // 11
+		std::uint8_t                                 pad12[6];            // 12
+		NiPointer<NiAVObject>                        root;                // 18
+		NiTScrapArray<Record*>                       pickResults;         // 20
+		std::uint64_t                                unk38;               // 38
+		std::uint64_t                                unk40;               // 40
+		std::uint8_t                                 unk48;               // 48
+		bool                                         returnNormal;        // 49
+		std::uint8_t                                 pad4A[6];            // 4A
 	};
 	static_assert(sizeof(NiPick) == 0x50);  // It isn't clear whether this is the actual size
 }
