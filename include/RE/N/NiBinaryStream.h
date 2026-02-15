@@ -39,11 +39,11 @@ namespace RE
 		template <class CharT>
 		bool get(CharT& a_ch);
 		template <class CharT>
-		bool read(CharT* a_str, std::uint32_t a_count);
+		std::uint32_t read(CharT* a_str, std::uint32_t a_count);
 		template <class CharT>
 		bool put(CharT a_ch);
 		template <class CharT>
-		bool write(const CharT* a_str, std::uint32_t a_count);
+		std::uint32_t write(const CharT* a_str, std::uint32_t a_count);
 
 	protected:
 		using ReadFn = std::uint32_t(NiBinaryStream* a_this, void* a_buffer, std::uint32_t a_bytes, std::uint32_t* a_componentSizes, std::uint32_t a_numComponents);
@@ -63,16 +63,16 @@ namespace RE
 	template <class CharT>
 	inline bool NiBinaryStream::get(CharT& a_ch)
 	{
-		return read(&a_ch, 1);
+		return read(&a_ch, 1) != 0;
 	}
 
 	template <class CharT>
-	inline bool NiBinaryStream::read(CharT* a_str, std::uint32_t a_count)
+	inline std::uint32_t NiBinaryStream::read(CharT* a_str, std::uint32_t a_count)
 	{
 		std::uint32_t size = sizeof(CharT);
 		std::uint32_t toRead = a_count * size;
 		std::uint32_t bytesRead = binary_read(a_str, toRead, &size);
-		return bytesRead == toRead;
+		return bytesRead;
 	}
 
 	template <class CharT>
@@ -82,12 +82,12 @@ namespace RE
 	}
 
 	template <class CharT>
-	inline bool NiBinaryStream::write(const CharT* a_str, std::uint32_t a_count)
+	inline std::uint32_t NiBinaryStream::write(const CharT* a_str, std::uint32_t a_count)
 	{
 		std::uint32_t size = sizeof(CharT);
 		std::uint32_t toWrite = a_count * size;
 		std::uint32_t bytesWritten = binary_write(a_str, toWrite, &size);
-		return bytesWritten == toWrite;
+		return bytesWritten;
 	}
 }
 
