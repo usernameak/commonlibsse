@@ -250,3 +250,16 @@ namespace RE
 		}
 	};
 }
+
+namespace std
+{
+	template <class CharT>
+	struct hash<RE::detail::BSFixedString<CharT>>
+	{
+	public:
+		[[nodiscard]] inline std::uint32_t operator()(const RE::detail::BSFixedString<CharT>& a_key) const noexcept
+		{
+			return std::hash<const CharT*>{}(a_key.data());
+		}
+	};
+}
