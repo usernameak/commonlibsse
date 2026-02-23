@@ -1,8 +1,8 @@
 #pragma once
 
+#include "RE/G/GColor.h"
 #include "RE/G/GFxPlayerStats.h"
 #include "RE/G/GRefCountBase.h"
-#include "RE/G/GColor.h"
 
 namespace RE
 {
@@ -75,7 +75,7 @@ namespace RE
 		double                      GetVariableDouble(const char* a_pathToVar) const;
 		bool                        SetVariableArray(const char* a_pathToVar, std::uint32_t a_index, const GFxValue* a_data, std::uint32_t a_count, SetVarType a_setType = SetVarType::kSticky);
 		bool                        GetVariableArray(const char* a_pathToVar, std::uint32_t a_index, GFxValue* a_data, std::uint32_t a_count);
-		
+
 		/// <summary>
 		/// Applies a color tint to a display object at the specified path.
 		/// This is a convenience method that retrieves the display object and calls SetColorTint on it.
