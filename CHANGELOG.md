@@ -1,3 +1,9 @@
+## [4.4.0](https://github.com/alandtse/CommonLibVR/compare/v4.3.0...v4.4.0) (2026-02-24)
+
+### Features
+
+* sync with max-su-2019 ([#124](https://github.com/alandtse/CommonLibVR/issues/124)) ([31c5709](https://github.com/alandtse/CommonLibVR/commit/31c570903da426e87f3180d4d0eb6edf4db3f047))
+
 ## [4.3.0](https://github.com/alandtse/CommonLibVR/compare/v4.2.0...v4.3.0) (2026-02-22)
 
 ### Features
