@@ -316,7 +316,7 @@ namespace RE
 		SKYRIM_REL_VR_VIRTUAL void RemoveWeapon(BIPED_OBJECT equipIndex);  // 82 - { return; }
 		SKYRIM_REL_VR_VIRTUAL void Unk_83(void);                           // 83 - { return; }
 #if defined(EXCLUSIVE_SKYRIM_VR)
-		virtual void Unk_84(void);
+		SKYRIM_REL_VR_VIRTUAL void Unk_84(void);
 #endif
 		SKYRIM_REL_VR_VIRTUAL void                         SetObjectReference(TESBoundObject* a_object);                                         // 84 - sets flag 24 if the object has destructibles
 		SKYRIM_REL_VR_VIRTUAL void                         MoveHavok(bool a_forceRec);                                                           // 85
@@ -360,10 +360,12 @@ namespace RE
 		ModelReferenceEffect*                           ApplyArtObject(BGSArtObject* a_artObject, float a_duration = -1.0f, TESObjectREFR* a_facingRef = nullptr, bool a_faceTarget = false, bool a_attachToCamera = false, NiAVObject* a_attachNode = nullptr, bool a_interfaceEffect = false);
 		ShaderReferenceEffect*                          ApplyEffectShader(TESEffectShader* a_effectShader, float a_duration = -1.0f, TESObjectREFR* a_facingRef = nullptr, bool a_faceTarget = false, bool a_attachToCamera = false, NiAVObject* a_attachNode = nullptr, bool a_interfaceEffect = false);
 		[[nodiscard]] bool                              CanBeMoved();
+		void                                            ClearDestruction();
 		ObjectRefHandle                                 CreateRefHandle();
 		void                                            DoTrap(TrapData& a_data);
 		void                                            DoTrap(TrapEntry* a_trap, TargetEntry* a_target);
 		void                                            Enable(bool a_resetInventory);
+		[[nodiscard]] std::optional<RE::NiPoint3>       FindNearestVertex(const float a_minimum_offset = 0.f);
 		[[nodiscard]] NiAVObject*                       Get3D() const;
 		[[nodiscard]] NiAVObject*                       Get3D(bool a_firstPerson) const;
 		[[nodiscard]] TESNPC*                           GetActorOwner();
@@ -432,11 +434,11 @@ namespace RE
 		[[nodiscard]] bool                              HasQuestObject() const;
 		void                                            InitChildActivates(TESObjectREFR* a_actionRef);
 		bool                                            InitInventoryIfRequired(bool a_ignoreContainerExtraData = false);
+		ModelReferenceEffect*                           InstantiateHitArt(BGSArtObject* a_art, float a_dur, TESObjectREFR* a_facingRef, bool a_faceTarget, bool a_attachToCamera, NiAVObject* a_attachNode = nullptr, bool a_interfaceEffect = false);
+		ShaderReferenceEffect*                          InstantiateHitShader(TESEffectShader* a_shader, float a_dur, TESObjectREFR* a_facingRef = nullptr, bool a_faceTarget = false, bool a_attachToCamera = false, NiAVObject* a_attachNode = nullptr, bool a_interfaceEffect = false);
 		bool                                            Is3DLoaded() const;
 		bool                                            IsActivationBlocked() const;
 		bool                                            IsAnimal() const;
-		ModelReferenceEffect*                           InstantiateHitArt(BGSArtObject* a_art, float a_dur, TESObjectREFR* a_facingRef, bool a_faceTarget, bool a_attachToCamera, NiAVObject* a_attachNode = nullptr, bool a_interfaceEffect = false);
-		ShaderReferenceEffect*                          InstantiateHitShader(TESEffectShader* a_shader, float a_dur, TESObjectREFR* a_facingRef = nullptr, bool a_faceTarget = false, bool a_attachToCamera = false, NiAVObject* a_attachNode = nullptr, bool a_interfaceEffect = false);
 		[[nodiscard]] bool                              IsAnOwner(const Actor* a_testOwner, bool a_useFaction, bool a_requiresOwner) const;
 		[[nodiscard]] bool                              IsCrimeToActivate();
 		[[nodiscard]] bool                              IsDisabled() const;
@@ -455,6 +457,9 @@ namespace RE
 		[[nodiscard]] bool                              IsPointSubmergedMoreThan(const NiPoint3& a_pos, TESObjectCELL* a_cell, float a_waterLevel) const;
 		void                                            MoveRefToNewSpace(TESObjectCELL* a_interior, TESWorldSpace* a_world);
 		void                                            MoveTo(TESObjectREFR* a_target);
+		bool                                            MoveToEditorLocation(const NiPoint3& a_position, const NiPoint3& a_rotation);
+		bool                                            MoveToEditorLocation();
+		bool                                            MoveToNearestNavmesh(const float a_minimum_offset = 0.f);
 		bool                                            MoveToNode(TESObjectREFR* a_target, const BSFixedString& a_nodeName);
 		bool                                            MoveToNode(TESObjectREFR* a_target, NiAVObject* a_node);
 		bool                                            NameIncludes(std::string_view a_word) const;
@@ -506,6 +511,6 @@ namespace RE
 		void              MoveTo_Impl(const ObjectRefHandle& a_targetHandle, TESObjectCELL* a_targetCell, TESWorldSpace* a_selfWorldSpace, const NiPoint3& a_position, const NiPoint3& a_rotation);
 		void              PlayAnimation_Impl(NiControllerManager* a_manager, NiControllerSequence* a_toSeq, NiControllerSequence* a_fromSeq, bool a_arg4 = false);
 	};
-	STATIC_ASSERT_SIZE(TESObjectREFR, 0x98, 0x88, 0x98);
+	STATIC_ASSERT_SIZE(TESObjectREFR, 0x98, 0x90, 0x98);
 }
 #undef RUNTIME_DATA_CONTENT
