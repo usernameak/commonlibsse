@@ -39,9 +39,14 @@ namespace RE
 		return NiPoint3(x - a_rhs.x, y - a_rhs.y, z - a_rhs.z);
 	}
 
-	float NiPoint3::operator*(const NiPoint3& a_rhs) const
+	NiPoint3 NiPoint3::operator*(const NiPoint3& a_rhs) const
 	{
-		return x * a_rhs.x + y * a_rhs.y + z * a_rhs.z;
+		return NiPoint3(x * a_rhs.x, y * a_rhs.y, z * a_rhs.z);
+	}
+
+	NiPoint3 NiPoint3::operator/(const NiPoint3& a_rhs) const
+	{
+		return NiPoint3(x / a_rhs.x, y / a_rhs.y, z / a_rhs.z);
 	}
 
 	NiPoint3 NiPoint3::operator+(float a_scalar) const
