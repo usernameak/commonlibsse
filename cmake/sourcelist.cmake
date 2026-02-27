@@ -2118,6 +2118,7 @@ set(SOURCES
 	src/RE/N/NiObjectNET.cpp
 	src/RE/N/NiPoint2.cpp
 	src/RE/N/NiPoint3.cpp
+	src/RE/N/NiQuaternion.cpp
 	src/RE/N/NiRefObject.cpp
 	src/RE/N/NiSkinInstance.cpp
 	src/RE/N/NiStringsExtraData.cpp
