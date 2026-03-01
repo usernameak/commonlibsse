@@ -1460,6 +1460,7 @@ set(SOURCES
 	include/RE/P/PackageLocation.h
 	include/RE/P/PackedInstructionStream.h
 	include/RE/P/ParalysisEffect.h
+	include/RE/P/Pathing.h
 	include/RE/P/PathingCell.h
 	include/RE/P/PeakValueModifierEffect.h
 	include/RE/P/PerkEntryVisitor.h
