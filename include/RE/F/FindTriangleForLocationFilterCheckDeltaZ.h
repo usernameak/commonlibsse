@@ -8,7 +8,7 @@ namespace RE
 		inline static constexpr auto RTTI = RTTI_FindTriangleForLocationFilter;
 		inline static constexpr auto VTABLE = VTABLE_FindTriangleForLocationFilter;
 
-		virtual ~FindTriangleForLocationFilter();  // 00
+		virtual ~FindTriangleForLocationFilter() = default;  // 00
 
 		// add
 		virtual bool IsValidTri(NiPoint3* a_location, BSNavmesh* a_navMesh, std::uint16_t a_tri, NiPoint3* a_pointOnTri) = 0;
@@ -30,8 +30,13 @@ namespace RE
 
 		~FindTriangleForLocationFilterCheckDeltaZ() override = default;  // 00
 
-		// add
-		bool IsValidTri(NiPoint3* a_location, BSNavmesh* a_navMesh, std::uint16_t a_tri, NiPoint3* a_pointOnTri) override;
+		// override (FindTriangleForLocationFilter)
+		bool IsValidTri(NiPoint3* a_location, BSNavmesh* a_navMesh, std::uint16_t a_tri, NiPoint3* a_pointOnTri) override
+		{
+			using func_t = decltype(&FindTriangleForLocationFilterCheckDeltaZ::IsValidTri);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(88004, 90391) };
+			return func(this, a_location, a_navMesh, a_tri, a_pointOnTri);
+		}
 
 		// members
 		float maxDistAbove;  // 08
