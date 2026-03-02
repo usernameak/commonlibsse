@@ -15,7 +15,7 @@ namespace RE
 		// override (BSShadowLight)
 		bool GetIsFrustumOrDirectionalLight() override;                                                                                                      // 04
 		bool GetIsFrustumLight() override;                                                                                                                   // 05
-		void Accumulate(std::uint32_t& a_globalShadowLightCount, std::uint32_t& a_shadowMaskChannel, const NiPointer<NiAVObject>& a_cullingScene) override;  // 09
+		void Accumulate(std::uint32_t& a_globalShadowLightCount, std::uint32_t& a_shadowMaskChannel, NiAVObject* a_cullingScene) override;  // 09
 		void Render() override;                                                                                                                              // 0A
 		bool UpdateCamera(const NiCamera* a_viewCamera) override;                                                                                            // 10
 

@@ -120,7 +120,7 @@ namespace RE
 		virtual void          GetIsDirectionalLight();                                                                                                                   // 06
 		virtual bool          GetIsParabolicLight();                                                                                                                     // 07
 		virtual bool          GetIsOmniLight();                                                                                                                          // 08
-		virtual void          Accumulate(std::uint32_t& a_globalShadowLightCount, std::uint32_t& a_shadowMaskChannel, const NiPointer<NiAVObject>& a_cullingScene) = 0;  // 09
+		virtual void          Accumulate(std::uint32_t& a_globalShadowLightCount, std::uint32_t& a_shadowMaskChannel, NiAVObject* a_cullingScene) = 0;  // 09
 		virtual void          Render() = 0;                                                                                                                              // 0A
 		virtual void          SetShadowMapCount(std::uint32_t a_count);                                                                                                  // 0B
 		virtual void          ClearShadowMapData();                                                                                                                      // 0C
