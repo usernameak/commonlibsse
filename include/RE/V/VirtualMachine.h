@@ -233,8 +233,8 @@ namespace RE
 				mutable BSSpinLock                                          queuedUnbindLock;            // 94A8
 				BSTArray<QueuedUnbindRefs>                                  queuedUnbinds;               // 94B0
 				std::byte                                                   saveGameVersion;             // 94C8 - Set when loading a save
-				std::uint32_t                                               unk94CC;                     // 94CC
-				std::uint32_t                                               unk94D0;                     // 94D0
+				std::uint32_t                                               scriptCount;                 // 94CC - number of attached scripts
+				std::uint32_t                                               arrayCount;                  // 94D0 - number of arrays
 				WritableStringTable                                         writableStringTable;         // 94D8 - Created/Used only while saving
 				ReadableStringTable                                         readableStringTable;         // 94F0 - Created/Used only while loading a save
 				BSTHashMap<BSFixedString, BSTSmartPointer<ObjectTypeInfo>>* writeableTypeTable;          // 9508 - Created/Used only while saving
