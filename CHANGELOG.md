@@ -1,3 +1,13 @@
+## [4.5.0](https://github.com/alandtse/CommonLibVR/compare/v4.4.0...v4.5.0) (2026-03-03)
+
+### Features
+
+* update BSStorage, IVMSaveLoadInterface, VM ([7275c85](https://github.com/alandtse/CommonLibVR/commit/7275c852736683f2ceab9d47f7a50adf8f295293))
+
+### Bug Fixes
+
+* accumulate signature ([c02cf2a](https://github.com/alandtse/CommonLibVR/commit/c02cf2a997b324dc78cfa9c60630b6224c576554))
+
 ## [4.4.0](https://github.com/alandtse/CommonLibVR/compare/v4.3.0...v4.4.0) (2026-02-24)
 
 ### Features
