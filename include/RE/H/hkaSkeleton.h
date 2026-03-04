@@ -26,6 +26,8 @@ namespace RE
 		};
 		static_assert(sizeof(LocalFrameOnBone) == 0x10);
 
+		~hkaSkeleton() override;  // 00
+
 		// members
 		hkStringPtr               name;             // 10
 		hkArray<std::int16_t>     parentIndices;    // 18 - hkInt16
