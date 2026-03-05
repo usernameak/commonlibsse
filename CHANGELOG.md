@@ -1,3 +1,10 @@
+## [4.5.1](https://github.com/alandtse/CommonLibVR/compare/v4.5.0...v4.5.1) (2026-03-05)
+
+### Bug Fixes
+
+* **VR:** light Accumulate signature ([9ce75a5](https://github.com/alandtse/CommonLibVR/commit/9ce75a538af8990d6f2b02304cbb58540fb77a4c))
+* **VR:** NiCamera RE ([00b0142](https://github.com/alandtse/CommonLibVR/commit/00b01426962634a98f5f0044aa1dd1a9141b6fc9))
+
 ## [4.5.0](https://github.com/alandtse/CommonLibVR/compare/v4.4.0...v4.5.0) (2026-03-03)
 
 ### Features
