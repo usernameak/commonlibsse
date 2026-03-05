@@ -19,12 +19,12 @@ namespace RE
 		~hkSimpleLocalFrame() override;  // 00
 
 		// override
-		void               GetTransform(hkTransform& a_transform) const override;   // 03
-		void               SetTransform(const hkTransform& a_transform) override;   // 04
-		void               GetOrigin(hkVector4& a_origin) const override;            // 05
-		hkStringPtr        GetName() const override;                                 // 06
-		hkLocalFrameGroup* GetGroup() const override;                                // 07
-		hkLocalFrame*      GetParentFrame() const override;                          // 08
+		void               GetTransform(hkTransform& a_transform) const override;  // 03
+		void               SetTransform(const hkTransform& a_transform) override;  // 04
+		void               GetOrigin(hkVector4& a_origin) const override;          // 05
+		hkStringPtr        GetName() const override;                               // 06
+		hkLocalFrameGroup* GetGroup() const override;                              // 07
+		hkLocalFrame*      GetParentFrame() const override;                        // 08
 
 		// members
 		hkTransform                     transform;    // 10
