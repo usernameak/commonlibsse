@@ -1,3 +1,9 @@
+## [4.6.1](https://github.com/alandtse/CommonLibVR/compare/v4.6.0...v4.6.1) (2026-03-06)
+
+### Bug Fixes
+
+* BSShader, Renderer, RendererShadowState ([9cf0f72](https://github.com/alandtse/CommonLibVR/commit/9cf0f72222664d1a6d9d131196cd93e3df91081d))
+
 ## [4.6.0](https://github.com/alandtse/CommonLibVR/compare/v4.5.1...v4.6.0) (2026-03-06)
 
 ### Features
