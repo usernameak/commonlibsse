@@ -121,12 +121,12 @@ namespace RE
 		virtual bool          GetIsParabolicLight();                                                                                                                                    // 07
 		virtual bool          GetIsOmniLight();                                                                                                                                         // 08
 		virtual void          Accumulate(std::uint32_t& a_globalShadowLightCount, std::uint32_t a_shadowMaskChannel, NiAVObject* a_cullingScene, std::uint8_t a_vrUpdateFlag = 0) = 0;  // 09 - a_vrUpdateFlag used by VR only, ignored by SE/AE
-		virtual void          Render() = 0;                                                                                                                                             // 0A
+		virtual void          Render(std::uint32_t& a_index) = 0;                                                                                                                       // 0A
 		virtual void          SetShadowMapCount(std::uint32_t a_count);                                                                                                                 // 0B
-		virtual void          ClearShadowMapData();                                                                                                                                     // 0C
+		virtual void          ReturnShadowmaps();                                                                                                                                       // 0C
 		virtual std::uint32_t GetPassExtraParam(std::uint32_t a_accumFlag);                                                                                                             // 0D
 		virtual bool          GetNeedsClipPlanes();                                                                                                                                     // 0E
-		virtual void          UpdateClipPlanes(void* a_unk1, void* a_unk2);                                                                                                             // 0F
+		virtual void          TransformClipSpacePlanes(REX::W32::D3DXMatrix* a_matrix1, REX::W32::D3DXMatrix* a_matrix2);                                                               // 0F
 		virtual bool          UpdateCamera(const NiCamera* a_viewCamera) = 0;                                                                                                           // 10
 
 		RUNTIME_DATA_ACCESSOR(RUNTIME_DATA, 0x148, 0x148);

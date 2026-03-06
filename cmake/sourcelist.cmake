@@ -259,6 +259,7 @@ set(SOURCES
 	include/RE/B/BSFadeNodeCuller.h
 	include/RE/B/BSFile.h
 	include/RE/B/BSFixedString.h
+	include/RE/B/BSFlattenedBoneTree.h
 	include/RE/B/BSFurnitureMarkerNode.h
 	include/RE/B/BSGameSound.h
 	include/RE/B/BSGamepadDevice.h
@@ -1102,6 +1103,8 @@ set(SOURCES
 	include/RE/H/hkContainerAllocators.h
 	include/RE/H/hkFinishLoadedObjectFlag.h
 	include/RE/H/hkLifoAllocator.h
+	include/RE/H/hkLocalFrame.h
+	include/RE/H/hkLocalFrameGroup.h
 	include/RE/H/hkMatrix3.h
 	include/RE/H/hkMemoryAllocator.h
 	include/RE/H/hkMemoryRouter.h
@@ -1115,6 +1118,7 @@ set(SOURCES
 	include/RE/H/hkRefVariant.h
 	include/RE/H/hkReferencedObject.h
 	include/RE/H/hkRotation.h
+	include/RE/H/hkSimpleLocalFrame.h
 	include/RE/H/hkSmallArray.h
 	include/RE/H/hkSseMathTypes.h
 	include/RE/H/hkStepInfo.h
@@ -1127,8 +1131,10 @@ set(SOURCES
 	include/RE/H/hkaAnimationBinding.h
 	include/RE/H/hkaAnimationControl.h
 	include/RE/H/hkaAnnotationTrack.h
+	include/RE/H/hkaBone.h
 	include/RE/H/hkaDefaultAnimationControl.h
 	include/RE/H/hkaRagdollInstance.h
+	include/RE/H/hkaSkeleton.h
 	include/RE/H/hkaSplineCompressedAnimation.h
 	include/RE/H/hkbAnimationBindingSet.h
 	include/RE/H/hkbAssetBundleStringData.h
@@ -1558,6 +1564,7 @@ set(SOURCES
 	include/RE/P/PackageLocation.h
 	include/RE/P/PackedInstructionStream.h
 	include/RE/P/ParalysisEffect.h
+	include/RE/P/Pathing.h
 	include/RE/P/PathingCell.h
 	include/RE/P/PeakValueModifierEffect.h
 	include/RE/P/PerkEntryVisitor.h
@@ -2333,6 +2340,7 @@ set(SOURCES
 	src/RE/N/NiObjectNET.cpp
 	src/RE/N/NiPoint2.cpp
 	src/RE/N/NiPoint3.cpp
+	src/RE/N/NiQuaternion.cpp
 	src/RE/N/NiRefObject.cpp
 	src/RE/N/NiSkinInstance.cpp
 	src/RE/N/NiStringsExtraData.cpp

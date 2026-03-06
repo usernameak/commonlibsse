@@ -16,7 +16,7 @@ namespace RE
 		bool GetIsFrustumOrDirectionalLight() override;                                                                                                                     // 04
 		bool GetIsFrustumLight() override;                                                                                                                                  // 05
 		void Accumulate(std::uint32_t& a_globalShadowLightCount, std::uint32_t a_shadowMaskChannel, NiAVObject* a_cullingScene, std::uint8_t a_vrUpdateFlag = 0) override;  // 09
-		void Render() override;                                                                                                                                             // 0A
+		void Render(std::uint32_t& a_index) override;                                                                                                                       // 0A
 		bool UpdateCamera(const NiCamera* a_viewCamera) override;                                                                                                           // 10
 
 		// members
