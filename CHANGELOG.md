@@ -1,3 +1,12 @@
+## [4.6.0](https://github.com/alandtse/CommonLibVR/compare/v4.5.1...v4.6.0) (2026-03-06)
+
+### Features
+
+* add hkaSkeleton, hkaBone, and BSFlattenedBoneTree classes ([86d00ed](https://github.com/alandtse/CommonLibVR/commit/86d00ed7009176e536543aceb871b48305a150b6))
+* add hkLocalFrame classes and hkaSkeleton destructor ([1b9e5ce](https://github.com/alandtse/CommonLibVR/commit/1b9e5ceff16c9866aaf72503ccbd24e544dfda26))
+* add hkLocalFrame headers to Skyrim.h (woops) ([3e5675c](https://github.com/alandtse/CommonLibVR/commit/3e5675c5933c75116a6f4341cc0fe056d6409a06))
+* merge po3 ([a57a760](https://github.com/alandtse/CommonLibVR/commit/a57a760c4b4ad970c567261afd2c0753f67daeb9))
+
 ## [4.5.1](https://github.com/alandtse/CommonLibVR/compare/v4.5.0...v4.5.1) (2026-03-05)
 
 ### Bug Fixes
