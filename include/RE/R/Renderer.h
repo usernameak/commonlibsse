@@ -198,12 +198,13 @@ namespace RE
 			[[nodiscard]] static RendererWindow*         GetCurrentRenderWindow();
 
 			// members
-			std::uint64_t unk000;      // 0000
-			bool          drawStereo;  // 0008
+			std::uint64_t unk000;  // 0000
+			void*         unk008;  // 0008 - window resize callback (function pointer) in SE
 #if defined(EXCLUSIVE_SKYRIM_FLAT)
 			RUNTIME_DATA_CONTENT;  // 0010
 #elif defined(EXCLUSIVE_SKYRIM_VR)
-			RUNTIME_DATA_CONTENT;  // VR 18
+			std::uint64_t unk010;  // 0010 - VR-only padding/field before RendererData
+			RUNTIME_DATA_CONTENT;  // 0018
 #endif
 
 		private:
@@ -212,7 +213,7 @@ namespace RE
 			void End();
 			void Shutdown();
 		};
-		STATIC_ASSERT_SIZE(Renderer, 0x21C0, 0x21C0, 0x1FB0);
+		STATIC_ASSERT_SIZE(Renderer, 0x21C8, 0x21C8, 0x1FC0);
 	}
 }
 #undef RUNTIME_DATA_CONTENT
