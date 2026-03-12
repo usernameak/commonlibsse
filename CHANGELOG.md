@@ -1,3 +1,9 @@
+## [4.7.0](https://github.com/alandtse/CommonLibVR/compare/v4.6.1...v4.7.0) (2026-03-12)
+
+### Features
+
+* add NiSourceTexture::resourceStream ([e34303c](https://github.com/alandtse/CommonLibVR/commit/e34303c7a88e2065d4da475f208c776e8be79500))
+
 ## [4.6.1](https://github.com/alandtse/CommonLibVR/compare/v4.6.0...v4.6.1) (2026-03-06)
 
 ### Bug Fixes
