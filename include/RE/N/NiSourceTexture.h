@@ -89,7 +89,7 @@ namespace RE
 		void          Unk_2A(void) override;                                                                                                                     // 2A - { return; }
 
 		// members
-		BSResource::Stream*  unk40;            // 40
+		BSResource::Stream*  resourceStream;   // 40
 		BSGraphics::Texture* rendererTexture;  // 48
 		std::uint8_t         flags;            // 50
 		std::uint8_t         pad51;            // 51
