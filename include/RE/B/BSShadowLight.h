@@ -55,9 +55,9 @@ namespace RE
 	uint64_t                       unkVR58;           /* VR 58 */                         \
 	uint32_t                       unk50;             /* 50, VR 60 = -1 */                \
 	RENDER_TARGET_DEPTHSTENCIL     renderTarget;      /* 54, VR 64 */                     \
-	uint64_t                       unkVR68;           /* VR 68 = -1 */                    \
-	NiFrustumPlanes                clipPlanes;        /* 5C, VR 70 */                     \
-	uint32_t                       shadowmapIndex;    /* C8, VR E0 - guess*/              \
+	RENDER_TARGET_DEPTHSTENCIL     vrRenderTarget[2]; /* VR 68, VR 6C */                  \
+	uint32_t                       shadowmapIndex;    /* 58, VR 70 */                     \
+	NiFrustumPlanes                clipPlanes;        /* 5C, VR 74 */                     \
 	std::uint32_t                  unitsPerTexel;     /* CC */                            \
 	NiRect<int32_t>                port;              /* D0, VR E8 shadowMapRect */       \
 	BSCullingProcess*              cullingProcess;    /* E0, VR F8 */                     \
@@ -70,8 +70,9 @@ namespace RE
 		static_assert(offsetof(ShadowmapDescriptorVR, unkVR58) == 0x58);
 		static_assert(offsetof(ShadowmapDescriptorVR, unk50) == 0x60);
 		static_assert(offsetof(ShadowmapDescriptorVR, renderTarget) == 0x64);
-		static_assert(offsetof(ShadowmapDescriptorVR, clipPlanes) == 0x70);
-		static_assert(offsetof(ShadowmapDescriptorVR, shadowmapIndex) == 0xE0);
+		static_assert(offsetof(ShadowmapDescriptorVR, vrRenderTarget) == 0x68);
+		static_assert(offsetof(ShadowmapDescriptorVR, shadowmapIndex) == 0x70);
+		static_assert(offsetof(ShadowmapDescriptorVR, clipPlanes) == 0x74);
 		static_assert(offsetof(ShadowmapDescriptorVR, port) == 0xE8);
 		static_assert(offsetof(ShadowmapDescriptorVR, cullingProcess) == 0xF8);
 		static_assert(offsetof(ShadowmapDescriptorVR, clearRenderTarget) == 0x100);
