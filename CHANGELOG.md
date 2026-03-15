@@ -1,3 +1,9 @@
+## [4.7.1](https://github.com/alandtse/CommonLibVR/compare/v4.7.0...v4.7.1) (2026-03-15)
+
+### Bug Fixes
+
+* **VR:** update ShadowmapDescriptor ([1ba6ce7](https://github.com/alandtse/CommonLibVR/commit/1ba6ce7e5cd9695c3027e0907e42e445027a89f9))
+
 ## [4.7.0](https://github.com/alandtse/CommonLibVR/compare/v4.6.1...v4.7.0) (2026-03-12)
 
 ### Features
